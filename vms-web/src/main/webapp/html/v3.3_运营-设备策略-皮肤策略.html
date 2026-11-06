@@ -1,0 +1,439 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>皮肤策略 | 贩售机管理系统 3.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--datetimepicker 扩展插件-->
+    <link href="./plus/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+    <script src="./plus/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="./plus/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="./plus/datetimepicker/function.datetimepicker.js"></script>
+    <!--select2 扩展插件-->
+    <script src="./plus/select2/select2.min.js"></script>
+    <script src="./plus/select2/select2.zh-CN.js"></script>
+    <link rel="stylesheet" href="./plus/select2/select2.min.css">
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+
+    <!--<script src="dist/js/vms.date.js"></script>-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+            interval();
+        }
+    </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>导航概览<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">个人工作台</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>工单管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">配送工单</a>
+                    <a href="#">维护工单</a>
+                    <a href="#">投放工单</a>
+                    <a href="#">撤机工单</a>
+                    <a href="#">工单查询</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>设备管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机管理</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>策略管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">货道策略</a>
+                    <a href="#">闪购键策略</a>
+                    <a href="#">文字走马灯策略</a>
+                    <a href="#">价格策略</a>
+                    <a href="#">节能策略</a>
+                    <a href="#" class="on">皮肤策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>促销管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商品促销策略</a>
+                    <a href="#">售货机促销策略</a>
+                    <a href="#">应用促销策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>点位管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">点位信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>客户管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">客户信息</a>
+                    <a href="#">合伙人信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li class="on"><a href="#">运营管理</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="http://www.baidu.com" target="_blank" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">皮肤策略</strong></h2>
+            <div class="btn-group pull-right" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addSkin">新增</button>
+                <button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button>
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#changeSkin">修改</button>
+            </div>
+
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+            <section>
+                <strong>皮肤名称:</strong>
+                <div class="form-group w120 pull-left">
+                    <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入皮肤名称"></div>
+                </div>
+            </section>
+            <button type="button" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+            <button type="button" class="btn btn-default f12 btn-lg2 mr10">重置</button>
+        </div>
+
+        <!--Main CommonTable-->
+        <div class="main_commontable">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh3"><input type="checkbox" value=""></li>
+                    <li class="wh30">皮肤名称</li>
+                    <li class="wh50">皮肤描述</li>
+                    <li class="wh17">效果图</li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                <tbody class="auto">
+                <tr>
+                    <td class="wh3">
+                        <input type="checkbox" value="">
+                    </td>
+                    <td class="wh30">
+                        <span>默认皮肤</span>
+                    </td>
+                    <td class="wh50">
+                        <span>这是一个默认皮肤。。。</span>
+                    </td>
+                    <td class="wh17">
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#checkphoto">查看</button>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="wh3">
+                        <input type="checkbox" value="">
+                    </td>
+                    <td class="wh30">
+                        <span>五一皮肤</span>
+                    </td>
+                    <td class="wh50">
+                        <span>这是一个五一劳动节专业皮肤。。。</span>
+                    </td>
+                    <td class="wh17">
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#checkphoto">查看</button>
+                    </td>
+
+                </tr>
+                </tbody>
+
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+            <!--table footer end-->
+        </div>
+    </div>
+
+    <!----
+      **  模态框 **
+    ---->
+    <!-----新建皮肤策略 模态框 start----->
+    <div class="modal fade" id="addSkin" tabindex="-1" role="dialog" aria-labelledby="新增皮肤策略" aria-hidden="true">
+        <div class="modal-dialog w600">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">新增皮肤策略</h4>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            <div class="modal_commonbody mt10 clearfix">
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">皮肤名称:</span>
+                                    <div class="form-group pull-left">
+                                        <input type="text" class="form-control input-sm w240" placeholder="请输入策略名">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">皮肤描述:</span>
+                                    <div class="form-group pull-left">
+                                        <textarea name="editSkinText" class="form-control input-sm w240" placeholder="请输入皮肤描述"></textarea>
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">皮肤包:</span>
+                                    <div class="form-group pull-left">
+                                        <span class="btn btn-default fileinput fileinput-add-zip">
+                                            <span>点击上传文件</span>
+                                            <input type="file" class="uploadFile uploadFile-add-zip">
+                                        </span>
+                                        <span class="ml10">格式:zip</span>
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">效果图:</span>
+                                    <div class="form-group pull-left">
+                                        <span class="btn btn-default fileinput fileinput-add-png">
+                                            <span>点击上传文件</span>
+                                            <input type="file" class="uploadFile uploadFile-add-png">
+                                        </span>
+                                        <span class="ml10">格式:png</span>
+                                    </div>
+                                </section>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-lg2"  data-toggle="modal">提交</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-----新建皮肤策略 模态框 end----->
+
+    <!-----修改皮肤策略 模态框 start----->
+    <div class="modal fade" id="changeSkin" tabindex="-1" role="dialog" aria-labelledby="修改皮肤策略" aria-hidden="true">
+        <div class="modal-dialog w600">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">修改皮肤策略</h4>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            <div class="modal_commonbody mt10 clearfix">
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">皮肤名称:</span>
+                                    <div class="form-group pull-left">
+                                        <input type="text" class="form-control input-sm w240" placeholder="请输入策略名">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">皮肤描述:</span>
+                                    <div class="form-group pull-left">
+                                        <textarea name="editSkinText" class="form-control input-sm w240" placeholder="请输入皮肤描述"></textarea>
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">皮肤包:</span>
+                                    <div class="form-group pull-left">
+                                        <span class="btn btn-default fileinput fileinput-change-zip">
+                                            <span>点击上传文件</span>
+                                            <input type="file" class="uploadFile uploadFile-change-zip">
+                                        </span>
+                                        <span class="ml10">格式:zip</span>
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">效果图:</span>
+                                    <div class="form-group pull-left">
+                                        <span class="btn btn-default fileinput fileinput-change-png">
+                                            <span>点击上传文件</span>
+                                            <input type="file" class="uploadFile uploadFile-change-png">
+                                        </span>
+                                        <span class="ml10">格式:png</span>
+                                    </div>
+                                </section>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-lg2"  data-toggle="modal">提交</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-----修改皮肤策略 模态框 end----->
+
+    <!--查看皮肤 start-->
+    <div class="modal fade" id="checkphoto" tabindex="-1" role="dialog" aria-labelledby="查看节能策略" aria-hidden="true">
+        <div class="modal-dialog w900">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">效果图</h4>
+                </div>
+                    <div class="modal-body showphoto">
+                        <div class="photobox">
+                            <img src="dist/images/photo.png" alt="">
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!--查看皮肤 end-->
+
+    <!-----窗口 模态框----->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viewModalLabel">配送工单模态框标题</h4>
+                </div>
+                <div class="modal-body">
+                    在这里添加一些文本
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(function(){
+        //点击上传文件后改变按钮的文字
+        $(".uploadFile-add-zip").on("change",function(){
+            var filePath=$(this).val();
+            if(filePath.indexOf("zip")!= -1){
+                var arrs=filePath.split('\\');
+                var filename=arrs[arrs.length-1];
+                $(".fileinput-add-zip span").html(filename).css("color","#000");
+            }else{
+                $(".fileinput-add-zip span").html("您未上传文件，或者您上传文件类型有误！").css("color","#f30");
+            }
+
+        });
+        $(".uploadFile-add-png").on("change",function(){
+            var filePath=$(this).val();
+            if(filePath.indexOf("png")!= -1){
+                var arrs=filePath.split('\\');
+                var filename=arrs[arrs.length-1];
+                $(".fileinput-add-png span").html(filename).css("color","#000");
+            }else{
+                $(".fileinput-add-png span").html("您未上传文件，或者您上传文件类型有误！").css("color","#f30");
+            }
+
+        });
+        $(".uploadFile-change-zip").on("change",function(){
+            var filePath=$(this).val();
+            if(filePath.indexOf("zip")!= -1){
+                var arrs=filePath.split('\\');
+                var filename=arrs[arrs.length-1];
+                $(".fileinput-change-zip span").html(filename).css("color","#000");
+            }else{
+                $(".fileinput-change-zip span").html("您未上传文件，或者您上传文件类型有误！").css("color","#f30");
+            }
+
+        });
+        $(".uploadFile-change-png").on("change",function(){
+            var filePath=$(this).val();
+            if(filePath.indexOf("png")!= -1){
+                var arrs=filePath.split('\\');
+                var filename=arrs[arrs.length-1];
+                $(".fileinput-change-png span").html(filename).css("color","#000");
+            }else{
+                $(".fileinput-change-png span").html("您未上传文件，或者您上传文件类型有误！").css("color","#f30");
+            }
+
+        });
+
+    })
+
+</script>
+
+</body>
+</html>

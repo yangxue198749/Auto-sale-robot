@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd"
+       default-autowire="byName">
+
+    <context:annotation-config/>
+
+    <import resource="spring/spring-config-server.xml"/>
+    <import resource="spring/spring-config-redis.xml"/>
+
+    <import resource="spring/application-sso.xml"/>
+    <bean id="webApiTask" class="com.kdx.vms.webapi.WebApiTask"/>
+    <bean id="initFactory" class="com.kdx.vms.web.init.InitFactory" init-method="init"/>
+    <bean id="initStockStatus" class="com.kdx.vms.web.init.InitStockStatus" init-method="init"/>
+    <task:scheduled-tasks>
+        <task:scheduled ref="exportReportSchedule" cron="0 0 0 * * ?" method="clearEarlyReport"/>
+        <task:scheduled ref="exportReportSchedule" cron="0 0 0 * * ?" method="clearEarlyStock"/>
+    </task:scheduled-tasks>
+    <!--<task:scheduled-tasks>
+        <task:scheduled ref="webApiTask" cron="0 5 0 * * ?" method="syncSaleOrder"/>
+    </task:scheduled-tasks>-->
+    <!--<task:scheduled-tasks>
+        <task:scheduled ref="webApiTask" cron="0 0 3 * * ?" method="syncData"/>
+    </task:scheduled-tasks>-->
+
+
+</beans>

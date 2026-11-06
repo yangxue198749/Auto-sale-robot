@@ -1,0 +1,190 @@
+主键 | 名称 | 路径 | 编码 | 类型 | 父级主键 | 排序
+---|---|---|---|---|---|---
+1000000|运营管理|/toloadMenu?code=operate-manage|operate-manage|module|1|1
+1010000|工作台|#| |little-module|1000000|1
+1010100|个人工作台|/workbench/list|personal-workbench|menu|1010000|1
+1010101|今日配送工单|/workbench/deliveryCount|delivery-task-count-today|button|1010100|1
+1010102|今日维护工单|/workbench/repairCount|repair-task-count-today|button|1010100|2
+1010103|今日投放工单|/workbench/deployCount|deploy-task-count-today|button|1010100|3
+1010104|今日撤机工单|/workbench/withdrawCount|withdraw-task-count-today|button|1010100|4
+1010105|今日新增点位|/workbench/newNodeCount|add-node-count-today|button|1010100|5
+1010106|今日新增设备|/workbench/newVmCount|add-vm-count-today|button|1010100|6
+1010107|今日在促销设备|/workbench/eventVmCount|event-vm-count-today|button|1010100|7
+1010108|今日缺货设备|/workbench/oosVmCount|out-stock-vm-count-today|button|1010100|8
+1010109|今日销量|/workbench/salesVolume|order-count-today|button|1010100|9
+1010110|今日销售额|/workbench/salesAmount|sales-volume-today|button|1010100|10
+1020000|工单管理|#| |little-module|1000000|2
+1020100|配送工单|/deliveryTask/list|delivery-task|menu|1020000|1
+1020101|新增|/deliveryTask/addTaskDialog|delivery-task-add|button|1020100|1
+1020102|修改|/deliveryTask/editTaskDialog|delivery-task-edit|button|1020100|2
+1020103|取消|/deliveryTask/cancelTask|delivery-task-cancel|button|1020100|3
+1020200|维护工单|/repairTask/list|repair-task|menu|1020000|3
+1020201|新增|/repairTask/addTaskDialog|repair-task-add|button|1020200|1
+1020202|修改|/repairTask/editTaskDialog|repair-task-edit|button|1020200|2
+1020203|取消|/repairTask/cancelTask|repair-task-cancel|button|1020200|3
+1020300|投放工单|/deployTask/list|deploy-task|menu|1020000|4
+1020301|新增|/deployTask/addTaskDialog|deploy-task-add|button|1020300|1
+1020302|修改|/deployTask/editTaskDialog|deploy-task-edit|button|1020300|2
+1020303|取消|/deployTask/cancelTask|deploy-task-cancel|button|1020300|3
+1020304|发布|/deployTask/publishTaskDialog|deploy-task-publish|button|1020300|4
+1020400|撤机工单|/withdrawTask/list|withdraw-task|menu|1020000|5
+1020401|新建|/withdrawTask/addTaskDialog|withdraw-task-add|button|1020400|1
+1020402|修改|/withdrawTask/editTaskDialog|withdraw-task-edit|button|1020400|2
+1020403|取消|/withdrawTask/cancelTask|withdraw-task-cancel|button|1020400|3
+1020500|工单查询|/searchTask/list|search-task|menu|1020000|6
+1030000|设备管理|#| |little-module|1000000|3
+1030100|售货机管理|/mtVm/list|vm-manage|menu|1030000|1
+1030101|新建|/mtVm/addMtVmDialog|vm-add|button|1030100|1
+1030102|修改|/mtVm/editMtVmDialog|vm-edit|button|1030100|2
+1030103|货道设置|/mtVmChannel/list|vm-set-channel|button|1030100|3
+1030104|闪购键设置|/mtVmShortcuts/list|vm-set-shortcuts|button|1030100|4
+1030105|走马灯设置|/mtVmText/list|vm-set-text|button|1030100|5
+1030106|节能设置|/mtVmEnergySave/list|vm-set-energy|button|1030100|6
+1030107|价格设置|/mtVmPrice/list|vm-set-price|button|1030100|7
+1030108|查看货道|/mtVm/showChannelDialog|vm-show-channel|button|1030100|8
+1030109|查看列表页|/mtVm/showSkuSortDialog|vm-show-sort|button|1030100|9
+1030110|查看价格|/mtVm/showMtSkuPriceDialog|vm-show-price|button|1030100|10
+1030111|查看策略|/mtVm/showMtStrategyDialog|vm-show-strategy|button|1030100|11
+1030112|销售控制|/mtVm/changeSale|vm-sale-console|button|1030100|12
+1030113|皮肤设置|/mtVm/mtVmTheme|vm-set-theme|button|1030100|13
+1040000|设备策略管理|#| |little-module|1000000|4
+1040100|货道策略|/stVmChannel/list|st-vm-channel|menu|1040000|1
+1040101|新增|/stVmChannel/addStVmChannelDialog|st-vm-channel-add|button|1040100|1
+1040102|修改|/stVmChannel/editStVmChannelDialog|st-vm-channel-edit|button|1040100|2
+1040103|删除|/stVmChannel/deleteStrategy|st-vm-channel-delete|button|1040100|3
+1040200|闪购键策略|/stShortcuts/list|st-shortcuts|menu|1040000|2
+1040201|新增|/stShortcuts/addPage1|st-shortcuts-add|button|1040200|1
+1040202|修改|/stShortcuts/editPage1|st-shortcuts-edit|button|1040200|2
+1040203|删除|/stShortcuts/deleteShortcuts|st-shortcuts-delete|button|1040200|3
+1040300|走马灯策略|/stVmText/list|st-vm-text|menu|1040000|3
+1040301|新增|/stVmText/addStVmTextDialog|st-vm-text-add|button|1040300|1
+1040302|修改|/stVmText/editStVmTextDialog|st-vm-text-edit|button|1040300|2
+1040303|删除|/stVmText/submitDeleteStVmText|st-vm-text-delete|button|1040300|3
+1040400|节能策略|/stVmEnergySave/list|st-vm-energy|menu|1040000|4
+1040401|新增|/stVmEnergySave/addStVmEnergyDialog|st-vm-energy-add|button|1040400|1
+1040402|修改|/stVmEnergySave/editStVmEnergySaveDialog|st-vm-energy-edit|button|1040400|2
+1040403|删除|/stVmEnergySave/deleteStVmStrategy|st-vm-energy-delete|button|1040400|3
+1040403|删除|/stVmEnergySave/deleteStVmStrategy|st-vm-energy-delete|button|1040400|3
+1040500|皮肤策略|/theme/list|st-theme-list|menu|1040000|5
+1040501|新增|/theme/addTheme|st-vm-theme-add|button|1040500|1
+1040402|删除|/theme/deleteTheme|st-vm-theme-delete|button|1040500|2
+1050000|价格策略管理|#| |little-module|1000000|5
+1050100|价格策略|/stSkuPrice/list|stSkuPrice|menu|1050000|1
+1050101|新增|/stSkuPrice/add|stSkuPrice-add|button|1050100|1
+1050102|修改|/stSkuPrice/update|stSkuPrice-update|button|1050100|2
+1050103|删除|/stSkuPrice/delete|stSkuPrice-delete|button|1050100|3
+1050200|商品促销策略|/stSkuEvent/list|stSkuEvent|menu|1050000|2
+1050201|新增|/stSkuEvent/add|stSkuEvent-add|button|1050200|1
+1050202|修改|/stSkuEvent/update|stSkuEvent-update|button|1050200|2
+1050203|删除|/stSkuEvent/delete|stSkuEvent-delete|button|1050200|3
+1050300|整机促销策略|/stVmEvent/list|stVmEvent|menu|1050000|3
+1050301|新增|/stVmEvent/add|stVmEvent-add|button|1050300|1
+1050302|修改|/stVmEvent/update|stVmEvent-update|button|1050300|2
+1050303|删除|/stVmEvent/delete|stVmEvent-delete|button|1050300|3
+1050400|应用促销策略|/mtVmEvent/list|mtVmEvent|menu|1050000|4
+1050401|应用商品策略|/mtVmEvent/add/sku|mtVmEvent-add-sku|button|1050400|1
+1050402|应用整机策略|/mtVmEvent/add/vm|mtVmEvent-add-vm|button|1050400|2
+1050403|取消|/mtVmEvent/delete|mtVmEvent-delete|button|1050400|3
+1060000|点位管理|#| |little-module|1000000|6
+1060100|点位信息|/mtNode/list|mtNode|menu|1060000|1
+1060101|新增|/mtNode/add|mtNode-add|button|1060100|1
+1060102|修改|/mtNode/update|mtNode-update|button|1060100|2
+1060103|删除|/mtNode/delete|mtNode-delete|button|1060100|3
+1060104|配置配送员|/mtNode/deliveryList|mtNode-deliveryList|button|1060100|4
+1060105|配置维修员|/mtNode/repairList|mtNode-repairList|button|1060100|5
+1070000|客户管理|#| |little-module|1000000|7
+1070100|客户信息|/customer/home|customer-home|menu|1070000|1
+1070101|查询|/customer/list|customer-list|button|1070100|1
+1070102|新增|/customer/createPage|customer-createPage|button|1070100|2
+1070103|修改|/customer/updatePage|customer-updatePage|button|1070100|3
+1070104|删除|/customer/delete|customer-delete|button|1070100|4
+1070200|合伙人信息|/partner/home|partner-home|menu|1070000|2
+1070201|查询|/partner/list|partner-list|button|1070200|1
+1070202|新增|/partner/createPage|partner-createPage|button|1070200|2
+1070203|修改|/partner/updatePage|partner-updatePage|button|1070200|3
+1070204|删除|/partner/delete|partner-delete|button|1070200|4
+2000000|数据管理|/toloadMenu?code=data-manage|data-manage|module|1|2
+2010000|硬件数据|#| |little-module|2000000|1
+2010100|售货机型号|/vmModel/home|vmModel-home|menu|2010000|1
+2010101|新增|/vmModel/createPage|vmModel-createPage|button|2010100|1
+2010102|修改型号|/vmModel/updatePage|vmModel-updatePage|button|2010100|2
+2010103|修改货道|/vmModelChannel/updatePage|vmModel-update-channel|button|2010100|3
+2010104|删除|/vmModel/delete|vmModel-delete|button|2010100|4
+2010200|售货机MAC地址|/uniqueCode/list|uniqueCode|menu|2010000|1
+2010201|解除绑定|/uniqueCode/unbind|uniqueCode-unbind|button|2010200|1
+2020000|商品数据|#| |little-module|2000000|2
+2020100|商品类型|/skuType/home|skuType-home|menu|2020000|1
+2020101|新增|/skuType/create|skuType-create|button|2020100|1
+2020102|修改|/skuType/update|skuType-update|button|2020100|2
+2020103|删除|/skuType/delete|skuType-delete|button|2020100|3
+2020200|商品类型详情|/skuType/listType|skuType-list|button|2020100|4
+2020201|新增|/skuType/createType|skuType-create|button|2020200|5
+2020202|修改|/skuType/updateType|skuType-update|button|2020200|6
+2020203|删除|/skuType/deleteType|skuType-delete|button|2020200|7
+2020300|商品信息|/sku/home|sku-home|menu|2020000|2
+2020301|新增|/sku/createPage|sku-createPage|button|2020300|1
+2020302|修改|/sku/updatePage|sku-updatePage|button|2020300|2
+2020303|编辑|/sku/changePage|sku-changePage|button|2020300|3
+2030000|场景类型|#| |little-module|2000000|3
+2030100|场景信息|/businessDistrict/home|businessDistrict-home|menu|2030000|1
+2030101|新增|/businessDistrict/createPage|businessDistrict-createPage|button|2030100|1
+2030102|删除|/businessDistrict/delete|businessDistrict-delete|button|2030100|2
+2030103|修改|/businessDistrict/updatePage|businessDistrict-updatePage|button|2030100|3
+2040000|仓库数据|#| |little-module|2000000|4
+2040100|仓库信息|/warehouse/home|warehouse-uniteArea|menu|2040000|1
+2040101|关联区域|/warehouse/uniteAreaPage|warehouse-uniteAreaPage|button|2040100|1
+2050000|sim卡数据|#| |little-module|2000000|5
+2050100|sim卡信息|/sim/list|sim-list|menu|2050000|1
+2050101|新增|/sim/addPage|sim-add|button|2050100|1
+2050102|删除|/sim/deleteSim|sim-delete|button|2050100|2
+2050103|修改|/sim/editPage|sim-edit|button|2050100|3
+2060000|基础数据|#| |little-module|2000000|6
+2060100|字典信息|/sysType/home|sysType-home|menu|2060000|1
+2060101|新增|/sysType/createPage|sysType-create|button|2060100|1
+2060102|修改|/sysType/updatePage|sysType-update|button|2060100|2
+2060103|删除|/sysType/delete|sysType-delete|button|2060100|3
+2060104|查询字典详情|/dictionary/list|dictionary-list|button|2060100|4
+2060105|新增|/dictionary/createPage|dictionary-create|button|2060100|5
+2060106|修改|/dictionary/updatePage|dictionary-update|button|2060100|6
+2060107|删除|/dictionary/delete|dictionary-delete|button|2060100|7
+3000000|统计报表|/toloadMenu?code=statistical-analysis|statistical-analysis|module|1|3
+3010000|统计报表|#| |little-module|3000000|1
+3010100|销售流水|/order/list|order-list|menu|3010000|1
+3010101|退款|/order/refund|order-refund|button|3010100|1
+3010102|导出|/order/export|order-export|button|3010100|2
+3010200|售货机库存|/vmStock/list|vmStock-list|menu|3010000|2
+3010300|售货机状态|/vmStatus/list|vmStatus-list|menu|3010000|3
+3010400|售货机历史状态|/vmStatusHis/list|vmStatusHis-list|menu|3010000|4
+4000000|财务管理|/toloadMenu?code=finance-manage|finance-manage|module|1|4
+4010000|财务统计|#| |little-module|4000000|1
+4010100|B客户转账|#|giro-mangage|little-module|4000000|2
+4010101|B客户转账|/giro/list|giro-list|menu|4010100|1
+5000000|系统管理|/toloadMenu?code=system-manage|system-manage|module|1|5
+5010000|系统管理|#| |little-module|5000000|1
+5010100|用户管理|/user/list|user-list|menu|5010000|1
+5010101|新增|/user/addPage|user-add|button|5010100|1
+5010102|删除|/user/deleteUser|user-delete|button|5010100|2
+5010103|修改|/user/editPage|user-edit|button|5010100|3
+5010104|重置密码|/user/resetPw|user-resePw|button|5010100|4
+5010200|角色管理|/role/list|role-list|menu|5010000|2
+5010400|账号设置|/account/home|account-home|menu|5010000|4
+5010401|修改用户名|/account/updateUserNamePage|account-updateUserNamePage|button|5010400|1
+5010402|修改手机号|/account/updateUserPhonePage|account-updateUserPhonePage|button|5010400|2
+5010403|修改密码|/account/updateUserPasswordPage|account-updateUserPasswordPage|button|5010400|3
+5010500|公司管理|/company/home|company_home|menu|5010000|5
+5010501|新增|/company/createPage|company_createPage|button|5010500|1
+5010502|修改|/company/updatePage|company_updatePage|button|5010500|2
+5010503|新增机器|/company/addCapacityPage|company_addCapacityPage|button|5010500|3
+5010504|升级公司|/company/upgrade|company_upgrade|button|5010500|4
+5010600|系统日志|/sysLog/home|sysLog-home|menu|5010000|6
+5010700|系统配置|/settings/list|sysSetting-list|menu|5010000|7
+5010701|新增类型|/settings/type/add|sysSetting-type-add|button|5010700|1
+5010702|新增配置|/settings/setting/add|sysSetting-setting-add|button|5010700|2
+5010703|删除配置|/settings/setting/delete|sysSetting-setting-delete|button|5010700|3
+5010704|更新配置|/settings/setting/update|sysSetting-setting-update|button|5010700|4
+5010705|类型数据|/settings/type/table|sysSetting-type-table|button|5010700|5
+5010706|配置数据|/settings/setting/table|sysSetting-setting-table|button|5010700|6
+5010707|保存数据|/settings/save|sysSetting-save|button|5010700|7
+5020000|支付管理|#| |little-module|5000000|2
+5020100|支付管理|/customerAccount/home|customerAccount-home|menu|5020000|1
+5020101|修改|/customerAccount/update|customerAccount-update|button|5020100|1

@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>TOUCHFound-VMS</groupId>
+        <artifactId>vms-project</artifactId>
+        <version>5.1.0</version>
+    </parent>
+    <artifactId>vms-model</artifactId>
+    <packaging>jar</packaging>
+    <name>vms-model</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.cayenne</groupId>
+            <artifactId>cayenne-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>19.25.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>TOUCHFound-VMS</groupId>
+            <artifactId>vms-commons</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

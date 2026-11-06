@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>售货机管理 | 贩售机管理系统 3.0</title>
+<!--依赖jQuery bootstrap-->
+<link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+<!--layer 扩展插件-->
+<script type="text/javascript" src="./plus/layer/layer.js"></script>
+<!--validate 扩展插件-->
+<script type="text/javascript" src="./plus/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="./plus/validate/messages_zh.min.js"></script>
+<script type="text/javascript" src="./dist/js/function.validate.js"></script>
+<!--datepicker 扩展插件-->
+<link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+<script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+<script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+<script src="./plus/datepicker/js/function.datepicker.js"></script>
+<!--datetimepicker 扩展插件-->
+<link href="./plus/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+<script src="./plus/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="./plus/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="./plus/datetimepicker/function.datetimepicker.js"></script>
+<!--图标样式-->
+<link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+<!--全站样式-->
+<link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+<!--基础结构 tonney-->
+<script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+<!--table处理 tonney-->
+<script type="text/javascript" src="./dist/js/function.table.js"></script>
+<!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+        interval();
+    }
+    </script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="mp_container" style="min-width:1600px;">
+<!------------操作按钮组 方便查阅触发出来的模态框 start--------->
+<div style="padding:50px; text-align:center;">
+        <div class="btn-group mb25" data-toggle="buttons">
+            <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addAutoMat">新增</button><button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button><button type="button" class="btn btn-default btn-lg2">修改</button>
+        </div>
+        <br>
+        <div class="btn-group mb25" data-toggle="buttons">
+            <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheGoods">货道设置</button>
+            <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheFlashBuy">闪购键设置</button>
+            <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheLight">走马灯设置</button>
+            <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheEnergy">节能设置</button>
+            <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlThePrice">价格设置</button>
+            <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheSkin">皮肤设置</button>
+
+        </div>
+        <br>
+        <div class="btn-group" data-toggle="buttons">
+            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheGoods">货道</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheList">列表页</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewThePrice">价格</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheStrategy">策略</button>
+        </div>
+</div>
+<!------------操作按钮组 方便查阅触发出来的模态框 end----------->
+    
+
+    <!-------------------------------------皮肤设置：#CtrlTheSkin start------------------------------------------------>
+    <div class="modal fade" id="CtrlTheSkin" tabindex="-1" role="dialog" aria-labelledby="皮肤设置" aria-hidden="true">
+        <div class="modal-dialog w800">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">皮肤设置</h4>
+                </div>
+                <div class="modal-body">
+                    <!--选择策略 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="main_commonhead hl30">
+                            <form action="" name="">
+                                <section>
+                                    <strong>策略名称:</strong>
+                                    <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入策略名称"></div>
+                                </section>
+                                <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+                            </form>
+                        </div>
+                        <form action="">
+                            <!--table body start-->
+                            <div class="main_commontable max400 border_line clearfix">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <td class="wh10"></td>
+                                        <td class="wh40">皮肤名称</td>
+                                        <td class="wh50">皮肤描述</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="auto">
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="wh10"><input type="checkbox"></td>
+                                        <td class="wh40">
+                                            <span>这是个皮肤名</span>
+                                        </td>
+                                        <td class="wh50">
+                                            <span>这个是皮肤描述</span>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                                <!--table footer start-->
+                                <div class="tfootscroll">
+                                    <ul class="pagination pull-right mtb10 mr20">
+                                        <li><a href="#">&laquo;</a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li class="disabled"><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&raquo;</a></li>
+                                    </ul>
+                                </div>
+                                <!--table footer end-->
+                            </div>
+                            <!--table body end-->
+                            <!--按钮-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success btn-lg2">确定</button>
+                                <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--选择策略 end-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------皮肤设置：#CtrlThePrice end------------------------------------------------>
+    
+    
+</div>
+</body>
+</html>

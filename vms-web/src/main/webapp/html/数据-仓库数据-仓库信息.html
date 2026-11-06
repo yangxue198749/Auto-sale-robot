@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>仓库信息 | 贩售机管理系统 3.0</title>
+<!--依赖jQuery bootstrap-->
+<link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+<!--layer 扩展插件-->
+<script type="text/javascript" src="./plus/layer/layer.js"></script>
+<!--pasaClass三级联动 扩展插件-->
+<script type="text/javascript" src="./plus/pcasclass/pcasclass.js"></script>
+<script type="text/javascript" src="./dist/js/strategy.warehouse.js"></script>
+<!--图标样式-->
+<link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+<!--全站样式-->
+<link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+<!--基础结构 tonney-->
+<script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+<!--table处理 tonney-->
+<script type="text/javascript" src="./dist/js/function.table.js"></script>
+<!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+        interval();
+    }
+    </script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>硬件数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">售货机型号</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>商品数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">商品类型</a>
+                   <a href="#">商品信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>商圈数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">商圈信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>仓库数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#" class="on">仓库信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>SIM卡数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">SIM卡信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>基础数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">字典信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+               <li><a href="#">运营管理</a></li>
+               <li class="on"><a href="#">数据管理</a></li>
+               <li><a href="#">统计报表</a></li>
+               <li><a href="#">财务管理</a></li>
+               <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->        
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">仓库信息</strong></h2>
+            <div class="btn-group pull-right" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#RelatedZone">关联区域</button>
+            </div>
+            
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+        <form>
+            <section>
+                <strong>搜索字段:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                      <option value="0">请选择</option>
+                      <option value="1">仓库ID</option>
+                      <option value="2">仓库名称</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>搜索内容:</strong>
+                <div class="form-group w160 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入需要搜索的内容"></div>
+            </section>
+            <button type="button" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+        </form>
+        </div>
+        
+        <!--Main CommonTable-->
+        <div class="main_commontable tablePlaceholder">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh3"><input type="checkbox" value=""></li>
+                    <li class="wh7">仓库ID</li>
+                    <li class="wh20">仓库信息</li>
+                    <li class="wh10">关联区域</li>
+                    <li class="wh10">仓库类型</li>
+                    <li class="wh10">仓管员信息</li>
+                    <li class="wh10">经纬度</li>
+                    <li class="wh15">创建时间</li>
+                    <li class="wh15">修改时间</li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                 <tbody class="auto">
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>1136546</span></td>
+                        <td class="wh20">
+                        	<p><span class="mr5">北京酒仙桥2库</span><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="2级仓库"><i class="lv_icon">2</i></a></p>
+                        	<p>地址:<span class="ml5">北京市朝阳区酒仙桥106号9-206</span></p>
+                        
+                        </td>
+                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm2" data-toggle="modal" data-target="#viewRelatedZone">查看</button></td>
+                        <td class="wh10"><span>仓库类型是啥</span></td>
+                        <td class="wh10">
+                            <p><span>李大锤</span></p>
+                            <p><span>13933933999</span></p>
+                        </td>
+                        <td class="wh10">
+                            <p>经度:<span class="ml5">69</span></p>
+                            <p>纬度:<span class="ml5">26</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>1136546</span></td>
+                        <td class="wh20">
+                        	<p><span class="mr5">上海虹桥12库</span><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="6级仓库"><i class="lv_icon">6</i></a></p>
+                        	<p>地址:<span class="ml5">上海市虹桥106号9-206</span></p>
+                        
+                        </td>
+                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm2" data-toggle="modal" data-target="#viewRelatedZone">查看</button></td>
+                        <td class="wh10"><span>仓库类型是啥</span></td>
+                        <td class="wh10">
+                            <p><span>李大锤</span></p>
+                            <p><span>13933933999</span></p>
+                        </td>
+                        <td class="wh10">
+                            <p>经度:<span class="ml5">69</span></p>
+                            <p>纬度:<span class="ml5">26</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>1136546</span></td>
+                        <td class="wh20">
+                        	<p><span class="mr5">上海虹桥12库</span><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="4级仓库"><i class="lv_icon">4</i></a></p>
+                        	<p>地址:<span class="ml5">上海市虹桥106号9-206</span></p>
+                        
+                        </td>
+                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm2" data-toggle="modal" data-target="#viewRelatedZone">查看</button></td>
+                        <td class="wh10"><span>仓库类型是啥</span></td>
+                        <td class="wh10">
+                            <p><span>李大锤</span></p>
+                            <p><span>13933933999</span></p>
+                        </td>
+                        <td class="wh10">
+                            <p>经度:<span class="ml5">69</span></p>
+                            <p>纬度:<span class="ml5">26</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>1136546</span></td>
+                        <td class="wh20">
+                        	<p><span class="mr5">上海虹桥12库</span><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="3级仓库"><i class="lv_icon">12</i></a></p>
+                        	<p>地址:<span class="ml5">上海市虹桥106号9-206</span></p>
+                        
+                        </td>
+                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm2" data-toggle="modal" data-target="#viewRelatedZone">查看</button></td>
+                        <td class="wh10"><span>仓库类型是啥</span></td>
+                        <td class="wh10">
+                            <p><span>李大锤</span></p>
+                            <p><span>13933933999</span></p>
+                        </td>
+                        <td class="wh10">
+                            <p>经度:<span class="ml5">69</span></p>
+                            <p>纬度:<span class="ml5">26</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>1136546</span></td>
+                        <td class="wh20">
+                        	<p><span class="mr5">上海虹桥12库</span><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="1级仓库"><i class="lv_icon">1</i></a></p>
+                        	<p>地址:<span class="ml5">上海市虹桥106号9-206</span></p>
+                        
+                        </td>
+                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm2" data-toggle="modal" data-target="#viewRelatedZone">查看</button></td>
+                        <td class="wh10"><span>仓库类型是啥</span></td>
+                        <td class="wh10">
+                            <p><span>李大锤</span></p>
+                            <p><span>13933933999</span></p>
+                        </td>
+                        <td class="wh10">
+                            <p>经度:<span class="ml5">69</span></p>
+                            <p>纬度:<span class="ml5">26</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>1136546</span></td>
+                        <td class="wh20">
+                        	<p><span class="mr5">上海虹桥12库</span><a href="#" data-toggle="tooltip" data-placement="bottom" data-original-title="3级仓库"><i class="lv_icon">3</i></a></p>
+                        	<p>地址:<span class="ml5">上海市虹桥106号9-206</span></p>
+                        
+                        </td>
+                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm2" data-toggle="modal" data-target="#viewRelatedZone">查看</button></td>
+                        <td class="wh10"><span>仓库类型是啥</span></td>
+                        <td class="wh10">
+                            <p><span>李大锤</span></p>
+                            <p><span>13933933999</span></p>
+                        </td>
+                        <td class="wh10">
+                            <p>经度:<span class="ml5">69</span></p>
+                            <p>纬度:<span class="ml5">26</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh15">
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     
+                 </tbody>
+                 
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                 <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                 </ul>
+             </div>
+            <!--table footer end-->
+        </div>
+    </div>
+    
+    <!----
+      **  模态框 **
+    ---->
+    <!-----关联区域 模态框 start----->
+    <div class="modal fade" id="RelatedZone" tabindex="-1" role="dialog" aria-labelledby="关联区域" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">关联区域</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commonhead hl30">
+                        <div class="form-group clearfix">
+                           <select class="form-control input-sm w110 pull-left mr5" name="province_warehouse"></select><select class="form-control input-sm w110 pull-left mr5" name="city_warehouse"></select><select class="form-control input-sm w110 pull-left" name="area_warehouse"></select>
+                        </div>
+                    </div>
+                    <div class="main_commontable max300 border_line">
+                        <table>
+                             <thead>
+                                 <tr>
+                        			<td class="wh20"><input type="checkbox" value=""></td>
+                                    <td class="wh80">区</td>
+                                 </tr>
+                             </thead>
+                             <tbody class="auto">
+                                 <tr>
+                        			<td class="wh20"><input type="checkbox" value=""></td>
+                                    <td class="wh80">东城区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh20"><input type="checkbox" value=""></td>
+                                    <td class="wh80">朝阳区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh20"><input type="checkbox" value=""></td>
+                                    <td class="wh80">西城区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh20"><input type="checkbox" value=""></td>
+                                    <td class="wh80">海淀区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh20"><input type="checkbox" value=""></td>
+                                    <td class="wh80">昌平区</td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2 confirmbtn">提交</button>
+                    <button type="button" class="btn btn-default btn-lg2 restbtn" data-dismiss="modal">取消</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-----关联区域 模态框 end----->
+    <!-----查看关联区域 模态框 start----->
+    <div class="modal fade" id="viewRelatedZone" tabindex="-1" role="dialog" aria-labelledby="查看关联区域" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">查看关联区域</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commontable max400 border_line">
+                        <table>
+                             <thead>
+                                 <tr>
+                        			<td class="wh30">省份</td>
+                                    <td class="wh35">城市</td>
+                                    <td class="wh35">区域</td>
+                                 </tr>
+                             </thead>
+                             <tbody class="auto">
+                                 <tr>
+                        			<td class="wh30">江苏省</td>
+                                    <td class="wh35">南京市</td>
+                                    <td class="wh35">江宁区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh30">江苏省</td>
+                                    <td class="wh35">南京市</td>
+                                    <td class="wh35">江宁区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh30">江苏省</td>
+                                    <td class="wh35">南京市</td>
+                                    <td class="wh35">江宁区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh30">江苏省</td>
+                                    <td class="wh35">南京市</td>
+                                    <td class="wh35">江宁区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh30">江苏省</td>
+                                    <td class="wh35">南京市</td>
+                                    <td class="wh35">江宁区</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh30">江苏省</td>
+                                    <td class="wh35">南京市</td>
+                                    <td class="wh35">江宁区</td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2 confirmbtn">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2 restbtn" data-dismiss="modal">取消</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-----查看关联区域 模态框 end----->
+    
+    
+    
+    
+    <!-----参考窗口 模态框----->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viewModalLabel">配送工单模态框标题</h4>
+                </div>
+                <div class="modal-body">
+                    在这里添加一些文本
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</body>
+</html>

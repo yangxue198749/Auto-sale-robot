@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>页面上的标签工具类</description>
+    <tlib-version>3.0</tlib-version>
+    <short-name>vmsUtils</short-name>
+
+    <uri>http://www.vms.utils</uri>
+
+    <!-- UserUtils -->
+    <function>
+        <description>获取当前用户对象</description>
+        <name>getUser</name>
+        <function-class>com.kdx.vms.web.tags.UserUtils</function-class>
+        <function-signature>com.kdx.vms.model.bean.TSysUser getUser()</function-signature>
+        <example>${u:getUser()}</example>
+    </function>
+
+    <function>
+        <description>根据id获取用户对象</description>
+        <name>getUserById</name>
+        <function-class>com.kdx.vms.web.tags.UserUtils</function-class>
+        <function-signature>com.kdx.vms.model.bean.TSysUser get(java.lang.Integer)</function-signature>
+        <example>${u:getUserById(id)}</example>
+    </function>
+    <!-- DictUtils -->
+    <function>
+        <description>根据discountType值获取符号</description>
+        <name>getSymbol</name>
+        <function-class>com.kdx.vms.web.tags.DictUtils</function-class>
+        <function-signature>java.lang.String getSymbol(java.lang.String,java.lang.String)</function-signature>
+        <example>${u:getSymbol(value,type)}</example>
+    </function>
+
+    <function>
+        <description>根据discountType值获取描述</description>
+        <name>getDesc</name>
+        <function-class>com.kdx.vms.web.tags.DictUtils</function-class>
+        <function-signature>java.lang.String getDesc(java.lang.String,java.lang.String)</function-signature>
+        <example>${u:getSymbol(value,type)}</example>
+    </function>
+    <function>
+        <description>根据字典code和类型code值获取描述</description>
+        <name>getDescByCode</name>
+        <function-class>com.kdx.vms.web.tags.DictUtils</function-class>
+        <function-signature>java.lang.String getDescByCode(java.lang.String,java.lang.String,java.lang.String)</function-signature>
+        <example>${u:getDescByCode(dictCode,typeCode,defaultValue)}</example>
+    </function>
+    <function>
+        <description>根据字典code和类型code值获取Id</description>
+        <name>getIdByCode</name>
+        <function-class>com.kdx.vms.web.tags.DictUtils</function-class>
+        <function-signature>java.lang.String getIdByCode(java.lang.String,java.lang.String,java.lang.String)</function-signature>
+        <example>${u:getIdByCode(dictCode,typeCode,defaultValue)}</example>
+    </function>
+    <function>
+        <description>根据字典表Id获取名称</description>
+        <name>getDictNameById</name>
+        <function-class>com.kdx.vms.web.tags.DictUtils</function-class>
+        <function-signature>java.lang.String getDictNameById(java.lang.Integer)</function-signature>
+        <example>${u:getDictNameById(dictId)}</example>
+    </function>
+    <!-- AreaUtils -->
+    <function>
+        <description>根据id获取区域</description>
+        <name>getArea</name>
+        <function-class>com.kdx.vms.web.tags.AreaUtils</function-class>
+        <function-signature>com.kdx.vms.model.bean.TMtArea getArea(java.lang.Integer)</function-signature>
+        <example>${u:getArea(id)}</example>
+    </function>
+
+    <function>
+        <description>根据id获取区域名称</description>
+        <name>getAreaName</name>
+        <function-class>com.kdx.vms.web.tags.AreaUtils</function-class>
+        <function-signature>java.lang.String getAreaName(java.lang.Integer)</function-signature>
+        <example>${u:getAreaName(id)}</example>
+    </function>
+
+    <function>
+        <description>获取所有区域数据json</description>
+        <name>getAreaJson</name>
+        <function-class>com.kdx.vms.web.tags.AreaUtils</function-class>
+        <function-signature>java.lang.String getAreaJson()</function-signature>
+        <example>${u:getAreaJson()}</example>
+    </function>
+    <!--SkuUtils-->
+    <function>
+        <description>获取所有区域数据json</description>
+        <name>getSkuJson</name>
+        <function-class>com.kdx.vms.web.tags.SkuUtils</function-class>
+        <function-signature>java.lang.String getTypeJson()</function-signature>
+        <example>${u:getSkuJson()}</example>
+    </function>
+    <function>
+        <description>根据id获取对象</description>
+        <name>getSkuById</name>
+        <function-class>com.kdx.vms.web.tags.SkuUtils</function-class>
+        <function-signature>com.kdx.vms.model.bean.TMtSku getSkuById(java.lang.Integer)</function-signature>
+        <example>${u:getSkuById(id)}</example>
+    </function>
+    <!--BusinessDistrictUtils-->
+    <function>
+        <description>根据id获取场景</description>
+        <name>getBd</name>
+        <function-class>com.kdx.vms.web.tags.BusinessDistrictUtils</function-class>
+        <function-signature>com.kdx.vms.model.bean.TMtBusinessDistrict getBusinessDistrict(java.lang.Integer)</function-signature>
+        <example>${u:getBd(id)}</example>
+    </function>
+
+    <function>
+        <description>根据id获取场景名称</description>
+        <name>getBdName</name>
+        <function-class>com.kdx.vms.web.tags.BusinessDistrictUtils</function-class>
+        <function-signature>java.lang.String getBusinessDistrictName(java.lang.Integer)</function-signature>
+        <example>${u:getBdName(id)}</example>
+    </function>
+    <function>
+        <description>根据id获取售货机型号名称</description>
+        <name>getModelName</name>
+        <function-class>com.kdx.vms.web.tags.MtVmModelUtil</function-class>
+        <function-signature>java.lang.String getVmModelName(java.lang.Integer)</function-signature>
+        <example>${u:getModelName(id)}</example>
+    </function>
+    <function>
+        <description>根据id获取商品价格策略中的商品价格</description>
+        <name>getSkuPirceForMtVm</name>
+        <function-class>com.kdx.vms.web.tags.SkuPriceUtil</function-class>
+        <function-signature>java.lang.String getSkuPirceForMtVm(java.lang.Integer,java.lang.Integer)</function-signature>
+        <example>${u:getSkuPirceForMtVm(skuId,mtVmId)}</example>
+    </function>
+    <function>
+        <description>获取元素权限</description>
+        <name>isPermitted</name>
+        <function-class>com.kdx.vms.web.tags.PermittedUtil</function-class>
+        <function-signature>java.lang.Boolean isPermitted(java.lang.String)</function-signature>
+        <example>${u:isPermitted(code)}</example>
+    </function>
+    <function>
+        <description>获取售货机状态详情</description>
+        <name>getVmStatusDetailStr</name>
+        <function-class>com.kdx.vms.web.tags.VmStatusDetailUtil</function-class>
+        <function-signature>java.lang.String getVmStatusDetailStr(java.lang.Integer)</function-signature>
+        <example>${u:getVmStatusDetailStr(vmId)}</example>
+    </function>
+    <function>
+        <description>获取售货机历史状态详情</description>
+        <name>vmStatusDetailStr</name>
+        <function-class>com.kdx.vms.web.tags.VmStatusDetailUtil</function-class>
+        <function-signature>java.lang.String vmStatusDetailStr(java.lang.String)</function-signature>
+        <example>${u:vmStatusDetailStr(message)}</example>
+    </function>
+    <function>
+        <description>获取售货机上报状态对应中文描述</description>
+        <name>getVmStatusStr</name>
+        <function-class>com.kdx.vms.web.tags.VmStatusDetailUtil</function-class>
+        <function-signature>java.lang.String getVmStatusStr(java.lang.Integer)</function-signature>
+        <example>${u:getVmStatusStr(vmId)}</example>
+    </function>
+    <function>
+        <description>获取售货机上报状态对应保温箱温度</description>
+        <name>getHisTempValue</name>
+        <function-class>com.kdx.vms.web.tags.VmStatusDetailUtil</function-class>
+        <function-signature>java.lang.String getHisTempValue(java.lang.String)</function-signature>
+        <example>${u:getHisTempValue(tempValueStr)}</example>
+    </function>
+    <function>
+        <description>获取售货机编码</description>
+        <name>getInnerCodeById</name>
+        <function-class>com.kdx.vms.web.tags.MtVmUtil</function-class>
+        <function-signature>java.lang.String getInnerCodeById(java.lang.Integer)</function-signature>
+        <example>${u:getInnerCodeById(vmId)}</example>
+    </function>
+    <function>
+        <description>根据售货机标识获取点位名称</description>
+        <name>getNodeName</name>
+        <function-class>com.kdx.vms.web.tags.MtVmUtil</function-class>
+        <function-signature>java.lang.String getNodeName(java.lang.Integer)</function-signature>
+        <example>${u:getNodeName(vmId)}</example>
+    </function>
+    <function>
+        <description>根据售货机标识获取区域名称</description>
+        <name>getAreaNameByVmId</name>
+        <function-class>com.kdx.vms.web.tags.MtVmUtil</function-class>
+        <function-signature>java.lang.String getAreaNameByVmId(java.lang.Integer)</function-signature>
+        <example>${u:getAreaNameByVmId(vmId)}</example>
+    </function>
+    <function>
+        <description>根据售货机标识获取区域名称</description>
+        <name>getVmStatus</name>
+        <function-class>com.kdx.vms.web.tags.VmStatusDetailUtil</function-class>
+        <function-signature>java.lang.String getVmStatus(java.lang.Integer)</function-signature>
+        <example>${u:getVmStatus(vmStatus)}</example>
+    </function>
+    <function>
+        <description>根据售货机标识获取区域名称</description>
+        <name>getAreaNameById</name>
+        <function-class>com.kdx.vms.web.tags.AreaUtils</function-class>
+        <function-signature>java.lang.String getAreaNameById(java.lang.Integer)</function-signature>
+        <example>${u:getVmStatus(vmStatus)}</example>
+    </function>
+    <function>
+        <description>根据字典code和类型code值获取名称</description>
+        <name>getNameByCode</name>
+        <function-class>com.kdx.vms.web.tags.DictUtils</function-class>
+        <function-signature>java.lang.String getNameByCode(java.lang.String,java.lang.String,java.lang.String)</function-signature>
+        <example>${u:getNameByCode(typeCode,dictCode,defaultValue)}</example>
+    </function>
+    <function>
+        <description>根据字典code和类型code值获取名称</description>
+        <name>findOutSuccessReserveCount</name>
+        <function-class>com.kdx.vms.web.tags.ReserveStatsticsUtil</function-class>
+        <function-signature>java.lang.Integer findOutSuccessReserveCount(java.lang.Integer,java.lang.Integer,java.lang.String)</function-signature>
+        <example>${u:findOutSuccessReserveCount(vmId,skuId,validDay)}</example>
+    </function>
+    <function>
+        <description>金额转换（分 -> 元）</description>
+        <name>formatAmount</name>
+        <function-class>com.kdx.vms.commons.util.StringUtil</function-class>
+        <function-signature>java.lang.String formatAmount(java.lang.Integer)</function-signature>
+        <example>${u:formatAmount(amount)}</example>
+    </function>
+    <function>
+        <description>根据id获取售货机型号闪购键数量</description>
+        <name>getVmShortcuts</name>
+        <function-class>com.kdx.vms.web.tags.MtVmModelUtil</function-class>
+        <function-signature>java.lang.Integer getVmShortcuts(java.lang.Integer)</function-signature>
+        <example>${u:getVmShortcuts(id)}</example>
+    </function>
+    <function>
+        <description>根据id获取售货机型号温控模式</description>
+        <name>getVmTemperatureHandlerMode</name>
+        <function-class>com.kdx.vms.web.tags.MtVmModelUtil</function-class>
+        <function-signature>java.lang.Integer getVmTemperatureHandlerMode(java.lang.Integer)</function-signature>
+        <example>${u:getVmTemperatureHandlerMode(id)}</example>
+    </function>
+    <function>
+        <description>根据id获取售货机型号屏幕有无</description>
+        <name>getVmScreenHave</name>
+        <function-class>com.kdx.vms.web.tags.MtVmModelUtil</function-class>
+        <function-signature>java.lang.Integer getVmScreenHave(java.lang.Integer)</function-signature>
+        <example>${u:getVmScreenHave(id)}</example>
+    </function>
+    <function>
+        <description>根据id获取售货机型号组合模式</description>
+        <name>getVmCombinatorialPattern</name>
+        <function-class>com.kdx.vms.web.tags.MtVmModelUtil</function-class>
+        <function-signature>java.lang.Boolean getVmCombinatorialPattern(java.lang.Integer)</function-signature>
+        <example>${u:getVmCombinatorialPattern(id)}</example>
+    </function>
+
+    <function>
+        <description>根据商品id获取描述图片</description>
+        <name>getSkuImgById</name>
+        <function-class>com.kdx.vms.web.tags.SkuUtils</function-class>
+        <function-signature>java.lang.String getSkuImgById(java.lang.Integer)</function-signature>
+        <example>${u:getSkuImgById(id)}</example>
+    </function>
+</taglib>

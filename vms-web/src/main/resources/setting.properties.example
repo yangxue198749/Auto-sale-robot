@@ -1,0 +1,208 @@
+#====erp Settings====
+#ERP 正式
+erp_suffix=production
+#ERP 测试
+#erp_suffix=test
+
+
+imgUrlPrefix=<CDN_URL>
+uploadImgFileUrl=/vmsimgs/
+
+#====weChat Settings====
+#魔核 测试环境
+weChat_suffix=net
+#魔核 正式环境
+#weChat_suffix=com
+
+##====MCS Settings====
+##MCS 消息入口
+#mcsUrl=http://192.168.101.231:8011/mcs/enter
+##MCS 注册/心跳入口
+#mcsConnectUrl=http://192.168.101.231:8011/mcs/connect
+##MCS IP地址，白名单用
+#mcsIp=192.168.101.235;172.[1][6-9]{1}.*|172.[2][0-9]{1}.*|172.[3][0-2]{1}.*
+##MCS 消息回调地址
+#mcsCallBackUrl=http://192.168.101.235:18081/api/pushMessage
+
+
+#====redis Settings====
+#redis.ip=192.168.101.234
+#redis.port=6379
+#redis.pass=redis123
+#redis.maxIdle=100
+#redis.minIdle=0
+#redis.maxActive=1024
+#redis.maxWait=1000
+#redis.testOnBorrow=true
+#redis.testOnReturn=true
+#redis.timeout=5000
+#redis.maxRedirections=10
+
+#====支付功能 Settings====
+#支付功能 正式环境
+#pay_mobile_suffix=com
+#支付功能 测试环境
+pay_mobile_suffix=net
+
+#====Aliyun OSS Settings====
+aliyun.oss.accessKeyId=<YOUR_ALIYUN_ACCESS_KEY_ID>
+aliyun.oss.accessKeySecret=<YOUR_ALIYUN_ACCESS_KEY_SECRET>
+
+#====Cayenne Settings====
+cayenne.dbcp.driverClassName=oracle.jdbc.driver.OracleDriver
+cayenne.dbcp.url=jdbc:oracle:thin:@//<ORACLE_HOST>:1521/<DB_NAME>
+cayenne.dbcp.username=<ORACLE_USER>
+cayenne.dbcp.password=<ORACLE_PASSWORD>
+
+cayenne.dbcp.minIdle=5
+cayenne.dbcp.maxActive=10
+cayenne.dbcp.maxWait=3000
+
+#====访问地址====
+#====本机====
+login_url=127.0.0.1
+#====测试====
+#login_url=touchfound.net
+#====正式====
+#login_url=touchfound.com
+
+
+
+#=================================mq start====================
+#mq_host = 60.205.220.93
+mq_host = <RABBITMQ_HOST>
+mq_port=5672
+mq_user_name = <RABBITMQ_USER>
+mq_pass_word = <RABBITMQ_PASSWORD>
+pool_size=100
+adms_pool_size=5
+
+
+#交换机
+responseExchangeName=open-api
+payExchangeName=pay-service
+#出货结果   即售
+outResultImmediateQueueName=queue.outResult.immediate.vms.v1
+outResultImmediateRequestTopic=mcs.report.outResult.immediate
+outResultImmediateResponseTopic=sl.order.report
+
+#出货结果   预售
+outResultReserveQueueName=queue.outResult.reserve.vms.v1
+outResultReserveRequestTopic=mcs.report.outResult.reserve
+
+
+#出货结果   刷卡
+outResultCardQueueName=queue.outResult.card.vms.v1
+outResultCardRequestTopic=mcs.report.outResult.card
+
+#商品
+skuCfgReqQueueName=queue.skuCfgReq.v1
+skuCfgReqRequestTopic=mcs.report.skuCfgReq
+#skuCfgReqResponseTopic=response.skuCfgReq.v1
+#商品价格
+#skuPriceResponseTopic=response.skuPrice.v1
+
+#闪购键
+spCfgReqQueueName=queue.spCfgReq.v1
+spCfgReqRequestTopic=mcs.report.spCfgReq
+#spCfgReqResponseTopic=response.spCfgReq.v1
+
+#走马灯
+repeatTextReqQueueName=queue.repeatTextReq.v1
+repeatTextReqRequestTopic=mcs.report.repeatTextReq
+#repeatTextReqResponseTopic=response.repeatTextReq.v1
+
+#节能
+mtEnergyReqQueueName=queue.mtEnergyReq.v1
+mtEnergyReqRequestTopic=mcs.report.mtEnergyReq
+#mtEnergyReqResponseTopic=response.mtEnergyReq.v1
+
+#开门密码
+openDoorPwdReqQueueName=queue.openDoorPwdReq.v1
+openDoorPwdReqRequestTopic=mcs.report.openDoorPwdReq
+#openDoorPwdReqResponseTopic=response.openDoorPwdReq.v1
+
+#售货机状态
+vmStatusQueueName=queue.vmStatus.v1
+vmStatusRequestTopic=mcs.report.vmStatus
+
+#sim卡
+simCodeQueueName=queue.simCode.v1
+simCodeRequestTopic=mcs.report.simCode
+
+#门锁
+doorStatusQueueName=queue.doorStatus.v1
+doorStatusRequestTopic=mcs.report.doorStatus
+
+#货道
+channelPolicyQueueName=queue.channelPolicy.v1
+channelPolicyRequestTopic=mcs.report.channelPolicy
+#channelPolicyResponseTopic=response.channelPolicy.v1
+
+#售货机版本信息
+vmDeviceInfoQueueName=queue.vmDeviceInfo.v1
+vmDeviceInfoRequestTopic=mcs.report.vmDeviceInfo
+
+#售货机版本信息
+vmBaseInfoQueueName=queue.vmBaseInfo.v1
+vmBaseInfoRequestTopic=mcs.report.vmBaseInfo
+#vmBaseInfoResponseTopic=response.vmBaseInfo.v1
+
+#area
+areaQueueName=queue.areaRequest.v1
+areaRequestTopic=request.area.v1
+areaResponseTopic=response.area.v1
+
+#bCustomer
+
+bCustomerQueueName=queue.bCustomer.v1
+bCustomerRequestTopic=request.bCustomer.v1
+bCustomerResponseTopic=response.bCustomer.v1
+
+#REFUND
+refundTopic=order.pay.refund
+bkRefundTopic=order.bk.refund
+pmRefundTopic=order.pm.refund
+
+#DELIVERED
+deliveredTopic=task.delivery
+
+#promotionOutResult
+promotionOutResultQueueName=queue.promotionOutResult.vms.v1
+promotionOutResultRequestTopic=mcs.report.outResult.promotion
+
+#维修工单
+repairWorkQueueName=queue.repairWork.vms.v1
+repairWorkRequestTopic=request.repairWork.v1
+
+#即售退款主题
+immediateRefundTopic=topic.pay.refund.launch
+#预订退款主题
+reserveRefundTopic=topic.pay.refund.launch
+#预售退款主题
+#promotionRefundTopic=topic.pay.refund.launch
+
+#货架信息
+skuOrderPolicyQueueName=queue.skuOrderPolicy.v1
+skuOrderPolicyRequestTopic=mcs.report.skuOrderPolicy
+
+#导出报表
+exportResultQueueName=queue.result.export.v1
+exportRequestTopic=request.export.v1
+exportResponseTopic=response.export.v1
+
+#节能(一拖多)
+mtEnergyReqQueueNameNew=queue.mtEnergyReqNew.v1
+mtEnergyComboReqTopic=mcs.report.mtEnergyComboReq
+
+#快捷入口
+mtPortalCfgReqQueueName=queue.mtPortalCfgReq.v1
+mtPortalCfgReqTopic=mcs.report.portalCfgReq
+
+#商品信息5.0.0a
+skuInfoReqQueueName=queue.skuInfoReq.v1
+skuInfoReqTopic=mcs.report.skuInfoReq
+
+#预定（取货）截止时间
+reserveEndTime=22
+#=================================mq end====================

@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>B客户转账详情 | 贩售机管理系统 3.0</title>
+<!--依赖jQuery bootstrap-->
+<link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+<!--layer 扩展插件-->
+<script type="text/javascript" src="./plus/layer/layer.js"></script>
+<!--validate 扩展插件-->
+<script type="text/javascript" src="./plus/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="./plus/validate/messages_zh.min.js"></script>
+<script type="text/javascript" src="./dist/js/function.validate.js"></script>
+<!--datepicker 扩展插件-->
+<link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+<script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+<script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+<script src="./plus/datepicker/js/function.datepicker.js"></script>
+<!--图标样式-->
+<link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+<!--全站样式-->
+<link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+<!--基础结构 tonney-->
+<script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+<!--table处理 tonney-->
+<script type="text/javascript" src="./dist/js/function.table.js"></script>
+<!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+        interval();
+    }
+    </script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>财务统计<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#" class="on">B客户转账</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+               <li><a href="#">运营管理</a></li>
+               <li><a href="#">数据管理</a></li>
+               <li><a href="#">统计报表</a></li>
+               <li class="on"><a href="#">财务管理</a></li>
+               <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->        
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">B客户转账</strong></h2>
+            <button type="button" class="btn btn-success btn-lg2 pull-right mr10">导出</button>
+            
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+        <form action="" name="">
+            <section>
+                <strong>搜索字段:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                      <option value="">请选择</option>
+                      <option value="1">流水号</option>
+                      <option value="2">售货机编号</option>
+                      <option value="3">商品名称</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>搜索内容:</strong>
+                <div class="form-group w160 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入关键字"></div>
+            </section>
+            <section>
+                <strong>出货状态:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                      <option value="">请选择</option>
+                      <option value="1">正常</option>
+                      <option value="1">失败</option>
+                      <option value="1">未知</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>出货日期:</strong>
+                <div class="form-group w110 pull-left"><input class="form-control input-sm form_time" type="text" placeholder="开始日期" id="DateStart"></div>
+                <span class="pull-left ml9">至</span>
+                <div class="form-group w110 pull-left ml9"><input class="form-control input-sm form_time" type="text" placeholder="结束日期" id="DateEnd"></div>
+            </section>
+            <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+        </form>
+        </div>
+        
+        <!--Main CommonTable-->
+        <div class="main_commontable tablePlaceholder">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh3"><input type="checkbox" value=""></li>
+                    <li class="wh15">流水号</li>
+                    <li class="wh10">售货机编号</li>
+                    <li class="wh10">货道编号</li>
+                    <li class="wh10">商品名称</li>
+                    <li class="wh5">支付方式</li>
+                    <li class="wh7">支付金额(分)</li>
+                    <li class="wh10">扣款时间</li>
+                    <li class="wh5">扣款状态</li>
+                    <li class="wh10">出货时间</li>
+                    <li class="wh5">出货状态</li>
+                    <li class="wh10"><span class="cf_red">失败原因</span></li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                 <tbody class="auto">
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh15"><span>CNY-1232123682802006</span></td>
+                        <td class="wh10"><span>TF-2001250006</span></td>
+                        <td class="wh10"><span>HD-200125001</span></td>
+                        <td class="wh10"><span>麦斯威尔香浓咖啡330ml</span></td>
+                        <td class="wh5"><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="微信支付"><span class="icon_state">微</span></a></td>
+                        <td class="wh7"><b class="f14 cf_red">3.50</b></td>
+                        <td class="wh10"><span>2016/11/16 11:36:56</span></td>
+                        <td class="wh5"><span class="icon_state green">正常</span></td>
+                        <td class="wh10"><span>2016/11/16 11:36:56</span></td>
+                        <td class="wh5"><span class="icon_state green">正常</span></td>
+                        <td class="wh10"><span class="cf_red">-</span></td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh15"><span>CNY-1232123682802006</span></td>
+                        <td class="wh10"><span>TF-2001250006</span></td>
+                        <td class="wh10"><span>HD-200125001</span></td>
+                        <td class="wh10"><span>麦斯威尔香浓咖啡330ml</span></td>
+                        <!--<td class="wh5"><span class="cf_blue">支付宝</span></td>-->
+                        <td class="wh5"><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="支付宝"><span class="icon_state blue">支</span></a></td>
+                        <td class="wh7"><b class="f14 cf_red">3.50</b></td>
+                        <td class="wh10"><span>2016/11/16 11:36:56</span></td>
+                        <td class="wh5"><span class="icon_state red">失败</span></td>
+                        <td class="wh10"><span>2016/11/16 11:36:56</span></td>
+                        <td class="wh5"><span class="icon_state red">失败</span></td>
+                        <td class="wh10"><span class="cf_red">网络故障</span></td>
+                     </tr>
+                     
+                 </tbody>
+                 
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                 <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                 </ul>
+             </div>
+            <!--table footer end-->
+        </div>
+    </div>
+    
+    <!----
+      **  模态框 **
+    ---->
+    <!-----B客户转账 模态框 start----->
+    <div class="modal fade" id="transferAccount" tabindex="-1" role="dialog" aria-labelledby="转账确认" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">转账确认</h4>
+                </div>
+                <form action="" name="" id="transferAccountForm">
+                <div class="modal-body">
+                    <!--基本信息 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="col_info clearfix">
+                            <section class="col-md-12">
+                                <p>转账客户:</p>
+                                <div class="form-group"><b class="f14">南京市七彩虹映画信息有限公司</b></div>
+                            </section>
+                            <section class="col-md-6">
+                                <p>月份:</p>
+                                <div class="form-group"><b class="f14">10月</b></div>
+                            </section>
+                            <section class="col-md-6">
+                                <p>应转金额:</p>
+                                <div class="form-group"><b class="mr5 f16 cf_red">102365.25</b>元</div>
+                            </section>
+                            <section class="col-md-12">
+                                <p for="transferpwd">转账密码:</p>
+                                <div class="form-group"><input class="form-control input-sm" type="password" placeholder="请输入转账密码" name="transferpwd" required data-msg-required="请输入转账密码" minlength="8" data-msg-minlength="最少输入8个字符" data-rule-Au9="true"></div>
+                            </section>
+                        </div>
+                    </div>
+                    <!--基本信息 end-->
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+                </form>
+                
+                <script>
+                    $(function(){
+                        //客户转账确认demo
+                        $("#transferAccountForm").validate({
+                            submitHandler: function() {
+                                //form.submit();//提交表单
+                                //验证通过后 的js代码写在这里
+                            }
+                        });
+
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+    <!-----B客户转账 模态框 end----->
+    
+    
+    
+    
+    <!-----参考窗口 模态框----->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viewModalLabel">配送工单模态框标题</h4>
+                </div>
+                <div class="modal-body">
+                    在这里添加一些文本
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</body>
+</html>

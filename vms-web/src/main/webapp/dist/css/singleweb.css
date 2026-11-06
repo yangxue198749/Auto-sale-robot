@@ -1,0 +1,63 @@
+@charset "UTF-8";
+ul, ol, li { list-style: none }
+em { font-style: normal }
+body, header, footer, aside, article, section, hgroup, nav, menu, canvas, output, dialog, datalist, details, figure, figcaption, audio, video, progress, mark, time, object, embed, div, p, address, blockquote, pre, dl, dt, dd, ol, ul, li, map, table, caption, thead, tbody, tfoot, tr, th, td, form, fieldset, legend, img, input, button, textarea, iframe, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; -webkit-appearance: none }
+textarea { overflow: hidden; resize: none }
+input, select, textarea { border: 1px solid #eee; border-radius: 3px; -webkit-transition: box-shadow .1s ease-in-out; -moz-transition: box-shadow .1s ease-in-out; color: #999; outline: 0 }
+header, footer, aside, article, section, hgroup, nav, menu, canvas, details, figure, figcaption, audio, video { display: block }
+table { border-collapse: collapse; border-spacing: 0; table-layout: fixed }
+address, em, i { font-style: normal }
+button::-moz-focus-inner {
+border:0 none;
+padding:0
+}
+textarea { resize: none }
+li { list-style: none outside none }
+a { text-decoration: none }
+.clearfix:after { clear: both; content: ""; display: block; height: 0 }
+.fl { float: left }
+.fr { float: right }
+.width { width: 100% }
+html { font-size: 10px }
+body { min-width: 320px; font-family: Helvetica }
+.wrap720 { max-width: 720px; margin: 0 auto }
+input::-webkit-input-placeholder {
+color:#999
+}
+input:focus::-webkit-input-placeholder {
+color:#EEE
+}
+a, button, input, textarea { -webkit-tap-highlight-color: rgba(0,0,0,0) }
+input, textarea { border: 0; -webkit-appearance: none }
+body { background: #fff }
+/*支付成功*/
+.successwrap { display: block; min-width: 320px; max-width: 760px; margin: 0 auto; overflow: hidden }
+.successwrap article { margin: 100px auto 40px; text-align: center; font-size: 16px; color: #333 }
+.successwrap .fa_bingo { display: inline-block; width: 100px; height: 100px; background: #8ec349; vertical-align: middle; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; position: relative; margin-bottom: 20px }
+.successwrap .fa_bingo:before { content: ''; display: inline-block; width: 35px; height: 10px; background: #fff; line-height: 0; font-size: 0; vertical-align: middle; -webkit-transform: rotate(50deg); position: absolute; top: 52px; left: 20px; border-radius: 10px }
+.successwrap .fa_bingo:after { content: ''; display: block; width: 80px; height: 10px; background: #fff; -webkit-transform: rotate(-40deg) translateY(-50%) translateX(50%); position: absolute; right: 14px; top: 68px; border-radius: 10px }
+.successwrap article h2 { font-size: 24px; line-height: 40px }
+.successwrap article p { font-size: 14px; line-height: 20px }
+.successwrap small { display: block; height: 20px; line-height: 20px; position: fixed; left: 0; bottom: 10px; width: 100%; text-align: center; font-size: 12px; color: #333 }
+.successwrap small span { color: #3297e5 }
+.successwrap article .paybtn { display: block; margin: 20px auto; width: 80%; height: 40px; line-height: 40px; font-size: 16px; color: #fff; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; background: #ff5a00; text-align: center; overflow: hidden }
+/*支付异常*/
+.tipswrap { display: block; min-width: 20pc; max-width: 760px; margin: 0 auto; overflow: hidden }
+.tipswrap article { margin: 75pt auto 40px; text-align: center; font-size: 1pc; color: #333 }
+.tipswrap article p { font-size: 14px; line-height: 20px }
+.tipswrap .fa_bingo { display: inline-block; width: 75pt; height: 75pt; background: #bfbfbf; vertical-align: middle; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; position: relative; margin-bottom: 20px }
+.tipswrap .fa_bingo:before { display: inline-block; line-height: 0; font-size: 0; vertical-align: middle; -webkit-transform: rotate(45deg); left: 20px }
+.tipswrap .fa_bingo:after, .tipswrap .fa_bingo:before { content: ''; width: 60px; height: 10px; background: #fff; position: absolute; top: 45px; border-radius: 10px }
+.tipswrap .fa_bingo:after { display: block; -webkit-transform: rotate(-45deg); right: 20px }
+.tipswrap .paybtn { display: block; margin: 20px auto; position: fixed; left: 10%; bottom: 15px; width: 80%; height: 40px; line-height: 40px; font-size: 1pc; color: #fff; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; background: #ff5a00; text-align: center; overflow: hidden }
+.tipswrap .icon_error { font-size: 180px; line-height: 180px; color: #bfbfbf }
+/*order*/
+.orderwrap { display: block; min-width: 320px; max-width: 760px; margin: 0 auto; overflow: hidden }
+.orderwrap header { height: 40px; line-height: 40px; background: #ff5a00; color: #fff; font-size: 16px; padding: 0 10px; width: 100%; position: fixed; top: 0; left: 0; z-index: 101 }
+.orderwrap header a { color: #fff }
+.orderwrap .content_wrap { padding: 10px; padding-top: 50px; overflow: hidden }
+.orderwrap .content_wrap section { line-height: 20px; font-size: 14px; color: #454545; padding: 10px 0; overflow: hidden }
+.orderwrap .content_wrap section span { margin-left: 5px }
+.orderwrap .content_wrap section.hd { border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; margin: 5px 0 }
+.orderwrap .content_wrap section.hd strong { display: block; line-height: 60px; font-size: 24px; text-align: center; color: #454545 }
+.orderwrap .content_wrap .paybtn { width: 80%; height: 40px; line-height: 40px; font-size: 16px; color: #fff; background: #ff5a00; border-radius: 5px; text-align: center; overflow: hidden; position: fixed; bottom: 20px; left: 10%; z-index: 100; }

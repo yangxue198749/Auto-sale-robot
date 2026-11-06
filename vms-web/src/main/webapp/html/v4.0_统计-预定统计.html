@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>预定统计 | 贩售机管理系统 4.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--datepicker 扩展插件-->
+    <link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+	<script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+    <script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="./plus/datepicker/js/function.datepicker.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>统计报表<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">销售流水</a>
+                    <a href="#">售货机库存</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>预定业务<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#" class="on">预定统计</a>
+                    <a href="#">预定订单</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>售货机状态<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机状态</a>
+                    <a href="#">售货机历史状态</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li><a href="#">运营管理</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li class="on"><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">预定统计</strong></h2>
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+            <form>
+                <section>
+                    <strong>售货机编号:</strong>
+                    <div class="form-group w120 pull-left">
+                      <input class="form-control input-sm" name="" type="text" placeholder="请输入内容">
+                    </div>
+                </section>
+                <section>
+                    <strong>商品名称:</strong>
+                    <div class="form-group w120 pull-left">
+                      <input class="form-control input-sm" name="" type="text" placeholder="不包含商品规格">
+                    </div>
+                </section>
+                <!--<section>
+                    <strong>任务状态:</strong>
+                    <div class="form-group w120 pull-left">
+                        <select class="form-control input-sm" name="searchTaskVmStatus">
+                          <option value="">请选择</option>
+                          <option value="1">未开始</option>
+                          <option value="2">进行中</option>
+                          <option value="4">已完成</option>
+                          <option value="7">已忽略</option>
+                        </select>
+                    </div>
+                </section>-->
+                <section>
+                    <strong>订单日期:</strong>
+                    <div class="form-group w120 pull-left">
+                        <input class="form-control input-sm" id="DateDefault" type="text" name="" placeholder="选择订单日期">
+                    </div>
+                </section>
+                <button type="button" class="btn btn-default f12 btn-lg2">查询</button>
+                <button type="reset" class="btn btn-default f12 btn-lg2">重置</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+
+        <!--Main CommonTable-->
+        <div class="main_commontable">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh20">日期</li>
+                    <li class="wh15">售货机编号</li>
+                    <li class="wh20">商品</li>
+                    <li class="wh15">待配送订单</li>
+                    <li class="wh15">已配送订单</li>
+                    <li class="wh15">已取货订单</li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                <tbody class="auto">
+                    <tr>
+                        <td class="wh20">
+                            <span>2017-07-20</span>
+                        </td>
+                        <td class="wh15">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh20">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh15">
+                            <span class="icon_state blue">500</span>
+                        </td>
+                        <td class="wh15">
+                            <span class="icon_state green">500</span>
+                        </td>
+                        <td class="wh15">
+                            <span class="icon_state gray">500</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh20">
+                            <span>2017-07-20</span>
+                        </td>
+                        <td class="wh15">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh20">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh15">
+                            <span class="icon_state blue">300</span>
+                        </td>
+                        <td class="wh15">
+                            <span class="icon_state green">300</span>
+                        </td>
+                        <td class="wh15">
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh20">
+                            <span>2017-07-20</span>
+                        </td>
+                        <td class="wh15">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh20">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh15">
+                            <span class="icon_state blue">500</span>
+                        </td>
+                        <td class="wh15">
+                        
+                        </td>
+                        <td class="wh15">
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh20">
+                            <span>2017-07-20</span>
+                        </td>
+                        <td class="wh15">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh20">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh15">
+                            <span class="icon_state blue">500</span>
+                        </td>
+                        <td class="wh15">
+                        
+                        </td>
+                        <td class="wh15">
+                        
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+            <!--table footer end-->
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

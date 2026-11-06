@@ -1,0 +1,1046 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>预定订单 | 贩售机管理系统 4.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--datepicker 扩展插件-->
+    <link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+	<script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+    <script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="./plus/datepicker/js/function.datepicker.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>统计报表<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">销售流水</a>
+                    <a href="#">售货机库存</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>预定业务<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">预定统计</a>
+                    <a href="#" class="on">预定订单</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>售货机状态<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机状态</a>
+                    <a href="#">售货机历史状态</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li><a href="#">运营管理</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li class="on"><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">预定订单</strong></h2>
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+            <form>
+            	<section>
+                    <strong>搜索类型:</strong>
+                    <div class="form-group w100 pull-left">
+                        <select class="form-control input-sm" name="">
+                          <option value="1">售货机编号</option>
+                          <option value="2">订单号</option>
+                          <option value="3">点位名称</option>
+                          <option value="4">手机号码</option>
+                        </select>
+                    </div>
+                </section>
+                <section>
+                    <strong>搜索内容:</strong>
+                    <div class="form-group w100 pull-left">
+                      <input class="form-control input-sm" name="" type="text" placeholder="请输入内容">
+                    </div>
+                </section>
+                <section>
+                    <strong>商品名称:</strong>
+                    <div class="form-group w100 pull-left">
+                      <input class="form-control input-sm" name="" type="text" placeholder="不包含商品规格">
+                    </div>
+                </section>
+                <section>
+                    <strong>出货状态:</strong>
+                    <div class="form-group w100 pull-left">
+                        <select class="form-control input-sm" name="">
+                          <option value="">请选择</option>
+                          <option value="1">未取货</option>
+                          <option value="2">出货正常</option>
+                          <option value="3">出货失败</option>
+                          <option value="4">未知</option>
+                        </select>
+                    </div>
+                </section>
+                <section>
+                    <strong>订单状态:</strong>
+                    <div class="form-group w100 pull-left">
+                        <select class="form-control input-sm" name="">
+                          <option value="">请选择</option>
+                          <option value="1">待配送</option>
+                          <option value="2">已取消</option>
+                          <option value="3">配送中</option>
+                          <option value="4">已送达</option>
+                          <option value="5">未送达</option>
+                        </select>
+                    </div>
+                </section>
+                <section>
+                    <strong>订单日期:</strong>
+                    <div class="form-group w100 pull-left"><input class="form-control input-sm" type="text" id="DateStart" placeholder="开始日期"></div>
+                    <strong class="ml5">-</strong>
+                    <div class="form-group w100 pull-left"><input class="form-control input-sm" type="text" id="DateEnd" placeholder="结束日期"></div>
+                	<div class="clearfix"></div>
+                </section>
+                <button type="button" class="btn btn-default f12 btn-lg2">查询</button>
+                <button type="reset" class="btn btn-default f12 btn-lg2">重置</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+
+        <!--Main CommonTable-->
+        <div class="main_commontable">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh7">点位名称</li>
+                    <li class="wh7">售货机编号</li>
+                    <li class="wh8">商品名称</li>
+                    <li class="wh8">支付金额(分)</li>
+                    <li class="wh7">预定日期</li>
+                    <li class="wh8">出货时间</li>
+                    <li class="wh5">出货状态</li>
+                    <li class="wh8"><span class="cf_red">失败原因</span></li>
+                    <li class="wh5">订单状态</li>
+                    <li class="wh8">商品退款</li>
+                    <li class="wh7">押金退款</li>
+                    <li class="wh5">货道编号</li>
+                    <li class="wh10">订单号</li>
+                    <li class="wh7">用户手机号</li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                <tbody class="auto">
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已送达</span>
+                        </td>
+                        <td class="wh8">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>-</span>
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>未取货</span>
+                        </td>
+                        <td class="wh8">
+                            <button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>
+                            <!--<span>-</span>-->
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>退款中</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>未取货</span>
+                        </td>
+                        <td class="wh8">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>未退款</span>
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>已退款</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>未取货</span>
+                        </td>
+                        <td class="wh8">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>-</span>
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>退款失败</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>2017-7-19 18:05:32</span>
+                        </td>
+                        <td class="wh5">
+                            <span>成功</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取货</span>
+                        </td>
+                        <td class="wh8">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>-</span>
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>1-1</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>2017-7-19 18:05:32</span>
+                        </td>
+                        <td class="wh5">
+                            <span>成功</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取货</span>
+                        </td>
+                        <td class="wh8">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>-</span>
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>退款中</span>
+                        </td>
+                        <td class="wh5">
+                            <span>1-1</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>2017-7-19 18:05:32</span>
+                        </td>
+                        <td class="wh5">
+                            <span>成功</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取货</span>
+                        </td>
+                        <td class="wh8">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>-</span>
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>已退款</span>
+                        </td>
+                        <td class="wh5">
+                            <span>1-1</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>2017-7-19 18:05:32</span>
+                        </td>
+                        <td class="wh5">
+                            <span>成功</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取货</span>
+                        </td>
+                        <td class="wh8">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>-</span>
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>退款失败</span>
+                        </td>
+                        <td class="wh5">
+                            <span>1-1</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>2017-7-19 18:05:32</span>
+                        </td>
+                        <td class="wh5">
+                            <span>失败</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>货道故障</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取货</span>
+                        </td>
+                        <td class="wh8">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>已退款</span>
+                        </td>
+                        <td class="wh7">
+                            <!--<button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>-->
+                            <span>已退款</span>
+                        </td>
+                        <td class="wh5">
+                            <span>1-1</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>2017-7-19 18:05:32</span>
+                        </td>
+                        <td class="wh5">
+                            <span>未知</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取货</span>
+                        </td>
+                        <td class="wh8">
+                            <button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>
+                            <!--<span>-</span>-->
+                        </td>
+                        <td class="wh7">
+                            <button type="button" class="btn btn-danger f12 btn-sm refundBtn">退款</button>
+                            <!--<span>-</span>-->
+                        </td>
+                        <td class="wh5">
+                            <span>1-1</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>待配送</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh7">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取消</span>
+                        </td>
+                        <td class="wh8">
+                            <span>退款中</span>
+                        </td>
+                        <td class="wh7">
+                            <span>退款中</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取消</span>
+                        </td>
+                        <td class="wh8">
+                            <span>已退款</span>
+                        </td>
+                        <td class="wh7">
+                            <span>已退款</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已取消</span>
+                        </td>
+                        <td class="wh8">
+                            <span>退款失败</span>
+                        </td>
+                        <td class="wh7">
+                            <span>退款失败</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>已配送</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh7">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>未送达</span>
+                        </td>
+                        <td class="wh8">
+                            <span>退款中</span>
+                        </td>
+                        <td class="wh7">
+                            <span>退款中</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>未送达</span>
+                        </td>
+                        <td class="wh8">
+                            <span>已退款</span>
+                        </td>
+                        <td class="wh7">
+                            <span>已退款</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh7">
+                            <span>青青家园</span>
+                        </td>
+                        <td class="wh7">
+                            <span>01000001</span>
+                        </td>
+                        <td class="wh8">
+                            <span>三元鲜奶200ml</span>
+                        </td>
+                        <td class="wh8">
+                            <p>商品:<b class="cf_green">300</b></p>
+                            <p>押金:<b class="cf_red">50</b></p>
+                        </td>
+                        <td class="wh7">
+                            <span>2017-07-19</span>
+                        </td>
+                        <td class="wh8">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh8 cf_red">
+                            <span>-</span>
+                        </td>
+                        <td class="wh5">
+                            <span>未送达</span>
+                        </td>
+                        <td class="wh8">
+                            <span>退款失败</span>
+                        </td>
+                        <td class="wh7">
+                            <span>退款失败</span>
+                        </td>
+                        <td class="wh5">
+                            <span>-</span>
+                        </td>
+                        <td class="wh10">
+                            <span>010001131500459904690</span>
+                        </td>
+                        <td class="wh7">
+                            <span>13874938223</span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+            <!--table footer end-->
+        </div>
+    </div>
+    <script>
+    	$(function(){
+			//退款操作 询问
+			$(document).on('click','.refundBtn',function(){
+				var thisBtn = $(this);
+				layer.confirm('该笔消费是否确认需要退款？', {
+				  title: '提示',
+				  btn: ['确定','取消']
+				}, function(){
+					//确认操作
+					layer.msg('操作成功！',{shade:[0.6,'#fff'],time:1000});
+					// todo 确认退款后的其他相关操作
+					
+				}, function(){
+					//取消操作
+				});
+			});
+		})
+    </script>
+
+</div>
+</body>
+</html>

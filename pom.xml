@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>TOUCHFound-VMS</groupId>
+    <artifactId>vms-project</artifactId>
+    <version>5.1.0</version>
+    <modules>
+        <module>vms-web</module>
+        <module>vms-model</module>
+        <module>vms-service</module>
+        <module>vms-orm</module>
+        <module>vms-commons</module>
+        <module>vms-mq</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>TouchFound-VMS</name>
+    <url>http://www.touchfound.com</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring.version>4.2.3.RELEASE</spring.version>
+		<fastjson.version>1.2.4</fastjson.version>
+		<cglib.version>3.1</cglib.version>
+		<jackson.version>1.9.2</jackson.version>
+		<aspectj.version>1.8.5</aspectj.version>
+		<commons.fileupload.version>1.3.1</commons.fileupload.version>
+		<commons.codec.version>1.9</commons.codec.version>
+		<commons.net.version>3.3</commons.net.version>
+		<commons.logging.version>1.1.3</commons.logging.version>
+		<commons.collections.version>3.2.1</commons.collections.version>
+		<commons.io.version>2.4</commons.io.version>
+		<commons.lang3.version>3.3.2</commons.lang3.version>
+		<commons.beanutils.version>1.8.3</commons.beanutils.version>
+		<oracle.driver.version>12.1.0.2</oracle.driver.version>
+		<druid.version>1.0.5</druid.version>
+		<mybatis.version>3.2.8</mybatis.version>
+		<mybatis.spring.version>1.2.2</mybatis.spring.version>
+		<bonecp.version>0.8.0.RELEASE</bonecp.version>
+		<pagehelper.version>4.0.2</pagehelper.version>
+		<jedis.version>2.9.0</jedis.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!--指定编译版本-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!--导出第三方依赖jar包 $mvn dependency:copy-dependencies -->
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                    <excludeTransitive>false</excludeTransitive>
+                    <stripVersion>false</stripVersion>
+                </configuration>
+            </plugin>
+            <!--启动cayenne-modeler $mvn cayenne-modeler:run-->
+            <plugin>
+                <groupId>org.apache.cayenne.plugins</groupId>
+                <artifactId>maven-cayenne-modeler-plugin</artifactId>
+                <version>3.1</version>
+            </plugin>
+            <!-- jetty插件
+                启动：
+                    1.$ mvn clean install -DskipTests
+                    2.$ mvn jetty:run
+                关闭：
+                    ctrl+c 或者 其他终端输入 mvn jetty:stop
+             -->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.16.v20140903</version>
+                <configuration>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                    <webAppSourceDirectory>${project.basedir}/vms-web/target/vms-web</webAppSourceDirectory>
+                    <classesDirectory>${project.basedir}/vms-web/target/classes</classesDirectory>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>8080</port>
+                        </connector>
+                    </connectors>
+                    <stopPort>6699</stopPort>
+                    <stopKey>stop</stopKey>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+        <!--打包时排除掉resource中文件-->
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>true</filtering>-->
+                <!--<excludes>-->
+                    <!--<exclude>**/*</exclude>-->
+                <!--</excludes>-->
+            <!--</resource>-->
+        <!--</resources>-->
+    </build>
+
+    <!--公用jar包，所有子类模块直接继承-->
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        <!-- JDK 11+ 移除了 javax.annotation（@Resource 等），补回 API 兼容 100+ 文件 -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+    </dependencies>
+
+    <!--jar包版本管理，子模块使用时不需要version-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cayenne</groupId>
+                <artifactId>cayenne-server</artifactId>
+                <version>3.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>TOUCHFound-VMS</groupId>
+                <artifactId>vms-model</artifactId>
+                <version>5.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>TOUCHFound-VMS</groupId>
+                <artifactId>vms-orm</artifactId>
+                <version>5.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>TOUCHFound-VMS</groupId>
+                <artifactId>vms-service</artifactId>
+                <version>5.1.0</version>
+            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>TOUCHFound-VMS</groupId>-->
+                <!--<artifactId>vms-pay</artifactId>-->
+                <!--<version>5.0.0</version>-->
+            <!--</dependency>-->
+            <dependency>
+                <groupId>TOUCHFound-VMS</groupId>
+                <artifactId>vms-commons</artifactId>
+                <version>5.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>TOUCHFound-VMS</groupId>
+                <artifactId>vms-mq</artifactId>
+                <version>5.1.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>releases</id>-->
+            <!--<name>Nexus Releases Repository</name>-->
+            <!--<url>http://192.168.101.222:8081/nexus/content/repositories/releases/</url>-->
+        <!--</repository>-->
+        <!--<snapshotRepository>-->
+            <!--<id>snapshots</id>-->
+            <!--<name>Nexus Snapshots Repository</name>-->
+            <!--<url>http://192.168.101.222:8081/nexus/content/repositories/snapshots/</url>-->
+        <!--</snapshotRepository>-->
+    <!--</distributionManagement>-->
+
+</project>

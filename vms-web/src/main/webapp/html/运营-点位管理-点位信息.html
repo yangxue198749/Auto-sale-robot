@@ -1,0 +1,559 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>点位信息 | 贩售机管理系统 3.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--select2 扩展插件-->
+    <script type="text/javascript" src="./plus/select2/select2.min.js"></script>
+    <script type="text/javascript" src="./plus/select2/select2.zh-CN.js"></script>
+    <script type="text/javascript" src="./plus/select2/function.select2.js"></script>
+    <link rel="stylesheet" type="text/css" href="./plus/select2/select2.min.css">
+    <!--pasaClass三级联动 扩展插件-->
+    <script type="text/javascript" src="./plus/pcasclass/pcasclass.js"></script>
+    <script type="text/javascript" src="./plus/pcasclass/function.pcasclass.js"></script>
+    <!--datepicker 扩展插件-->
+    <link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+	<script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+    <script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="./plus/datepicker/js/function.datepicker.js"></script>
+    <!--datetimepicker 扩展插件-->
+    <link href="./plus/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+	<script src="./plus/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="./plus/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="./plus/datetimepicker/function.datetimepicker.js"></script>
+    <!--validate 扩展插件-->
+    <script type="text/javascript" src="./plus/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="./plus/validate/messages_zh.min.js"></script>
+    <script type="text/javascript" src="./dist/js/function.validate.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+            interval();
+        }
+    </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>导航概览<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">工作台</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>工单管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">配送工单</a>
+                    <a href="#">维护工单</a>
+                    <a href="#">投放工单</a>
+                    <a href="#">撤机工单</a>
+                    <a href="#">工单查询</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>设备管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机管理</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>策略管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">货道策略</a>
+                    <a href="#">闪购键策略</a>
+                    <a href="#">文字走马灯策略</a>
+                    <a href="#">价格策略</a>
+                    <a href="#">节能策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>促销管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商品促销策略</a>
+                    <a href="#">售货机促销策略</a>
+                    <a href="#">应用促销策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>点位管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#" class="on">点位信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>客户管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">客户信息</a>
+                    <a href="#">合伙人信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li class="on"><a href="#">运营管理</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">点位信息</strong></h2>
+            <div class="btn-group pull-right" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#pointLocation">新增</button><button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button><button type="button" class="btn btn-default btn-lg2">修改</button>
+            </div>
+            <div class="btn-group pull-right mr20" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#setGive">配置配送员</button><button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#setGive">配置维修员</button>
+            </div>
+
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+        <form action="" name="" class="unKeyCode">
+            <section>
+                <strong>搜索字段:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                        <option value="0">请选择</option>
+                        <option value="1">点位名称</option>
+                        <option value="2">维修员</option>
+                        <option value="3">配送员</option>
+                        <option value="3">物业名称</option>
+                        <option value="3">客户名</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>搜索内容:</strong>
+                <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入搜索内容"></div>
+            </section>
+            <section>
+                <div class="form-group">
+                   <select class="form-control input-sm w120 pull-left mr5" name="province"></select><select class="form-control input-sm w120 pull-left mr5" name="city"></select><select class="form-control input-sm w120 pull-left" name="area"></select>
+                </div>
+            </section>
+            <section>
+                <select class="form-control input-sm">
+                    <option value="0">商圈</option>
+                    <option value="1">商圈</option>
+                    <option value="2">商圈</option>
+                </select>
+            </section>
+            <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+        </form>
+        </div>
+
+        <!--Main CommonTable-->
+        <div class="main_commontable">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh3"><input type="checkbox" value=""></li>
+                    <li class="wh10">点位名称</li>
+                    <li class="wh5">售货机数量</li>
+                    <li class="wh15">区域</li>
+                    <li class="wh5">商圈</li>
+                    <li class="wh5">维修员</li>
+                    <li class="wh5">配送员</li>
+                    <li class="wh15">详细地址</li>
+                    <li class="wh5">客户名</li>
+                    <li class="wh5">负责补货方</li>
+                    <li class="wh5">详情信息</li>
+                    <li class="wh11">创建信息</li>
+                    <li class="wh11">修改信息</li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                <tbody class="auto">
+                <tr>
+                    <td class="wh3"><input type="checkbox" value=""></td>
+                    <td class="wh10"><span>德基广场2期</span></td>
+                    <td class="wh5"><span>100</span></td>
+                    <td class="wh15"><span>河北省 石家庄市 长安区</span></td>
+                    <td class="wh5"><span>商圈</span></td>
+                    <td class="wh5"><span>小明</span></td>
+                    <td class="wh5"><span>小明</span></td>
+                    <td class="wh15"><span>北京市建国路93号万达广场9号楼12层</span></td>
+                    <td class="wh5"><span>尧舜</span></td>
+                    <td class="wh5"><span>尧舜</span></td>
+                    <td class="wh5"><button type="button" class="btn btn-success f12 btn-sm2" data-toggle="modal" data-target="#detailInfo">查询</button></td>
+                    <td class="wh11">
+                        <p><span>尧舜</span></p>
+                        <p><span>2016/11/16 11:36:56</span></p>
+                    </td>
+                    <td class="wh11">
+                        <p><span>尧舜</span></p>
+                        <p><span>2016/11/16 11:36:56</span></p>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+            <!--table footer end-->
+        </div>
+    </div>
+
+    <!----
+      **  模态框 **
+    ---->
+    <!-----新建点位 模态框 start----->
+    <div class="modal fade" id="pointLocation" role="dialog" aria-labelledby="新增点位" aria-hidden="true">
+        <div class="modal-dialog w800">
+            <div class="modal-content">
+            <form method="post" action="" name="form" id="pointLocationForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">新增点位</h4>
+                </div>
+                <div class="modal-body">
+                     <div class="modal_commonbody clearfix mt20">
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5" for="location_name">点位名称:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入点位名称" name="location_name" required data-msg-required="请输入点位名称" minlength="2" data-msg-minlength="最少输入2个字符" maxlength="40" data-msg-maxlength="最多可输入40个字符" data-rule-Au9="true"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class=" pull-left w100 text-right pr5">商圈:</span>
+                                <div class="form-group pull-left w250">
+                                    <select class="form-control input-sm">
+                                        <option value="0">商圈</option>
+                                        <option value="1">商圈</option>
+                                        <option value="2">商圈</option>
+                                    </select>
+                                </div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">区域:</span>
+                                <div class="form-group pull-left">
+                                   <select class="form-control input-sm w80 pull-left mr5" name="province_addlocation"></select><select class="form-control input-sm w80 pull-left mr5" name="city_addlocation"></select><select class="form-control input-sm w80 pull-left" name="area_addlocation"></select>
+                                </div>
+                            </section>
+
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5" for="location_address">详细地址:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm w200" type="text" placeholder="请输入详细地址" name="location_address" required data-msg-required="请输入详细地址" minlength="2" data-msg-minlength="最少输入2个字符" maxlength="200" data-msg-maxlength="最多可输入200个字符" data-rule-Au9="true"></div>
+                            </section>
+
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">经度:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入经度"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">纬度:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入纬度"></div>
+                            </section>
+
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">客户名:</span>
+                                <div class="form-group pull-left w250">
+                                    <select class="form-control input-sm ClientName">
+                                       <option>请选择</option>
+                                       <option>李大锤</option>
+                                       <option>李二翠</option>
+                                       <option>李三峡</option>
+                                       <option>李思初</option>
+                                       <option>李大锤</option>
+                                       <option>李二翠</option>
+                                       <option>李三峡</option>
+                                       <option>李思初</option>
+                                       <option>李大锤</option>
+                                       <option>李二翠</option>
+                                       <option>李三峡</option>
+                                    </select>
+                                </div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">负责补货方:</span>
+                                <select class="form-control w250 input-sm">
+                                    <option value="0">请选择</option>
+                                    <option value="1">自补</option>
+                                    <option value="2">客户补</option>
+                                </select>
+                            </section>
+                            <div class="clearfix"></div>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">开始经营时间:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" id="DateStart" type="text" placeholder="开始时间"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">结束经营时间:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" id="DateEnd" type="text" placeholder="结束时间"></div>
+                            </section>
+                            <div class="clearfix"></div>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">可投放时间:</span>
+                                <div class="form-group w110 pull-left"><input class="form-control input-sm form_time" type="text" placeholder="开始时间" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii"></div>
+                                <span class="pull-left ml9">至</span>
+                                <div class="form-group w110 pull-left ml9"><input class="form-control input-sm form_time" type="text" placeholder="结束时间" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">投放方式:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入投放方式"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">物业名称:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" type="text" placeholder="非必填"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">物业方负责人:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" type="text" placeholder="非必填"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">物业负责人电话:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" type="text" placeholder="非必填"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left w100 text-right pr5">物业负责人职位:</span>
+                                <div class="form-group w250 pull-left"><input class="form-control input-sm" type="text" placeholder="非必填"></div>
+                            </section>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+            <script>
+            $(function(){
+				//新建点位demo
+				$("#pointLocationForm").validate({
+					submitHandler: function() {
+						//form.submit();//提交表单
+						//验证通过后 的js代码写在这里
+					}
+				});
+			});
+            </script>
+            </div>
+        </div>
+    </div>
+    <!-----新增点位 模态框 end----->
+
+    <div class="modal fade" id="setGive" tabindex="-1" role="dialog" aria-labelledby="配置配送员" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">配置配送员/维护员</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commonhead">
+                        <section>
+                            <strong>用户姓名:</strong>
+                            <div class="form-group w120 pull-left">
+                                <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入用户姓名"></div>
+                            </div>
+                        </section>
+                        <button type="button" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+                    </div>
+                    <div class="main_commontable max400 border_line">
+                        <table>
+                            <thead class="auto">
+                                <tr>
+                                    <td><span>选框</span></td>
+                                    <td><span>用户姓名</span></td>
+                                    <td><span>手机</span></td>
+                                </tr>
+                            </thead>
+                            <tbody class="auto">
+                               <tr>
+                                   <td><span>选框</span></td>
+                                   <td><span>小明</span></td>
+                                   <td><span>13666668888</span></td>
+                               </tr>
+                               <tr>
+                                   <td><span>选框</span></td>
+                                   <td><span>小明</span></td>
+                                   <td><span>13666668888</span></td>
+                               </tr>
+                               <tr>
+                                   <td><span>选框</span></td>
+                                   <td><span>小明</span></td>
+                                   <td><span>13666668888</span></td>
+                               </tr>
+                               <tr>
+                                   <td><span>选框</span></td>
+                                   <td><span>小明</span></td>
+                                   <td><span>13666668888</span></td>
+                               </tr>
+                               <tr>
+                                   <td><span>选框</span></td>
+                                   <td><span>小明</span></td>
+                                   <td><span>13666668888</span></td>
+                               </tr>
+                               <tr>
+                                   <td><span>选框</span></td>
+                                   <td><span>小明</span></td>
+                                   <td><span>13666668888</span></td>
+                               </tr>
+                               <tr>
+                                   <td><span>选框</span></td>
+                                   <td><span>小明</span></td>
+                                   <td><span>13666668888</span></td>
+                               </tr>
+                               <tr>
+                                   <td><span>选框</span></td>
+                                   <td><span>小明</span></td>
+                                   <td><span>13666668888</span></td>
+                               </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-success">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <!--详情信息 -->
+                <div class="modal fade" id="detailInfo" tabindex="-1" role="dialog" aria-labelledby="详细信息" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">详细信息</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="main_commonbody clearfix">
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">经度:</span>
+                                        <span>40.1561564156</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">纬度:</span>
+                                        <span>40.1515615615</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">开始经营时间:</span>
+                                        <span>8:00</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">结束经营时间:</span>
+                                        <span>24:00</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">可投放时间:</span>
+                                        <span>20:00-24:00</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">投放方式:</span>
+                                        <span>正常</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">物业名称:</span>
+                                        <span>韦德物业</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">物业负责人:</span>
+                                        <span>王强</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">物业负责人电话:</span>
+                                        <span>13666668888</span>
+                                    </section>
+                                    <section class="col-md-6 mt20">
+                                        <span class="pull-left w100 text-right pr5">物业负责人职位:</span>
+                                        <span>经理</span>
+                                    </section>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-success">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <!-----窗口 模态框----->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viewModalLabel">配送工单模态框标题</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

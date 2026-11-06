@@ -1,0 +1,466 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>接口管理 | 贩售机管理系统</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--<script type="text/javascript" src="./plus/laydate/laydate.js"></script>-->
+    <!--datepicker 扩展插件-->
+    <!--<link href="./plus/datepicker/css/foundation.min.css" rel="stylesheet" type="text/css">-->
+    <link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+	<script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+    <script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="./plus/datepicker/js/function.datepicker.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+    <!-- v5.0 20171101 add -->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.add.new.css"/>
+    <link href="./plus/jquery-ztree/3.5.12/css/bootstrapStyle/bootstrapStyle.css" rel="stylesheet" type="text/css">
+    <script src="./plus/jquery-ztree/3.5.12/js/jquery.ztree.all-3.5.min.js" type="text/javascript"></script>
+    <script src="./plus/textSum/textSum.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>导航概览<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">工作台</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>工单管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#" class="on">配送工单</a>
+                    <a href="#">维护工单</a>
+                    <a href="#">投放工单</a>
+                    <a href="#">撤机工单</a>
+                    <a href="#">工单查询</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>设备管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机管理</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>策略管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">货道策略</a>
+                    <a href="#">闪购键策略</a>
+                    <a href="#">文字走马灯策略</a>
+                    <a href="#">价格策略</a>
+                    <a href="#">节能策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>促销管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商品促销策略</a>
+                    <a href="#">售货机促销策略</a>
+                    <a href="#">应用促销策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>点位管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">点位信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>客户管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">客户信息</a>
+                    <a href="#">合伙人信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li class="on"><a href="#">运营管理</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">接口管理</strong></h2>
+            <div class="btn-group pull-right mr10" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addOpenInterface">新增</button>
+            </div>
+        </div>
+        
+        <!--Main CommonTable-->
+        <div class="main_commontable">
+
+            <div class="commonTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>公司名称</td>
+                            <td>开放接口</td>
+                            <td>customer_id</td>
+                            <td>key</td>
+                            <td width="140">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>北京新众聚联科技有限公司</td>
+                            <td>
+                                <p>创建普通订单接口</p>
+                                <p>订单出货接口</p>
+                                <p>订单查询接口</p>
+                            </td>
+                            <td><b>C3275820075738275325</b></td>
+                            <td><b>test</b></td>
+                            <td>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <button type="button" class="btn btn-default btn-sm" href="#" data-toggle="modal" data-target="#editOpenInterface">修改</button>
+                                    <button type="button" class="btn btn-default btn-sm deleteOpenInterface" href="#" data-toggle="modal" data-target="#deleteOpenInterface">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>北京新众聚联科技有限公司</td>
+                            <td>
+                                <p>创建普通订单接口</p>
+                                <p>订单出货接口</p>
+                                <p>订单查询接口</p>
+                            </td>
+                            <td><b>C3275820075738275325</b></td>
+                            <td><b>test</b></td>
+                            <td>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <button type="button" class="btn btn-default btn-sm" href="#" data-toggle="modal" data-target="#editOpenInterface">修改</button>
+                                    <button type="button" class="btn btn-default btn-sm deleteOpenInterface" href="#" data-toggle="modal" data-target="#deleteOpenInterface">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>北京新众聚联科技有限公司</td>
+                            <td>
+                                <p>创建普通订单接口</p>
+                                <p>订单出货接口</p>
+                                <p>订单查询接口</p>
+                            </td>
+                            <td><b>C3275820075738275325</b></td>
+                            <td><b>test</b></td>
+                            <td>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <button type="button" class="btn btn-default btn-sm" href="#" data-toggle="modal" data-target="#editOpenInterface">修改</button>
+                                    <button type="button" class="btn btn-default btn-sm deleteOpenInterface" href="#" data-toggle="modal" data-target="#deleteOpenInterface">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>北京新众聚联科技有限公司</td>
+                            <td>
+                                <p>创建普通订单接口</p>
+                                <p>订单出货接口</p>
+                                <p>订单查询接口</p>
+                            </td>
+                            <td><b>C3275820075738275325</b></td>
+                            <td><b>test</b></td>
+                            <td>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <button type="button" class="btn btn-default btn-sm" href="#" data-toggle="modal" data-target="#editOpenInterface">修改</button>
+                                    <button type="button" class="btn btn-default btn-sm deleteOpenInterface" href="#" data-toggle="modal" data-target="#deleteOpenInterface">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>北京新众聚联科技有限公司</td>
+                            <td>
+                                <p>创建普通订单接口</p>
+                                <p>订单出货接口</p>
+                                <p>订单查询接口</p>
+                            </td>
+                            <td><b>C3275820075738275325</b></td>
+                            <td><b>test</b></td>
+                            <td>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <button type="button" class="btn btn-default btn-sm" href="#" data-toggle="modal" data-target="#editOpenInterface">修改</button>
+                                    <button type="button" class="btn btn-default btn-sm deleteOpenInterface" href="#" data-toggle="modal" data-target="#deleteOpenInterface">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--- 窗口 模态框 --->
+    <!------------- 新增接口 addOpenInterface ------------->
+    <div class="modal fade" id="addOpenInterface" tabindex="-1" role="dialog" aria-labelledby="新增接口" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">新增接口</h4>
+                </div>
+                <form method="post" action="" name="form" id="" class="unKeyCode">
+                    <div class="modal-body">
+                        <div class="modal_commonbody clearfix">
+                            <div class="clearfix">
+                                <div class="col-md-12">
+                                    <span class="pull-left w60 text-right mr20">开放公司:</span>
+                                    <div class="form-group pull-left">
+                                        <button type="button" class="w220 form-control input-sm" data-toggle="modal" data-target="#choiceCompany">选择公司</button>
+                                        <p><span class="mr5">北京新众聚联科技有限公司</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="pull-left w60 text-right mr20">开放接口:</span>
+                                    <div class="form-group pull-left">
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>创建普通订单接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>创建取货码订单接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>订单出货接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>订单查询接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>售货机列表接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>售货机内商品列表接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>点位信息接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>取货码取货订单接口</span></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-lg2">确定</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!------------- / 新增接口 addOpenInterface ------------->
+    <!------------- 修改接口 editOpenInterface ------------->
+    <div class="modal fade" id="editOpenInterface" tabindex="-1" role="dialog" aria-labelledby="修改接口" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">修改接口</h4>
+                </div>
+                <form method="post" action="" name="form" id="" class="unKeyCode">
+                    <div class="modal-body">
+                        <div class="modal_commonbody clearfix">
+                            <div class="clearfix">
+                                <div class="col-md-12">
+                                    <span class="pull-left w60 text-right mr20">开放公司:</span>
+                                    <div class="form-group pull-left">
+                                        <p><span class="mr5">北京新众聚联科技有限公司</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="pull-left w60 text-right mr20">开放接口:</span>
+                                    <div class="form-group pull-left">
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>创建普通订单接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>创建取货码订单接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>订单出货接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>订单查询接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>售货机列表接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>售货机内商品列表接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>点位信息接口</span></label>
+                                        </p>
+                                        <p>
+                                            <label><input type="checkbox" class="input_v4" name="" value=""><span>取货码取货订单接口</span></label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-lg2">确定</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!------------- / 修改接口 editOpenInterface ------------->
+    <!------------- 选择公司 choiceCompany ------------>
+    <div class="modal fade" id="choiceCompany" tabindex="-1" role="dialog" aria-labelledby="选择公司" aria-hidden="true">
+        <div class="modal-dialog w600">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">选择公司</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commonhead hl30">
+                        <form method="post" action="" name="form" id="" class="unKeyCode">
+                            <section>
+                                <strong>公司名称:</strong>
+                                <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入公司名称"></div>
+                            </section>
+                            <button type="submit" class="btn btn-default f12 btn-lg2 pull-left mr5">查询</button>
+                            <button type="reset" class="btn btn-default f12 btn-lg2 pull-left">重置</button>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="commonTable max400">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td width="40"></td>
+                                    <td>公司名称</td>
+                                    <td>所属客户</td>
+                                </tr>
+                            </thead>
+                            <tbody class="oneCheck">
+                                <tr>
+                                    <td><input type="checkbox" value=""></td>
+                                    <td>北京新众聚联科技有限公司</td>
+                                    <td>北京新众</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" value=""></td>
+                                    <td>北京新众聚联科技有限公司</td>
+                                    <td>北京新众</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" value=""></td>
+                                    <td>北京新众聚联科技有限公司</td>
+                                    <td>北京新众</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" value=""></td>
+                                    <td>北京新众聚联科技有限公司</td>
+                                    <td>北京新众</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" value=""></td>
+                                    <td>北京新众聚联科技有限公司</td>
+                                    <td>北京新众</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">确定</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                    <script>
+                      $(function(){
+					        //处理table单选
+							$(".oneCheck td").on("click","input[type='checkbox']",function(){
+								if($(this).prop("checked")){
+									$(this).parents().siblings().find("input[type='checkbox']").prop("checked",false);
+								}
+							});
+					  })
+                    </script>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------- 选择公司 choiceCompany ------------>
+
+
+
+    <!----- 删除接口 deleteOpenInterface ----->
+    <div class="modal fade" id="deleteOpenInterface" tabindex="-1" role="dialog" aria-labelledby="删除接口" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">删除接口</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modal_commonbody clearfix">
+                        <div class="step_info text-center">
+                            <p>是否确认删除该公司接口？</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----- / 删除接口 deleteOpenInterface ----->
+
+
+    
+    
+</div>
+</body>
+</html>

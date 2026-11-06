@@ -1,0 +1,330 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>售货机促销策略 | 贩售机管理系统 3.0</title>
+<!--依赖jQuery bootstrap-->
+<link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+<!--layer 扩展插件-->
+<script type="text/javascript" src="./plus/layer/layer.js"></script>
+<!--validate 扩展插件-->
+<script type="text/javascript" src="./plus/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="./plus/validate/messages_zh.min.js"></script>
+<script type="text/javascript" src="./dist/js/function.validate.js"></script>
+<!--图标样式-->
+<link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+<!--全站样式-->
+<link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+<!--基础结构 tonney-->
+<script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+<!--table处理 tonney-->
+<script type="text/javascript" src="./dist/js/function.table.js"></script>
+<!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+        interval();
+    }
+    </script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>导航概览<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">工作台</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>工单管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">配送工单</a>
+                   <a href="#">维护工单</a>
+                   <a href="#">投放工单</a>
+                   <a href="#">撤机工单</a>
+                   <a href="#">工单查询</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>设备管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">售货机管理</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>策略管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">货道策略</a>
+                   <a href="#">闪购键策略</a>
+                   <a href="#">文字走马灯策略</a>
+                   <a href="#">节能策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>促销管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">价格策略</a>
+                   <a href="#">商品促销策略</a>
+                   <a href="#" class="on">售货机促销策略</a>
+                   <a href="#">应用促销策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>点位管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">点位信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>客户管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">客户信息</a>
+                   <a href="#">合伙人信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+               <li class="on"><a href="#">运营管理</a></li>
+               <li><a href="#">数据管理</a></li>
+               <li><a href="#">统计报表</a></li>
+               <li><a href="#">财务管理</a></li>
+               <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->        
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">售货机促销策略</strong></h2>
+            <div class="btn-group pull-right" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addAutoMatSale">新增</button><button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button><button type="button" class="btn btn-default btn-lg2">修改</button>
+            </div>
+            
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+        <form action="" name="">
+            <section>
+                <strong>策略名称:</strong>
+                <div class="form-group w160 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入策略名称"></div>
+            </section>
+            <section>
+                <strong>折扣类型:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                      <option value="">请选择</option>
+                      <option value="1">折扣类型</option>
+                    </select>
+                </div>
+            </section>
+            <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+        </form>
+        </div>
+        
+        <!--Main CommonTable-->
+        <div class="main_commontable tablePlaceholder">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh3"><input type="checkbox" value=""></li>
+                    <li class="wh17">策略名称</li>
+                    <li class="wh20">策略说明</li>
+                    <li class="wh10">折扣类型</li>
+                    <li class="wh10">折后价</li>
+                    <li class="wh10">应用机器数量</li>
+                    <li class="wh15">创建信息</li>
+                    <li class="wh15">修改信息</li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                 <tbody class="auto">
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh17"><span>售货机促销策略名称</span></td>
+                        <td class="wh20"><span>售货机促销策略说明详细描述</span></td>
+                        <td class="wh10"><span>折扣类型</span></td>
+                        <td class="wh10"><span>99</span></td>
+                        <td class="wh10"><span>25</span></td>
+                        <td class="wh15">
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="创建日期：2016/11/16 11:36:56"><span>李玖哲</span><i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                        <td class="wh15">
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改日期：2016/11/16 11:36:56"><span>李玖哲</span><i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh17"><span>售货机促销策略名称</span></td>
+                        <td class="wh20"><span>售货机促销策略说明详细描述</span></td>
+                        <td class="wh10"><span>折扣类型</span></td>
+                        <td class="wh10"><span>99</span></td>
+                        <td class="wh10"><span>25</span></td>
+                        <td class="wh15">
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="创建日期：2016/11/16 11:36:56"><span>李玖哲</span><i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                        <td class="wh15">
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改日期：2016/11/16 11:36:56"><span>李玖哲</span><i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh17"><span>售货机促销策略名称</span></td>
+                        <td class="wh20"><span>售货机促销策略说明详细描述</span></td>
+                        <td class="wh10"><span>折扣类型</span></td>
+                        <td class="wh10"><span>99</span></td>
+                        <td class="wh10"><span>25</span></td>
+                        <td class="wh15">
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="创建日期：2016/11/16 11:36:56"><span>李玖哲</span><i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                        <td class="wh15">
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="修改日期：2016/11/16 11:36:56"><span>李玖哲</span><i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                     </tr>
+                     
+                 </tbody>
+                 
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                 <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                 </ul>
+             </div>
+            <!--table footer end-->
+        </div>
+    </div>
+    
+    <!----
+      **  模态框 **
+    ---->
+    <!-----新增售货机促销策略 模态框 start----->
+    <div class="modal fade" id="addAutoMatSale" tabindex="-1" role="dialog" aria-labelledby="新增售货机促销策略" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">新增售货机促销策略</h4>
+                </div>
+                <form action="" name="" id="addAutoMatSaleForm">
+                <div class="modal-body">
+                    <!--基本信息 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="col_info clearfix">
+                            <section class="col-md-12">
+                                <span for="clname">策略名称:</span>
+                                <div class="form-group"><input class="form-control input-sm" type="text" placeholder="请输入策略名称" name="clname" required data-msg-required="请输入策略名称" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <strong for="cltype">折扣类型:</strong>
+                                <div class="form-group">
+                                    <select class="form-control input-sm" name="cltype" required data-msg-required="请选择折扣类型">
+                                      <option value="">请选择</option>
+                                      <option value="1">折扣类型</option>
+                                    </select>
+                                </div>
+                            </section>
+                            <section class="col-md-6">
+                                <span for="clprice">折扣额:</span>
+                                <div class="form-group"><input class="form-control input-sm" type="text" placeholder="请输入折扣额" name="clprice" required data-msg-required="请输入折扣额" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Num="true"></div>
+                            </section>
+                            <section class="col-md-12">
+                                <span for="clmore">策略说明:</span>
+                                <div class="form-group"><textarea class="form-control input-sm" type="text" placeholder="请输入策略说明" name="clmore" required data-msg-required="请输入策略说明" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true"></textarea></div>
+                            </section>
+                        </div>
+                    </div>
+                    <!--基本信息 end-->
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+                </form>
+                
+                <script>
+                    $(function(){
+                        //新增售货机促销策略demo
+                        $("#addAutoMatSaleForm").validate({
+                            submitHandler: function() {
+                                //form.submit();//提交表单
+                                //验证通过后 的js代码写在这里
+                            }
+                        });
+
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+    <!-----新增售货机促销策略 模态框 end----->
+    
+    
+    
+    
+    <!-----参考窗口 模态框----->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viewModalLabel">配送工单模态框标题</h4>
+                </div>
+                <div class="modal-body">
+                    在这里添加一些文本
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>售货机管理 | 贩售机管理系统 4.2</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--<script type="text/javascript" src="./plus/laydate/laydate.js"></script>-->
+    <!--datepicker 扩展插件-->
+    <!--<link href="./plus/datepicker/css/foundation.min.css" rel="stylesheet" type="text/css">-->
+    <link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+    <script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+    <script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="./plus/datepicker/js/function.datepicker.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+    <!-- v5.0 20171101 add -->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.add.new.css"/>
+    <script src="./plus/textSum/textSum.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div class="mp_container" style="min-width:1600px;">
+
+<div style="padding:50px; text-align:center;">
+        <div class="btn-group mb25" data-toggle="buttons">
+            <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#setShelvesModal">货架设置模态框</button>
+        </div>
+</div>
+
+
+<!-----货架设置 #setShelvesModal 模态框 start----->
+<div class="modal fade" id="setShelvesModal" tabindex="-1" role="dialog" aria-labelledby="货架设置" aria-hidden="true">
+    <div class="modal-dialog w700">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title f16">货架设置</h4>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <!--货道设置信息 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="main_commonhead hl30">
+                            <div class="btn-group" data-toggle="buttons">
+                                <button type="button" class="btn btn-default btn-lg2">交换</button>
+                                <button type="button" class="btn btn-default btn-lg2">复制</button>
+                                <button type="button" class="btn btn-default btn-lg2">删除</button>
+                            </div>
+                        </div>
+                        <!--商品 box start-->
+                        <div class="col_relation mt15 small setList">
+                            <p>第一页</p>
+                            <ul>
+                                <li class="on">
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                    <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                    <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                    <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                    <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li class="">
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                    <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                    <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                    <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                    <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li class="">
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                    <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                    <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                    <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                    <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <p>第二页</p>
+                            <ul>
+                                <li class="">
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                    <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                    <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                    <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                    <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li class="">
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                    <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                    <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                    <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                    <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li class="">
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                    <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                    <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                    <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                    <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                </li>
+                                <li>
+                                    <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                    <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                </li>
+                            </ul>
+                        </div>
+                        <!--商品 box end-->
+                        <script>
+                            $(function(){
+                                $(".setList").on("click","li", function(){
+                                    $(this).toggleClass("on");
+                                })
+                            })
+                        </script>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-lg2" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-----货架设置 #setShelvesModal 模态框 end----->
+
+
+</div>
+</body>
+</html>

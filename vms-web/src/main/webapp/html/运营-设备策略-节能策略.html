@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>节能策略 | 贩售机管理系统 3.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--datetimepicker 扩展插件-->
+    <link href="./plus/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+    <script src="./plus/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="./plus/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="./plus/datetimepicker/function.datetimepicker.js"></script>
+    <!--select2 扩展插件-->
+    <script src="./plus/select2/select2.min.js"></script>
+    <script src="./plus/select2/select2.zh-CN.js"></script>
+    <link rel="stylesheet" href="./plus/select2/select2.min.css">
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+
+    <!--<script src="dist/js/vms.date.js"></script>-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+            interval();
+        }
+    </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>导航概览<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">工作台</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>工单管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">配送工单</a>
+                    <a href="#">维护工单</a>
+                    <a href="#">投放工单</a>
+                    <a href="#">撤机工单</a>
+                    <a href="#">工单查询</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>设备管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机管理</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>策略管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">货道策略</a>
+                    <a href="#">闪购键策略</a>
+                    <a href="#">文字走马灯策略</a>
+                    <a href="#">价格策略</a>
+                    <a href="#" class="on">节能策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>促销管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商品促销策略</a>
+                    <a href="#">售货机促销策略</a>
+                    <a href="#">应用促销策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>点位管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">点位信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>客户管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">客户信息</a>
+                    <a href="#">合伙人信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li class="on"><a href="#">运营管理</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">节能策略</strong></h2>
+            <div class="btn-group pull-right" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addenergy">新增</button><button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button><button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#changeenergy">修改</button>
+            </div>
+
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+            <section>
+                <strong>策略名:</strong>
+                <div class="form-group w120 pull-left">
+                    <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入策略名"></div>
+                </div>
+            </section>
+            <section>
+                <strong>售货机型号:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                        <option value="0">请选择</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+            </section>
+            <button type="button" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+        </div>
+
+        <!--Main CommonTable-->
+        <div class="main_commontable">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh3"><input type="checkbox" value=""></li>
+                    <li class="wh5">策略名</li>
+                    <li class="wh15">策略说明</li>
+                    <li class="wh15">售货机类型</li>
+                    <li class="wh10">售货机型号</li>
+                    <li class="wh12">节能策略</li>
+                    <li class="wh15">创建信息</li>
+                    <li class="wh15">修改信息</li>
+                    <li class="wh10"></li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                <tbody class="auto">
+                <tr>
+                    <td class="wh3">
+                        <input type="checkbox" value="">
+                    </td>
+                    <td class="wh5">
+                        <span>关闭屏幕</span>
+                    </td>
+                    <td class="wh15">
+                        <span>这是一个策略说明。。。</span>
+                    </td>
+                    <td class="wh15">
+                        <span>02500001</span>
+                    </td>
+                    <td class="wh10">
+                        <span>TF-0000F-FFF</span>
+                    </td>
+                    <td class="wh12">
+                        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#checkenergy">查看</button>
+                    </td>
+                    <td class="wh15">
+                        <p><span>尧舜</span></p>
+                        <p><span>2016/11/16 11:36:56</span></p>
+                    </td>
+                    <td class="wh15">
+                        <p><span>尧舜</span></p>
+                        <p><span>2016/11/16 11:36:56</span></p>
+                    </td>
+                    <td class="wh10">
+                        <span> -</span>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+            <!--table footer end-->
+        </div>
+    </div>
+
+    <!----
+      **  模态框 **
+    ---->
+    <!-----新建节能策略 模态框 start----->
+    <div class="modal fade" id="addenergy" tabindex="-1" role="dialog" aria-labelledby="新增节能策略" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">新增节能策略</h4>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            <div class="modal_commonbody mt10 clearfix">
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">策略名:</span>
+                                    <div class="form-group pull-left">
+                                        <input type="text" class="form-control input-sm w160" placeholder="请输入策略名">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">策略说明:</span>
+                                    <div class="form-group pull-left">
+                                        <input type="text" class="form-control input-sm w160" placeholder="请输入策略说明">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left text-right w80 mr10">售货机型号:</span>
+                                    <div class="form-group pull-left">
+                                        <select class="form-control input-sm w160">
+                                            <option value="0">请选择</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </div>
+                                </section>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-lg2"  data-toggle="modal" data-target="#nextenergy">下一步</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-----修改节能策略 模态框 start----->
+    <div class="modal fade" id="changeenergy" tabindex="-1" role="dialog" aria-labelledby="修改节能策略" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">修改节能策略</h4>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                        <div class="modal-body">
+                            <div class="modal_commonbody mt10 clearfix">
+                                <section class="col-md-6">
+                                    <span class="pull-left text-right w80 mr10">策略名:</span>
+                                    <div class="form-group pull-left">
+                                        <input type="text" class="form-control input-sm w120" placeholder="请输入策略名">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left text-right w80 mr10">策略说明:</span>
+                                    <div class="form-group pull-left">
+                                        <input type="text" class="form-control input-sm w120" placeholder="请输入策略说明">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <div class="btn-group form-group" data-toggle="buttons">
+                                        <button type="button" class="btn btn-default btn-lg2" >添加</button><button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button><button type="button" class="btn btn-default btn-lg2">修改</button>
+                                    </div>
+                                </section>
+                                <div class="main_commontable mt20">
+                                    <!--theadscroll start-->
+                                    <div class="theadscroll" id="theadScroll">
+                                        <ul>
+                                            <li class="wh3"><input type="checkbox" value=""></li>
+                                            <li class="wh22">节能类型</li>
+                                            <li class="wh20">开始时间</li>
+                                            <li class="wh20">结束时间</li>
+                                            <li class="wh15">温度目标值</li>
+                                            <li class="wh20">备注</li>
+                                        </ul>
+                                    </div>
+                                    <!--theadscroll end-->
+                                    <table>
+                                        <tbody class="auto">
+                                        <tr>
+                                            <td class="wh3">
+                                                <input type="checkbox" value="">
+                                            </td>
+                                            <td class="wh22">
+                                                <span>关闭屏幕</span>
+                                            </td>
+                                            <td class="wh20">
+                                                <span>2016/11/16 11:36:56</span>
+                                            </td>
+                                            <td class="wh20">
+                                                <span>2016/11/16 11:36:56</span>
+                                            </td>
+                                            <td class="wh15">
+                                                <span>24</span>
+                                            </td>
+                                            <td class="wh20">
+                                                <span>这是个节能</span>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+                                    </table>
+                                    <!--table footer start-->
+                                    <div class="tfootscroll">
+                                        <ul class="pagination pull-right mtb10 mr20">
+                                            <li><a href="#">&laquo;</a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li class="disabled"><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">&raquo;</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--table footer end-->
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-lg2">确定</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--下一步新增节能策略  -->
+    <div class="modal fade" id="nextenergy" tabindex="-1" role="dialog" aria-labelledby="新增节能策略" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">新增节能策略</h4>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                            <div class="modal_commonbody mt10 clearfix">
+                                <section class="col-md-12">
+                                    <div class="btn-group pull-left" data-toggle="buttons">
+                                        <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#energy">添加</button>
+                                        <button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button>
+                                        <button type="button" class="btn btn-default btn-lg2">修改</button>
+                                    </div>
+                                </section>
+                            </div>
+
+                        <div class="main_commontable mt20">
+                            <!--theadscroll start-->
+                            <div class="theadscroll" id="theadScroll">
+                                <ul>
+                                    <li class="wh3"><input type="checkbox" value=""></li>
+                                    <li class="wh17">节能类型</li>
+                                    <li class="wh20">开始时间</li>
+                                    <li class="wh20">结束时间</li>
+                                    <li class="wh20">温度目标值</li>
+                                    <li class="wh20">备注</li>
+                                </ul>
+                            </div>
+                            <!--theadscroll end-->
+                            <table>
+                                <tbody class="auto">
+                                <tr>
+                                    <td class="wh3">
+                                        <input type="checkbox" value="">
+                                    </td>
+                                    <td class="wh17">
+                                        <span>关闭屏幕</span>
+                                    </td>
+                                    <td class="wh20">
+                                        <span>2016/11/16 11:36:56</span>
+                                    </td>
+                                    <td class="wh20">
+                                        <span>2016/11/16 11:36:56</span>
+                                    </td>
+                                    <td class="wh20">
+                                        <span>24</span>
+                                    </td>
+                                    <td class="wh20">
+                                       <span>这是一个节能策略</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-lg2">确定</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!--添加节能策略  -->
+    <div class="modal fade" id="energy" tabindex="-1" role="dialog" aria-labelledby="节能策略" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">节能策略</h4>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                        <div class="modal_commonbody mt10 clearfix">
+                             <section class="col-md-6">
+                                 <span class="pull-left text-right w80 mr10">节能类型:</span>
+                                 <div class="form-group">
+                                     <select class="form-control input-sm w160" id="select">
+                                         <option value="0">请选择</option>
+                                         <option value="1">温度控制</option>
+                                         <option value="2">屏幕关闭</option>
+                                         <option value="3">工控机关机</option>
+                                     </select>
+                                 </div>
+                             </section>
+                            <section class="col-md-6">
+                                <span class="pull-left text-right w80 mr10">温度目标值:</span>
+                                <div class="form-group">
+                                    <input type="text" class="form-control input-sm w160" placeholder="请输入温度目标值">
+                                </div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left text-right w80 mr10">开始时间:</span>
+                                <div class="form-group pull-left">
+                                    <input class="form-control input-sm form_time" type="text" placeholder="开始时间" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                            </div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left text-right w80 mr10">结束时间:</span>
+                                <div class="form-group pull-left">
+                                    <input class="form-control input-sm form_time" type="text" placeholder="结束时间" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                                </div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="pull-left text-right w80 mr10">备注:</span>
+                                <div class="form-group">
+                                    <input type="text" class="form-control input-sm w160" placeholder="请输入备注">
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-success">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--查看节能策略 -->
+    <div class="modal fade" id="checkenergy" tabindex="-1" role="dialog" aria-labelledby="查看节能策略" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">查看节能策略</h4>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                        <div class="modal_commonbody mt10 clearfix">
+
+                        </div>
+
+                        <div class="main_commontable mt20">
+                            <!--theadscroll start-->
+                            <div class="theadscroll" id="theadScroll">
+                                <ul>
+                                    <li class="wh3"><input type="checkbox" value=""></li>
+                                    <li class="wh17">节能类型</li>
+                                    <li class="wh20">开始时间</li>
+                                    <li class="wh20">结束时间</li>
+                                    <li class="wh20">温度目标值</li>
+                                    <li class="wh20">备注</li>
+                                </ul>
+                            </div>
+                            <!--theadscroll end-->
+                            <table>
+                                <tbody class="auto">
+                                <tr>
+                                    <td class="wh3">
+                                        <input type="checkbox" value="">
+                                    </td>
+                                    <td class="wh17">
+                                        <span>关闭屏幕</span>
+                                    </td>
+                                    <td class="wh20">
+                                        <span>2016/11/16 11:36:56</span>
+                                    </td>
+                                    <td class="wh20">
+                                        <span>2016/11/16 11:36:56</span>
+                                    </td>
+                                    <td class="wh20">
+                                        <span>24</span>
+                                    </td>
+                                    <td class="wh20">
+                                        <span>这是一个节能策略</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-lg2">确定</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-----窗口 模态框----->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viewModalLabel">配送工单模态框标题</h4>
+                </div>
+                <div class="modal-body">
+                    在这里添加一些文本
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

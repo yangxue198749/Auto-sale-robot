@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>客户信息 | 贩售机管理系统 3.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <script type="text/javascript" src="./plus/laydate/laydate.js"></script>
+    <!--select2 扩展插件-->
+    <script src="./plus/select2/select2.min.js"></script>
+    <script src="./plus/select2/select2.zh-CN.js"></script>
+    <link rel="stylesheet" href="./plus/select2/select2.min.css">
+    <!--validate 扩展插件-->
+    <script type="text/javascript" src="./plus/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="./plus/validate/messages_zh.min.js"></script>
+    <script type="text/javascript" src="./dist/js/function.validate.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--常用扩展插件初始化 tonney-->
+    <script type="text/javascript" src="./dist/js/common_function.plus.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+            interval();
+        }
+    </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>导航概览<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">工作台</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>工单管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">配送工单</a>
+                    <a href="#">维护工单</a>
+                    <a href="#">投放工单</a>
+                    <a href="#">撤机工单</a>
+                    <a href="#">工单查询</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>设备管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机管理</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>策略管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">货道策略</a>
+                    <a href="#">闪购键策略</a>
+                    <a href="#">文字走马灯策略</a>
+                    <a href="#">价格策略</a>
+                    <a href="#">节能策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>促销管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商品促销策略</a>
+                    <a href="#">售货机促销策略</a>
+                    <a href="#">应用促销策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>点位管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">点位信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>客户管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#" class="on">客户信息</a>
+                    <a href="#">合伙人信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li class="on"><a href="#">运营管理</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">客户信息</strong></h2>
+            <div class="btn-group pull-right" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addClient">新增</button><button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button><button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#changeClient">修改</button>
+            </div>
+
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+            <section>
+                <strong>搜索字段:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                        <option value="0">请选择</option>
+                        <option value="1">客户编码</option>
+                        <option value="2">客户名称</option>
+                        <option value="3">负责人姓名</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>搜索内容:</strong>
+                <div class="form-group w120 pull-left">
+                    <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入内容"></div>
+                </div>
+            </section>
+            <section>
+                <strong>客户模式:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                        <option value="0">请选择</option>
+                        <option value="1">TF客户</option>
+                        <option value="2">RD客户</option>
+                        <option value="3">B客户</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>客户类型:</strong>
+                <div class="form-group w120 pull-left">
+                    <select class="form-control input-sm">
+                        <option value="0">请选择</option>
+                        <option value="1">个人客户</option>
+                        <option value="2">企业客户</option>
+                    </select>
+                </div>
+            </section>
+
+            <button type="button" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+        </div>
+
+        <!--Main CommonTable-->
+        <div class="main_commontable">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh3"><input type="checkbox" value=""></li>
+                    <li class="wh3">序号</li>
+                    <li class="wh10">客户名称</li>
+                    <li class="wh6">客户模式</li>
+                    <li class="wh6">客户类型</li>
+                    <li class="wh10">公司地址</li>
+                    <li class="wh12">负责人信息</li>
+                    <li class="wh13">开户行</li>
+                    <li class="wh13">纳说登记号</li>
+                    <li class="wh12">创建信息</li>
+                    <li class="wh12">修改信息</li>
+
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                <tbody class="auto">
+                <tr>
+                    <td class="wh3">
+                        <input type="checkbox" value="">
+                    </td>
+                    <td class="wh3">
+                        <span class="cf_green">123</span>
+                    </td>
+                    <td class="wh10">
+                        <span>北京新网聚联信息技术有限公司</span>
+                    </td>
+                    <td class="wh6">
+                        <span>TF客户</span>
+                    </td>
+                    <td class="wh6">
+                        <span>公司客户</span>
+                    </td>
+                    <td class="wh10">
+                        <span>北京市建国路93号万达广场9号楼12层</span>
+                    </td>
+                    <td class="wh12">
+                        <p><span>尧舜</span></p>
+                        <p><span>13866660000</span></p>
+                        <p><span>wangqiang@qq.com</span></p>
+                    </td>
+                    <td class="wh13">
+                        <p><span>北京银行大望路分行</span></p>
+                        <p><span>9558869888972569348</span></p>
+                    </td>
+                    <td class="wh13">
+                        <span>430111MA4L16JQ9B</span>
+                    </td>
+                    <td class="wh12">
+                        <p><span>尧舜</span></p>
+                        <p><span>2016/11/16</span></p>
+                        <p><span>11:36:56</span></p>
+
+                    </td>
+                    <td class="wh12">
+                        <p><span>尧舜</span></p>
+                        <p><span>2016/11/16</span></p>
+                        <p><span>11:36:56</span></p>
+
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+            <!--table footer end-->
+        </div>
+    </div>
+
+    <!----
+      **  模态框 **
+    ---->
+    <!-----新建客户 模态框 start----->
+    <div class="modal fade" id="addClient" tabindex="-1" role="dialog" aria-labelledby="新增客户" aria-hidden="true">
+        <div class="modal-dialog w800">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">新增客户</h4>
+                </div>
+                <form method="post" id="addClientForm">
+                    <div class="modal-body">
+                        <!--新增客户 start-->
+                        <div class="modal_commonbody clearfix mt20">
+                            <!--填写基本信息-->
+                            <div class="step_info">
+                                <section class="col-md-12">
+                                    <span class="pull-left w100 text-right pr5" for="hehuoname">客户模式:</span>
+                                    <div class="form-group pull-left">
+                                        <div class="pull-left">
+                                            <input type="radio" name="name">
+                                            <span>自营</span>
+                                        </div>
+                                        <div class="pull-left ml20">
+                                            <input type="radio" name="name">
+                                            <span>B客户</span>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="hehuoname">客户名称:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="hehuoname" placeholder="请输入客户名称" required data-msg-required="请输入客户名称" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5">合伙人类型:</span>
+                                    <select class="form-control w220 pull-left input-sm">
+                                        <option value="0">请选择</option>
+                                        <option value="1">个人客户</option>
+                                        <option value="2">企业客户</option>
+                                    </select>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left w100 text-right pr5" name="address">公司地址:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm w605" type="text" name="address" placeholder="请输入公司地址" required data-msg-required="请输入公司地址" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="fuzename">负责人姓名:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="fuzename" placeholder="请输入负责人姓名"  required data-msg-required="请输入负责人姓名" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="fuzetel">负责人电话:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="fuzetel" placeholder="请输入负责人电话"  required data-msg-required="请输入负责人电话" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="kaihuhang">开户行:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="kaihuhang" placeholder="请输入开户行"  required data-msg-required="请输入开户行" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="yinhangname">银行账户:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="yinhangname" placeholder="请输入银行账户"  required data-msg-required="请输入银行账号" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="dengjihao">纳说人登记号:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="dengjihao" placeholder="请输入纳税人登记号" required data-msg-required="请输入纳说人登记号" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="email">电子邮箱:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" name="email" type="email" placeholder="请输入电子邮箱"  required data-msg-required="请输入电子邮箱" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">提交</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--修改客户 -->
+    <div class="modal fade" id="changeClient" tabindex="-1" role="dialog" aria-labelledby="修改客户" aria-hidden="true">
+        <div class="modal-dialog w800">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">修改客户</h4>
+                </div>
+                <form method="post" id="changeClientForm">
+                    <div class="modal-body">
+                        <!--新增客户 start-->
+                        <div class="modal_commonbody clearfix mt20">
+                            <!--填写基本信息-->
+                            <div class="step_info">
+                                <section class="col-md-12">
+                                    <span class="pull-left w100 text-right pr5" for="hehuoname">客户模式:</span>
+                                    <div class="form-group pull-left">
+                                        <span>B模式</span>
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="hehuoname">客户名称:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="hehuoname" placeholder="请输入客户名称" required data-msg-required="请输入客户名称" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5">合伙人类型:</span>
+                                    <select class="form-control w220 pull-left input-sm">
+                                        <option value="0">请选择</option>
+                                        <option value="1">个人客户</option>
+                                        <option value="2">企业客户</option>
+                                    </select>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="pull-left w100 text-right pr5" name="address">公司地址:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm w605" type="text" name="address" placeholder="请输入公司地址" required data-msg-required="请输入公司地址" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="fuzename">负责人姓名:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="fuzename" placeholder="请输入负责人姓名"  required data-msg-required="请输入负责人姓名" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="fuzetel">负责人电话:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="fuzetel" placeholder="请输入负责人电话"  required data-msg-required="请输入负责人电话" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="kaihuhang">开户行:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="kaihuhang" placeholder="请输入开户行"  required data-msg-required="请输入开户行" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="yinhangname">银行账户:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="yinhangname" placeholder="请输入银行账户"  required data-msg-required="请输入银行账号" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="dengjihao">纳说人登记号:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" type="text" name="dengjihao" placeholder="请输入纳税人登记号" required data-msg-required="请输入纳说人登记号" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+                                <section class="col-md-6">
+                                    <span class="pull-left w100 text-right pr5" for="email">电子邮箱:</span>
+                                    <div class="form-group w220 pull-left">
+                                        <input class="form-control input-sm" name="email" type="email" placeholder="请输入电子邮箱"  required data-msg-required="请输入电子邮箱" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                    </div>
+                                </section>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">提交</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+
+            $("#addClientForm").validate({
+                submitHandler: function () {
+                    //form.submit();//提交表单
+                    //验证通过后 的js代码写在这里
+                }
+            })
+            $("#changeClientForm").validate({
+                submitHandler: function () {
+                    //form.submit();//提交表单
+                    //验证通过后 的js代码写在这里
+                }
+            })
+        });
+    </script>
+
+
+    <!-----窗口 模态框----->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viewModalLabel">配送工单模态框标题</h4>
+                </div>
+                <div class="modal-body">
+                    在这里添加一些文本
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>工作台 | 贩售机管理系统 3.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--<script type="text/javascript" src="./plus/laydate/laydate.js"></script>-->
+    <!--datepicker 扩展插件-->
+    <!--<link href="./plus/datepicker/css/foundation.min.css" rel="stylesheet" type="text/css">-->
+    <link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+	<script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+    <script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+    <script src="./plus/datepicker/js/function.datepicker.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+            interval();
+        }
+    </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>导航概览<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#" class="on">工作台</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>工单管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">配送工单</a>
+                    <a href="#">维护工单</a>
+                    <a href="#">投放工单</a>
+                    <a href="#">撤机工单</a>
+                    <a href="#">工单查询</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>设备管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机管理</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>策略管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">货道策略</a>
+                    <a href="#">闪购键策略</a>
+                    <a href="#">文字走马灯策略</a>
+                    <a href="#">价格策略</a>
+                    <a href="#">节能策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>促销管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商品促销策略</a>
+                    <a href="#">售货机促销策略</a>
+                    <a href="#">应用促销策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>点位管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">点位信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>客户管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">客户信息</a>
+                    <a href="#">合伙人信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li class="on"><a href="#">运营管理</a></li>
+                <li><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">工作台</strong></h2>
+        </div>
+        
+        <!--Main MyDock start-->
+        <div class="mydock_group">
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日配送工单</div>
+                      <section class="col-md-4 plr5">
+                         <strong class="cf_blue">12</strong>
+                         <p>待完成</p>
+                      </section>
+                      <section class="col-md-4 plr5">
+                         <strong class="cf_green">12</strong>
+                         <p>已完成</p>
+                      </section>
+                      <section class="col-md-4 plr5">
+                         <strong class="cf_yellow">3</strong>
+                         <p>已忽略</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日维护工单</div>
+                      <section class="col-md-6">
+                         <strong class="cf_blue">2</strong>
+                         <p>待完成</p>
+                      </section>
+                      <section class="col-md-6">
+                         <strong class="cf_green">6</strong>
+                         <p>已完成</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日投放工单</div>
+                      <section class="col-md-6">
+                         <strong class="cf_blue">36</strong>
+                         <p>待完成</p>
+                      </section>
+                      <section class="col-md-6">
+                         <strong class="cf_green">29</strong>
+                         <p>已完成</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日撤机工单</div>
+                      <section class="col-md-6">
+                         <strong class="cf_blue">3</strong>
+                         <p>待完成</p>
+                      </section>
+                      <section class="col-md-6">
+                         <strong class="cf_green">9</strong>
+                         <p>已完成</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日新增点位</div>
+                      <section class="col-md-12">
+                         <strong class="cf_green">680</strong>
+                         <p>新增点位数</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日新增设备</div>
+                      <section class="col-md-12">
+                         <strong class="cf_green">12</strong>
+                         <p>新增设备数</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日促销中设备</div>
+                      <section class="col-md-12">
+                         <strong class="cf_green">12</strong>
+                         <p>促销中设备数</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日新增客户</div>
+                      <section class="col-md-12">
+                         <strong class="cf_green">3658</strong>
+                         <p>新增客户数</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日缺货设备</div>
+                      <section class="col-md-12">
+                         <strong class="cf_green">32</strong>
+                         <p>缺货设备数</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日销量</div>
+                      <section class="col-md-12">
+                         <strong class="cf_green">36820</strong>
+                         <p>今日销量/件</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日销售额</div>
+                      <section class="col-md-12">
+                         <strong class="cf_green">28692.51</strong>
+                         <p>今日销售额/元</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            <section class="col-md-3 mb20 plr10">
+               <a href="#">
+                   <div class="block_box">
+                   	  <div class="tophead">今日新增商品</div>
+                      <section class="col-md-12">
+                         <strong class="cf_green">12</strong>
+                         <p>今日新增商品数/种</p>
+                      </section>
+                      <footer><p><i class="iconfont icon-lvyoutehui cf_gray f24"></i></p><p><span class="cf_gray">更多详情</span></p></footer>
+                   </div>
+               </a>
+            </section>
+            
+            
+        </div>
+        <!--Main MyDock end-->
+        
+    </div>
+    <!------ 公用主体部分 end ------>
+    
+    
+</div>
+</body>
+</html>

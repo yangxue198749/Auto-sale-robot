@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	   default-autowire="byName">
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:setting.properties" />
+	
+	<!--<bean id="redisConfig" class="com.kdx.vms.redis.RedisConfig">
+		<property name="hostAndPortSet">
+			<set>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg value="${redis.ip}" />
+					<constructor-arg value="${redis.port}" />
+				</bean>
+			</set>
+		</property>
+		&lt;!&ndash; <property name="address" value="192.168.101.234" />
+		<property name="port" value="6379" /> &ndash;&gt;
+		<property name="passWord" value="${redis.pass}" />
+		<property name="maxIdle" value="${redis.maxIdle}" />
+		<property name="minIdle" value="${redis.minIdle}" />
+		<property name="maxTotal" value="${redis.maxActive}" />
+		<property name="maxRedirections" value="${redis.maxRedirections}" />
+	</bean>-->
+	
+	<bean id="myJedisCluster" class="com.kdx.vms.redis.MyJedisCluster" init-method="init">
+    	<!--<property name="redisConfig" ref="redisConfig" />-->
+	</bean>
+    
+</beans>

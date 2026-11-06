@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>配置信息 | 贩售机管理系统 3.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--validate 扩展插件-->
+    <script type="text/javascript" src="./plus/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="./plus/validate/messages_zh.min.js"></script>
+    <script type="text/javascript" src="./dist/js/function.validate.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+    <!--SIM卡基础效果js-->
+    <script type="text/javascript" src="./dist/js/strategy.sim.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+            interval();
+        }
+    </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>硬件数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机型号</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>商品数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商品类型</a>
+                    <a href="#">商品信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>商圈数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商圈信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>仓库数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">仓库信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>SIM卡数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">SIM卡信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>基础数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">字典信息</a>
+                    <a href="#" class="on">配置信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li><a href="#">运营管理</a></li>
+                <li class="on"><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">配置信息</strong></h2>
+        </div>
+        <!--Main CommonHead-->
+        <div class="col-md-6">
+            <div class="main_commonhead hl30">
+                <form class="pull-left">
+                <section>
+                    <strong>类型名称:</strong>
+                    <div class="form-group pull-left w160">
+                        <input class="form-control input-sm" placeholder="请输入类型名称">
+                    </div>
+                </section>
+                <div class="btn-group" data-toggle="buttons">
+                    <button type="submit" class="btn btn-default btn-lg2">查询</button>
+                    <button type="reset" class="btn btn-default btn-lg2">重置</button>
+                </div>
+                </form>
+                <button type="button" class="btn btn-success btn-lg2 pull-right" data-toggle="modal" data-target="#addType">新增</button>
+            </div>
+            <div class="clearfix"></div>
+
+            <!--Main CommonTable-->
+            <div class="main_commontable mt10">
+                <table>
+                	<thead>
+                    	<tr>
+                        	<td><span>key</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td><span>key</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    	<tr>
+                        	<td><span>key</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    	<tr>
+                        	<td><span>key</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    	<tr>
+                        	<td><span>key</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    	<tr>
+                        	<td><span>key</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="main_commonhead hl30">
+                <div class="btn-group pull-right" data-toggle="buttons">
+                    <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addSet">新增</button>
+                    <button type="button" class="btn btn-default btn-lg2">删除</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#changeSet">修改</button>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <!--Main CommonTable-->
+            <div class="main_commontable mt10">
+                <table>
+                	<thead>
+                    	<tr>
+                            <td class="wh5"><input type="checkbox" value=""></td>
+                        	<td><span>key</span></td>
+                        	<td><span>value</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                            <td><input type="checkbox" value=""></td>
+                        	<td><span>key</span></td>
+                        	<td><span>value</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    	<tr>
+                            <td><input type="checkbox" value=""></td>
+                        	<td><span>key</span></td>
+                        	<td><span>value</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    	<tr>
+                            <td><input type="checkbox" value=""></td>
+                        	<td><span>key</span></td>
+                        	<td><span>value</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    	<tr>
+                            <td><input type="checkbox" value=""></td>
+                        	<td><span>key</span></td>
+                        	<td><span>value</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    	<tr>
+                            <td><input type="checkbox" value=""></td>
+                        	<td><span>key</span></td>
+                        	<td><span>value</span></td>
+                        	<td><span>desc</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!----
+      **  模态框 **
+    ---->
+    <!-----新增类型 模态框 start----->
+    <div class="modal fade" id="addType" tabindex="-1" role="dialog" aria-labelledby="新建类型" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">新建类型</h4>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <!--基本信息 start-->
+                            <div class="modal_commonbody mt10 clearfix">
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">key:</span>
+                                    <div class="form-group pull-left w220">
+                                        <input type="text" class="form-control input-sm" name="" required minlength="2">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">desc:</span>
+                                    <div class="form-group pull-left w220">
+                                        <input type="text" class="form-control input-sm" name="" required minlength="2">
+                                    </div>
+                                </section>
+                            </div>
+                        <!--基本信息 end-->
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">提交</button>
+                        <button type="reset" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                	</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-----新增配置 模态框 start----->
+    <div class="modal fade" id="addSet" tabindex="-1" role="dialog" aria-labelledby="新建配置" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">新建配置</h4>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <!--基本信息 start-->
+                            <div class="modal_commonbody mt10 clearfix">
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">类型:</span>
+                                    <div class="form-group pull-left w220">
+                                        <select class="form-control input-sm">
+                                          <option value="0">请选择</option>
+                                        </select>
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">key:</span>
+                                    <div class="form-group pull-left w220">
+                                        <input type="text" class="form-control input-sm" name="" required minlength="2">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">value:</span>
+                                    <div class="form-group pull-left w220">
+                                        <input type="text" class="form-control input-sm" name="" required minlength="2">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">desc:</span>
+                                    <div class="form-group pull-left w220">
+                                        <input type="text" class="form-control input-sm" name="" required minlength="2">
+                                    </div>
+                                </section>
+                            </div>
+                        <!--基本信息 end-->
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">提交</button>
+                        <button type="reset" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                	</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-----修改配置 模态框 start----->
+    <div class="modal fade" id="changeSet" tabindex="-1" role="dialog" aria-labelledby="修改配置" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">修改配置</h4>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <!--基本信息 start-->
+                            <div class="modal_commonbody mt10 clearfix">
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">类型:</span>
+                                    <div class="form-group pull-left w220">
+                                        <select class="form-control input-sm" disabled>
+                                          <option value="0">请选择</option>
+                                        </select>
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">key:</span>
+                                    <div class="form-group pull-left w220">
+                                        <input type="text" class="form-control input-sm" name="" required minlength="2">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">value:</span>
+                                    <div class="form-group pull-left w220">
+                                        <input type="text" class="form-control input-sm" name="" required minlength="2">
+                                    </div>
+                                </section>
+                                <section class="col-md-12">
+                                    <span class="w60 pull-left text-right mr10">desc:</span>
+                                    <div class="form-group pull-left w220">
+                                        <input type="text" class="form-control input-sm" name="" required minlength="2">
+                                    </div>
+                                </section>
+                            </div>
+                        <!--基本信息 end-->
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">提交</button>
+                        <button type="reset" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                	</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

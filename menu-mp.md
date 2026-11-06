@@ -1,0 +1,44 @@
+主键 | 名称 | 路径 | 编码 | 类型 | 父级主键 | 排序
+---|---|---|---|---|---|---
+6000000|魔核|#|mp-manage|module|1|6
+6010000|运营中心|#| |little-module|6000000|1
+6010100|我的工单|/mp/mpTask/list|mp-task-list|menu|6010000|1
+6010101|开锁|/mp/mpTask/lock|mp-task-lock|button|6010100|1
+6010200|补货工单列表|/mp/mpTask/delivery/list|mp-task-delivery-list|menu|6010000|2
+6010201|补货工单提货单|/mp/mpTask/delivery/order/list|mp-task-delivery-order-list|button|6010200|1
+6010202|补货工单详情|/mp/mpTask/delivery/detail|mp-task-delivery-detail|button|6010200|2
+6010203|补货工单完成|/mp/mpTask/delivery/finish|mp-task-delivery-finish|button|6010200|3
+6010204|补货工单退出|/mp/mpTask/delivery/exit|mp-task-delivery-exit|button|6010200|4
+6010205|补货工单加入|/mp/mpTask/delivery/join|mp-task-delivery-join|button|6010200|5
+6010206|补货工单忽略|/mp/mpTask/delivery/ignore|mp-task-delivery-ignore|button|6010200|6
+6010207|补货工单提货|/mp/mpTask/delivery/order/pickup|mp-task-delivery-order-pickup|button|6010200|7
+6010300|维修工单列表|/mp/mpTask/repair/list|mp-task-repair-list|menu|6010000|3
+6010301|维修工单详情|/mp/mpTask/repair/detail|mp-task-repair-detail|button|6010300|1
+6010302|维修工单完成|/mp/mpTask/repair/finish|mp-task-repair-finish|button|6010300|2
+6010303|维修工单退出|/mp/mpTask/repair/exit|mp-task-repair-exit|button|6010300|3
+6010304|维修工单加入|/mp/mpTask/repair/join|mp-task-repair-join|button|6010300|4
+6010400|投放工单列表|/mp/mpTask/deploy/list|mp-task-deploy-list|menu|6010000|4
+6010401|投放工单详情|/mp/mpTask/deploy/detail|mp-task-deploy-detail|button|6010400|1
+6010500|撤机工单列表|/mp/mpTask/withdraw/list|mp-task-withdraw-list|menu|6010000|5
+6010501|撤机工单详情|/mp/mpTask/withdraw/detail|mp-task-withdraw-detail|button|6010500|1
+6010502|撤机工单完成|/mp/mpTask/withdraw/finish|mp-task-withdraw-finish|button|6010500|2
+6010503|撤机工单退出|/mp/mpTask/withdraw/exit|mp-task-withdraw-exit|button|6010500|3
+6010504|撤机工单加入|/mp/mpTask/withdraw/join|mp-task-withdraw-join|button|6010500|4
+6010600|激活售货机列表|/mp/activate/reg|mp-activate-reg|menu|6010000|6
+6010601|激活售货机提交|/mp/activate/active|mp-activate-active|button|6010600|1
+6010602|激活售货机结果|/mp/activate/result|mp-activate-result|button|6010600|2
+6010700|售货机状态列表|/mp/vmStatus/list|mp-vmStatus-list|menu|6010000|7
+6010701|售货机状态详情|/mp/vmStatus/detail|mp-vmStatus-detail|button|6010700|1
+6010800|立即补货列表|/mp/delivery/list|mp-delivery-list|menu|6010000|1
+6010801|立即补货数据|/mp/delivery/page|mp-delivery-page|button|6010800|1
+6010802|立即补货检查|/mp/delivery/check|mp-delivery-check|button|6010800|2
+6010803|立即补货创建工单|/mp/delivery/create|mp-delivery-create|button|6010800|3
+6020000|数据中心|#| |little-module|6000000|2
+6020100|个人主页|/mp/home|mp-home|menu|6020000|1
+6020200|销售流水|/mp/slOrder/list|mp-slOrder-list|menu|6020000|2
+6020201|销售流水详情|/mp/slOrder/getOrderDetailHome|mp-slOrder-detail|button|6020200|1
+6020202|销售流水详情列表|/mp/slOrder/getOrderDetailList|mp-slOrder-detail-list|button|6020200|2
+6020300|销售报表|/mp/slReport/list|mp-slReport-list|menu|6020000|3
+6020301|销售报表-他日|/mp/slReport/otherdayList|mp-slReport-otherdayList|button|6020300|1
+6020302|销售报表-月度|/mp/slReport/monthList|mp-slReport-monthList|button|6020300|2
+6020303|销售报表-月度-列表|/mp/slReport/monthReport|mp-slReport-monthReport|button|6020300|3

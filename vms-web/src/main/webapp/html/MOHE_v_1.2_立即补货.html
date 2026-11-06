@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+<head>
+    <meta http-equiv="Content-Type">
+    <meta content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <title>立即补货</title>		
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="工单列表">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="statics/plus/lib/weui.min.css">
+    <link rel="stylesheet" href="statics/plus/css/jquery-weui.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/mohe.mp-v1.01.css" />
+</head>
+<body>
+   <div class="mh_container">
+        <!-- 立即补货 start-->
+        <div class="weui_cells weui_cells_access mt15">
+            
+            <div class="weui_cell">
+                <a class="weui_cell_bd weui_cell_primary" href="#">
+                      <p class="f14 cf3">01002345</p>
+                      <p class="f12 cf9">朝阳区万达广场9号楼1201</p>
+                </a>
+                <div class="weui_cell_ft2"></div>
+            </div>
+            <div class="weui_cell">
+                <a class="weui_cell_bd weui_cell_primary" href="#">
+                      <p class="f14 cf3">01002345</p>
+                      <p class="f12 cf9">朝阳区万达广场9号楼1201</p>
+                </a>
+                <div class="weui_cell_ft2"></div>
+            </div>
+            <div class="weui_cell">
+                <a class="weui_cell_bd weui_cell_primary" href="#">
+                      <p class="f14 cf3">01002345</p>
+                      <p class="f12 cf9">朝阳区万达广场9号楼1201</p>
+                </a>
+                <div class="weui_cell_ft2"></div>
+            </div>
+            <div class="weui_cell">
+                <a class="weui_cell_bd weui_cell_primary" href="#">
+                      <p class="f14 cf3">01002345</p>
+                      <p class="f12 cf9">朝阳区万达广场9号楼1201</p>
+                </a>
+                <div class="weui_cell_ft2"></div>
+            </div>
+                    
+        </div>
+        <!-- 立即补货 end-->
+        
+   </div>
+
+
+<!--watermark-->
+<div class="watermark"></div>
+<!----------------Common js start---------------->
+<script type="text/javascript" src="statics/plus/lib/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="statics/plus/js/jquery-weui.js"></script>
+<script type="text/javascript" src="statics/plus/lib/fastclick.js"></script>
+<script>
+$(function() {
+    FastClick.attach(document.body);
+	$('.weui_cell_primary').click(function(){
+	    //$.toast("该售货机货品已满，无需补货", "text");
+		//$.alert("自定义的消息内容", "标题", function() {
+			  //点击确认后的回调函数
+		//});
+		$.alert("该售货机货品已满，无需补货");
+		//$.alert("自定义的消息内容", "自定义的标题");
+	})
+});
+</script>
+<!----------------Common js end------------------>
+
+</body>
+</html>

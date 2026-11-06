@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Licensed to the Apache Software Foundation (ASF) under one
+  ~ or more contributor license agreements.  See the NOTICE file
+  ~ distributed with this work for additional information
+  ~ regarding copyright ownership.  The ASF licenses this file
+  ~ to you under the Apache License, Version 2.0 (the
+  ~ "License"); you may not use this file except in compliance
+  ~ with the License.  You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+<ehcache name="vms-tenant-caches">
+
+    <!-- Sets the path to the directory where cache .data files are created.
+
+         If the path is a Java System Property it is replaced by
+         its value in the running VM. The following properties are translated:
+
+            user.home - User's home directory
+            user.dir - User's current working directory
+            java.io.tmpdir - Default temp file path
+    -->
+    <diskStore path="java.io.tmpdir/vms/tenant-caches"/>
+
+
+    <!--
+    
+    	maxElementsInMemory ：cache 中最多可以存放的元素的数量。如果放入cache中的元素超过这个数值，有两种情况：1、若overflowToDisk的属性值为true，会将cache中多出的元素放入磁盘文件中。2、若overflowToDisk的属性值为false，会根据memoryStoreEvictionPolicy的策略替换cache中原有的元素。
+ 
+		eternal ：意思是是否永驻内存。如果值是true，cache中的元素将一直保存在内存中，不会因为时间超时而丢失，所以在这个值为true的时候，timeToIdleSeconds和timeToLiveSeconds两个属性的值就不起作用了。
+		 
+		timeToIdleSeconds ：就是访问这个cache中元素的最大间隔时间。如果超过这个时间没有访问这个cache中的某个元素，那么这个元素将被从cache中清除。
+		 
+		timeToLiveSeconds : 这是cache中元素的生存时间。意思是从cache中的某个元素从创建到消亡的时间，从创建开始计时，当超过这个时间，这个元素将被从cache中清除。
+		 
+		overflowToDisk ：溢出是否写入磁盘。系统会根据标签<diskStore path="java.io.tmpdir"/> 中path的值查找对应的属性值，如果系统的java.io.tmpdir的值是 D:/temp，写入磁盘的文件就会放在这个文件夹下。文件的名称是cache的名称，后缀名的data。如：CACHE_FUNC.data。这个属性在解释maxElementsInMemory的时候也已经说过了。
+		 
+		diskExpiryThreadIntervalSeconds  ：磁盘缓存的清理线程运行间隔
+		 
+		memoryStoreEvictionPolicy ：内存存储与释放策略。有三个值：
+		LRU －least recently used
+		LFU －least frequently used
+		FIFO－first in first out, the oldest element by creation time
+		 
+		diskPersistent ： 是否持久化磁盘缓存。当这个属性的值为true时，系统在初始化的时候会在磁盘中查找文件名为cache名称，后缀名为index的的文件，如CACHE_FUNC.index 。这个文件中存放了已经持久化在磁盘中的cache的index，找到后把cache加载到内存。要想把cache真正持久化到磁盘，写程序时必须注意，在是用net.sf.ehcache.Cache的void put (Element element)方法后要使用void flush()方法。
+
+    -->
+
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToLiveSeconds="120"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+     />
+     
+     <cache name="tenant-caches-regions"
+           maxElementsInMemory="10000"
+           overflowToDisk="true"
+           eternal="true"
+           diskPersistent="true"
+           timeToLiveSeconds="0"
+           diskExpiryThreadIntervalSeconds="0"/>
+           
+     <cache name="cs-caches-products"
+           maxElementsInMemory="10000"
+           overflowToDisk="true"
+           eternal="true"
+           diskPersistent="true"
+           timeToLiveSeconds="0"
+           diskExpiryThreadIntervalSeconds="0"/>
+           
+     <cache name="cm-caches-platform"
+           maxElementsInMemory="10000"
+           overflowToDisk="true"
+           eternal="true"
+           diskPersistent="true"
+           timeToLiveSeconds="0"
+           diskExpiryThreadIntervalSeconds="0"/>
+           
+     <cache name="cm-caches-customer"
+           maxElementsInMemory="10000"
+           overflowToDisk="true"
+           eternal="true"
+           diskPersistent="true"
+           timeToLiveSeconds="0"
+           diskExpiryThreadIntervalSeconds="0"/>
+           
+     <cache name="res-caches-resource"
+           maxElementsInMemory="10000"
+           overflowToDisk="true"
+           eternal="true"
+           diskPersistent="true"
+           timeToLiveSeconds="0"
+           diskExpiryThreadIntervalSeconds="0"/>
+           
+     <cache name="base-caches-common"
+           maxElementsInMemory="10000"
+           overflowToDisk="true"
+           eternal="true"
+           diskPersistent="true"
+           timeToLiveSeconds="0"
+           diskExpiryThreadIntervalSeconds="0"/>      
+           
+</ehcache>
+
+

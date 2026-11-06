@@ -1,0 +1,2586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/3.0/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
+	 project-version="6">
+	<property name="defaultPackage" value="com.kdx.vms.model.bean"/>
+	<db-entity name="T_ERP_DATA_SYNC">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DATA_CONTENT" type="VARCHAR" length="2000"/>
+		<db-attribute name="DATA_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="DATA_TYPE" type="VARCHAR" length="20"/>
+		<db-attribute name="SYNC_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="SYNC_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="SYNC_URL" type="VARCHAR" length="200"/>
+	</db-entity>
+	<db-entity name="T_MALL_APPLY_MASTER">
+		<db-attribute name="APPLY_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="APPLY_TIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="AVAILABLE_AMOUNT" type="INTEGER" length="22"/>
+		<db-attribute name="CARD_NUMBER" type="VARCHAR" length="20"/>
+		<db-attribute name="COST_STATUS" type="INTEGER" length="22"/>
+		<db-attribute name="END_TIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="LOCK_AMOUNT" type="INTEGER" length="22"/>
+		<db-attribute name="ONLINE_CARD_ID" type="INTEGER" length="22"/>
+		<db-attribute name="PAY_AMOUNT" type="INTEGER" length="22"/>
+		<db-attribute name="TOTAL_AMOUNT" type="INTEGER" length="22"/>
+		<db-attribute name="USED_AMOUNT" type="INTEGER" length="22"/>
+		<db-attribute name="WECHAT_USER_ID" type="INTEGER" length="22"/>
+	</db-entity>
+	<db-entity name="T_MT_AREA">
+		<db-attribute name="AREA_CODE" type="VARCHAR" length="10"/>
+		<db-attribute name="AREA_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="AREA_LEVEL" type="INTEGER" length="1"/>
+		<db-attribute name="AREA_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="P_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_BENEFICIARY_INFO">
+		<db-attribute name="BENEFICIARY_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="BENEFICIARY_INFO" type="VARCHAR" length="3000"/>
+		<db-attribute name="BENEFICIARY_TYPE" type="INTEGER" length="6"/>
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELETE_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="ENABLE_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="ENABLE_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTIME" type="TIMESTAMP"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_BUSINESS_DISTRICT">
+		<db-attribute name="BUSINESS_DISTRICT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="BUSINESS_DISTRICT_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_CARD_TYPE">
+		<db-attribute name="TYPE_CODE" type="INTEGER" length="22"/>
+		<db-attribute name="TYPE_DESC" type="VARCHAR" length="30"/>
+		<db-attribute name="TYPE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="TYPE_NAME" type="VARCHAR" length="30"/>
+		<db-attribute name="TYPE_ORIGIN" type="VARCHAR" length="30"/>
+	</db-entity>
+	<db-entity name="T_MT_COMPANY">
+		<db-attribute name="COMPANY_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="COMPANY_LEVEL" type="INTEGER" length="1"/>
+		<db-attribute name="COMPANY_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="CUSTOMER_ID" type="INTEGER" length="9"/>
+		<db-attribute name="DELETE_MARK" type="INTEGER" length="22"/>
+		<db-attribute name="EXPORT_STOCK" type="INTEGER" length="9"/>
+		<db-attribute name="MAX_VM_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="P_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_CUSTOMER">
+		<db-attribute name="COLLECTION_ACCOUNT" type="VARCHAR" length="50"/>
+		<db-attribute name="COLLECTION_ACCOUNT_TYPE" type="VARCHAR" length="200"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="CUSTOMER_ADDRESS" type="VARCHAR" length="100"/>
+		<db-attribute name="CUSTOMER_EMAIL" type="VARCHAR" length="50"/>
+		<db-attribute name="CUSTOMER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="CUSTOMER_MODE" type="INTEGER" length="9"/>
+		<db-attribute name="CUSTOMER_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="CUSTOMER_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="GIRO_ACCOUNT" type="VARCHAR" length="50"/>
+		<db-attribute name="GIRO_ACCOUNT_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="GIRO_ACCOUNT_TYPE" type="INTEGER" length="2"/>
+		<db-attribute name="MANAGER_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="MANAGER_PHONE" type="VARCHAR" length="20"/>
+		<db-attribute name="SYNC_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="SYNC_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="TAX_CODE" type="VARCHAR" length="50"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_EXPORT">
+		<db-attribute name="ADDRESS" type="VARCHAR" length="100"/>
+		<db-attribute name="COMPANY_ID" type="INTEGER"/>
+		<db-attribute name="CONDITION" type="VARCHAR" length="128"/>
+		<db-attribute name="CREATE_TIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="CTOR" type="INTEGER"/>
+		<db-attribute name="EXPORT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="TYPE" type="INTEGER" length="4"/>
+	</db-entity>
+	<db-entity name="T_MT_HARDWARE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="HARDWARE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="HD_CATEGORY" type="VARCHAR" length="100"/>
+		<db-attribute name="HD_CODE" type="VARCHAR" length="30"/>
+		<db-attribute name="HD_DESC" type="VARCHAR" length="500"/>
+		<db-attribute name="HD_NAME" type="VARCHAR" length="100"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_NODE">
+		<db-attribute name="AREA_ID" type="INTEGER" length="9"/>
+		<db-attribute name="BUSINESS_DISTRICT_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CITY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELIVERY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="FILL_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="LATITUDE" type="VARCHAR" length="30"/>
+		<db-attribute name="LATITUDE_MARS" type="VARCHAR" length="30"/>
+		<db-attribute name="LINE_ID" type="INTEGER" length="22"/>
+		<db-attribute name="LONGITUDE" type="VARCHAR" length="30"/>
+		<db-attribute name="LONGITUDE_MARS" type="VARCHAR" length="30"/>
+		<db-attribute name="NODE_ADDRESS" type="VARCHAR" length="300"/>
+		<db-attribute name="NODE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="NODE_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="OPT_END_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="OPT_START_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="PARTNER_ID" type="INTEGER" length="9"/>
+		<db-attribute name="PROPERTY_LEVEL" type="VARCHAR" length="20"/>
+		<db-attribute name="PROPERTY_MANAGER" type="VARCHAR" length="50"/>
+		<db-attribute name="PROPERTY_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="PROPERTY_PHONE" type="VARCHAR" length="20"/>
+		<db-attribute name="PROVINCE_ID" type="INTEGER" length="9"/>
+		<db-attribute name="PUT_END_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="PUT_METHOD" type="VARCHAR" length="300"/>
+		<db-attribute name="PUT_START_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="REPAIR_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_PARTNER">
+		<db-attribute name="COLLECTION_ACCOUNT" type="VARCHAR" length="50"/>
+		<db-attribute name="COLLECTION_ACCOUNT_TYPE" type="VARCHAR" length="200"/>
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="MANAGER_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="MANAGER_PHONE" type="VARCHAR" length="20"/>
+		<db-attribute name="PARTNER_ADDRESS" type="VARCHAR" length="200"/>
+		<db-attribute name="PARTNER_EMAIL" type="VARCHAR" length="50"/>
+		<db-attribute name="PARTNER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="PARTNER_NAME" type="VARCHAR" length="100"/>
+		<db-attribute name="PARTNER_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="TAX_CODE" type="VARCHAR" length="50"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_PAY_TYPE">
+		<db-attribute name="CODE" type="INTEGER" length="22"/>
+		<db-attribute name="MT_PAY_TYPE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="UTOR" type="INTEGER" length="22"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="22"/>
+	</db-entity>
+	<db-entity name="T_MT_SIM">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELETE_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="SERVICE_PROVIDER" type="INTEGER" length="1"/>
+		<db-attribute name="SIM_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="SIM_NUMBER" type="VARCHAR" length="20"/>
+		<db-attribute name="SIM_PHONE" type="VARCHAR" length="20"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_SKU">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DB_CODE" type="VARCHAR" length="50"/>
+		<db-attribute name="DEPOSIT" type="INTEGER"/>
+		<db-attribute name="GENERALIZE_TYPE" type="INTEGER" length="9"/>
+		<db-attribute name="IMG_URL" type="VARCHAR" length="250"/>
+		<db-attribute name="INVENTORY_TYPE" type="VARCHAR" length="50"/>
+		<db-attribute name="OFFER_PRICE" type="INTEGER" length="9"/>
+		<db-attribute name="PACKING_SPECIFICATION" type="VARCHAR" length="100"/>
+		<db-attribute name="RESERVE" type="INTEGER" length="1"/>
+		<db-attribute name="SALE_AREA" type="VARCHAR" length="200"/>
+		<db-attribute name="SKU_CODE" type="VARCHAR" length="50"/>
+		<db-attribute name="SKU_COLOR" type="VARCHAR" length="20"/>
+		<db-attribute name="SKU_DESC" type="VARCHAR" length="500"/>
+		<db-attribute name="SKU_HEIGHT" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="SKU_LENGTH" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_MADE_AREA" type="VARCHAR" length="200"/>
+		<db-attribute name="SKU_NAME" type="VARCHAR" length="200"/>
+		<db-attribute name="SKU_PRODUCER" type="VARCHAR" length="100"/>
+		<db-attribute name="SKU_SHELF_LIFE" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_TYPE" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_UNIT" type="VARCHAR" length="50"/>
+		<db-attribute name="SKU_WIDTH" type="INTEGER" length="9"/>
+		<db-attribute name="STORAGE_METHOD" type="VARCHAR" length="200"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VALIDITY_MONITOR" type="INTEGER" length="9"/>
+		<db-attribute name="VALIDITY_TYPE" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_SKU_COMPANY">
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_SKU_IMG">
+		<db-attribute name="DETAIL_DIAGRAM" type="INTEGER" length="22"/>
+		<db-attribute name="IMG_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="IMG_INDEX" type="INTEGER" length="22"/>
+		<db-attribute name="IMG_URL" type="VARCHAR" length="50"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="22"/>
+		<db-attribute name="SOURCE" type="INTEGER" length="22"/>
+	</db-entity>
+	<db-entity name="T_MT_SKU_TYPE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="EXTERNAL_ID" type="VARCHAR" length="100"/>
+		<db-attribute name="P_ID" type="INTEGER" length="9"/>
+		<db-attribute name="TYPE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="TYPE_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_THEME">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELETE_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="PREVIEW_URLS" type="VARCHAR" length="300"/>
+		<db-attribute name="THEME_DESC" type="VARCHAR" length="500"/>
+		<db-attribute name="THEME_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="THEME_MD5" type="VARCHAR" length="32"/>
+		<db-attribute name="THEME_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="THEME_SIZE" type="INTEGER" length="9"/>
+		<db-attribute name="THEME_URL" type="VARCHAR" length="100"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_UPGRADE_PACKAGE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DISABLE" type="INTEGER" length="1"/>
+		<db-attribute name="PACKAGE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="PACKAGE_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="PACKAGE_VERSION" type="VARCHAR" length="50"/>
+		<db-attribute name="RESOURCE_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="1"/>
+	</db-entity>
+	<db-entity name="T_MT_UPGRADE_PLAN">
+		<db-attribute name="AREA_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="END_TIME" type="VARCHAR" length="10"/>
+		<db-attribute name="PACKAGE_ID" type="INTEGER" length="9"/>
+		<db-attribute name="PLAN_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="START_TIME" type="VARCHAR" length="10"/>
+		<db-attribute name="VM_MODEL_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_UPGRADE_VERSION">
+		<db-attribute name="LAST_DOWNLOADED_VER" type="VARCHAR" length="50"/>
+		<db-attribute name="LAST_ISSUED_VER" type="INTEGER" length="50"/>
+		<db-attribute name="LAST_REQ_VER" type="VARCHAR" length="50"/>
+		<db-attribute name="VERSION_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="VERSION_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM">
+		<db-attribute name="CHANNEL_STRUCTURE" type="VARCHAR" length="500"/>
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CREATE_TASK_CYCLE" type="INTEGER" length="3"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELETE_MARK" type="INTEGER" length="9"/>
+		<db-attribute name="HARDWARE_CODE" type="VARCHAR" length="100"/>
+		<db-attribute name="INNER_CODE" type="VARCHAR" length="20"/>
+		<db-attribute name="IS_RESERVE" type="INTEGER" length="1"/>
+		<db-attribute name="NODE_ID" type="INTEGER" length="9"/>
+		<db-attribute name="PRINTER" type="INTEGER" length="1"/>
+		<db-attribute name="P_ID" type="INTEGER"/>
+		<db-attribute name="REPORT_SP_COUNT" type="INTEGER" length="3"/>
+		<db-attribute name="RESERVE" type="INTEGER" length="1"/>
+		<db-attribute name="STOCK_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="UNIQUE_CODE" type="VARCHAR" length="32"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="VM_EXTENTION_NUM" type="INTEGER" length="4"/>
+		<db-attribute name="VM_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="VM_MODEL_ID" type="INTEGER" length="20"/>
+		<db-attribute name="VM_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="VM_TYPE" type="INTEGER" length="1"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_ALARM_SUBSCRIPTION">
+		<db-attribute name="ALARM_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="USER_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_CHANNEL">
+		<db-attribute name="ACCEPT_WIDTH_MAX" type="INTEGER" length="9"/>
+		<db-attribute name="ADJUST_MAX_CAPACITY" type="INTEGER" length="5"/>
+		<db-attribute name="BATCH_NO" type="VARCHAR" length="100"/>
+		<db-attribute name="CHANNEL_CODE" type="VARCHAR" length="10"/>
+		<db-attribute name="CHANNEL_HEIGHT" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="CHANNEL_LONG" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="CHANNEL_WIDTH" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="CURR_NUM" type="INTEGER" length="3"/>
+		<db-attribute name="DISPLAY_MODE" type="INTEGER" length="9"/>
+		<db-attribute name="FIXED_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="HAS_NEXT_STOCK" type="INTEGER" length="1"/>
+		<db-attribute name="INNER_CODE" type="VARCHAR" length="20"/>
+		<db-attribute name="IS_FIXED_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="MANUFACTURE_DATE" type="TIMESTAMP" length="7"/>
+		<db-attribute name="MANUFACTURE_END_DATE" type="TIMESTAMP" length="7"/>
+		<db-attribute name="MAX_CAPACITY" type="INTEGER" length="3"/>
+		<db-attribute name="MERGE_PID" type="INTEGER" length="9"/>
+		<db-attribute name="MERGE_QTY" type="INTEGER" length="2"/>
+		<db-attribute name="PC_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="REMARKS" type="VARCHAR" length="200"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_CHANNEL_NEXT">
+		<db-attribute name="ACCEPT_WIDTH_MAX" type="INTEGER" length="9"/>
+		<db-attribute name="ADJUST_MAX_CAPACITY" type="INTEGER" length="5"/>
+		<db-attribute name="CHANNEL_CODE" type="VARCHAR" length="10"/>
+		<db-attribute name="CHANNEL_HEIGHT" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="CHANNEL_LONG" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="CHANNEL_WIDTH" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DISPLAY_MODE" type="INTEGER" length="9"/>
+		<db-attribute name="FIXED_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="INNER_CODE" type="VARCHAR" length="20"/>
+		<db-attribute name="IS_FIXED_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="MAX_CAPACITY" type="INTEGER" length="3"/>
+		<db-attribute name="MERGE_PID" type="INTEGER" length="9"/>
+		<db-attribute name="MERGE_QTY" type="INTEGER" length="2"/>
+		<db-attribute name="PC_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="REMARKS" type="VARCHAR" length="200"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_ENERGY_SAVE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="END_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="ENERGY_SAVE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="ENERGY_SAVE_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="REMARK" type="VARCHAR" length="200"/>
+		<db-attribute name="START_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="TARGET_VALUE" type="INTEGER" length="9"/>
+		<db-attribute name="TEMP_BOX_NO" type="INTEGER" length="3"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_EVENT">
+		<db-attribute name="DISCOUNT_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="DISCOUNT_VALUE" type="INTEGER" length="9"/>
+		<db-attribute name="EVENT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="EVENT_TYPE" type="INTEGER" length="101"/>
+		<db-attribute name="MASTER_ID" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_EVENT_MASTER">
+		<db-attribute name="BEGIN_DATE" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="END_DATE" type="TIMESTAMP" length="7"/>
+		<db-attribute name="END_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="EVENT_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="EVENT_ID" type="INTEGER" length="9"/>
+		<db-attribute name="EVENT_NAME" type="VARCHAR" length="100"/>
+		<db-attribute name="EVENT_TYPE" type="INTEGER" length="101"/>
+		<db-attribute name="MASTER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="START_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_LOCK">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="EFFECT_DATE" type="TIMESTAMP" length="7"/>
+		<db-attribute name="KEY_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="LOCK_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="LOCK_KEY" type="VARCHAR" length="20"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_MAINTENANCE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="MAINTENANCE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="OPERATION_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="OPERATION_TYPE" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="UVP_UID" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_MODEL">
+		<db-attribute name="ALLOW_MERGE" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_LAYER_QTY" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_PER_LAYER" type="VARCHAR" length="100"/>
+		<db-attribute name="CHANNEL_TYPE" type="INTEGER" length="9"/>
+		<db-attribute name="COLING_HDID" type="INTEGER" length="9"/>
+		<db-attribute name="COMBINATORIAL_PATTERN" type="INTEGER" length="9"/>
+		<db-attribute name="COMPANY_INIT" type="VARCHAR" length="10"/>
+		<db-attribute name="COOLING_YN" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELETE_MARK" type="INTEGER" length="9"/>
+		<db-attribute name="ELEVATOR_PLATFORM_HDID" type="INTEGER" length="9"/>
+		<db-attribute name="ELEVATOR_PLATFORM_YN" type="INTEGER" length="9"/>
+		<db-attribute name="HITTING_HDID" type="INTEGER" length="9"/>
+		<db-attribute name="HITTING_YN" type="INTEGER" length="9"/>
+		<db-attribute name="MACHINE_VIEW" type="INTEGER" length="9"/>
+		<db-attribute name="MODEL_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="MODEL_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="MODEL_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="MODEL_TYPE" type="INTEGER"/>
+		<db-attribute name="RFID_CARD" type="INTEGER" length="9"/>
+		<db-attribute name="SCREEN_HAVE" type="INTEGER" length="9"/>
+		<db-attribute name="SCREEN_SIZE" type="INTEGER" length="9"/>
+		<db-attribute name="SCREEN_TYPE" type="INTEGER" length="9"/>
+		<db-attribute name="SHORTCUTS_QTY" type="INTEGER" length="9"/>
+		<db-attribute name="TEMPERATURE_HANDLER_MODE" type="INTEGER" length="9"/>
+		<db-attribute name="TEMP_BOX_COUNT" type="INTEGER" length="3"/>
+		<db-attribute name="TEMP_CTRL_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VEND_OUT_ARCHITECTURE" type="INTEGER" length="9"/>
+		<db-attribute name="VEND_OUT_TYPE" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_MODEL_CHANNEL">
+		<db-attribute name="ACCEPT_WIDTH_MAX" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_CODE" type="VARCHAR" length="10"/>
+		<db-attribute name="CHANNEL_HEIGHT" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="CHANNEL_LENGTH" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_TYPE" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_WIDTH" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DISPLAY_MODE" type="INTEGER" length="9"/>
+		<db-attribute name="FIXED_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="IS_FIXED_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="MODEL_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_PRICE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="PRICE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="REAL_PRICE" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_RESOURCE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELETE_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="PREVIEW_URLS" type="VARCHAR" length="300"/>
+		<db-attribute name="RESOURCE_DESC" type="VARCHAR" length="500"/>
+		<db-attribute name="RESOURCE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="RESOURCE_MD5" type="VARCHAR" length="32"/>
+		<db-attribute name="RESOURCE_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="RESOURCE_SIZE" type="INTEGER" length="9"/>
+		<db-attribute name="RESOURCE_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="RESOURCE_URL" type="VARCHAR" length="100"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_SHORTCUTS">
+		<db-attribute name="BIND_ID" type="INTEGER" length="9"/>
+		<db-attribute name="BIND_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="SHORTCUTS_CODE" type="VARCHAR" length="5"/>
+		<db-attribute name="SHORTCUTS_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_SKU_SORT">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="SORT" type="INTEGER" length="3"/>
+		<db-attribute name="SORT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_SKU_SORT_NEXT">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="SORT" type="INTEGER" length="9"/>
+		<db-attribute name="SORT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_STRATEGY">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="STRATEGY_NAME" type="VARCHAR" length="100"/>
+		<db-attribute name="STRATEGY_TYPE" type="INTEGER" length="2"/>
+		<db-attribute name="SYSN_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_TEXT">
+		<db-attribute name="BEGIN_DATE" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CUSTOMER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="END_DATE" type="TIMESTAMP" length="7"/>
+		<db-attribute name="TEXT_CONTENTS" type="VARCHAR" length="2000"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_THEME">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="THEME_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_THEME_ENTRANCE">
+		<db-attribute name="ENTRANCE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="ENTRANCE_INDEX" type="INTEGER"/>
+		<db-attribute name="IMG_URL" type="VARCHAR" length="100"/>
+		<db-attribute name="RESOURCE_ID" type="INTEGER" length="22"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="22"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_THEME_FORMAT">
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="THEME_FORMAT" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_VM_VERSION">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DEVICE_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="DEVICE_TYPE" type="INTEGER" length="9"/>
+		<db-attribute name="DEVICE_VERSION" type="VARCHAR" length="50"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VERSION_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_MT_WAREHOUSE">
+		<db-attribute name="CONTACT_NAME" type="VARCHAR" length="20"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DIMENSIONS" type="VARCHAR" length="20"/>
+		<db-attribute name="LONGITUDE" type="VARCHAR" length="20"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="WAREHOUSE_ADDRESS" type="VARCHAR" length="100"/>
+		<db-attribute name="WAREHOUSE_CODE" type="VARCHAR" length="9"/>
+		<db-attribute name="WAREHOUSE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="WAREHOUSE_LEVEL" type="INTEGER" length="1"/>
+		<db-attribute name="WAREHOUSE_MANAGER" type="VARCHAR" length="50"/>
+		<db-attribute name="WAREHOUSE_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="WAREHOUSE_PHONE" type="VARCHAR" length="20"/>
+		<db-attribute name="WAREHOUSE_TYPE" type="VARCHAR" length="1"/>
+	</db-entity>
+	<db-entity name="T_MT_WAREHOUSE_AREA">
+		<db-attribute name="AREA_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="WAREHOUSE_ID" type="INTEGER" length="9"/>
+		<db-attribute name="WA_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+	</db-entity>
+	<db-entity name="T_OPEN_SECRET">
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="CTOR" type="INTEGER" length="38"/>
+		<db-attribute name="ENABLE" type="INTEGER" length="1"/>
+		<db-attribute name="GLOBAL" type="INTEGER" length="38"/>
+		<db-attribute name="PUBLIC_ID" type="VARCHAR" isMandatory="true" length="20"/>
+		<db-attribute name="SECRET_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="38"/>
+		<db-attribute name="SECRET_VALUE" type="VARCHAR" length="200"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="UTOR" type="INTEGER" length="38"/>
+	</db-entity>
+	<db-entity name="T_OPEN_SECRET_SERVICE">
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="38"/>
+		<db-attribute name="SECRET_ID" type="INTEGER" length="38"/>
+		<db-attribute name="SERVICE_ID" type="INTEGER" length="38"/>
+	</db-entity>
+	<db-entity name="T_OPEN_SERVICE">
+		<db-attribute name="SERVICE_DESC" type="VARCHAR" length="300"/>
+		<db-attribute name="SERVICE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="38"/>
+		<db-attribute name="SERVICE_NAME" type="VARCHAR" length="50"/>
+	</db-entity>
+	<db-entity name="T_ORDER_COST">
+		<db-attribute name="COST_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="ORDER_ID" type="INTEGER" length="22"/>
+		<db-attribute name="PAY_PRICE" type="INTEGER" length="9"/>
+		<db-attribute name="PAY_STATUS" type="INTEGER" length="9"/>
+		<db-attribute name="PAY_TIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="PAY_TYPE" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ORDER_COST_DETAIL">
+		<db-attribute name="COST_ACCOUNT" type="VARCHAR" length="100"/>
+		<db-attribute name="COST_DETAIL_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="COST_ID" type="INTEGER" length="22"/>
+		<db-attribute name="COST_PRICE" type="INTEGER" length="22"/>
+		<db-attribute name="COST_TYPE" type="INTEGER" length="22"/>
+		<db-attribute name="PAY_OUTER_SEQ" type="VARCHAR" length="100"/>
+	</db-entity>
+	<db-entity name="T_ORDER_DETAIL">
+		<db-attribute name="DEPOSIT_ID" type="INTEGER" length="9"/>
+		<db-attribute name="DEPOSIT_REFUND_STATUS" type="INTEGER" length="4"/>
+		<db-attribute name="DISCOUNT_PRICE" type="INTEGER" length="9"/>
+		<db-attribute name="EXTRACT_CODE" type="VARCHAR" length="10"/>
+		<db-attribute name="MEMO" type="VARCHAR" length="200"/>
+		<db-attribute name="NOTIFY_STATUS" type="INTEGER" length="9"/>
+		<db-attribute name="ORDER_DETAIL_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="ORDER_ID" type="INTEGER" length="9"/>
+		<db-attribute name="REAL_PRICE" type="INTEGER" length="9"/>
+		<db-attribute name="REFUND_STATUS" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_PRICE" type="INTEGER" length="9"/>
+		<db-attribute name="STATUS" type="INTEGER" length="4"/>
+		<db-attribute name="VALID_TIME" type="VARCHAR" length="20"/>
+		<db-attribute name="VENDOUT_STATUS" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ORDER_DETAIL_COST">
+		<db-attribute name="COST_ACCOUNT" type="VARCHAR" length="100"/>
+		<db-attribute name="COST_PRICE" type="INTEGER" length="22"/>
+		<db-attribute name="COST_TYPE" type="INTEGER" length="22"/>
+		<db-attribute name="ORDER_DETAIL_COST_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="ORDER_DETAIL_ID" type="INTEGER" length="22"/>
+	</db-entity>
+	<db-entity name="T_ORDER_DETAIL_NOTIFY">
+		<db-attribute name="CUSTOMER_PUBLIC_ID" type="VARCHAR" length="20"/>
+		<db-attribute name="NOTIFY_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="NOTIFY_STATUS" type="INTEGER" length="9"/>
+		<db-attribute name="NOTIFY_TIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="NOTIFY_URL" type="VARCHAR" length="200"/>
+		<db-attribute name="ORDER_DETAIL_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ORDER_DETAIL_VENDOUT">
+		<db-attribute name="ORDER_DETAIL_ID" type="INTEGER" length="9"/>
+		<db-attribute name="U_TIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="VENDOUT_CHANNEL_ID" type="INTEGER" length="9"/>
+		<db-attribute name="VENDOUT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="VENDOUT_STATUS" type="INTEGER" length="9"/>
+		<db-attribute name="VENDOUT_TIME" type="TIMESTAMP" length="11"/>
+	</db-entity>
+	<db-entity name="T_ORDER_DISCOUNT">
+		<db-attribute name="COUPON_ID" type="INTEGER" length="9"/>
+		<db-attribute name="DISCOUNT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="ORDER_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ORDER_MASTER">
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CONSIGNEE_ID" type="INTEGER" length="9"/>
+		<db-attribute name="COST_STATUS" type="INTEGER" length="9"/>
+		<db-attribute name="C_TIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="DISCOUNT_TOTAL_PRICE" type="INTEGER" length="9"/>
+		<db-attribute name="ORDER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="ORDER_SEQ" type="VARCHAR" isMandatory="true" length="50"/>
+		<db-attribute name="ORDER_TYPE" type="VARCHAR" length="20"/>
+		<db-attribute name="PAY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="REAL_TOTAL_PRICE" type="INTEGER" isMandatory="true" length="9"/>
+		<db-attribute name="TOTAL_PRICE" type="INTEGER" isMandatory="true" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ORDER_MASTER_ATT">
+		<db-attribute name="CALLBACK_URL" type="VARCHAR" length="200"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="ORDER_MASTER_ID" type="INTEGER" isMandatory="true" length="22"/>
+		<db-attribute name="ORDER_SCENE" type="INTEGER" length="22"/>
+		<db-attribute name="ORDER_SOURCES" type="INTEGER" length="22"/>
+	</db-entity>
+	<db-entity name="T_ORDER_REFUND">
+		<db-attribute name="ACCOUNT" type="VARCHAR" length="50"/>
+		<db-attribute name="AMOUNT" type="INTEGER" length="9"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ORDER_DETAIL_ID" type="INTEGER" length="9"/>
+		<db-attribute name="ORDER_ID" type="INTEGER" length="9"/>
+		<db-attribute name="REFUND_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="REFUND_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="REFUND_SEQ" type="VARCHAR" length="50"/>
+		<db-attribute name="REFUND_STATUS" type="INTEGER" length="9"/>
+		<db-attribute name="REFUND_TIME" type="TIMESTAMP" length="11"/>
+		<db-attribute name="SPARE" type="VARCHAR" length="50"/>
+		<db-attribute name="TYPE" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_RESERVE_STATISTICS">
+		<db-attribute name="DISTRIBUTION_NUM" type="INTEGER" length="22"/>
+		<db-attribute name="MESSAGE_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="PENDING_NUM" type="INTEGER" length="22"/>
+		<db-attribute name="RESERVE_STATISTICS_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="22"/>
+		<db-attribute name="STATISTICS_DATE" type="VARCHAR" length="10"/>
+		<db-attribute name="TOTALNUM" type="INTEGER" length="22"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="22"/>
+	</db-entity>
+	<db-entity name="T_ST_VM_CHANNEL">
+		<db-attribute name="ACCEPT_WIDTH_MAX" type="INTEGER" length="9"/>
+		<db-attribute name="ADJUST_MAX_CAPACITY" type="INTEGER" length="5"/>
+		<db-attribute name="CHANNEL_CODE" type="VARCHAR" length="10"/>
+		<db-attribute name="CHANNEL_HEIGHT" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="CHANNEL_LONG" type="INTEGER" length="9"/>
+		<db-attribute name="CHANNEL_WIDTH" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DISPLAY_MODE" type="INTEGER" length="9"/>
+		<db-attribute name="FIXED_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="INNER_CODE" type="VARCHAR" length="20"/>
+		<db-attribute name="IS_FIXED_CAPACITY" type="INTEGER" length="9"/>
+		<db-attribute name="MAX_CAPACITY" type="INTEGER" length="3"/>
+		<db-attribute name="MERGE_PID" type="INTEGER" length="9"/>
+		<db-attribute name="MERGE_QTY" type="INTEGER" length="2"/>
+		<db-attribute name="PC_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="REMARKS" type="VARCHAR" length="200"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ST_VM_ENERGY_SAVE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="CUSTOMER_ID" type="INTEGER" length="9"/>
+		<db-attribute name="END_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="ENERGY_SAVE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="ENERGY_SAVE_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="REMARK" type="VARCHAR" length="200"/>
+		<db-attribute name="START_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="TARGET_VALUE" type="INTEGER" length="9"/>
+		<db-attribute name="TEMP_BOX_NO" type="INTEGER" length="3"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ST_VM_EVENT">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DISCOUNT_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="DISCOUNT_VALUE" type="INTEGER" length="9"/>
+		<db-attribute name="EVENT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="EVENT_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ST_VM_PRICE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="PRICE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="REAL_PRICE" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ST_VM_SHORTCUTS">
+		<db-attribute name="BIND_ID" type="INTEGER" length="9"/>
+		<db-attribute name="BIND_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="SHORTCUTS_CODE" type="VARCHAR" length="5"/>
+		<db-attribute name="SHORTCUTS_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ST_VM_SKU_SORT">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="SORT" type="INTEGER" length="3"/>
+		<db-attribute name="SORT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ST_VM_STRATEGY">
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="MODEL_ID" type="INTEGER" length="9"/>
+		<db-attribute name="STRATEGY_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="STRATEGY_NAME" type="VARCHAR" length="100"/>
+		<db-attribute name="STRATEGY_TYPE" type="INTEGER" length="2"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_ST_VM_TEXT">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="END_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="START_TIME" type="VARCHAR" length="8"/>
+		<db-attribute name="STRATEGY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="ST_TEXT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="TEXT_CONTENTS" type="VARCHAR" length="2000"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_SYS_DICTIONARY">
+		<db-attribute name="DICTIONARY_CODE" type="VARCHAR" length="50"/>
+		<db-attribute name="DICTIONARY_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="DICTIONARY_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="DICTIONARY_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="DICTIONARY_STATE" type="INTEGER" length="9"/>
+		<db-attribute name="TYPE_INFO_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_SYS_ELEMENT">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ELEMENT_CODE" type="VARCHAR" length="50"/>
+		<db-attribute name="ELEMENT_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="ELEMENT_INDEX" type="INTEGER" length="9"/>
+		<db-attribute name="ELEMENT_MODULE" type="INTEGER" length="2"/>
+		<db-attribute name="ELEMENT_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="ELEMENT_TYPE" type="VARCHAR" length="50"/>
+		<db-attribute name="ELEMENT_URL" type="VARCHAR" length="100"/>
+		<db-attribute name="P_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_SYS_LOG">
+		<db-attribute name="LOG_DESC" type="VARCHAR" length="2000"/>
+		<db-attribute name="LOG_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="LOG_OPERATION" type="VARCHAR" length="500"/>
+		<db-attribute name="LOG_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="MODULE_ID" type="INTEGER" length="9"/>
+		<db-attribute name="USER_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_SYS_ROLE">
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ROLE_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="ROLE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="ROLE_LEVEL" type="INTEGER" length="1"/>
+		<db-attribute name="ROLE_NAME" type="VARCHAR" length="50"/>
+		<db-attribute name="ROLE_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_SYS_ROLE_ELEMENT">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ELEMENT_ID" type="INTEGER" length="9"/>
+		<db-attribute name="RE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="ROLE_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_SYS_SETTINGS">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="KEY" type="VARCHAR" length="32"/>
+		<db-attribute name="NAME" type="VARCHAR" length="256"/>
+		<db-attribute name="PID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VALUE" type="VARCHAR" length="256"/>
+	</db-entity>
+	<db-entity name="T_SYS_TYPE_INFO">
+		<db-attribute name="TYPE_CODE" type="VARCHAR" length="50"/>
+		<db-attribute name="TYPE_DESC" type="VARCHAR" length="200"/>
+		<db-attribute name="TYPE_INFO_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="TYPE_NAME" type="VARCHAR" length="50"/>
+	</db-entity>
+	<db-entity name="T_SYS_USER">
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELETE_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="FAIL_COUNT" type="INTEGER" length="2"/>
+		<db-attribute name="LOCK_MARK" type="INTEGER" length="1"/>
+		<db-attribute name="LOGIN_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="USER_ACCOUNT" type="VARCHAR" length="32"/>
+		<db-attribute name="USER_EMAIL" type="VARCHAR" length="50"/>
+		<db-attribute name="USER_GENDER" type="INTEGER" length="1"/>
+		<db-attribute name="USER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="USER_NAME" type="VARCHAR" length="20"/>
+		<db-attribute name="USER_PASSWORD" type="VARCHAR" length="32"/>
+		<db-attribute name="USER_PHONE" type="VARCHAR" length="20"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_SYS_USER_BIND">
+		<db-attribute name="BIND_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="BIND_TYPE" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="OUTER_ID" type="VARCHAR" length="50"/>
+		<db-attribute name="USER_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_SYS_USER_ROLE">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ROLE_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UR_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="USER_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_TASK_PICKUP_HIS">
+		<db-attribute name="PICKUP_COUNT" type="INTEGER" length="9"/>
+		<db-attribute name="PICKUP_SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="PICKUP_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="PICKUP_USER_ID" type="INTEGER" length="9"/>
+		<db-attribute name="TASK_PICKUP_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+	</db-entity>
+	<db-entity name="T_TASK_VM">
+		<db-attribute name="ALREADY_PICKUP" type="INTEGER" length="1"/>
+		<db-attribute name="COMPANY_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DELIVERY_PATTERN" type="INTEGER" length="9"/>
+		<db-attribute name="FINISH_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="OWNER" type="INTEGER" length="9"/>
+		<db-attribute name="TASK_LEVEL" type="INTEGER" length="1"/>
+		<db-attribute name="TASK_REMARKS" type="VARCHAR" length="2000"/>
+		<db-attribute name="TASK_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="TASK_TITLE" type="VARCHAR" length="200"/>
+		<db-attribute name="TASK_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="TASK_VM_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="TASK_VM_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_TASK_VM_CHANNEL">
+		<db-attribute name="AFTER_DELIVERY_STOCK" type="INTEGER" length="3"/>
+		<db-attribute name="BEFORE_DELIVERY_STOCK" type="INTEGER" length="3"/>
+		<db-attribute name="CHANNEL_ID" type="INTEGER" length="9"/>
+		<db-attribute name="CLEAR_COUNT" type="INTEGER" length="9"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="MAX_COUNT" type="INTEGER" length="9"/>
+		<db-attribute name="REAL_CLEAR" type="INTEGER" length="9"/>
+		<db-attribute name="REAL_COUNT" type="INTEGER" length="9"/>
+		<db-attribute name="SKU_COUNT" type="INTEGER" length="3"/>
+		<db-attribute name="SKU_ID" type="INTEGER" length="9"/>
+		<db-attribute name="TASK_REMARKS" type="VARCHAR" length="200"/>
+		<db-attribute name="TASK_TYPE" type="INTEGER" length="1"/>
+		<db-attribute name="TASK_VM_CHANNEL_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="TASK_VM_ID" type="INTEGER" length="9"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+	</db-entity>
+	<db-entity name="T_VM_OPERATION_HIS">
+		<db-attribute name="CLIENT_TIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_DOOR_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+		<db-attribute name="VM_OPERATION_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+	</db-entity>
+	<db-entity name="T_VM_STATUS">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="ONLINE_STATUS" type="INTEGER" length="22"/>
+		<db-attribute name="TASK_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="TEMP_STATUS" type="INTEGER"/>
+		<db-attribute name="TEMP_VALUE" type="VARCHAR" length="500"/>
+		<db-attribute name="UTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="UTOR" type="INTEGER" length="9"/>
+		<db-attribute name="VM_DOOR_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+		<db-attribute name="VM_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="VM_STATUS_DATAIL" type="VARCHAR" length="2000"/>
+		<db-attribute name="VM_STATUS_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="9"/>
+		<db-attribute name="VM_TIME" type="TIMESTAMP" length="7"/>
+	</db-entity>
+	<db-entity name="T_VM_STATUS_HIS">
+		<db-attribute name="CTIME" type="TIMESTAMP" length="7"/>
+		<db-attribute name="CTOR" type="INTEGER" length="9"/>
+		<db-attribute name="DOOR_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="TEMP_VALUE" type="VARCHAR" length="500"/>
+		<db-attribute name="VM_ID" type="INTEGER" length="9"/>
+		<db-attribute name="VM_STATUS" type="INTEGER" length="1"/>
+		<db-attribute name="VM_STATUS_DATAIL" type="VARCHAR" length="2000"/>
+		<db-attribute name="VM_STATUS_HIS_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="22"/>
+		<db-attribute name="VM_TIME" type="TIMESTAMP" length="7"/>
+	</db-entity>
+	<db-entity name="T_WECHAT_USER">
+		<db-attribute name="NICK_NAME" type="VARCHAR" length="32"/>
+		<db-attribute name="OPEN_ID" type="VARCHAR" isMandatory="true" length="50"/>
+		<db-attribute name="PHONE" type="VARCHAR" length="15"/>
+		<db-attribute name="PHOTO" type="VARCHAR" length="500"/>
+		<db-attribute name="USER_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<obj-entity name="TErpDataSync" className="com.kdx.vms.model.bean.TErpDataSync" dbEntityName="T_ERP_DATA_SYNC">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="dataContent" type="java.lang.String" db-attribute-path="DATA_CONTENT"/>
+		<obj-attribute name="dataType" type="java.lang.String" db-attribute-path="DATA_TYPE"/>
+		<obj-attribute name="syncMark" type="java.lang.Integer" db-attribute-path="SYNC_MARK"/>
+		<obj-attribute name="syncTime" type="java.util.Date" db-attribute-path="SYNC_TIME"/>
+		<obj-attribute name="syncUrl" type="java.lang.String" db-attribute-path="SYNC_URL"/>
+	</obj-entity>
+	<obj-entity name="TMallApplyMaster" className="com.kdx.vms.model.bean.TMallApplyMaster" dbEntityName="T_MALL_APPLY_MASTER">
+		<obj-attribute name="applyTime" type="java.util.Date" db-attribute-path="APPLY_TIME"/>
+		<obj-attribute name="availableAmount" type="java.lang.Integer" db-attribute-path="AVAILABLE_AMOUNT"/>
+		<obj-attribute name="cardNumber" type="java.lang.String" db-attribute-path="CARD_NUMBER"/>
+		<obj-attribute name="costStatus" type="java.lang.Integer" db-attribute-path="COST_STATUS"/>
+		<obj-attribute name="endTime" type="java.util.Date" db-attribute-path="END_TIME"/>
+		<obj-attribute name="lockAmount" type="java.lang.Integer" db-attribute-path="LOCK_AMOUNT"/>
+		<obj-attribute name="onlineCardId" type="java.lang.Integer" db-attribute-path="ONLINE_CARD_ID"/>
+		<obj-attribute name="payAmount" type="java.lang.Integer" db-attribute-path="PAY_AMOUNT"/>
+		<obj-attribute name="totalAmount" type="java.lang.Integer" db-attribute-path="TOTAL_AMOUNT"/>
+		<obj-attribute name="usedAmount" type="java.lang.Integer" db-attribute-path="USED_AMOUNT"/>
+		<obj-attribute name="wechatUserId" type="java.lang.Integer" db-attribute-path="WECHAT_USER_ID"/>
+	</obj-entity>
+	<obj-entity name="TMtArea" className="com.kdx.vms.model.bean.TMtArea" dbEntityName="T_MT_AREA">
+		<obj-attribute name="areaCode" type="java.lang.String" db-attribute-path="AREA_CODE"/>
+		<obj-attribute name="areaLevel" type="java.lang.Integer" db-attribute-path="AREA_LEVEL"/>
+		<obj-attribute name="areaName" type="java.lang.String" db-attribute-path="AREA_NAME"/>
+	</obj-entity>
+	<obj-entity name="TMtBeneficiaryInfo" className="com.kdx.vms.model.bean.TMtBeneficiaryInfo" dbEntityName="T_MT_BENEFICIARY_INFO">
+		<obj-attribute name="beneficiaryInfo" type="java.lang.String" db-attribute-path="BENEFICIARY_INFO"/>
+		<obj-attribute name="beneficiaryType" type="java.lang.Integer" db-attribute-path="BENEFICIARY_TYPE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deleteMark" type="java.lang.Integer" db-attribute-path="DELETE_MARK"/>
+		<obj-attribute name="enableMark" type="java.lang.Integer" db-attribute-path="ENABLE_MARK"/>
+		<obj-attribute name="enableTime" type="java.util.Date" db-attribute-path="ENABLE_TIME"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtBusinessDistrict" className="com.kdx.vms.model.bean.TMtBusinessDistrict" dbEntityName="T_MT_BUSINESS_DISTRICT">
+		<obj-attribute name="businessDistrictName" type="java.lang.String" db-attribute-path="BUSINESS_DISTRICT_NAME"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtCardType" className="com.kdx.vms.model.bean.TMtCardType" dbEntityName="T_MT_CARD_TYPE">
+		<obj-attribute name="typeCode" type="java.lang.Integer" db-attribute-path="TYPE_CODE"/>
+		<obj-attribute name="typeDesc" type="java.lang.String" db-attribute-path="TYPE_DESC"/>
+		<obj-attribute name="typeName" type="java.lang.String" db-attribute-path="TYPE_NAME"/>
+		<obj-attribute name="typeOrigin" type="java.lang.String" db-attribute-path="TYPE_ORIGIN"/>
+	</obj-entity>
+	<obj-entity name="TMtCompany" className="com.kdx.vms.model.bean.TMtCompany" dbEntityName="T_MT_COMPANY">
+		<obj-attribute name="companyLevel" type="java.lang.Integer" db-attribute-path="COMPANY_LEVEL"/>
+		<obj-attribute name="companyName" type="java.lang.String" db-attribute-path="COMPANY_NAME"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deleteMark" type="java.lang.Integer" db-attribute-path="DELETE_MARK"/>
+		<obj-attribute name="exportStock" type="java.lang.Integer" db-attribute-path="EXPORT_STOCK"/>
+		<obj-attribute name="maxVmCapacity" type="java.lang.Integer" db-attribute-path="MAX_VM_CAPACITY"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtCustomer" className="com.kdx.vms.model.bean.TMtCustomer" dbEntityName="T_MT_CUSTOMER">
+		<obj-attribute name="collectionAccount" type="java.lang.String" db-attribute-path="COLLECTION_ACCOUNT"/>
+		<obj-attribute name="collectionAccountType" type="java.lang.String" db-attribute-path="COLLECTION_ACCOUNT_TYPE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="customerAddress" type="java.lang.String" db-attribute-path="CUSTOMER_ADDRESS"/>
+		<obj-attribute name="customerEmail" type="java.lang.String" db-attribute-path="CUSTOMER_EMAIL"/>
+		<obj-attribute name="customerMode" type="java.lang.Integer" db-attribute-path="CUSTOMER_MODE"/>
+		<obj-attribute name="customerName" type="java.lang.String" db-attribute-path="CUSTOMER_NAME"/>
+		<obj-attribute name="customerType" type="java.lang.Integer" db-attribute-path="CUSTOMER_TYPE"/>
+		<obj-attribute name="giroAccount" type="java.lang.String" db-attribute-path="GIRO_ACCOUNT"/>
+		<obj-attribute name="giroAccountName" type="java.lang.String" db-attribute-path="GIRO_ACCOUNT_NAME"/>
+		<obj-attribute name="giroAccountType" type="java.lang.Integer" db-attribute-path="GIRO_ACCOUNT_TYPE"/>
+		<obj-attribute name="managerName" type="java.lang.String" db-attribute-path="MANAGER_NAME"/>
+		<obj-attribute name="managerPhone" type="java.lang.String" db-attribute-path="MANAGER_PHONE"/>
+		<obj-attribute name="syncMark" type="java.lang.Integer" db-attribute-path="SYNC_MARK"/>
+		<obj-attribute name="syncTime" type="java.util.Date" db-attribute-path="SYNC_TIME"/>
+		<obj-attribute name="taxCode" type="java.lang.String" db-attribute-path="TAX_CODE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtExport" className="com.kdx.vms.model.bean.TMtExport" dbEntityName="T_MT_EXPORT">
+		<obj-attribute name="address" type="java.lang.String" db-attribute-path="ADDRESS"/>
+		<obj-attribute name="companyId" type="java.lang.Integer" db-attribute-path="COMPANY_ID"/>
+		<obj-attribute name="condition" type="java.lang.String" db-attribute-path="CONDITION"/>
+		<obj-attribute name="createTime" type="java.util.Date" db-attribute-path="CREATE_TIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="type" type="java.lang.Integer" db-attribute-path="TYPE"/>
+	</obj-entity>
+	<obj-entity name="TMtHardware" className="com.kdx.vms.model.bean.TMtHardware" dbEntityName="T_MT_HARDWARE" exclude-default-listeners="true">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="hdCategory" type="java.lang.String" db-attribute-path="HD_CATEGORY"/>
+		<obj-attribute name="hdCode" type="java.lang.String" db-attribute-path="HD_CODE"/>
+		<obj-attribute name="hdDesc" type="java.lang.String" db-attribute-path="HD_DESC"/>
+		<obj-attribute name="hdName" type="java.lang.String" db-attribute-path="HD_NAME"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtNode" className="com.kdx.vms.model.bean.TMtNode" dbEntityName="T_MT_NODE">
+		<obj-attribute name="areaId" type="java.lang.Integer" db-attribute-path="AREA_ID"/>
+		<obj-attribute name="businessDistrictId" type="java.lang.Integer" db-attribute-path="BUSINESS_DISTRICT_ID"/>
+		<obj-attribute name="cityId" type="java.lang.Integer" db-attribute-path="CITY_ID"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="fillType" type="java.lang.Integer" db-attribute-path="FILL_TYPE"/>
+		<obj-attribute name="latitude" type="java.lang.String" db-attribute-path="LATITUDE"/>
+		<obj-attribute name="latitudeMars" type="java.lang.String" db-attribute-path="LATITUDE_MARS"/>
+		<obj-attribute name="lineId" type="java.lang.Integer" db-attribute-path="LINE_ID"/>
+		<obj-attribute name="longitude" type="java.lang.String" db-attribute-path="LONGITUDE"/>
+		<obj-attribute name="longitudeMars" type="java.lang.String" db-attribute-path="LONGITUDE_MARS"/>
+		<obj-attribute name="nodeAddress" type="java.lang.String" db-attribute-path="NODE_ADDRESS"/>
+		<obj-attribute name="nodeName" type="java.lang.String" db-attribute-path="NODE_NAME"/>
+		<obj-attribute name="optEndTime" type="java.lang.String" db-attribute-path="OPT_END_TIME"/>
+		<obj-attribute name="optStartTime" type="java.lang.String" db-attribute-path="OPT_START_TIME"/>
+		<obj-attribute name="propertyLevel" type="java.lang.String" db-attribute-path="PROPERTY_LEVEL"/>
+		<obj-attribute name="propertyManager" type="java.lang.String" db-attribute-path="PROPERTY_MANAGER"/>
+		<obj-attribute name="propertyName" type="java.lang.String" db-attribute-path="PROPERTY_NAME"/>
+		<obj-attribute name="propertyPhone" type="java.lang.String" db-attribute-path="PROPERTY_PHONE"/>
+		<obj-attribute name="provinceId" type="java.lang.Integer" db-attribute-path="PROVINCE_ID"/>
+		<obj-attribute name="putEndTime" type="java.lang.String" db-attribute-path="PUT_END_TIME"/>
+		<obj-attribute name="putMethod" type="java.lang.String" db-attribute-path="PUT_METHOD"/>
+		<obj-attribute name="putStartTime" type="java.lang.String" db-attribute-path="PUT_START_TIME"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtPartner" className="com.kdx.vms.model.bean.TMtPartner" dbEntityName="T_MT_PARTNER">
+		<obj-attribute name="collectionAccount" type="java.lang.String" db-attribute-path="COLLECTION_ACCOUNT"/>
+		<obj-attribute name="collectionAccountType" type="java.lang.String" db-attribute-path="COLLECTION_ACCOUNT_TYPE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="managerName" type="java.lang.String" db-attribute-path="MANAGER_NAME"/>
+		<obj-attribute name="managerPhone" type="java.lang.String" db-attribute-path="MANAGER_PHONE"/>
+		<obj-attribute name="partnerAddress" type="java.lang.String" db-attribute-path="PARTNER_ADDRESS"/>
+		<obj-attribute name="partnerEmail" type="java.lang.String" db-attribute-path="PARTNER_EMAIL"/>
+		<obj-attribute name="partnerName" type="java.lang.String" db-attribute-path="PARTNER_NAME"/>
+		<obj-attribute name="partnerType" type="java.lang.Integer" db-attribute-path="PARTNER_TYPE"/>
+		<obj-attribute name="taxCode" type="java.lang.String" db-attribute-path="TAX_CODE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtPayType" className="com.kdx.vms.model.bean.TMtPayType" dbEntityName="T_MT_PAY_TYPE">
+		<obj-attribute name="code" type="java.lang.Integer" db-attribute-path="CODE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtSim" className="com.kdx.vms.model.bean.TMtSim" dbEntityName="T_MT_SIM">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deleteMark" type="java.lang.Integer" db-attribute-path="DELETE_MARK"/>
+		<obj-attribute name="serviceProvider" type="java.lang.Integer" db-attribute-path="SERVICE_PROVIDER"/>
+		<obj-attribute name="simNumber" type="java.lang.String" db-attribute-path="SIM_NUMBER"/>
+		<obj-attribute name="simPhone" type="java.lang.String" db-attribute-path="SIM_PHONE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtSku" className="com.kdx.vms.model.bean.TMtSku" dbEntityName="T_MT_SKU">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="dbCode" type="java.lang.String" db-attribute-path="DB_CODE"/>
+		<obj-attribute name="deposit" type="java.lang.Integer" db-attribute-path="DEPOSIT"/>
+		<obj-attribute name="generalizeType" type="java.lang.Integer" db-attribute-path="GENERALIZE_TYPE"/>
+		<obj-attribute name="imgUrl" type="java.lang.String" db-attribute-path="IMG_URL"/>
+		<obj-attribute name="inventoryType" type="java.lang.String" db-attribute-path="INVENTORY_TYPE"/>
+		<obj-attribute name="offerPrice" type="java.lang.Integer" db-attribute-path="OFFER_PRICE"/>
+		<obj-attribute name="packingSpecification" type="java.lang.String" db-attribute-path="PACKING_SPECIFICATION"/>
+		<obj-attribute name="reserve" type="java.lang.Integer" db-attribute-path="RESERVE"/>
+		<obj-attribute name="saleArea" type="java.lang.String" db-attribute-path="SALE_AREA"/>
+		<obj-attribute name="skuCode" type="java.lang.String" db-attribute-path="SKU_CODE"/>
+		<obj-attribute name="skuColor" type="java.lang.String" db-attribute-path="SKU_COLOR"/>
+		<obj-attribute name="skuDesc" type="java.lang.String" db-attribute-path="SKU_DESC"/>
+		<obj-attribute name="skuHeight" type="java.lang.Integer" db-attribute-path="SKU_HEIGHT"/>
+		<obj-attribute name="skuLength" type="java.lang.Integer" db-attribute-path="SKU_LENGTH"/>
+		<obj-attribute name="skuMadeArea" type="java.lang.String" db-attribute-path="SKU_MADE_AREA"/>
+		<obj-attribute name="skuName" type="java.lang.String" db-attribute-path="SKU_NAME"/>
+		<obj-attribute name="skuProducer" type="java.lang.String" db-attribute-path="SKU_PRODUCER"/>
+		<obj-attribute name="skuShelfLife" type="java.lang.Integer" db-attribute-path="SKU_SHELF_LIFE"/>
+		<obj-attribute name="skuUnit" type="java.lang.String" db-attribute-path="SKU_UNIT"/>
+		<obj-attribute name="skuWidth" type="java.lang.Integer" db-attribute-path="SKU_WIDTH"/>
+		<obj-attribute name="storageMethod" type="java.lang.String" db-attribute-path="STORAGE_METHOD"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="validityMonitor" type="java.lang.Integer" db-attribute-path="VALIDITY_MONITOR"/>
+		<obj-attribute name="validityType" type="java.lang.Integer" db-attribute-path="VALIDITY_TYPE"/>
+	</obj-entity>
+	<obj-entity name="TMtSkuCompany" className="com.kdx.vms.model.bean.TMtSkuCompany" dbEntityName="T_MT_SKU_COMPANY">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtSkuImg" className="com.kdx.vms.model.bean.TMtSkuImg" dbEntityName="T_MT_SKU_IMG">
+		<obj-attribute name="detailDiagram" type="java.lang.Integer" db-attribute-path="DETAIL_DIAGRAM"/>
+		<obj-attribute name="imgIndex" type="java.lang.Integer" db-attribute-path="IMG_INDEX"/>
+		<obj-attribute name="imgUrl" type="java.lang.String" db-attribute-path="IMG_URL"/>
+		<obj-attribute name="source" type="java.lang.Integer" db-attribute-path="SOURCE"/>
+	</obj-entity>
+	<obj-entity name="TMtSkuType" className="com.kdx.vms.model.bean.TMtSkuType" dbEntityName="T_MT_SKU_TYPE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="externalId" type="java.lang.String" db-attribute-path="EXTERNAL_ID"/>
+		<obj-attribute name="typeName" type="java.lang.String" db-attribute-path="TYPE_NAME"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtTheme" className="com.kdx.vms.model.bean.TMtTheme" dbEntityName="T_MT_THEME">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deleteMark" type="com.kdx.vms.model.enumeration.DeleteMark" db-attribute-path="DELETE_MARK"/>
+		<obj-attribute name="previewUrls" type="java.lang.String" db-attribute-path="PREVIEW_URLS"/>
+		<obj-attribute name="themeDesc" type="java.lang.String" db-attribute-path="THEME_DESC"/>
+		<obj-attribute name="themeMd5" type="java.lang.String" db-attribute-path="THEME_MD5"/>
+		<obj-attribute name="themeName" type="java.lang.String" db-attribute-path="THEME_NAME"/>
+		<obj-attribute name="themeSize" type="java.lang.Long" db-attribute-path="THEME_SIZE"/>
+		<obj-attribute name="themeUrl" type="java.lang.String" db-attribute-path="THEME_URL"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtUpgradePackage" className="com.kdx.vms.model.bean.TMtUpgradePackage" dbEntityName="T_MT_UPGRADE_PACKAGE">
+		<obj-attribute name="Disable" type="java.lang.Integer" db-attribute-path="DISABLE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="packageType" type="java.lang.Integer" db-attribute-path="PACKAGE_TYPE"/>
+		<obj-attribute name="packageVersion" type="java.lang.String" db-attribute-path="PACKAGE_VERSION"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtUpgradePlan" className="com.kdx.vms.model.bean.TMtUpgradePlan" dbEntityName="T_MT_UPGRADE_PLAN">
+		<obj-attribute name="areaId" type="java.lang.Integer" db-attribute-path="AREA_ID"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="endTime" type="java.lang.String" db-attribute-path="END_TIME"/>
+		<obj-attribute name="startTime" type="java.lang.String" db-attribute-path="START_TIME"/>
+		<obj-attribute name="vmModelId" type="java.lang.Integer" db-attribute-path="VM_MODEL_ID"/>
+	</obj-entity>
+	<obj-entity name="TMtUpgradeVersion" className="com.kdx.vms.model.bean.TMtUpgradeVersion" dbEntityName="T_MT_UPGRADE_VERSION">
+		<obj-attribute name="lastDownloadedVer" type="java.lang.String" db-attribute-path="LAST_DOWNLOADED_VER"/>
+		<obj-attribute name="lastIssuedVer" type="java.lang.Integer" db-attribute-path="LAST_ISSUED_VER"/>
+		<obj-attribute name="lastReqVer" type="java.lang.String" db-attribute-path="LAST_REQ_VER"/>
+		<obj-attribute name="versionType" type="java.lang.Integer" db-attribute-path="VERSION_TYPE"/>
+	</obj-entity>
+	<obj-entity name="TMtVm" className="com.kdx.vms.model.bean.TMtVm" dbEntityName="T_MT_VM">
+		<obj-attribute name="channelStructure" type="java.lang.String" db-attribute-path="CHANNEL_STRUCTURE"/>
+		<obj-attribute name="createTaskCycle" type="java.lang.Integer" db-attribute-path="CREATE_TASK_CYCLE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deleteMark" type="java.lang.Integer" db-attribute-path="DELETE_MARK"/>
+		<obj-attribute name="hardwareCode" type="java.lang.String" db-attribute-path="HARDWARE_CODE"/>
+		<obj-attribute name="innerCode" type="java.lang.String" db-attribute-path="INNER_CODE"/>
+		<obj-attribute name="isReserve" type="java.lang.Integer" db-attribute-path="IS_RESERVE"/>
+		<obj-attribute name="printer" type="java.lang.Integer" db-attribute-path="PRINTER"/>
+		<obj-attribute name="reportSpCount" type="java.lang.Integer" db-attribute-path="REPORT_SP_COUNT"/>
+		<obj-attribute name="reserve" type="java.lang.Integer" db-attribute-path="RESERVE"/>
+		<obj-attribute name="stockStatus" type="java.lang.Integer" db-attribute-path="STOCK_STATUS"/>
+		<obj-attribute name="uniqueCode" type="java.lang.String" db-attribute-path="UNIQUE_CODE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="vmDesc" type="java.lang.String" db-attribute-path="VM_DESC"/>
+		<obj-attribute name="vmExtentionNum" type="java.lang.Integer" db-attribute-path="VM_EXTENTION_NUM"/>
+		<obj-attribute name="vmModelId" type="java.lang.Integer" db-attribute-path="VM_MODEL_ID"/>
+		<obj-attribute name="vmStatus" type="java.lang.Integer" db-attribute-path="VM_STATUS"/>
+		<obj-attribute name="vmType" type="java.lang.Integer" db-attribute-path="VM_TYPE"/>
+	</obj-entity>
+	<obj-entity name="TMtVmAlarmSubscription" className="com.kdx.vms.model.bean.TMtVmAlarmSubscription" dbEntityName="T_MT_VM_ALARM_SUBSCRIPTION">
+		<obj-attribute name="companyId" type="java.lang.Integer" db-attribute-path="COMPANY_ID"/>
+		<obj-attribute name="userId" type="java.lang.Integer" db-attribute-path="USER_ID"/>
+	</obj-entity>
+	<obj-entity name="TMtVmChannel" className="com.kdx.vms.model.bean.TMtVmChannel" dbEntityName="T_MT_VM_CHANNEL">
+		<obj-attribute name="acceptWidthMax" type="java.lang.Integer" db-attribute-path="ACCEPT_WIDTH_MAX"/>
+		<obj-attribute name="adjustMaxCapacity" type="java.lang.Integer" db-attribute-path="ADJUST_MAX_CAPACITY"/>
+		<obj-attribute name="batchNo" type="java.lang.String" db-attribute-path="BATCH_NO"/>
+		<obj-attribute name="channelCode" type="java.lang.String" db-attribute-path="CHANNEL_CODE"/>
+		<obj-attribute name="channelHeight" type="java.lang.Integer" db-attribute-path="CHANNEL_HEIGHT"/>
+		<obj-attribute name="channelLong" type="java.lang.Integer" db-attribute-path="CHANNEL_LONG"/>
+		<obj-attribute name="channelStatus" type="java.lang.Integer" db-attribute-path="CHANNEL_STATUS"/>
+		<obj-attribute name="channelWidth" type="java.lang.Integer" db-attribute-path="CHANNEL_WIDTH"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="currNum" type="java.lang.Integer" db-attribute-path="CURR_NUM"/>
+		<obj-attribute name="displayMode" type="java.lang.Integer" db-attribute-path="DISPLAY_MODE"/>
+		<obj-attribute name="fixedCapacity" type="java.lang.Integer" db-attribute-path="FIXED_CAPACITY"/>
+		<obj-attribute name="hasNextStock" type="java.lang.Integer" db-attribute-path="HAS_NEXT_STOCK"/>
+		<obj-attribute name="innerCode" type="java.lang.String" db-attribute-path="INNER_CODE"/>
+		<obj-attribute name="isFixedCapacity" type="java.lang.Integer" db-attribute-path="IS_FIXED_CAPACITY"/>
+		<obj-attribute name="manufactureDate" type="java.util.Date" db-attribute-path="MANUFACTURE_DATE"/>
+		<obj-attribute name="manufactureEndDate" type="java.util.Date" db-attribute-path="MANUFACTURE_END_DATE"/>
+		<obj-attribute name="maxCapacity" type="java.lang.Integer" db-attribute-path="MAX_CAPACITY"/>
+		<obj-attribute name="mergePid" type="java.lang.Integer" db-attribute-path="MERGE_PID"/>
+		<obj-attribute name="mergeQty" type="java.lang.Integer" db-attribute-path="MERGE_QTY"/>
+		<obj-attribute name="pcType" type="java.lang.Integer" db-attribute-path="PC_TYPE"/>
+		<obj-attribute name="remarks" type="java.lang.String" db-attribute-path="REMARKS"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmChannelNext" className="com.kdx.vms.model.bean.TMtVmChannelNext" dbEntityName="T_MT_VM_CHANNEL_NEXT">
+		<obj-attribute name="acceptWidthMax" type="java.lang.Integer" db-attribute-path="ACCEPT_WIDTH_MAX"/>
+		<obj-attribute name="adjustMaxCapacity" type="java.lang.Integer" db-attribute-path="ADJUST_MAX_CAPACITY"/>
+		<obj-attribute name="channelCode" type="java.lang.String" db-attribute-path="CHANNEL_CODE"/>
+		<obj-attribute name="channelHeight" type="java.lang.Integer" db-attribute-path="CHANNEL_HEIGHT"/>
+		<obj-attribute name="channelLong" type="java.lang.Integer" db-attribute-path="CHANNEL_LONG"/>
+		<obj-attribute name="channelStatus" type="java.lang.Integer" db-attribute-path="CHANNEL_STATUS"/>
+		<obj-attribute name="channelWidth" type="java.lang.Integer" db-attribute-path="CHANNEL_WIDTH"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="displayMode" type="java.lang.Integer" db-attribute-path="DISPLAY_MODE"/>
+		<obj-attribute name="fixedCapacity" type="java.lang.Integer" db-attribute-path="FIXED_CAPACITY"/>
+		<obj-attribute name="innerCode" type="java.lang.String" db-attribute-path="INNER_CODE"/>
+		<obj-attribute name="isFixedCapacity" type="java.lang.Integer" db-attribute-path="IS_FIXED_CAPACITY"/>
+		<obj-attribute name="maxCapacity" type="java.lang.Integer" db-attribute-path="MAX_CAPACITY"/>
+		<obj-attribute name="mergePid" type="java.lang.Integer" db-attribute-path="MERGE_PID"/>
+		<obj-attribute name="mergeQty" type="java.lang.Integer" db-attribute-path="MERGE_QTY"/>
+		<obj-attribute name="pcType" type="java.lang.Integer" db-attribute-path="PC_TYPE"/>
+		<obj-attribute name="remarks" type="java.lang.String" db-attribute-path="REMARKS"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmEnergySave" className="com.kdx.vms.model.bean.TMtVmEnergySave" dbEntityName="T_MT_VM_ENERGY_SAVE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="endTime" type="java.lang.String" db-attribute-path="END_TIME"/>
+		<obj-attribute name="energySaveType" type="java.lang.Integer" db-attribute-path="ENERGY_SAVE_TYPE"/>
+		<obj-attribute name="remark" type="java.lang.String" db-attribute-path="REMARK"/>
+		<obj-attribute name="startTime" type="java.lang.String" db-attribute-path="START_TIME"/>
+		<obj-attribute name="targetValue" type="java.lang.Integer" db-attribute-path="TARGET_VALUE"/>
+		<obj-attribute name="tempBoxNo" type="java.lang.Integer" db-attribute-path="TEMP_BOX_NO"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmEvent" className="com.kdx.vms.model.bean.TMtVmEvent" dbEntityName="T_MT_VM_EVENT">
+		<obj-attribute name="discountType" type="java.lang.Integer" db-attribute-path="DISCOUNT_TYPE"/>
+		<obj-attribute name="discountValue" type="java.lang.Integer" db-attribute-path="DISCOUNT_VALUE"/>
+		<obj-attribute name="eventType" type="java.lang.Integer" db-attribute-path="EVENT_TYPE"/>
+	</obj-entity>
+	<obj-entity name="TMtVmEventMaster" className="com.kdx.vms.model.bean.TMtVmEventMaster" dbEntityName="T_MT_VM_EVENT_MASTER">
+		<obj-attribute name="beginDate" type="java.util.Date" db-attribute-path="BEGIN_DATE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="endDate" type="java.util.Date" db-attribute-path="END_DATE"/>
+		<obj-attribute name="endTime" type="java.lang.String" db-attribute-path="END_TIME"/>
+		<obj-attribute name="eventDesc" type="java.lang.String" db-attribute-path="EVENT_DESC"/>
+		<obj-attribute name="eventId" type="java.lang.Integer" db-attribute-path="EVENT_ID"/>
+		<obj-attribute name="eventName" type="java.lang.String" db-attribute-path="EVENT_NAME"/>
+		<obj-attribute name="eventType" type="java.lang.Integer" db-attribute-path="EVENT_TYPE"/>
+		<obj-attribute name="startTime" type="java.lang.String" db-attribute-path="START_TIME"/>
+	</obj-entity>
+	<obj-entity name="TMtVmLock" className="com.kdx.vms.model.bean.TMtVmLock" dbEntityName="T_MT_VM_LOCK">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="effectDate" type="java.util.Date" db-attribute-path="EFFECT_DATE"/>
+		<obj-attribute name="keyStatus" type="java.lang.Integer" db-attribute-path="KEY_STATUS"/>
+		<obj-attribute name="lockKey" type="java.lang.String" db-attribute-path="LOCK_KEY"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmMaintenance" className="com.kdx.vms.model.bean.TMtVmMaintenance" dbEntityName="T_MT_VM_MAINTENANCE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="operationDesc" type="java.lang.String" db-attribute-path="OPERATION_DESC"/>
+		<obj-attribute name="operationType" type="java.lang.Integer" db-attribute-path="OPERATION_TYPE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="uvpUid" type="java.lang.Integer" db-attribute-path="UVP_UID"/>
+		<obj-attribute name="vmId" type="java.lang.Integer" db-attribute-path="VM_ID"/>
+	</obj-entity>
+	<obj-entity name="TMtVmModel" className="com.kdx.vms.model.bean.TMtVmModel" dbEntityName="T_MT_VM_MODEL">
+		<obj-attribute name="allowMerge" type="java.lang.Integer" db-attribute-path="ALLOW_MERGE"/>
+		<obj-attribute name="channelLayerQty" type="java.lang.Integer" db-attribute-path="CHANNEL_LAYER_QTY"/>
+		<obj-attribute name="channelPerLayer" type="java.lang.String" db-attribute-path="CHANNEL_PER_LAYER"/>
+		<obj-attribute name="channelType" type="java.lang.Integer" db-attribute-path="CHANNEL_TYPE"/>
+		<obj-attribute name="colingHdid" type="java.lang.Integer" db-attribute-path="COLING_HDID"/>
+		<obj-attribute name="combinatorialPattern" type="java.lang.Integer" db-attribute-path="COMBINATORIAL_PATTERN"/>
+		<obj-attribute name="companyInit" type="java.lang.String" db-attribute-path="COMPANY_INIT"/>
+		<obj-attribute name="coolingYn" type="java.lang.Integer" db-attribute-path="COOLING_YN"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deleteMark" type="java.lang.Integer" db-attribute-path="DELETE_MARK"/>
+		<obj-attribute name="elevatorPlatformHdid" type="java.lang.Integer" db-attribute-path="ELEVATOR_PLATFORM_HDID"/>
+		<obj-attribute name="elevatorPlatformYn" type="java.lang.Integer" db-attribute-path="ELEVATOR_PLATFORM_YN"/>
+		<obj-attribute name="hittingHdid" type="java.lang.Integer" db-attribute-path="HITTING_HDID"/>
+		<obj-attribute name="hittingYn" type="java.lang.Integer" db-attribute-path="HITTING_YN"/>
+		<obj-attribute name="machineView" type="java.lang.Integer" db-attribute-path="MACHINE_VIEW"/>
+		<obj-attribute name="modelDesc" type="java.lang.String" db-attribute-path="MODEL_DESC"/>
+		<obj-attribute name="modelName" type="java.lang.String" db-attribute-path="MODEL_NAME"/>
+		<obj-attribute name="modelType" type="java.lang.Integer" db-attribute-path="MODEL_TYPE"/>
+		<obj-attribute name="rfidCard" type="java.lang.Integer" db-attribute-path="RFID_CARD"/>
+		<obj-attribute name="screenHave" type="java.lang.Integer" db-attribute-path="SCREEN_HAVE"/>
+		<obj-attribute name="screenSize" type="java.lang.Integer" db-attribute-path="SCREEN_SIZE"/>
+		<obj-attribute name="screenType" type="java.lang.Integer" db-attribute-path="SCREEN_TYPE"/>
+		<obj-attribute name="shortcutsQty" type="java.lang.Integer" db-attribute-path="SHORTCUTS_QTY"/>
+		<obj-attribute name="tempBoxCount" type="java.lang.Integer" db-attribute-path="TEMP_BOX_COUNT"/>
+		<obj-attribute name="tempCtrlDesc" type="java.lang.String" db-attribute-path="TEMP_CTRL_DESC"/>
+		<obj-attribute name="temperatureHandlerMode" type="java.lang.Integer" db-attribute-path="TEMPERATURE_HANDLER_MODE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="vendOutArchitecture" type="java.lang.Integer" db-attribute-path="VEND_OUT_ARCHITECTURE"/>
+		<obj-attribute name="vendOutType" type="java.lang.Integer" db-attribute-path="VEND_OUT_TYPE"/>
+	</obj-entity>
+	<obj-entity name="TMtVmModelChannel" className="com.kdx.vms.model.bean.TMtVmModelChannel" dbEntityName="T_MT_VM_MODEL_CHANNEL">
+		<obj-attribute name="acceptWidthMax" type="java.lang.Integer" db-attribute-path="ACCEPT_WIDTH_MAX"/>
+		<obj-attribute name="channelCode" type="java.lang.String" db-attribute-path="CHANNEL_CODE"/>
+		<obj-attribute name="channelHeight" type="java.lang.Integer" db-attribute-path="CHANNEL_HEIGHT"/>
+		<obj-attribute name="channelLength" type="java.lang.Integer" db-attribute-path="CHANNEL_LENGTH"/>
+		<obj-attribute name="channelType" type="java.lang.Integer" db-attribute-path="CHANNEL_TYPE"/>
+		<obj-attribute name="channelWidth" type="java.lang.Integer" db-attribute-path="CHANNEL_WIDTH"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="displayMode" type="java.lang.Integer" db-attribute-path="DISPLAY_MODE"/>
+		<obj-attribute name="fixedCapacity" type="java.lang.Integer" db-attribute-path="FIXED_CAPACITY"/>
+		<obj-attribute name="isFixedCapacity" type="java.lang.Integer" db-attribute-path="IS_FIXED_CAPACITY"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmPrice" className="com.kdx.vms.model.bean.TMtVmPrice" dbEntityName="T_MT_VM_PRICE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="realPrice" type="java.lang.Integer" db-attribute-path="REAL_PRICE"/>
+		<obj-attribute name="skuId" type="java.lang.Integer" db-attribute-path="SKU_ID"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmResource" className="com.kdx.vms.model.bean.TMtVmResource" dbEntityName="T_MT_VM_RESOURCE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deleteMark" type="java.lang.Integer" db-attribute-path="DELETE_MARK"/>
+		<obj-attribute name="previewUrls" type="java.lang.String" db-attribute-path="PREVIEW_URLS"/>
+		<obj-attribute name="resourceDesc" type="java.lang.String" db-attribute-path="RESOURCE_DESC"/>
+		<obj-attribute name="resourceMd5" type="java.lang.String" db-attribute-path="RESOURCE_MD5"/>
+		<obj-attribute name="resourceName" type="java.lang.String" db-attribute-path="RESOURCE_NAME"/>
+		<obj-attribute name="resourceSize" type="java.lang.Integer" db-attribute-path="RESOURCE_SIZE"/>
+		<obj-attribute name="resourceType" type="java.lang.Integer" db-attribute-path="RESOURCE_TYPE"/>
+		<obj-attribute name="resourceUrl" type="java.lang.String" db-attribute-path="RESOURCE_URL"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmShortcuts" className="com.kdx.vms.model.bean.TMtVmShortcuts" dbEntityName="T_MT_VM_SHORTCUTS">
+		<obj-attribute name="bindType" type="java.lang.Integer" db-attribute-path="BIND_TYPE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="shortcutsCode" type="java.lang.String" db-attribute-path="SHORTCUTS_CODE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmSkuSort" className="com.kdx.vms.model.bean.TMtVmSkuSort" dbEntityName="T_MT_VM_SKU_SORT">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="skuId" type="java.lang.Integer" db-attribute-path="SKU_ID"/>
+		<obj-attribute name="sort" type="java.lang.Integer" db-attribute-path="SORT"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmSkuSortNext" className="com.kdx.vms.model.bean.TMtVmSkuSortNext" dbEntityName="T_MT_VM_SKU_SORT_NEXT">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="skuId" type="java.lang.Integer" db-attribute-path="SKU_ID"/>
+		<obj-attribute name="sort" type="java.lang.Integer" db-attribute-path="SORT"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmStrategy" className="com.kdx.vms.model.bean.TMtVmStrategy" dbEntityName="T_MT_VM_STRATEGY">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="strategyName" type="java.lang.String" db-attribute-path="STRATEGY_NAME"/>
+		<obj-attribute name="strategyType" type="java.lang.Integer" db-attribute-path="STRATEGY_TYPE"/>
+		<obj-attribute name="sysnMark" type="java.lang.Integer" db-attribute-path="SYSN_MARK"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmText" className="com.kdx.vms.model.bean.TMtVmText" dbEntityName="T_MT_VM_TEXT">
+		<obj-attribute name="beginDate" type="java.util.Date" db-attribute-path="BEGIN_DATE"/>
+		<obj-attribute name="endDate" type="java.util.Date" db-attribute-path="END_DATE"/>
+		<obj-attribute name="textContents" type="java.lang.String" db-attribute-path="TEXT_CONTENTS"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmTheme" className="com.kdx.vms.model.bean.TMtVmTheme" dbEntityName="T_MT_VM_THEME">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtVmThemeEntrance" className="com.kdx.vms.model.bean.TMtVmThemeEntrance" dbEntityName="T_MT_VM_THEME_ENTRANCE">
+		<obj-attribute name="entranceIndex" type="java.lang.Integer" db-attribute-path="ENTRANCE_INDEX"/>
+		<obj-attribute name="imgUrl" type="java.lang.String" db-attribute-path="IMG_URL"/>
+	</obj-entity>
+	<obj-entity name="TMtVmThemeFormat" className="com.kdx.vms.model.bean.TMtVmThemeFormat" dbEntityName="T_MT_VM_THEME_FORMAT">
+		<obj-attribute name="themeFormat" type="java.lang.Integer" db-attribute-path="THEME_FORMAT"/>
+	</obj-entity>
+	<obj-entity name="TMtVmVersion" className="com.kdx.vms.model.bean.TMtVmVersion" dbEntityName="T_MT_VM_VERSION">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deviceName" type="java.lang.String" db-attribute-path="DEVICE_NAME"/>
+		<obj-attribute name="deviceType" type="java.lang.Integer" db-attribute-path="DEVICE_TYPE"/>
+		<obj-attribute name="deviceVersion" type="java.lang.String" db-attribute-path="DEVICE_VERSION"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TMtWarehouse" className="com.kdx.vms.model.bean.TMtWarehouse" dbEntityName="T_MT_WAREHOUSE">
+		<obj-attribute name="contactName" type="java.lang.String" db-attribute-path="CONTACT_NAME"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="dimensions" type="java.lang.String" db-attribute-path="DIMENSIONS"/>
+		<obj-attribute name="longitude" type="java.lang.String" db-attribute-path="LONGITUDE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="warehouseAddress" type="java.lang.String" db-attribute-path="WAREHOUSE_ADDRESS"/>
+		<obj-attribute name="warehouseCode" type="java.lang.String" db-attribute-path="WAREHOUSE_CODE"/>
+		<obj-attribute name="warehouseLevel" type="java.lang.Integer" db-attribute-path="WAREHOUSE_LEVEL"/>
+		<obj-attribute name="warehouseManager" type="java.lang.String" db-attribute-path="WAREHOUSE_MANAGER"/>
+		<obj-attribute name="warehouseName" type="java.lang.String" db-attribute-path="WAREHOUSE_NAME"/>
+		<obj-attribute name="warehousePhone" type="java.lang.String" db-attribute-path="WAREHOUSE_PHONE"/>
+		<obj-attribute name="warehouseType" type="java.lang.String" db-attribute-path="WAREHOUSE_TYPE"/>
+	</obj-entity>
+	<obj-entity name="TMtWarehouseArea" className="com.kdx.vms.model.bean.TMtWarehouseArea" dbEntityName="T_MT_WAREHOUSE_AREA">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+	</obj-entity>
+	<obj-entity name="TOpenSecret" className="com.kdx.vms.model.bean.TOpenSecret" dbEntityName="T_OPEN_SECRET">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="enable" type="java.lang.Integer" db-attribute-path="ENABLE"/>
+		<obj-attribute name="global" type="java.lang.Integer" db-attribute-path="GLOBAL"/>
+		<obj-attribute name="publicId" type="java.lang.String" db-attribute-path="PUBLIC_ID"/>
+		<obj-attribute name="secretValue" type="java.lang.String" db-attribute-path="SECRET_VALUE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TOpenSecretService" className="com.kdx.vms.model.bean.TOpenSecretService" dbEntityName="T_OPEN_SECRET_SERVICE">
+	</obj-entity>
+	<obj-entity name="TOpenService" className="com.kdx.vms.model.bean.TOpenService" dbEntityName="T_OPEN_SERVICE">
+		<obj-attribute name="serviceDesc" type="java.lang.String" db-attribute-path="SERVICE_DESC"/>
+		<obj-attribute name="serviceName" type="java.lang.String" db-attribute-path="SERVICE_NAME"/>
+	</obj-entity>
+	<obj-entity name="TOrderCost" className="com.kdx.vms.model.bean.TOrderCost" dbEntityName="T_ORDER_COST">
+		<obj-attribute name="payPrice" type="java.lang.Integer" db-attribute-path="PAY_PRICE"/>
+		<obj-attribute name="payStatus" type="java.lang.Integer" db-attribute-path="PAY_STATUS"/>
+		<obj-attribute name="payTime" type="java.util.Date" db-attribute-path="PAY_TIME"/>
+		<obj-attribute name="payType" type="java.lang.Integer" db-attribute-path="PAY_TYPE"/>
+	</obj-entity>
+	<obj-entity name="TOrderCostDetail" className="com.kdx.vms.model.bean.TOrderCostDetail" dbEntityName="T_ORDER_COST_DETAIL">
+		<obj-attribute name="costAccount" type="java.lang.String" db-attribute-path="COST_ACCOUNT"/>
+		<obj-attribute name="costPrice" type="java.lang.Integer" db-attribute-path="COST_PRICE"/>
+		<obj-attribute name="costType" type="java.lang.Integer" db-attribute-path="COST_TYPE"/>
+		<obj-attribute name="payOuterSeq" type="java.lang.String" db-attribute-path="PAY_OUTER_SEQ"/>
+	</obj-entity>
+	<obj-entity name="TOrderDetail" className="com.kdx.vms.model.bean.TOrderDetail" dbEntityName="T_ORDER_DETAIL">
+		<obj-attribute name="depositId" type="java.lang.Integer" db-attribute-path="DEPOSIT_ID"/>
+		<obj-attribute name="depositRefundStatus" type="com.kdx.vms.model.enumeration.OrderNotifyStatus" db-attribute-path="DEPOSIT_REFUND_STATUS"/>
+		<obj-attribute name="discountPrice" type="java.lang.Integer" db-attribute-path="DISCOUNT_PRICE"/>
+		<obj-attribute name="extractCode" type="java.lang.String" db-attribute-path="EXTRACT_CODE"/>
+		<obj-attribute name="memo" type="java.lang.String" db-attribute-path="MEMO"/>
+		<obj-attribute name="notifyStatus" type="com.kdx.vms.model.enumeration.OrderNotifyStatus" db-attribute-path="NOTIFY_STATUS"/>
+		<obj-attribute name="orderRefundStatus" type="com.kdx.vms.model.enumeration.OrderRefundStatus" db-attribute-path="REFUND_STATUS"/>
+		<obj-attribute name="realPrice" type="java.lang.Integer" db-attribute-path="REAL_PRICE"/>
+		<obj-attribute name="skuPrice" type="java.lang.Integer" db-attribute-path="SKU_PRICE"/>
+		<obj-attribute name="status" type="com.kdx.vms.model.enumeration.OrderDetailStatus" db-attribute-path="STATUS"/>
+		<obj-attribute name="validTime" type="java.lang.String" db-attribute-path="VALID_TIME"/>
+		<obj-attribute name="vendoutStatus" type="java.lang.Integer" db-attribute-path="VENDOUT_STATUS"/>
+	</obj-entity>
+	<obj-entity name="TOrderDetailCost" className="com.kdx.vms.model.bean.TOrderDetailCost" dbEntityName="T_ORDER_DETAIL_COST">
+		<obj-attribute name="costAccount" type="java.lang.String" db-attribute-path="COST_ACCOUNT"/>
+		<obj-attribute name="costPrice" type="java.lang.Integer" db-attribute-path="COST_PRICE"/>
+		<obj-attribute name="costType" type="java.lang.Integer" db-attribute-path="COST_TYPE"/>
+	</obj-entity>
+	<obj-entity name="TOrderDetailNotify" className="com.kdx.vms.model.bean.TOrderDetailNotify" dbEntityName="T_ORDER_DETAIL_NOTIFY">
+		<obj-attribute name="customerPublicId" type="java.lang.String" db-attribute-path="CUSTOMER_PUBLIC_ID"/>
+		<obj-attribute name="notifyStatus" type="com.kdx.vms.model.enumeration.OrderNotifyStatus" db-attribute-path="NOTIFY_STATUS"/>
+		<obj-attribute name="notifyTime" type="java.util.Date" db-attribute-path="NOTIFY_TIME"/>
+		<obj-attribute name="notifyUrl" type="java.lang.String" db-attribute-path="NOTIFY_URL"/>
+	</obj-entity>
+	<obj-entity name="TOrderDetailVendout" className="com.kdx.vms.model.bean.TOrderDetailVendout" dbEntityName="T_ORDER_DETAIL_VENDOUT">
+		<obj-attribute name="uTime" type="java.util.Date" db-attribute-path="U_TIME"/>
+		<obj-attribute name="vendoutStatus" type="java.lang.Integer" db-attribute-path="VENDOUT_STATUS"/>
+		<obj-attribute name="vendoutTime" type="java.util.Date" db-attribute-path="VENDOUT_TIME"/>
+	</obj-entity>
+	<obj-entity name="TOrderDiscount" className="com.kdx.vms.model.bean.TOrderDiscount" dbEntityName="T_ORDER_DISCOUNT">
+		<obj-attribute name="couponId" type="java.lang.Integer" db-attribute-path="COUPON_ID"/>
+		<obj-attribute name="orderId" type="java.lang.Integer" db-attribute-path="ORDER_ID"/>
+	</obj-entity>
+	<obj-entity name="TOrderMaster" className="com.kdx.vms.model.bean.TOrderMaster" dbEntityName="T_ORDER_MASTER">
+		<obj-attribute name="cTime" type="java.util.Date" db-attribute-path="C_TIME"/>
+		<obj-attribute name="consigneeId" type="java.lang.Integer" db-attribute-path="CONSIGNEE_ID"/>
+		<obj-attribute name="costStatus" type="java.lang.Integer" db-attribute-path="COST_STATUS"/>
+		<obj-attribute name="discountTotalPrice" type="java.lang.Integer" db-attribute-path="DISCOUNT_TOTAL_PRICE"/>
+		<obj-attribute name="orderSeq" type="java.lang.String" db-attribute-path="ORDER_SEQ"/>
+		<obj-attribute name="orderType" type="java.lang.String" db-attribute-path="ORDER_TYPE"/>
+		<obj-attribute name="payId" type="java.lang.Integer" db-attribute-path="PAY_ID"/>
+		<obj-attribute name="realTotalPrice" type="java.lang.Integer" db-attribute-path="REAL_TOTAL_PRICE"/>
+		<obj-attribute name="totalPrice" type="java.lang.Integer" db-attribute-path="TOTAL_PRICE"/>
+	</obj-entity>
+	<obj-entity name="TOrderMasterAtt" className="com.kdx.vms.model.bean.TOrderMasterAtt" dbEntityName="T_ORDER_MASTER_ATT">
+		<obj-attribute name="callbackUrl" type="java.lang.String" db-attribute-path="CALLBACK_URL"/>
+		<obj-attribute name="orderScene" type="java.lang.Integer" db-attribute-path="ORDER_SCENE"/>
+		<obj-attribute name="orderSources" type="java.lang.Integer" db-attribute-path="ORDER_SOURCES"/>
+	</obj-entity>
+	<obj-entity name="TOrderRefund" className="com.kdx.vms.model.bean.TOrderRefund" dbEntityName="T_ORDER_REFUND">
+		<obj-attribute name="account" type="java.lang.String" db-attribute-path="ACCOUNT"/>
+		<obj-attribute name="amount" type="java.lang.Integer" db-attribute-path="AMOUNT"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="orderRefundStatus" type="com.kdx.vms.model.enumeration.OrderRefundStatus" db-attribute-path="REFUND_STATUS"/>
+		<obj-attribute name="refundDesc" type="java.lang.String" db-attribute-path="REFUND_DESC"/>
+		<obj-attribute name="refundSeq" type="java.lang.String" db-attribute-path="REFUND_SEQ"/>
+		<obj-attribute name="refundTime" type="java.util.Date" db-attribute-path="REFUND_TIME"/>
+		<obj-attribute name="spare" type="java.lang.String" db-attribute-path="SPARE"/>
+		<obj-attribute name="type" type="com.kdx.vms.model.enumeration.OrderRefundType" db-attribute-path="TYPE"/>
+	</obj-entity>
+	<obj-entity name="TReserveStatistics" className="com.kdx.vms.model.bean.TReserveStatistics" dbEntityName="T_RESERVE_STATISTICS">
+		<obj-attribute name="distributionNum" type="java.lang.Integer" db-attribute-path="DISTRIBUTION_NUM"/>
+		<obj-attribute name="messageStatus" type="java.lang.Integer" db-attribute-path="MESSAGE_STATUS"/>
+		<obj-attribute name="pendingNum" type="java.lang.Integer" db-attribute-path="PENDING_NUM"/>
+		<obj-attribute name="statisticsDate" type="java.lang.String" db-attribute-path="STATISTICS_DATE"/>
+		<obj-attribute name="totalnum" type="java.lang.Integer" db-attribute-path="TOTALNUM"/>
+	</obj-entity>
+	<obj-entity name="TStVmChannel" className="com.kdx.vms.model.bean.TStVmChannel" dbEntityName="T_ST_VM_CHANNEL">
+		<obj-attribute name="acceptWidthMax" type="java.lang.Integer" db-attribute-path="ACCEPT_WIDTH_MAX"/>
+		<obj-attribute name="adjustMaxCapacity" type="java.lang.Integer" db-attribute-path="ADJUST_MAX_CAPACITY"/>
+		<obj-attribute name="channelCode" type="java.lang.String" db-attribute-path="CHANNEL_CODE"/>
+		<obj-attribute name="channelHeight" type="java.lang.Integer" db-attribute-path="CHANNEL_HEIGHT"/>
+		<obj-attribute name="channelLong" type="java.lang.Integer" db-attribute-path="CHANNEL_LONG"/>
+		<obj-attribute name="channelWidth" type="java.lang.Integer" db-attribute-path="CHANNEL_WIDTH"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="displayMode" type="java.lang.Integer" db-attribute-path="DISPLAY_MODE"/>
+		<obj-attribute name="fixedCapacity" type="java.lang.Integer" db-attribute-path="FIXED_CAPACITY"/>
+		<obj-attribute name="innerCode" type="java.lang.String" db-attribute-path="INNER_CODE"/>
+		<obj-attribute name="isFixedCapacity" type="java.lang.Integer" db-attribute-path="IS_FIXED_CAPACITY"/>
+		<obj-attribute name="maxCapacity" type="java.lang.Integer" db-attribute-path="MAX_CAPACITY"/>
+		<obj-attribute name="mergePid" type="java.lang.Integer" db-attribute-path="MERGE_PID"/>
+		<obj-attribute name="mergeQty" type="java.lang.Integer" db-attribute-path="MERGE_QTY"/>
+		<obj-attribute name="pcType" type="java.lang.Integer" db-attribute-path="PC_TYPE"/>
+		<obj-attribute name="remarks" type="java.lang.String" db-attribute-path="REMARKS"/>
+		<obj-attribute name="skuId" type="java.lang.Integer" db-attribute-path="SKU_ID"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="vmId" type="java.lang.Integer" db-attribute-path="VM_ID"/>
+	</obj-entity>
+	<obj-entity name="TStVmEnergySave" className="com.kdx.vms.model.bean.TStVmEnergySave" dbEntityName="T_ST_VM_ENERGY_SAVE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="customerId" type="java.lang.Integer" db-attribute-path="CUSTOMER_ID"/>
+		<obj-attribute name="endTime" type="java.lang.String" db-attribute-path="END_TIME"/>
+		<obj-attribute name="energySaveType" type="java.lang.Integer" db-attribute-path="ENERGY_SAVE_TYPE"/>
+		<obj-attribute name="remark" type="java.lang.String" db-attribute-path="REMARK"/>
+		<obj-attribute name="startTime" type="java.lang.String" db-attribute-path="START_TIME"/>
+		<obj-attribute name="targetValue" type="java.lang.Integer" db-attribute-path="TARGET_VALUE"/>
+		<obj-attribute name="tempBoxNo" type="java.lang.Integer" db-attribute-path="TEMP_BOX_NO"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="vmId" type="java.lang.Integer" db-attribute-path="VM_ID"/>
+	</obj-entity>
+	<obj-entity name="TStVmEvent" className="com.kdx.vms.model.bean.TStVmEvent" dbEntityName="T_ST_VM_EVENT">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="discountType" type="java.lang.Integer" db-attribute-path="DISCOUNT_TYPE"/>
+		<obj-attribute name="discountValue" type="java.lang.Integer" db-attribute-path="DISCOUNT_VALUE"/>
+		<obj-attribute name="eventType" type="java.lang.Integer" db-attribute-path="EVENT_TYPE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TStVmPrice" className="com.kdx.vms.model.bean.TStVmPrice" dbEntityName="T_ST_VM_PRICE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="realPrice" type="java.lang.Integer" db-attribute-path="REAL_PRICE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TStVmShortcuts" className="com.kdx.vms.model.bean.TStVmShortcuts" dbEntityName="T_ST_VM_SHORTCUTS">
+		<obj-attribute name="bindType" type="java.lang.Integer" db-attribute-path="BIND_TYPE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="shortcutsCode" type="java.lang.String" db-attribute-path="SHORTCUTS_CODE"/>
+		<obj-attribute name="skuId" type="java.lang.Integer" db-attribute-path="SKU_ID"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TStVmSkuSort" className="com.kdx.vms.model.bean.TStVmSkuSort" dbEntityName="T_ST_VM_SKU_SORT">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="skuId" type="java.lang.Integer" db-attribute-path="SKU_ID"/>
+		<obj-attribute name="sort" type="java.lang.Integer" db-attribute-path="SORT"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TStVmStrategy" className="com.kdx.vms.model.bean.TStVmStrategy" dbEntityName="T_ST_VM_STRATEGY">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="strategyDesc" type="java.lang.String" db-attribute-path="STRATEGY_DESC"/>
+		<obj-attribute name="strategyName" type="java.lang.String" db-attribute-path="STRATEGY_NAME"/>
+		<obj-attribute name="strategyType" type="java.lang.Integer" db-attribute-path="STRATEGY_TYPE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TStVmText" className="com.kdx.vms.model.bean.TStVmText" dbEntityName="T_ST_VM_TEXT">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="endTime" type="java.lang.String" db-attribute-path="END_TIME"/>
+		<obj-attribute name="startTime" type="java.lang.String" db-attribute-path="START_TIME"/>
+		<obj-attribute name="textContents" type="java.lang.String" db-attribute-path="TEXT_CONTENTS"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TSysDictionary" className="com.kdx.vms.model.bean.TSysDictionary" dbEntityName="T_SYS_DICTIONARY">
+		<obj-attribute name="dictionaryCode" type="java.lang.String" db-attribute-path="DICTIONARY_CODE"/>
+		<obj-attribute name="dictionaryDesc" type="java.lang.String" db-attribute-path="DICTIONARY_DESC"/>
+		<obj-attribute name="dictionaryName" type="java.lang.String" db-attribute-path="DICTIONARY_NAME"/>
+		<obj-attribute name="dictionaryState" type="java.lang.Integer" db-attribute-path="DICTIONARY_STATE"/>
+	</obj-entity>
+	<obj-entity name="TSysElement" className="com.kdx.vms.model.bean.TSysElement" dbEntityName="T_SYS_ELEMENT">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="elementCode" type="java.lang.String" db-attribute-path="ELEMENT_CODE"/>
+		<obj-attribute name="elementIndex" type="java.lang.Integer" db-attribute-path="ELEMENT_INDEX"/>
+		<obj-attribute name="elementModule" type="java.lang.Integer" db-attribute-path="ELEMENT_MODULE"/>
+		<obj-attribute name="elementName" type="java.lang.String" db-attribute-path="ELEMENT_NAME"/>
+		<obj-attribute name="elementType" type="java.lang.String" db-attribute-path="ELEMENT_TYPE"/>
+		<obj-attribute name="elementUrl" type="java.lang.String" db-attribute-path="ELEMENT_URL"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TSysLog" className="com.kdx.vms.model.bean.TSysLog" dbEntityName="T_SYS_LOG">
+		<obj-attribute name="logDesc" type="java.lang.String" db-attribute-path="LOG_DESC"/>
+		<obj-attribute name="logOperation" type="java.lang.String" db-attribute-path="LOG_OPERATION"/>
+		<obj-attribute name="logTime" type="java.util.Date" db-attribute-path="LOG_TIME"/>
+		<obj-attribute name="moduleId" type="java.lang.Integer" db-attribute-path="MODULE_ID"/>
+		<obj-attribute name="userId" type="java.lang.Integer" db-attribute-path="USER_ID"/>
+	</obj-entity>
+	<obj-entity name="TSysRole" className="com.kdx.vms.model.bean.TSysRole" dbEntityName="T_SYS_ROLE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="roleDesc" type="java.lang.String" db-attribute-path="ROLE_DESC"/>
+		<obj-attribute name="roleLevel" type="java.lang.Integer" db-attribute-path="ROLE_LEVEL"/>
+		<obj-attribute name="roleName" type="java.lang.String" db-attribute-path="ROLE_NAME"/>
+		<obj-attribute name="roleType" type="java.lang.Integer" db-attribute-path="ROLE_TYPE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TSysRoleElement" className="com.kdx.vms.model.bean.TSysRoleElement" dbEntityName="T_SYS_ROLE_ELEMENT">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+	</obj-entity>
+	<obj-entity name="TSysSettings" className="com.kdx.vms.model.bean.TSysSettings" dbEntityName="T_SYS_SETTINGS">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="key" type="java.lang.String" db-attribute-path="KEY"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="value" type="java.lang.String" db-attribute-path="VALUE"/>
+	</obj-entity>
+	<obj-entity name="TSysTypeInfo" className="com.kdx.vms.model.bean.TSysTypeInfo" dbEntityName="T_SYS_TYPE_INFO">
+		<obj-attribute name="typeCode" type="java.lang.String" db-attribute-path="TYPE_CODE"/>
+		<obj-attribute name="typeDesc" type="java.lang.String" db-attribute-path="TYPE_DESC"/>
+		<obj-attribute name="typeName" type="java.lang.String" db-attribute-path="TYPE_NAME"/>
+	</obj-entity>
+	<obj-entity name="TSysUser" className="com.kdx.vms.model.bean.TSysUser" dbEntityName="T_SYS_USER">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deleteMark" type="java.lang.Integer" db-attribute-path="DELETE_MARK"/>
+		<obj-attribute name="failCount" type="java.lang.Integer" db-attribute-path="FAIL_COUNT"/>
+		<obj-attribute name="lockMark" type="java.lang.Integer" db-attribute-path="LOCK_MARK"/>
+		<obj-attribute name="loginTime" type="java.util.Date" db-attribute-path="LOGIN_TIME"/>
+		<obj-attribute name="userAccount" type="java.lang.String" db-attribute-path="USER_ACCOUNT"/>
+		<obj-attribute name="userEmail" type="java.lang.String" db-attribute-path="USER_EMAIL"/>
+		<obj-attribute name="userGender" type="java.lang.Integer" db-attribute-path="USER_GENDER"/>
+		<obj-attribute name="userName" type="java.lang.String" db-attribute-path="USER_NAME"/>
+		<obj-attribute name="userPassword" type="java.lang.String" db-attribute-path="USER_PASSWORD"/>
+		<obj-attribute name="userPhone" type="java.lang.String" db-attribute-path="USER_PHONE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TSysUserBind" className="com.kdx.vms.model.bean.TSysUserBind" dbEntityName="T_SYS_USER_BIND">
+		<obj-attribute name="bindType" type="java.lang.Integer" db-attribute-path="BIND_TYPE"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="outerId" type="java.lang.String" db-attribute-path="OUTER_ID"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TSysUserRole" className="com.kdx.vms.model.bean.TSysUserRole" dbEntityName="T_SYS_USER_ROLE">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+	</obj-entity>
+	<obj-entity name="TTaskPickupHis" className="com.kdx.vms.model.bean.TTaskPickupHis" dbEntityName="T_TASK_PICKUP_HIS">
+		<obj-attribute name="pickupCount" type="java.lang.Integer" db-attribute-path="PICKUP_COUNT"/>
+		<obj-attribute name="pickupSkuId" type="java.lang.Integer" db-attribute-path="PICKUP_SKU_ID"/>
+		<obj-attribute name="pickupTime" type="java.util.Date" db-attribute-path="PICKUP_TIME"/>
+		<obj-attribute name="pickupUserId" type="java.lang.Integer" db-attribute-path="PICKUP_USER_ID"/>
+	</obj-entity>
+	<obj-entity name="TTaskVm" className="com.kdx.vms.model.bean.TTaskVm" dbEntityName="T_TASK_VM">
+		<obj-attribute name="alreadyPickup" type="java.lang.Integer" db-attribute-path="ALREADY_PICKUP"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="deliveryPattern" type="java.lang.Integer" db-attribute-path="DELIVERY_PATTERN"/>
+		<obj-attribute name="finishTime" type="java.util.Date" db-attribute-path="FINISH_TIME"/>
+		<obj-attribute name="owner" type="java.lang.Integer" db-attribute-path="OWNER"/>
+		<obj-attribute name="taskLevel" type="java.lang.Integer" db-attribute-path="TASK_LEVEL"/>
+		<obj-attribute name="taskRemarks" type="java.lang.String" db-attribute-path="TASK_REMARKS"/>
+		<obj-attribute name="taskTime" type="java.util.Date" db-attribute-path="TASK_TIME"/>
+		<obj-attribute name="taskTitle" type="java.lang.String" db-attribute-path="TASK_TITLE"/>
+		<obj-attribute name="taskType" type="java.lang.Integer" db-attribute-path="TASK_TYPE"/>
+		<obj-attribute name="taskVmStatus" type="java.lang.Integer" db-attribute-path="TASK_VM_STATUS"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TTaskVmChannel" className="com.kdx.vms.model.bean.TTaskVmChannel" dbEntityName="T_TASK_VM_CHANNEL">
+		<obj-attribute name="afterDeliveryStock" type="java.lang.Integer" db-attribute-path="AFTER_DELIVERY_STOCK"/>
+		<obj-attribute name="beforeDeliveryStock" type="java.lang.Integer" db-attribute-path="BEFORE_DELIVERY_STOCK"/>
+		<obj-attribute name="clearCount" type="java.lang.Integer" db-attribute-path="CLEAR_COUNT"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="maxCount" type="java.lang.Integer" db-attribute-path="MAX_COUNT"/>
+		<obj-attribute name="realClear" type="java.lang.Integer" db-attribute-path="REAL_CLEAR"/>
+		<obj-attribute name="realCount" type="java.lang.Integer" db-attribute-path="REAL_COUNT"/>
+		<obj-attribute name="skuCount" type="java.lang.Integer" db-attribute-path="SKU_COUNT"/>
+		<obj-attribute name="taskRemarks" type="java.lang.String" db-attribute-path="TASK_REMARKS"/>
+		<obj-attribute name="taskType" type="java.lang.Integer" db-attribute-path="TASK_TYPE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+	</obj-entity>
+	<obj-entity name="TVmOperationHis" className="com.kdx.vms.model.bean.TVmOperationHis" dbEntityName="T_VM_OPERATION_HIS">
+		<obj-attribute name="clientTime" type="java.util.Date" db-attribute-path="CLIENT_TIME"/>
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="vmDoorStatus" type="java.lang.Integer" db-attribute-path="VM_DOOR_STATUS"/>
+		<obj-attribute name="vmId" type="java.lang.Integer" db-attribute-path="VM_ID"/>
+	</obj-entity>
+	<obj-entity name="TVmStatus" className="com.kdx.vms.model.bean.TVmStatus" dbEntityName="T_VM_STATUS">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="onlineStatus" type="java.lang.Integer" db-attribute-path="ONLINE_STATUS"/>
+		<obj-attribute name="taskStatus" type="java.lang.Integer" db-attribute-path="TASK_STATUS"/>
+		<obj-attribute name="tempStatus" type="java.lang.Integer" db-attribute-path="TEMP_STATUS"/>
+		<obj-attribute name="tempValue" type="java.lang.String" db-attribute-path="TEMP_VALUE"/>
+		<obj-attribute name="utime" type="java.util.Date" db-attribute-path="UTIME"/>
+		<obj-attribute name="utor" type="java.lang.Integer" db-attribute-path="UTOR"/>
+		<obj-attribute name="vmDoorStatus" type="java.lang.Integer" db-attribute-path="VM_DOOR_STATUS"/>
+		<obj-attribute name="vmStatus" type="java.lang.Integer" db-attribute-path="VM_STATUS"/>
+		<obj-attribute name="vmStatusDatail" type="java.lang.String" db-attribute-path="VM_STATUS_DATAIL"/>
+		<obj-attribute name="vmTime" type="java.util.Date" db-attribute-path="VM_TIME"/>
+	</obj-entity>
+	<obj-entity name="TVmStatusHis" className="com.kdx.vms.model.bean.TVmStatusHis" dbEntityName="T_VM_STATUS_HIS">
+		<obj-attribute name="ctime" type="java.util.Date" db-attribute-path="CTIME"/>
+		<obj-attribute name="ctor" type="java.lang.Integer" db-attribute-path="CTOR"/>
+		<obj-attribute name="doorStatus" type="java.lang.Integer" db-attribute-path="DOOR_STATUS"/>
+		<obj-attribute name="tempValue" type="java.lang.String" db-attribute-path="TEMP_VALUE"/>
+		<obj-attribute name="vmId" type="java.lang.Integer" db-attribute-path="VM_ID"/>
+		<obj-attribute name="vmStatus" type="java.lang.Integer" db-attribute-path="VM_STATUS"/>
+		<obj-attribute name="vmStatusDatail" type="java.lang.String" db-attribute-path="VM_STATUS_DATAIL"/>
+		<obj-attribute name="vmTime" type="java.util.Date" db-attribute-path="VM_TIME"/>
+	</obj-entity>
+	<obj-entity name="TWechatUser" className="com.kdx.vms.model.bean.TWechatUser" dbEntityName="T_WECHAT_USER">
+		<obj-attribute name="nickName" type="java.lang.String" db-attribute-path="NICK_NAME"/>
+		<obj-attribute name="openId" type="java.lang.String" db-attribute-path="OPEN_ID"/>
+		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="PHONE"/>
+		<obj-attribute name="photo" type="java.lang.String" db-attribute-path="PHOTO"/>
+	</obj-entity>
+	<db-relationship name="ChildArea" source="T_MT_AREA" target="T_MT_AREA" toMany="true">
+		<db-attribute-pair source="AREA_ID" target="P_ID"/>
+	</db-relationship>
+	<db-relationship name="ParentArea" source="T_MT_AREA" target="T_MT_AREA" toMany="false">
+		<db-attribute-pair source="P_ID" target="AREA_ID"/>
+	</db-relationship>
+	<db-relationship name="WareHouseArea" source="T_MT_AREA" target="T_MT_WAREHOUSE_AREA" toMany="true">
+		<db-attribute-pair source="AREA_ID" target="AREA_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_MT_BENEFICIARY_INFO" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="Beneficiarys" source="T_MT_COMPANY" target="T_MT_BENEFICIARY_INFO" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="ChildCompany" source="T_MT_COMPANY" target="T_MT_COMPANY" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="P_ID"/>
+	</db-relationship>
+	<db-relationship name="Customer" source="T_MT_COMPANY" target="T_MT_CUSTOMER" toMany="false">
+		<db-attribute-pair source="CUSTOMER_ID" target="CUSTOMER_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_COMPANY" target="T_MT_VM" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="ParentCompany" source="T_MT_COMPANY" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="P_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="Partner" source="T_MT_COMPANY" target="T_MT_PARTNER" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="Role" source="T_MT_COMPANY" target="T_SYS_ROLE" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="SkuCompany" source="T_MT_COMPANY" target="T_MT_SKU_COMPANY" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="StStrategy" source="T_MT_COMPANY" target="T_ST_VM_STRATEGY" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="User" source="T_MT_COMPANY" target="T_SYS_USER" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="nodes" source="T_MT_COMPANY" target="T_MT_NODE" toMany="true">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="opensecret" source="T_MT_COMPANY" target="T_OPEN_SECRET" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_MT_CUSTOMER" target="T_MT_COMPANY" toMany="true">
+		<db-attribute-pair source="CUSTOMER_ID" target="CUSTOMER_ID"/>
+	</db-relationship>
+	<db-relationship name="Delivery" source="T_MT_NODE" target="T_SYS_USER" toMany="false">
+		<db-attribute-pair source="DELIVERY_ID" target="USER_ID"/>
+	</db-relationship>
+	<db-relationship name="Partner" source="T_MT_NODE" target="T_MT_PARTNER" toMany="false">
+		<db-attribute-pair source="PARTNER_ID" target="PARTNER_ID"/>
+	</db-relationship>
+	<db-relationship name="Vm" source="T_MT_NODE" target="T_MT_VM" toMany="true">
+		<db-attribute-pair source="NODE_ID" target="NODE_ID"/>
+	</db-relationship>
+	<db-relationship name="company" source="T_MT_NODE" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="repair" source="T_MT_NODE" target="T_SYS_USER" toMany="false">
+		<db-attribute-pair source="REPAIR_ID" target="USER_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_MT_PARTNER" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="Node" source="T_MT_PARTNER" target="T_MT_NODE" toMany="true">
+		<db-attribute-pair source="PARTNER_ID" target="PARTNER_ID"/>
+	</db-relationship>
+	<db-relationship name="mtVm" source="T_MT_PAY_TYPE" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_SIM" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Shortcuts" source="T_MT_SKU" target="T_MT_VM_SHORTCUTS" toMany="true">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="SkuCompany" source="T_MT_SKU" target="T_MT_SKU_COMPANY" toMany="true">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="SkuImg" source="T_MT_SKU" target="T_MT_SKU_IMG" toMany="true">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="SkuType" source="T_MT_SKU" target="T_MT_SKU_TYPE" toMany="false">
+		<db-attribute-pair source="SKU_TYPE" target="TYPE_ID"/>
+	</db-relationship>
+	<db-relationship name="TaskVmChannel" source="T_MT_SKU" target="T_TASK_VM_CHANNEL" toMany="true">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_MT_SKU_COMPANY" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="Sku" source="T_MT_SKU_COMPANY" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="Sku" source="T_MT_SKU_IMG" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="Childs" source="T_MT_SKU_TYPE" target="T_MT_SKU_TYPE" toMany="true">
+		<db-attribute-pair source="TYPE_ID" target="P_ID"/>
+	</db-relationship>
+	<db-relationship name="Parent" source="T_MT_SKU_TYPE" target="T_MT_SKU_TYPE" toMany="false">
+		<db-attribute-pair source="P_ID" target="TYPE_ID"/>
+	</db-relationship>
+	<db-relationship name="Skus" source="T_MT_SKU_TYPE" target="T_MT_SKU" toMany="true">
+		<db-attribute-pair source="TYPE_ID" target="SKU_TYPE"/>
+	</db-relationship>
+	<db-relationship name="VmTheme" source="T_MT_THEME" target="T_MT_VM_THEME" toMany="true">
+		<db-attribute-pair source="THEME_ID" target="THEME_ID"/>
+	</db-relationship>
+	<db-relationship name="Resource" source="T_MT_UPGRADE_PACKAGE" target="T_MT_VM_RESOURCE" toMany="false">
+		<db-attribute-pair source="RESOURCE_ID" target="RESOURCE_ID"/>
+	</db-relationship>
+	<db-relationship name="UpgradePlan" source="T_MT_UPGRADE_PACKAGE" target="T_MT_UPGRADE_PLAN" toMany="true">
+		<db-attribute-pair source="PACKAGE_ID" target="PACKAGE_ID"/>
+	</db-relationship>
+	<db-relationship name="UpgradePackage" source="T_MT_UPGRADE_PLAN" target="T_MT_UPGRADE_PACKAGE" toMany="false">
+		<db-attribute-pair source="PACKAGE_ID" target="PACKAGE_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_UPGRADE_VERSION" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="ChannelInfo" source="T_MT_VM" target="T_MT_VM_CHANNEL" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="ChannelNext" source="T_MT_VM" target="T_MT_VM_CHANNEL_NEXT" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="ChildrenVm" source="T_MT_VM" target="T_MT_VM" toMany="true">
+		<db-attribute-pair source="VM_ID" target="P_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_MT_VM" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="EnergySave" source="T_MT_VM" target="T_MT_VM_ENERGY_SAVE" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Entrances" source="T_MT_VM" target="T_MT_VM_THEME_ENTRANCE" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Lock" source="T_MT_VM" target="T_MT_VM_LOCK" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtPayType" source="T_MT_VM" target="T_MT_PAY_TYPE" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Node" source="T_MT_VM" target="T_MT_NODE" toMany="false">
+		<db-attribute-pair source="NODE_ID" target="NODE_ID"/>
+	</db-relationship>
+	<db-relationship name="ParentVm" source="T_MT_VM" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="P_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Price" source="T_MT_VM" target="T_MT_VM_PRICE" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Shortcuts" source="T_MT_VM" target="T_MT_VM_SHORTCUTS" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Sim" source="T_MT_VM" target="T_MT_SIM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="SkuSort" source="T_MT_VM" target="T_MT_VM_SKU_SORT" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="SkuSortNext" source="T_MT_VM" target="T_MT_VM_SKU_SORT_NEXT" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Strategy" source="T_MT_VM" target="T_MT_VM_STRATEGY" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Text" source="T_MT_VM" target="T_MT_VM_TEXT" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="ThemeFormat" source="T_MT_VM" target="T_MT_VM_THEME_FORMAT" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="UpgradeVersion" source="T_MT_VM" target="T_MT_UPGRADE_VERSION" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="VmStatusLog" source="T_MT_VM" target="T_VM_STATUS" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="VmTheme" source="T_MT_VM" target="T_MT_VM_THEME" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="VmVersion" source="T_MT_VM" target="T_MT_VM_VERSION" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="event" source="T_MT_VM" target="T_MT_VM_EVENT_MASTER" toMany="true">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_CHANNEL" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Sku" source="T_MT_VM_CHANNEL" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_CHANNEL_NEXT" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Sku" source="T_MT_VM_CHANNEL_NEXT" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_ENERGY_SAVE" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="master" source="T_MT_VM_EVENT" target="T_MT_VM_EVENT_MASTER" toMany="false">
+		<db-attribute-pair source="MASTER_ID" target="MASTER_ID"/>
+	</db-relationship>
+	<db-relationship name="sku" source="T_MT_VM_EVENT" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="events" source="T_MT_VM_EVENT_MASTER" target="T_MT_VM_EVENT" toMany="true">
+		<db-attribute-pair source="MASTER_ID" target="MASTER_ID"/>
+	</db-relationship>
+	<db-relationship name="mtVm" source="T_MT_VM_EVENT_MASTER" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_LOCK" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="ModelChannels" source="T_MT_VM_MODEL" target="T_MT_VM_MODEL_CHANNEL" toMany="true">
+		<db-attribute-pair source="MODEL_ID" target="MODEL_ID"/>
+	</db-relationship>
+	<db-relationship name="Model" source="T_MT_VM_MODEL_CHANNEL" target="T_MT_VM_MODEL" toMany="false">
+		<db-attribute-pair source="MODEL_ID" target="MODEL_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_PRICE" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Entrance" source="T_MT_VM_RESOURCE" target="T_MT_VM_THEME_ENTRANCE" toMany="true">
+		<db-attribute-pair source="RESOURCE_ID" target="RESOURCE_ID"/>
+	</db-relationship>
+	<db-relationship name="MtShortcuts" source="T_MT_VM_RESOURCE" target="T_MT_VM_SHORTCUTS" toMany="true">
+		<db-attribute-pair source="RESOURCE_ID" target="BIND_ID"/>
+	</db-relationship>
+	<db-relationship name="StShortcuts" source="T_MT_VM_RESOURCE" target="T_ST_VM_SHORTCUTS" toMany="true">
+		<db-attribute-pair source="RESOURCE_ID" target="BIND_ID"/>
+	</db-relationship>
+	<db-relationship name="UpgradePackage" source="T_MT_VM_RESOURCE" target="T_MT_UPGRADE_PACKAGE" toMany="true">
+		<db-attribute-pair source="RESOURCE_ID" target="RESOURCE_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVM" source="T_MT_VM_SHORTCUTS" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Resource" source="T_MT_VM_SHORTCUTS" target="T_MT_VM_RESOURCE" toMany="false">
+		<db-attribute-pair source="BIND_ID" target="RESOURCE_ID"/>
+	</db-relationship>
+	<db-relationship name="Sku" source="T_MT_VM_SHORTCUTS" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_SKU_SORT" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_SKU_SORT_NEXT" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_STRATEGY" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_TEXT" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_THEME" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Theme" source="T_MT_VM_THEME" target="T_MT_THEME" toMany="false">
+		<db-attribute-pair source="THEME_ID" target="THEME_ID"/>
+	</db-relationship>
+	<db-relationship name="Mtvm" source="T_MT_VM_THEME_ENTRANCE" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Resource" source="T_MT_VM_THEME_ENTRANCE" target="T_MT_VM_RESOURCE" toMany="false">
+		<db-attribute-pair source="RESOURCE_ID" target="RESOURCE_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_THEME_FORMAT" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_MT_VM_VERSION" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="WareHouseArea" source="T_MT_WAREHOUSE" target="T_MT_WAREHOUSE_AREA" toMany="true">
+		<db-attribute-pair source="WAREHOUSE_ID" target="WAREHOUSE_ID"/>
+	</db-relationship>
+	<db-relationship name="Area" source="T_MT_WAREHOUSE_AREA" target="T_MT_AREA" toMany="false">
+		<db-attribute-pair source="AREA_ID" target="AREA_ID"/>
+	</db-relationship>
+	<db-relationship name="WareHouse" source="T_MT_WAREHOUSE_AREA" target="T_MT_WAREHOUSE" toMany="false">
+		<db-attribute-pair source="WAREHOUSE_ID" target="WAREHOUSE_ID"/>
+	</db-relationship>
+	<db-relationship name="company" source="T_OPEN_SECRET" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="openSecretService" source="T_OPEN_SECRET" target="T_OPEN_SECRET_SERVICE" toMany="true">
+		<db-attribute-pair source="SECRET_ID" target="SECRET_ID"/>
+	</db-relationship>
+	<db-relationship name="openSecret" source="T_OPEN_SECRET_SERVICE" target="T_OPEN_SECRET" toMany="false">
+		<db-attribute-pair source="SECRET_ID" target="SECRET_ID"/>
+	</db-relationship>
+	<db-relationship name="openServcie" source="T_OPEN_SECRET_SERVICE" target="T_OPEN_SERVICE" toMany="false">
+		<db-attribute-pair source="SERVICE_ID" target="SERVICE_ID"/>
+	</db-relationship>
+	<db-relationship name="openSecretService" source="T_OPEN_SERVICE" target="T_OPEN_SECRET_SERVICE" toMany="true">
+		<db-attribute-pair source="SERVICE_ID" target="SERVICE_ID"/>
+	</db-relationship>
+	<db-relationship name="Order" source="T_ORDER_COST" target="T_ORDER_MASTER" toMany="false">
+		<db-attribute-pair source="ORDER_ID" target="ORDER_ID"/>
+	</db-relationship>
+	<db-relationship name="costDetail" source="T_ORDER_COST" target="T_ORDER_COST_DETAIL" toMany="true">
+		<db-attribute-pair source="COST_ID" target="COST_ID"/>
+	</db-relationship>
+	<db-relationship name="cost" source="T_ORDER_COST_DETAIL" target="T_ORDER_COST" toMany="false">
+		<db-attribute-pair source="COST_ID" target="COST_ID"/>
+	</db-relationship>
+	<db-relationship name="Notify" source="T_ORDER_DETAIL" target="T_ORDER_DETAIL_NOTIFY" toMany="false">
+		<db-attribute-pair source="ORDER_DETAIL_ID" target="ORDER_DETAIL_ID"/>
+	</db-relationship>
+	<db-relationship name="Order" source="T_ORDER_DETAIL" target="T_ORDER_MASTER" toMany="false">
+		<db-attribute-pair source="ORDER_ID" target="ORDER_ID"/>
+	</db-relationship>
+	<db-relationship name="Refund" source="T_ORDER_DETAIL" target="T_ORDER_REFUND" toMany="false">
+		<db-attribute-pair source="ORDER_DETAIL_ID" target="ORDER_DETAIL_ID"/>
+	</db-relationship>
+	<db-relationship name="Sku" source="T_ORDER_DETAIL" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="Vendout" source="T_ORDER_DETAIL" target="T_ORDER_DETAIL_VENDOUT" toMany="false">
+		<db-attribute-pair source="ORDER_DETAIL_ID" target="ORDER_DETAIL_ID"/>
+	</db-relationship>
+	<db-relationship name="detailCost" source="T_ORDER_DETAIL" target="T_ORDER_DETAIL_COST" toMany="true">
+		<db-attribute-pair source="ORDER_DETAIL_ID" target="ORDER_DETAIL_ID"/>
+	</db-relationship>
+	<db-relationship name="orderDetail" source="T_ORDER_DETAIL_COST" target="T_ORDER_DETAIL" toMany="false">
+		<db-attribute-pair source="ORDER_DETAIL_ID" target="ORDER_DETAIL_ID"/>
+	</db-relationship>
+	<db-relationship name="Detail" source="T_ORDER_DETAIL_NOTIFY" target="T_ORDER_DETAIL" toMany="false">
+		<db-attribute-pair source="ORDER_DETAIL_ID" target="ORDER_DETAIL_ID"/>
+	</db-relationship>
+	<db-relationship name="Detail" source="T_ORDER_DETAIL_VENDOUT" target="T_ORDER_DETAIL" toMany="false">
+		<db-attribute-pair source="ORDER_DETAIL_ID" target="ORDER_DETAIL_ID"/>
+	</db-relationship>
+	<db-relationship name="VendoutChannel" source="T_ORDER_DETAIL_VENDOUT" target="T_MT_VM_CHANNEL" toMany="false">
+		<db-attribute-pair source="VENDOUT_CHANNEL_ID" target="CHANNEL_ID"/>
+	</db-relationship>
+	<db-relationship name="Attachment" source="T_ORDER_MASTER" target="T_ORDER_MASTER_ATT" toMany="false">
+		<db-attribute-pair source="ORDER_ID" target="ORDER_MASTER_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_ORDER_MASTER" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="Cost" source="T_ORDER_MASTER" target="T_ORDER_COST" toMany="false">
+		<db-attribute-pair source="ORDER_ID" target="ORDER_ID"/>
+	</db-relationship>
+	<db-relationship name="Details" source="T_ORDER_MASTER" target="T_ORDER_DETAIL" toMany="true">
+		<db-attribute-pair source="ORDER_ID" target="ORDER_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_ORDER_MASTER" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Refunds" source="T_ORDER_MASTER" target="T_ORDER_REFUND" toMany="true">
+		<db-attribute-pair source="ORDER_ID" target="ORDER_ID"/>
+	</db-relationship>
+	<db-relationship name="Master" source="T_ORDER_MASTER_ATT" target="T_ORDER_MASTER" toMany="false">
+		<db-attribute-pair source="ORDER_MASTER_ID" target="ORDER_ID"/>
+	</db-relationship>
+	<db-relationship name="Detail" source="T_ORDER_REFUND" target="T_ORDER_DETAIL" toMany="false">
+		<db-attribute-pair source="ORDER_DETAIL_ID" target="ORDER_DETAIL_ID"/>
+	</db-relationship>
+	<db-relationship name="Order" source="T_ORDER_REFUND" target="T_ORDER_MASTER" toMany="false">
+		<db-attribute-pair source="ORDER_ID" target="ORDER_ID"/>
+	</db-relationship>
+	<db-relationship name="sku" source="T_RESERVE_STATISTICS" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="vm" source="T_RESERVE_STATISTICS" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Strategy" source="T_ST_VM_CHANNEL" target="T_ST_VM_STRATEGY" toMany="false">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="Strategy" source="T_ST_VM_ENERGY_SAVE" target="T_ST_VM_STRATEGY" toMany="false">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="Strategy" source="T_ST_VM_EVENT" target="T_ST_VM_STRATEGY" toMany="false">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="sku" source="T_ST_VM_EVENT" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="Strategy" source="T_ST_VM_PRICE" target="T_ST_VM_STRATEGY" toMany="false">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="sku" source="T_ST_VM_PRICE" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="Resource" source="T_ST_VM_SHORTCUTS" target="T_MT_VM_RESOURCE" toMany="false">
+		<db-attribute-pair source="BIND_ID" target="RESOURCE_ID"/>
+	</db-relationship>
+	<db-relationship name="Strategy" source="T_ST_VM_SHORTCUTS" target="T_ST_VM_STRATEGY" toMany="false">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="Strategy" source="T_ST_VM_SKU_SORT" target="T_ST_VM_STRATEGY" toMany="false">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_ST_VM_STRATEGY" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="StChannel" source="T_ST_VM_STRATEGY" target="T_ST_VM_CHANNEL" toMany="true">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="StEnergySave" source="T_ST_VM_STRATEGY" target="T_ST_VM_ENERGY_SAVE" toMany="true">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="StEvent" source="T_ST_VM_STRATEGY" target="T_ST_VM_EVENT" toMany="true">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="StPrice" source="T_ST_VM_STRATEGY" target="T_ST_VM_PRICE" toMany="true">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="StShortcuts" source="T_ST_VM_STRATEGY" target="T_ST_VM_SHORTCUTS" toMany="true">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="StSkuSort" source="T_ST_VM_STRATEGY" target="T_ST_VM_SKU_SORT" toMany="true">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="StText" source="T_ST_VM_STRATEGY" target="T_ST_VM_TEXT" toMany="false">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="VmModel" source="T_ST_VM_STRATEGY" target="T_MT_VM_MODEL" toMany="false">
+		<db-attribute-pair source="MODEL_ID" target="MODEL_ID"/>
+	</db-relationship>
+	<db-relationship name="Strategy" source="T_ST_VM_TEXT" target="T_ST_VM_STRATEGY" toMany="false">
+		<db-attribute-pair source="STRATEGY_ID" target="STRATEGY_ID"/>
+	</db-relationship>
+	<db-relationship name="TypeInfo" source="T_SYS_DICTIONARY" target="T_SYS_TYPE_INFO" toMany="false">
+		<db-attribute-pair source="TYPE_INFO_ID" target="TYPE_INFO_ID"/>
+	</db-relationship>
+	<db-relationship name="ChildElement" source="T_SYS_ELEMENT" target="T_SYS_ELEMENT" toMany="true">
+		<db-attribute-pair source="ELEMENT_ID" target="P_ID"/>
+	</db-relationship>
+	<db-relationship name="RoleElement" source="T_SYS_ELEMENT" target="T_SYS_ROLE_ELEMENT" toMany="true">
+		<db-attribute-pair source="ELEMENT_ID" target="ELEMENT_ID"/>
+	</db-relationship>
+	<db-relationship name="parentElement" source="T_SYS_ELEMENT" target="T_SYS_ELEMENT" toMany="false">
+		<db-attribute-pair source="P_ID" target="ELEMENT_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_SYS_ROLE" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="RoleElement" source="T_SYS_ROLE" target="T_SYS_ROLE_ELEMENT" toMany="true">
+		<db-attribute-pair source="ROLE_ID" target="ROLE_ID"/>
+	</db-relationship>
+	<db-relationship name="UserRole" source="T_SYS_ROLE" target="T_SYS_USER_ROLE" toMany="true">
+		<db-attribute-pair source="ROLE_ID" target="ROLE_ID"/>
+	</db-relationship>
+	<db-relationship name="Element" source="T_SYS_ROLE_ELEMENT" target="T_SYS_ELEMENT" toMany="false">
+		<db-attribute-pair source="ELEMENT_ID" target="ELEMENT_ID"/>
+	</db-relationship>
+	<db-relationship name="Role" source="T_SYS_ROLE_ELEMENT" target="T_SYS_ROLE" toMany="false">
+		<db-attribute-pair source="ROLE_ID" target="ROLE_ID"/>
+	</db-relationship>
+	<db-relationship name="Child" source="T_SYS_SETTINGS" target="T_SYS_SETTINGS" toMany="true">
+		<db-attribute-pair source="ID" target="PID"/>
+	</db-relationship>
+	<db-relationship name="Parent" source="T_SYS_SETTINGS" target="T_SYS_SETTINGS" toMany="false">
+		<db-attribute-pair source="PID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="Dictionary" source="T_SYS_TYPE_INFO" target="T_SYS_DICTIONARY" toMany="true">
+		<db-attribute-pair source="TYPE_INFO_ID" target="TYPE_INFO_ID"/>
+	</db-relationship>
+	<db-relationship name="Bind" source="T_SYS_USER" target="T_SYS_USER_BIND" toMany="true">
+		<db-attribute-pair source="USER_ID" target="USER_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_SYS_USER" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="Delivery" source="T_SYS_USER" target="T_MT_NODE" toMany="true">
+		<db-attribute-pair source="USER_ID" target="DELIVERY_ID"/>
+	</db-relationship>
+	<db-relationship name="UserRole" source="T_SYS_USER" target="T_SYS_USER_ROLE" toMany="true">
+		<db-attribute-pair source="USER_ID" target="USER_ID"/>
+	</db-relationship>
+	<db-relationship name="repair" source="T_SYS_USER" target="T_MT_NODE" toMany="true">
+		<db-attribute-pair source="USER_ID" target="REPAIR_ID"/>
+	</db-relationship>
+	<db-relationship name="User" source="T_SYS_USER_BIND" target="T_SYS_USER" toMany="false">
+		<db-attribute-pair source="USER_ID" target="USER_ID"/>
+	</db-relationship>
+	<db-relationship name="Role" source="T_SYS_USER_ROLE" target="T_SYS_ROLE" toMany="false">
+		<db-attribute-pair source="ROLE_ID" target="ROLE_ID"/>
+	</db-relationship>
+	<db-relationship name="User" source="T_SYS_USER_ROLE" target="T_SYS_USER" toMany="false">
+		<db-attribute-pair source="USER_ID" target="USER_ID"/>
+	</db-relationship>
+	<db-relationship name="Company" source="T_TASK_VM" target="T_MT_COMPANY" toMany="false">
+		<db-attribute-pair source="COMPANY_ID" target="COMPANY_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_TASK_VM" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<db-relationship name="TaskVmChannel" source="T_TASK_VM" target="T_TASK_VM_CHANNEL" toMany="true">
+		<db-attribute-pair source="TASK_VM_ID" target="TASK_VM_ID"/>
+	</db-relationship>
+	<db-relationship name="Channel" source="T_TASK_VM_CHANNEL" target="T_MT_VM_CHANNEL" toMany="false">
+		<db-attribute-pair source="CHANNEL_ID" target="CHANNEL_ID"/>
+	</db-relationship>
+	<db-relationship name="Sku" source="T_TASK_VM_CHANNEL" target="T_MT_SKU" toMany="false">
+		<db-attribute-pair source="SKU_ID" target="SKU_ID"/>
+	</db-relationship>
+	<db-relationship name="TaskVm" source="T_TASK_VM_CHANNEL" target="T_TASK_VM" toMany="false">
+		<db-attribute-pair source="TASK_VM_ID" target="TASK_VM_ID"/>
+	</db-relationship>
+	<db-relationship name="MtVm" source="T_VM_STATUS" target="T_MT_VM" toMany="false">
+		<db-attribute-pair source="VM_ID" target="VM_ID"/>
+	</db-relationship>
+	<obj-relationship name="childArea" source="TMtArea" target="TMtArea" deleteRule="Deny" db-relationship-path="ChildArea"/>
+	<obj-relationship name="parentArea" source="TMtArea" target="TMtArea" deleteRule="Nullify" db-relationship-path="ParentArea"/>
+	<obj-relationship name="wareHouseArea" source="TMtArea" target="TMtWarehouseArea" deleteRule="Deny" db-relationship-path="WareHouseArea"/>
+	<obj-relationship name="company" source="TMtBeneficiaryInfo" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="beneficiarys" source="TMtCompany" target="TMtBeneficiaryInfo" deleteRule="Deny" db-relationship-path="Beneficiarys"/>
+	<obj-relationship name="childCompany" source="TMtCompany" target="TMtCompany" deleteRule="Deny" db-relationship-path="ChildCompany"/>
+	<obj-relationship name="customer" source="TMtCompany" target="TMtCustomer" deleteRule="Nullify" db-relationship-path="Customer"/>
+	<obj-relationship name="mtVm" source="TMtCompany" target="TMtVm" deleteRule="Deny" db-relationship-path="MtVm"/>
+	<obj-relationship name="nodes" source="TMtCompany" target="TMtNode" deleteRule="Deny" db-relationship-path="nodes"/>
+	<obj-relationship name="opensecret" source="TMtCompany" target="TOpenSecret" deleteRule="Deny" db-relationship-path="opensecret"/>
+	<obj-relationship name="parentCompany" source="TMtCompany" target="TMtCompany" deleteRule="Nullify" db-relationship-path="ParentCompany"/>
+	<obj-relationship name="partner" source="TMtCompany" target="TMtPartner" deleteRule="Deny" db-relationship-path="Partner"/>
+	<obj-relationship name="role" source="TMtCompany" target="TSysRole" deleteRule="Deny" db-relationship-path="Role"/>
+	<obj-relationship name="skuCompany" source="TMtCompany" target="TMtSkuCompany" deleteRule="Deny" db-relationship-path="SkuCompany"/>
+	<obj-relationship name="stStrategy" source="TMtCompany" target="TStVmStrategy" deleteRule="Deny" db-relationship-path="StStrategy"/>
+	<obj-relationship name="user" source="TMtCompany" target="TSysUser" deleteRule="Deny" db-relationship-path="User"/>
+	<obj-relationship name="company" source="TMtCustomer" target="TMtCompany" deleteRule="Deny" db-relationship-path="Company"/>
+	<obj-relationship name="company" source="TMtNode" target="TMtCompany" deleteRule="Nullify" db-relationship-path="company"/>
+	<obj-relationship name="delivery" source="TMtNode" target="TSysUser" deleteRule="Nullify" db-relationship-path="Delivery"/>
+	<obj-relationship name="partner" source="TMtNode" target="TMtPartner" deleteRule="Nullify" db-relationship-path="Partner"/>
+	<obj-relationship name="repair" source="TMtNode" target="TSysUser" deleteRule="Nullify" db-relationship-path="repair"/>
+	<obj-relationship name="vm" source="TMtNode" target="TMtVm" deleteRule="Deny" db-relationship-path="Vm"/>
+	<obj-relationship name="company" source="TMtPartner" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="node" source="TMtPartner" target="TMtNode" deleteRule="Deny" db-relationship-path="Node"/>
+	<obj-relationship name="mtVm" source="TMtPayType" target="TMtVm" deleteRule="Nullify" db-relationship-path="mtVm"/>
+	<obj-relationship name="mtVm" source="TMtSim" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="shortcuts" source="TMtSku" target="TMtVmShortcuts" deleteRule="Deny" db-relationship-path="Shortcuts"/>
+	<obj-relationship name="skuCompany" source="TMtSku" target="TMtSkuCompany" deleteRule="Deny" db-relationship-path="SkuCompany"/>
+	<obj-relationship name="skuImg" source="TMtSku" target="TMtSkuImg" deleteRule="Deny" db-relationship-path="SkuImg"/>
+	<obj-relationship name="skuType" source="TMtSku" target="TMtSkuType" deleteRule="Nullify" db-relationship-path="SkuType"/>
+	<obj-relationship name="taskVmChannel" source="TMtSku" target="TTaskVmChannel" deleteRule="Deny" db-relationship-path="TaskVmChannel"/>
+	<obj-relationship name="company" source="TMtSkuCompany" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="sku" source="TMtSkuCompany" target="TMtSku" deleteRule="Nullify" db-relationship-path="Sku"/>
+	<obj-relationship name="sku" source="TMtSkuImg" target="TMtSku" deleteRule="Nullify" db-relationship-path="Sku"/>
+	<obj-relationship name="childs" source="TMtSkuType" target="TMtSkuType" deleteRule="Deny" db-relationship-path="Childs"/>
+	<obj-relationship name="parent" source="TMtSkuType" target="TMtSkuType" deleteRule="Nullify" db-relationship-path="Parent"/>
+	<obj-relationship name="skus" source="TMtSkuType" target="TMtSku" deleteRule="Deny" db-relationship-path="Skus"/>
+	<obj-relationship name="vmTheme" source="TMtTheme" target="TMtVmTheme" deleteRule="Deny" db-relationship-path="VmTheme"/>
+	<obj-relationship name="resource" source="TMtUpgradePackage" target="TMtVmResource" deleteRule="Nullify" db-relationship-path="Resource"/>
+	<obj-relationship name="upgradePlan" source="TMtUpgradePackage" target="TMtUpgradePlan" deleteRule="Deny" db-relationship-path="UpgradePlan"/>
+	<obj-relationship name="upgradePackage" source="TMtUpgradePlan" target="TMtUpgradePackage" deleteRule="Nullify" db-relationship-path="UpgradePackage"/>
+	<obj-relationship name="mtVm" source="TMtUpgradeVersion" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="channelInfo" source="TMtVm" target="TMtVmChannel" deleteRule="Deny" db-relationship-path="ChannelInfo"/>
+	<obj-relationship name="channelNext" source="TMtVm" target="TMtVmChannelNext" collection-type="java.util.Map" map-key="channelCode" deleteRule="Deny" db-relationship-path="ChannelNext"/>
+	<obj-relationship name="childrenVm" source="TMtVm" target="TMtVm" deleteRule="Deny" db-relationship-path="ChildrenVm"/>
+	<obj-relationship name="company" source="TMtVm" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="energySave" source="TMtVm" target="TMtVmEnergySave" deleteRule="Deny" db-relationship-path="EnergySave"/>
+	<obj-relationship name="entrances" source="TMtVm" target="TMtVmThemeEntrance" deleteRule="Deny" db-relationship-path="Entrances"/>
+	<obj-relationship name="event" source="TMtVm" target="TMtVmEventMaster" deleteRule="Deny" db-relationship-path="event"/>
+	<obj-relationship name="lock" source="TMtVm" target="TMtVmLock" deleteRule="Nullify" db-relationship-path="Lock"/>
+	<obj-relationship name="mtPayType" source="TMtVm" target="TMtPayType" deleteRule="Deny" db-relationship-path="MtPayType"/>
+	<obj-relationship name="node" source="TMtVm" target="TMtNode" deleteRule="Nullify" db-relationship-path="Node"/>
+	<obj-relationship name="parentVm" source="TMtVm" target="TMtVm" deleteRule="Nullify" db-relationship-path="ParentVm"/>
+	<obj-relationship name="price" source="TMtVm" target="TMtVmPrice" deleteRule="Deny" db-relationship-path="Price"/>
+	<obj-relationship name="shortcuts" source="TMtVm" target="TMtVmShortcuts" deleteRule="Deny" db-relationship-path="Shortcuts"/>
+	<obj-relationship name="sim" source="TMtVm" target="TMtSim" deleteRule="Nullify" db-relationship-path="Sim"/>
+	<obj-relationship name="skuSort" source="TMtVm" target="TMtVmSkuSort" deleteRule="Deny" db-relationship-path="SkuSort"/>
+	<obj-relationship name="skuSortNext" source="TMtVm" target="TMtVmSkuSortNext" deleteRule="Deny" db-relationship-path="SkuSortNext"/>
+	<obj-relationship name="strategy" source="TMtVm" target="TMtVmStrategy" deleteRule="Deny" db-relationship-path="Strategy"/>
+	<obj-relationship name="text" source="TMtVm" target="TMtVmText" deleteRule="Deny" db-relationship-path="Text"/>
+	<obj-relationship name="themeFormat" source="TMtVm" target="TMtVmThemeFormat" deleteRule="Nullify" db-relationship-path="ThemeFormat"/>
+	<obj-relationship name="upgradeVersion" source="TMtVm" target="TMtUpgradeVersion" collection-type="java.util.Map" map-key="versionType" deleteRule="Deny" db-relationship-path="UpgradeVersion"/>
+	<obj-relationship name="vmStatusLog" source="TMtVm" target="TVmStatus" deleteRule="Nullify" db-relationship-path="VmStatusLog"/>
+	<obj-relationship name="vmTheme" source="TMtVm" target="TMtVmTheme" deleteRule="Deny" db-relationship-path="VmTheme"/>
+	<obj-relationship name="vmVersion" source="TMtVm" target="TMtVmVersion" deleteRule="Deny" db-relationship-path="VmVersion"/>
+	<obj-relationship name="mtVm" source="TMtVmChannel" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="sku" source="TMtVmChannel" target="TMtSku" deleteRule="Nullify" db-relationship-path="Sku"/>
+	<obj-relationship name="mtVm" source="TMtVmChannelNext" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="sku" source="TMtVmChannelNext" target="TMtSku" deleteRule="Nullify" db-relationship-path="Sku"/>
+	<obj-relationship name="mtVm" source="TMtVmEnergySave" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="master" source="TMtVmEvent" target="TMtVmEventMaster" deleteRule="Nullify" db-relationship-path="master"/>
+	<obj-relationship name="sku" source="TMtVmEvent" target="TMtSku" deleteRule="Nullify" db-relationship-path="sku"/>
+	<obj-relationship name="events" source="TMtVmEventMaster" target="TMtVmEvent" deleteRule="Cascade" db-relationship-path="events"/>
+	<obj-relationship name="mtVm" source="TMtVmEventMaster" target="TMtVm" deleteRule="Nullify" db-relationship-path="mtVm"/>
+	<obj-relationship name="mtVm" source="TMtVmLock" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="modelChannels" source="TMtVmModel" target="TMtVmModelChannel" deleteRule="Deny" db-relationship-path="ModelChannels"/>
+	<obj-relationship name="model" source="TMtVmModelChannel" target="TMtVmModel" deleteRule="Nullify" db-relationship-path="Model"/>
+	<obj-relationship name="mtVm" source="TMtVmPrice" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="entrance" source="TMtVmResource" target="TMtVmThemeEntrance" deleteRule="Nullify" db-relationship-path="Entrance"/>
+	<obj-relationship name="mtShortcuts" source="TMtVmResource" target="TMtVmShortcuts" deleteRule="Deny" db-relationship-path="MtShortcuts"/>
+	<obj-relationship name="stShortcuts" source="TMtVmResource" target="TStVmShortcuts" deleteRule="Deny" db-relationship-path="StShortcuts"/>
+	<obj-relationship name="upgradePackage" source="TMtVmResource" target="TMtUpgradePackage" deleteRule="Deny" db-relationship-path="UpgradePackage"/>
+	<obj-relationship name="mtVM" source="TMtVmShortcuts" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVM"/>
+	<obj-relationship name="resource" source="TMtVmShortcuts" target="TMtVmResource" deleteRule="Nullify" db-relationship-path="Resource"/>
+	<obj-relationship name="sku" source="TMtVmShortcuts" target="TMtSku" deleteRule="Nullify" db-relationship-path="Sku"/>
+	<obj-relationship name="mtVm" source="TMtVmSkuSort" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="mtVm" source="TMtVmSkuSortNext" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="mtVm" source="TMtVmStrategy" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="mtVm" source="TMtVmText" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="mtVm" source="TMtVmTheme" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="theme" source="TMtVmTheme" target="TMtTheme" deleteRule="Nullify" db-relationship-path="Theme"/>
+	<obj-relationship name="mtvm" source="TMtVmThemeEntrance" target="TMtVm" deleteRule="Nullify" db-relationship-path="Mtvm"/>
+	<obj-relationship name="resource" source="TMtVmThemeEntrance" target="TMtVmResource" deleteRule="Nullify" db-relationship-path="Resource"/>
+	<obj-relationship name="mtVm" source="TMtVmThemeFormat" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="mtVm" source="TMtVmVersion" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="wareHouseArea" source="TMtWarehouse" target="TMtWarehouseArea" deleteRule="Deny" db-relationship-path="WareHouseArea"/>
+	<obj-relationship name="area" source="TMtWarehouseArea" target="TMtArea" deleteRule="Nullify" db-relationship-path="Area"/>
+	<obj-relationship name="wareHouse" source="TMtWarehouseArea" target="TMtWarehouse" deleteRule="Nullify" db-relationship-path="WareHouse"/>
+	<obj-relationship name="company" source="TOpenSecret" target="TMtCompany" deleteRule="Nullify" db-relationship-path="company"/>
+	<obj-relationship name="openSecretService" source="TOpenSecret" target="TOpenSecretService" deleteRule="Deny" db-relationship-path="openSecretService"/>
+	<obj-relationship name="openSecret" source="TOpenSecretService" target="TOpenSecret" deleteRule="Nullify" db-relationship-path="openSecret"/>
+	<obj-relationship name="openServcie" source="TOpenSecretService" target="TOpenService" deleteRule="Nullify" db-relationship-path="openServcie"/>
+	<obj-relationship name="openSecretService" source="TOpenService" target="TOpenSecretService" deleteRule="Deny" db-relationship-path="openSecretService"/>
+	<obj-relationship name="costDetail" source="TOrderCost" target="TOrderCostDetail" deleteRule="Deny" db-relationship-path="costDetail"/>
+	<obj-relationship name="order" source="TOrderCost" target="TOrderMaster" deleteRule="Nullify" db-relationship-path="Order"/>
+	<obj-relationship name="cost" source="TOrderCostDetail" target="TOrderCost" deleteRule="Nullify" db-relationship-path="cost"/>
+	<obj-relationship name="detailCost" source="TOrderDetail" target="TOrderDetailCost" deleteRule="Deny" db-relationship-path="detailCost"/>
+	<obj-relationship name="notify" source="TOrderDetail" target="TOrderDetailNotify" deleteRule="Nullify" db-relationship-path="Notify"/>
+	<obj-relationship name="order" source="TOrderDetail" target="TOrderMaster" deleteRule="Nullify" db-relationship-path="Order"/>
+	<obj-relationship name="refund" source="TOrderDetail" target="TOrderRefund" deleteRule="Nullify" db-relationship-path="Refund"/>
+	<obj-relationship name="sku" source="TOrderDetail" target="TMtSku" deleteRule="Nullify" db-relationship-path="Sku"/>
+	<obj-relationship name="vendout" source="TOrderDetail" target="TOrderDetailVendout" deleteRule="Nullify" db-relationship-path="Vendout"/>
+	<obj-relationship name="orderDetail" source="TOrderDetailCost" target="TOrderDetail" deleteRule="Nullify" db-relationship-path="orderDetail"/>
+	<obj-relationship name="detail" source="TOrderDetailNotify" target="TOrderDetail" deleteRule="Nullify" db-relationship-path="Detail"/>
+	<obj-relationship name="detail" source="TOrderDetailVendout" target="TOrderDetail" deleteRule="Nullify" db-relationship-path="Detail"/>
+	<obj-relationship name="vendoutChannel" source="TOrderDetailVendout" target="TMtVmChannel" deleteRule="Nullify" db-relationship-path="VendoutChannel"/>
+	<obj-relationship name="attachment" source="TOrderMaster" target="TOrderMasterAtt" deleteRule="Nullify" db-relationship-path="Attachment"/>
+	<obj-relationship name="company" source="TOrderMaster" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="cost" source="TOrderMaster" target="TOrderCost" deleteRule="Nullify" db-relationship-path="Cost"/>
+	<obj-relationship name="details" source="TOrderMaster" target="TOrderDetail" deleteRule="Deny" db-relationship-path="Details"/>
+	<obj-relationship name="mtVm" source="TOrderMaster" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="refunds" source="TOrderMaster" target="TOrderRefund" deleteRule="Deny" db-relationship-path="Refunds"/>
+	<obj-relationship name="master" source="TOrderMasterAtt" target="TOrderMaster" deleteRule="Nullify" db-relationship-path="Master"/>
+	<obj-relationship name="detail" source="TOrderRefund" target="TOrderDetail" deleteRule="Nullify" db-relationship-path="Detail"/>
+	<obj-relationship name="order" source="TOrderRefund" target="TOrderMaster" deleteRule="Nullify" db-relationship-path="Order"/>
+	<obj-relationship name="sku" source="TReserveStatistics" target="TMtSku" deleteRule="Nullify" db-relationship-path="sku"/>
+	<obj-relationship name="vm" source="TReserveStatistics" target="TMtVm" deleteRule="Nullify" db-relationship-path="vm"/>
+	<obj-relationship name="strategy" source="TStVmChannel" target="TStVmStrategy" deleteRule="Nullify" db-relationship-path="Strategy"/>
+	<obj-relationship name="strategy" source="TStVmEnergySave" target="TStVmStrategy" deleteRule="Nullify" db-relationship-path="Strategy"/>
+	<obj-relationship name="sku" source="TStVmEvent" target="TMtSku" deleteRule="Nullify" db-relationship-path="sku"/>
+	<obj-relationship name="strategy" source="TStVmEvent" target="TStVmStrategy" deleteRule="Nullify" db-relationship-path="Strategy"/>
+	<obj-relationship name="sku" source="TStVmPrice" target="TMtSku" deleteRule="Nullify" db-relationship-path="sku"/>
+	<obj-relationship name="strategy" source="TStVmPrice" target="TStVmStrategy" deleteRule="Nullify" db-relationship-path="Strategy"/>
+	<obj-relationship name="resource" source="TStVmShortcuts" target="TMtVmResource" deleteRule="Nullify" db-relationship-path="Resource"/>
+	<obj-relationship name="strategy" source="TStVmShortcuts" target="TStVmStrategy" deleteRule="Nullify" db-relationship-path="Strategy"/>
+	<obj-relationship name="strategy" source="TStVmSkuSort" target="TStVmStrategy" deleteRule="Nullify" db-relationship-path="Strategy"/>
+	<obj-relationship name="company" source="TStVmStrategy" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="stChannel" source="TStVmStrategy" target="TStVmChannel" deleteRule="Cascade" db-relationship-path="StChannel"/>
+	<obj-relationship name="stEnergySave" source="TStVmStrategy" target="TStVmEnergySave" deleteRule="Cascade" db-relationship-path="StEnergySave"/>
+	<obj-relationship name="stEvent" source="TStVmStrategy" target="TStVmEvent" deleteRule="Cascade" db-relationship-path="StEvent"/>
+	<obj-relationship name="stPrice" source="TStVmStrategy" target="TStVmPrice" deleteRule="Cascade" db-relationship-path="StPrice"/>
+	<obj-relationship name="stShortcuts" source="TStVmStrategy" target="TStVmShortcuts" collection-type="java.util.Map" map-key="shortcutsCode" deleteRule="Cascade" db-relationship-path="StShortcuts"/>
+	<obj-relationship name="stSkuSort" source="TStVmStrategy" target="TStVmSkuSort" deleteRule="Cascade" db-relationship-path="StSkuSort"/>
+	<obj-relationship name="stText" source="TStVmStrategy" target="TStVmText" deleteRule="Cascade" db-relationship-path="StText"/>
+	<obj-relationship name="vmModel" source="TStVmStrategy" target="TMtVmModel" deleteRule="Nullify" db-relationship-path="VmModel"/>
+	<obj-relationship name="strategy" source="TStVmText" target="TStVmStrategy" deleteRule="Nullify" db-relationship-path="Strategy"/>
+	<obj-relationship name="typeInfo" source="TSysDictionary" target="TSysTypeInfo" deleteRule="Nullify" db-relationship-path="TypeInfo"/>
+	<obj-relationship name="childElement" source="TSysElement" target="TSysElement" deleteRule="Deny" db-relationship-path="ChildElement"/>
+	<obj-relationship name="parentElement" source="TSysElement" target="TSysElement" deleteRule="Nullify" db-relationship-path="parentElement"/>
+	<obj-relationship name="roleElement" source="TSysElement" target="TSysRoleElement" deleteRule="Cascade" db-relationship-path="RoleElement"/>
+	<obj-relationship name="company" source="TSysRole" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="roleElement" source="TSysRole" target="TSysRoleElement" deleteRule="Cascade" db-relationship-path="RoleElement"/>
+	<obj-relationship name="userRole" source="TSysRole" target="TSysUserRole" deleteRule="Cascade" db-relationship-path="UserRole"/>
+	<obj-relationship name="element" source="TSysRoleElement" target="TSysElement" deleteRule="Nullify" db-relationship-path="Element"/>
+	<obj-relationship name="role" source="TSysRoleElement" target="TSysRole" deleteRule="Nullify" db-relationship-path="Role"/>
+	<obj-relationship name="child" source="TSysSettings" target="TSysSettings" deleteRule="Deny" db-relationship-path="Child"/>
+	<obj-relationship name="parent" source="TSysSettings" target="TSysSettings" deleteRule="Nullify" db-relationship-path="Parent"/>
+	<obj-relationship name="dictionary" source="TSysTypeInfo" target="TSysDictionary" deleteRule="Deny" db-relationship-path="Dictionary"/>
+	<obj-relationship name="bind" source="TSysUser" target="TSysUserBind" deleteRule="Nullify" db-relationship-path="Bind"/>
+	<obj-relationship name="company" source="TSysUser" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="userRole" source="TSysUser" target="TSysUserRole" deleteRule="Cascade" db-relationship-path="UserRole"/>
+	<obj-relationship name="user" source="TSysUserBind" target="TSysUser" deleteRule="Nullify" db-relationship-path="User"/>
+	<obj-relationship name="role" source="TSysUserRole" target="TSysRole" deleteRule="Nullify" db-relationship-path="Role"/>
+	<obj-relationship name="user" source="TSysUserRole" target="TSysUser" deleteRule="Nullify" db-relationship-path="User"/>
+	<obj-relationship name="company" source="TTaskVm" target="TMtCompany" deleteRule="Nullify" db-relationship-path="Company"/>
+	<obj-relationship name="mtVm" source="TTaskVm" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+	<obj-relationship name="taskVmChannel" source="TTaskVm" target="TTaskVmChannel" deleteRule="Deny" db-relationship-path="TaskVmChannel"/>
+	<obj-relationship name="channel" source="TTaskVmChannel" target="TMtVmChannel" deleteRule="Nullify" db-relationship-path="Channel"/>
+	<obj-relationship name="sku" source="TTaskVmChannel" target="TMtSku" deleteRule="Nullify" db-relationship-path="Sku"/>
+	<obj-relationship name="taskVm" source="TTaskVmChannel" target="TTaskVm" deleteRule="Nullify" db-relationship-path="TaskVm"/>
+	<obj-relationship name="mtVm" source="TVmStatus" target="TMtVm" deleteRule="Nullify" db-relationship-path="MtVm"/>
+</data-map>

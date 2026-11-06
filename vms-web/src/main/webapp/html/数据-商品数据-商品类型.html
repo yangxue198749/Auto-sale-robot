@@ -1,0 +1,746 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>商品类型 | 贩售机管理系统 3.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <!--validate 扩展插件-->
+    <script type="text/javascript" src="./plus/validate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="./plus/validate/messages_zh.min.js"></script>
+    <script type="text/javascript" src="./dist/js/function.validate.js"></script>
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+    <!--SIM卡基础效果js-->
+    <script type="text/javascript" src="./dist/js/strategy.sim.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+            interval();
+        }
+    </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>硬件数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机型号</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>商品数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#" class="on">商品类型</a>
+                    <a href="#">商品信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>商圈数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商圈信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>仓库数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">仓库信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>SIM卡数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">SIM卡信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>基础数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">字典信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li><a href="#">运营管理</a></li>
+                <li class="on"><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">商品类型</strong></h2>
+
+        </div>
+        <!--Main CommonHead-->
+        <div class="col-md-6">
+            <div class="main_commonhead hl30">
+                <div class="btn-group" data-toggle="buttons">
+                    <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addTypeGroup">新增</button>
+                    <button type="button" class="btn btn-default btn-lg2">修改</button>
+                    <button type="button" class="btn btn-default btn-lg2">删除</button>
+                    <button type="button" class="btn btn-default btn-lg2">查询</button>
+                </div>
+            </div>
+
+            <!--Main CommonTable-->
+            <div class="main_commontable">
+                <!--theadscroll start-->
+                <div class="theadscroll" id="theadScroll">
+                    <ul>
+                        <li class="wh3"><input type="checkbox" value=""></li>
+                        <li class="wh47">类型组名称</li>
+                        <li class="wh25">创建时间</li>
+                        <li class="wh25">修改时间</li>
+                    </ul>
+                </div>
+                <!--theadscroll end-->
+                <table class="type_group">
+                    <tbody class="auto">
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>休闲食品</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>杂粮食品</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>引用水</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>饮料</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>乳制品</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>生鲜食品</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+
+                </table>
+                <!--table footer start-->
+                <div class="tfootscroll">
+                    <ul class="pagination pull-right mtb10 mr20">
+                        <li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li class="disabled"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+                <!--table footer end-->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="main_commonhead hl30">
+                <div class="btn-group" data-toggle="buttons">
+                    <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addType">新增</button>
+                    <button type="button" class="btn btn-default btn-lg2">修改</button>
+                    <button type="button" class="btn btn-default btn-lg2">删除</button>
+                    <button type="button" class="btn btn-default btn-lg2">查询</button>
+                </div>
+            </div>
+
+            <!--Main CommonTable-->
+            <div class="main_commontable">
+                <!--theadscroll start-->
+                <div class="theadscroll" id="theadScroll">
+                    <ul>
+                        <li class="wh3"><input type="checkbox" value=""></li>
+                        <li class="wh47">类型名称</li>
+                        <li class="wh25">创建时间</li>
+                        <li class="wh25">修改时间</li>
+                    </ul>
+                </div>
+                <!--theadscroll end-->
+                <table class="type_table">
+                    <tbody class="auto">
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>饼干点心</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>休闲零食</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>巧克力</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+                <table class="type_table">
+                    <tbody class="auto">
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>杂粮煎饼</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>煎饼果子</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>不放葱的煎饼的果子</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+                <table class="type_table">
+                    <tbody class="auto">
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>矿泉水</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>热白开</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>凉白开</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+                <table class="type_table">
+                    <tbody class="auto">
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>可乐</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>奶茶</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>咖啡</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+                <table class="type_table">
+                    <tbody class="auto">
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>优酸乳</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>优酪乳</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>优蒜乳</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+                <table class="type_table">
+                    <tbody class="auto">
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>生鱼片</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>生猪片</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="wh3">
+                            <input type="checkbox">
+                        </td>
+                        <td class="wh47">
+                            <span>生鸡片</span>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh25">
+                            <p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+                <!--table footer start-->
+                <div class="tfootscroll">
+                    <ul class="pagination pull-right mtb10 mr20">
+                        <li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li class="disabled"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+                <!--table footer end-->
+            </div>
+        </div>
+
+    </div>
+    <script>
+          $(function(){
+              $(".type_table").hide();
+             $(".type_group tr").each(function(index,elemt){
+                 $(this).click(function(){
+                     $(".type_table").eq(index).show().siblings(".type_table").hide();
+                 })
+             })
+          });
+    </script>
+
+    <!----
+      **  模态框 **
+    ---->
+    <!-----新增类型组 模态框 start----->
+    <div class="modal fade" id="addTypeGroup" tabindex="-1" role="dialog" aria-labelledby="新建类型组" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">新建类型组</h4>
+                </div>
+                <form method="post" id="typeGroupForm">
+                    <div class="modal-body">
+                        <!--基本信息 start-->
+                        <div class="modal_commonbody mt10 clearfix">
+                            <section class="col-md-12">
+                                <span class="w100 pull-left text-right mr10" for="typeGroup">类型组:</span>
+                                <div class="form-group pull-left">
+                                    <input type="text" class="form-control input-sm" name="typeGroup" placeholder="请输入类型组" required data-msg-required="请输入类型组" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                </div>
+                            </section>
+                        </div>
+                        <!--基本信息 end-->
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">提交</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-----新增类型 模态框 start----->
+    <div class="modal fade" id="addType" tabindex="-1" role="dialog" aria-labelledby="新建类型" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">新建类型</h4>
+                </div>
+                <form method="post" id="addTypeForm">
+                    <div class="modal-body">
+                        <!--基本信息 start-->
+                        <div class="modal_commonbody mt10 clearfix">
+                            <section class="col-md-12">
+                                <span class="w100 pull-left text-right mr10" for="type">类型:</span>
+                                <div class="form-group pull-left">
+                                    <input type="text" class="form-control input-sm" name="type" placeholder="请输入类型"  required data-msg-required="请输入类型" minlength="2" data-msg-minlength="最少输入2个字符" data-rule-Au9="true">
+                                </div>
+                            </section>
+                        </div>
+                        <!--基本信息 end-->
+
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">提交</button>
+                        <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            $("#addTypeForm").validate({
+                submitHandler: function () {
+                    //form.submit();//提交表单
+                    //验证通过后 的js代码写在这里
+                }
+            })
+            $("#typeGroupForm").validate({
+                submitHandler: function () {
+                    //form.submit();//提交表单
+                    //验证通过后 的js代码写在这里
+                }
+            })
+        });
+    </script>
+
+    <!-----参考窗口 模态框----->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viewModalLabel">配送工单模态框标题</h4>
+                </div>
+                <div class="modal-body">
+                    在这里添加一些文本
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-success">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

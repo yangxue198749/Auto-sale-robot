@@ -1,0 +1,2090 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>售货机管理 | 贩售机管理系统 3.0</title>
+<!--依赖jQuery bootstrap-->
+<link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+<!--layer 扩展插件-->
+<script type="text/javascript" src="./plus/layer/layer.js"></script>
+<!--validate 扩展插件-->
+<script type="text/javascript" src="./plus/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="./plus/validate/messages_zh.min.js"></script>
+<script type="text/javascript" src="./dist/js/function.validate.js"></script>
+<!--datepicker 扩展插件-->
+<link href="./plus/datepicker/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+<script src="./plus/datepicker/js/foundation-datepicker.js"></script>
+<script src="./plus/datepicker/js/locales/foundation-datepicker.zh-CN.js"></script>
+<script src="./plus/datepicker/js/function.datepicker.js"></script>
+<!--datetimepicker 扩展插件-->
+<link href="./plus/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+<script src="./plus/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="./plus/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="./plus/datetimepicker/function.datetimepicker.js"></script>
+<!--图标样式-->
+<link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+<!--全站样式-->
+<link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+<!--基础结构 tonney-->
+<script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+<!--table处理 tonney-->
+<script type="text/javascript" src="./dist/js/function.table.js"></script>
+<!--pasaClass三级联动 扩展插件-->
+<script type="text/javascript" src="./plus/pcasclass/pcasclass.js"></script>
+<!--售货机管理基础效果js-->
+<script type="text/javascript" src="./dist/js/strategy.automat.js"></script>
+<!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+        interval();
+    }
+    </script>
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div class="mp_container" style="min-width:1600px;">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>导航概览<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">工作台</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>工单管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">配送工单</a>
+                   <a href="#">维护工单</a>
+                   <a href="#">投放工单</a>
+                   <a href="#">撤机工单</a>
+                   <a href="#">工单查询</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>设备管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#" class="on">售货机管理</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>策略管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">货道策略</a>
+                   <a href="#">闪购键策略</a>
+                   <a href="#">文字走马灯策略</a>
+                   <a href="#">价格策略</a>
+                   <a href="#">节能策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>促销管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">商品促销策略</a>
+                   <a href="#">售货机促销策略</a>
+                   <a href="#">应用促销策略</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>点位管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">点位信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>客户管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                   <a href="#">客户信息</a>
+                   <a href="#">合伙人信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+               <li class="on"><a href="#">运营管理</a></li>
+               <li><a href="#">数据管理</a></li>
+               <li><a href="#">统计报表</a></li>
+               <li><a href="#">财务管理</a></li>
+               <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->        
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">售货机管理</strong></h2>
+            <div class="btn-group pull-right" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addAutoMat">新增</button><button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button><button type="button" class="btn btn-default btn-lg2">修改</button>
+            </div>
+            <div class="btn-group pull-right mr20" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheGoods">货道设置</button><button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheFlashBuy">闪购键设置</button><button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheLight">走马灯设置</button><button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlTheEnergy">节能设置</button><button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#CtrlThePrice">价格设置</button>
+            </div>
+            
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+        <form action="" name="">
+            <section>
+                <strong>搜索字段:</strong>
+                <div class="form-group w100 pull-left">
+                    <select class="form-control input-sm">
+                      <option value="0">请选择</option>
+                      <option value="1">售货机编号</option>
+                      <option value="2">点位</option>
+                      <option value="3">硬件编号</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>搜索内容:</strong>
+                <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入关键字"></div>
+            </section>
+            <section>
+                <strong>售货机型号:</strong>
+                <div class="form-group w100 pull-left">
+                    <select class="form-control input-sm">
+                      <option selected="selected">请选择</option>
+                      <option>TF-10</option>
+                      <option>TF-JF-10</option>
+                      <option>TF-JF-11</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>售货机状态:</strong>
+                <div class="form-group w100 pull-left">
+                    <select class="form-control input-sm">
+                      <option value="0">请选择</option>
+                      <option value="1">销售中</option>
+                      <option value="2">未投放</option>
+                      <option value="3">投放中</option>
+                      <option value="4">撤回中</option>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <strong>区域:</strong>
+                <div class="form-group pull-left">
+                   <select class="form-control input-sm w110 pull-left mr5" name="province_automat"></select><select class="form-control input-sm w110 pull-left mr5" name="city_automat"></select><select class="form-control input-sm w110 pull-left" name="area_automat"></select>
+                </div>
+            </section>
+            <section>
+                <strong>商圈:</strong>
+                <div class="form-group w80 pull-left">
+                    <select class="form-control input-sm">
+                      <option value="0">请选择</option>
+                      <option value="1">商圈</option>
+                      <option value="2">商圈</option>
+                      <option value="3">商圈</option>
+                      <option value="4">商圈</option>
+                    </select>
+                </div>
+            </section>
+            <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+        </form>
+        </div>
+        
+        <!--Main CommonTable-->
+        <div class="main_commontable tablePlaceholder">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh3"><input type="checkbox" value=""></li>
+                    <li class="wh7">售货机编号</li>
+                    <li class="wh10">区域</li>
+                    <li class="wh15">点位</li>
+                    <li class="wh5">售货机型号</li>
+                    <li class="wh5">状态</li>
+                    <li class="wh10">硬件编号</li>
+                    <li class="wh10">SIM卡号</li>
+                    <li class="wh15">查看</li>
+                    <li class="wh10">创建记录</li>
+                    <li class="wh10">修改记录</li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                 <tbody class="auto">
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>025360002</span></td>
+                        <td class="wh10"><span>江苏省南京市玄武区</span></td>
+                        <td class="wh15">
+                            <p><span>德基广场2期写字楼</span></p>
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="南京市德基2期写字楼底商1201-A">具体位置<i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                        <td class="wh5"><span>TF-JF-11</span></td>
+                        <td class="wh5"><span class="icon_state">销售中</span></td>
+                        <td class="wh10"><span>TFA1002000001</span></td>
+                        <td class="wh10"><span>18922666226</span></td>
+                        <td class="wh15">
+                            <div class="btn-group" data-toggle="buttons">
+                    			<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheGoods">货道</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheList">列表页</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewThePrice">价格</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheStrategy">策略</button>
+                            </div>
+                        </td>
+                        <td class="wh10">
+                        	<p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh10">
+                        	<p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>025360002</span></td>
+                        <td class="wh10"><span>江苏省南京市玄武区</span></td>
+                        <td class="wh15">
+                            <p><span>德基广场2期写字楼</span></p>
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="南京市德基2期写字楼底商1201-A">具体位置<i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                        <td class="wh5"><span>TF-JF-11</span></td>
+                        <td class="wh5"><span class="icon_state blue">撤回中</span></td>
+                        <td class="wh10"><span>TFA1002000001</span></td>
+                        <td class="wh10"><span>18922666226</span></td>
+                        <td class="wh15">
+                            <div class="btn-group" data-toggle="buttons">
+                    			<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheGoods">货道</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheList">列表页</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewThePrice">价格</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheStrategy">策略</button>
+                            </div>
+                        </td>
+                        <td class="wh10">
+                        	<p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh10">
+                        	<p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>025360002</span></td>
+                        <td class="wh10"><span>江苏省南京市玄武区</span></td>
+                        <td class="wh15">
+                            <p><span>德基广场2期写字楼</span></p>
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="南京市德基2期写字楼底商1201-A">具体位置<i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                        <td class="wh5"><span>TF-JF-11</span></td>
+                        <td class="wh5"><span class="icon_state blue">投放中</span></td>
+                        <td class="wh10"><span>TFA1002000001</span></td>
+                        <td class="wh10"><span>18922666226</span></td>
+                        <td class="wh15">
+                            <div class="btn-group" data-toggle="buttons">
+                    			<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheGoods">货道</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheList">列表页</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewThePrice">价格</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheStrategy">策略</button>
+                            </div>
+                        </td>
+                        <td class="wh10">
+                        	<p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh10">
+                        	<p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="wh3"><input type="checkbox" value=""></td>
+                        <td class="wh7"><span>025360002</span></td>
+                        <td class="wh10"><span>江苏省南京市玄武区</span></td>
+                        <td class="wh15">
+                            <p><span>德基广场2期写字楼</span></p>
+                            <p><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="南京市德基2期写字楼底商1201-A">具体位置<i class="iconfont f14 ml5 icon-tishi cf_blue"></i></a></p>
+                        </td>
+                        <td class="wh5"><span>TF-JF-11</span></td>
+                        <td class="wh5"><span class="icon_state gray">未投放</span></td>
+                        <td class="wh10"><span>TFA1002000001</span></td>
+                        <td class="wh10"><span>18922666226</span></td>
+                        <td class="wh15">
+                            <div class="btn-group" data-toggle="buttons">
+                    			<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheGoods">货道</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheList">列表页</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewThePrice">价格</button><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewTheStrategy">策略</button>
+                            </div>
+                        </td>
+                        <td class="wh10">
+                        	<p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                        <td class="wh10">
+                        	<p><span>尧舜</span></p>
+                            <p><span>2016/11/16 11:36:56</span></p>
+                        </td>
+                     </tr>
+                     
+                 </tbody>
+                 
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                 <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                 </ul>
+             </div>
+            <!--table footer end-->
+        </div>
+    </div>
+    
+    <!----
+      **  模态框 **
+    ---->
+     <!-----新建售货机 模态框 start----->
+    <div class="modal fade" id="addAutoMat" tabindex="-1" role="dialog" aria-labelledby="新建售货机" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">新建售货机</h4>
+                </div>
+                <form action="" name="" id="">
+                <div class="modal-body">
+                    <!--基本信息 start-->
+                    <div class="modal_commonbody clearfix">
+                        <!--填写基本信息-->
+                        <div class="col_info clearfix">
+                            <section class="col-md-12">
+                                <span>售货机型号:</span>
+                                <div class="form-group">
+                                    <select class="form-control input-sm">
+                                      <option selected="selected">请选择</option>
+                                      <option>TF-10</option>
+                                      <option>TF-JF-10</option>
+                                      <option>TF-JF-11</option>
+                                    </select>
+                                </div>
+                            </section>
+                            <section class="col-md-6">
+                                <span>所属点位:</span>
+                                <div class="form-group"><button type="button" class="btn btn-default btn-sm2 f12 btn-block" data-toggle="modal" data-target="#choiceLocation">选择点位</button></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span>复制策略:</span>
+                                <div class="form-group"><button type="button" class="btn btn-default btn-sm2 f12 btn-block" data-toggle="modal" data-target="#copyMatStrategy">复制设备策略</button></div>
+                            </section>
+                            <section class="col-md-12">
+                                <span>具体位置:</span>
+                                <div class="form-group"><textarea class="form-control input-sm" type="text" placeholder="请输入具体位置"></textarea></div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2 restbtn" data-dismiss="modal">取消</button>
+                </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    <!-----新建售货机 模态框 end----->
+    <!-----新建售货机 选择点位 模态框 start----->
+    <div class="modal fade" id="choiceLocation" tabindex="-1" role="dialog" aria-labelledby="选择点位" aria-hidden="true">
+        <div class="modal-dialog w700">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">选择点位</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commonhead hl30">
+                    <form action="" name="">
+                        <section>
+                            <strong>区域:</strong>
+                            <div class="form-group pull-left">
+                               <select class="form-control input-sm w110 pull-left mr5" name="province_choiceLocation"></select><select class="form-control input-sm w110 pull-left mr5" name="city_choiceLocation"></select><select class="form-control input-sm w110 pull-left" name="area_choiceLocation"></select>
+                            </div>
+                        </section>
+                        <section>
+                            <strong>点位:</strong>
+                            <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入关键字"></div>
+                        </section>
+                        <button type="submit" class="btn btn-default f12 btn-lg2">查询</button>
+                    </form>
+                    </div>
+                    <form action="" name="">
+                    <div class="main_commontable max300 border_line">
+                        <table>
+                             <thead>
+                                 <tr>
+                        			<td class="wh10"></td>
+                                    <td class="wh20">点位</td>
+                                    <td class="wh25">区域</td>
+                                    <td class="wh30">地址</td>
+                                    <td class="wh15">客户</td>
+                                 </tr>
+                             </thead>
+                             <tbody class="auto">
+                                 <tr>
+                        			<td class="wh10"><input type="checkbox" value=""></td>
+                                    <td class="wh20">万达广场</td>
+                                    <td class="wh25">北京市朝阳区</td>
+                                    <td class="wh30">建国路93号万达广场9号楼1201</td>
+                                    <td class="wh15">李凡达</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh10"><input type="checkbox" value=""></td>
+                                    <td class="wh20">德基广场2期写字楼</td>
+                                    <td class="wh25">南京市玄武区</td>
+                                    <td class="wh30">南京市德基广场2期写字楼3-201</td>
+                                    <td class="wh15">李大锤</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh10"><input type="checkbox" value=""></td>
+                                    <td class="wh20">万达广场</td>
+                                    <td class="wh25">北京市朝阳区</td>
+                                    <td class="wh30">建国路93号万达广场9号楼1201</td>
+                                    <td class="wh15">李凡达</td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">确定</button>
+                        <button type="button" class="btn btn-default btn-lg2 restbtn" data-dismiss="modal">取消</button>
+                    </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----新建售货机 选择点位 模态框 end----->
+    <!-----新建售货机 复制设备策略 模态框 start----->
+    <div class="modal fade" id="copyMatStrategy" tabindex="-1" role="dialog" aria-labelledby="选择要复制的售货机策略" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">选择要复制的售货机策略</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commonhead hl30">
+                    <form action="" name="">
+                        <section>
+                            <strong>售货机编号:</strong>
+                            <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入售货机编号"></div>
+                        </section>
+                        <section>
+                            <strong>点位:</strong>
+                            <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入点位名称"></div>
+                        </section>
+                        <button type="submit" class="btn btn-default f12 btn-lg2">查询</button>
+                    </form>
+                    </div>
+                    <form action="" name="">
+                    <div class="main_commontable max300 border_line">
+                        <table>
+                             <thead>
+                                 <tr>
+                        			<td class="wh10"></td>
+                                    <td class="wh30">售货机编号</td>
+                                    <td class="wh40">点位</td>
+                                    <td class="wh20">售货机型号</td>
+                                 </tr>
+                             </thead>
+                             <tbody class="auto">
+                                 <tr>
+                        			<td class="wh10"><input type="checkbox" value=""></td>
+                                    <td class="wh30">1022500002</td>
+                                    <td class="wh40">万达广场9-1201</td>
+                                    <td class="wh20">TF-JF-11</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh10"><input type="checkbox" value=""></td>
+                                    <td class="wh30">1022500002</td>
+                                    <td class="wh40">万达广场9-1201</td>
+                                    <td class="wh20">TF-JF-11</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh10"><input type="checkbox" value=""></td>
+                                    <td class="wh30">1022500002</td>
+                                    <td class="wh40">万达广场9-1201</td>
+                                    <td class="wh20">TF-JF-11</td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                    <!--按钮-->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-lg2">确定</button>
+                        <button type="button" class="btn btn-default btn-lg2 restbtn" data-dismiss="modal">取消</button>
+                    </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----新建售货机 复制设备策略 模态框 end----->
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <!------------------------------------------------------------------------------------------------------------------------------>
+    <!-------------------------以下为 设置类 的模态框：货道设置、闪购键设置、走马灯设置、节能设置、价格设置  start--------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------>
+    <!--
+    **
+    ****    选择商品：#choiceTheGoods
+    ****    列表页设置：#setTheList
+    ****    货道设置：#CtrlTheGoods
+    ****    闪购键设置：#CtrlTheFlashBuy
+    ****    走马灯设置：#CtrlTheLight
+    ****    节能设置：#CtrlTheEnergy
+    ****    价格设置：#CtrlThePrice
+    **
+    -->
+    
+    <!-------------------------------------货道设置：#CtrlTheGoods start------------------------------------------------>
+    <div class="modal fade" id="CtrlTheGoods" tabindex="-1" role="dialog" aria-labelledby="货道设置" aria-hidden="true">
+        <div class="modal-dialog w1000">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">货道设置</h4>
+                </div>
+                <div class="modal-body">
+                    <!---Tab 选择策略 与 直接设置 切换 start--->
+                    <div class="tabheader">
+                       <ul>
+                           <li class="on"><span>选择策略</span></li>
+                           <li><span>直接设置</span></li>
+                       </ul>
+                    </div>
+					<!--控制tab切换-->
+                    <script>
+						$(function(){
+						   $('#CtrlTheGoods .tabheader').on('click','li',function(){ 
+							  $(this).addClass('on').siblings().removeClass('on'); 
+							  $('#CtrlTheGoods .modal_commonbody').hide().eq($('#CtrlTheGoods .tabheader li').index(this)).show(); 
+						   }); 
+						}); 
+                    </script>
+                    <!---Tab 选择策略 与 直接设置 切换 end--->
+                    <!--选择策略 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="main_commonhead hl30">
+                        <form action="" name="">
+                            <section>
+                                <strong>策略名称:</strong>
+                                <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入策略名称"></div>
+                            </section>
+                            <section>
+                                <strong>售货机型号:</strong>
+                                <div class="form-group w120 pull-left">
+                                    <select class="form-control input-sm">
+                                      <option selected="selected">请选择</option>
+                                      <option>TF-10</option>
+                                      <option>TF-JF-10</option>
+                                      <option>TF-JF-11</option>
+                                    </select>
+                                </div>
+                            </section>
+                            <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+                        </form>
+                        </div>
+                        <!--table body start-->
+                        <div class="main_commontable max400 border_line clearfix">
+                            <table>
+                                 <thead>
+                                     <tr>
+                                        <td class="wh20">策略名称</td>
+                                        <td class="wh20">策略说明</td>
+                                        <td class="wh20">售货机类型</td>
+                                        <td class="wh20">售货机型号</td>
+                                        <td class="wh10">货道配置</td>
+                                        <td class="wh10">列表页配置</td>
+                                     </tr>
+                                 </thead>
+                                 <tbody class="auto">
+                                     <tr>
+                                        <td class="wh20">-</td>
+                                        <td class="wh20">-</td>
+                                        <td class="wh20">-</td>
+                                        <td class="wh20">-</td>
+                                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewTheGoods">查看</button></td>
+                                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewTheList">查看</button></td>
+                                     </tr>
+                                     <tr>
+                                        <td class="wh20">-</td>
+                                        <td class="wh20">-</td>
+                                        <td class="wh20">-</td>
+                                        <td class="wh20">-</td>
+                                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewTheGoods">查看</button></td>
+                                        <td class="wh10"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewTheList">查看</button></td>
+                                     </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                        <!--table body end-->
+                        <!--按钮-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success btn-lg2">确定</button>
+                            <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                    <!--选择策略 end-->
+                    <!--直接设置 start-->
+                    <div class="modal_commonbody clearfix" style="display:none">
+                             <div class="btn-group" data-toggle="buttons">
+                					<button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#choiceTheGoods">关联商品</button><button type="button" class="btn btn-default btn-lg2">取消关联</button><button type="button" class="btn btn-default btn-lg2">合并货道</button><button type="button" class="btn btn-default btn-lg2">解除合并</button><button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#setTheList">列表页设置</button>
+                             </div>
+                             <div class="col_thegoods mt15 thegoods">
+                                 <ul>
+                                     <li class="wh10 on">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh20">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                         <img src="dist/images/sample/goods_05.png">
+                                         <label><span>脉动青柠味</span></label>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                     </li>
+                                     <li class="wh10">
+                                		 <p><span class="icon_state sm">1-1</span></p>
+                                     </li>
+                                 </ul>
+                             </div>
+                             <script>
+                                 $(function(){
+								    $("#CtrlTheGoods .thegoods").on("click","li", function(){
+									   $(this).toggleClass("on");
+									})
+								 })
+                             </script>
+                            <!--按钮-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success btn-lg2">确定</button>
+                                <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                            </div>
+                    </div>
+                    <!--直接设置 end-->
+                </div>
+                           
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------货道设置：#CtrlTheGoods end------------------------------------------------>
+    
+    <!-------------------------------------闪购键设置：#CtrlTheFlashBuy start------------------------------------------------>
+    <div class="modal fade" id="CtrlTheFlashBuy" tabindex="-1" role="dialog" aria-labelledby="闪购键设置" aria-hidden="true">
+        <div class="modal-dialog w1000">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">闪购键设置</h4>
+                </div>
+                <div class="modal-body">
+                    <!---Tab 选择策略 与 直接设置 切换 start--->
+                    <div class="tabheader">
+                       <ul>
+                           <li class="on"><span>选择策略</span></li>
+                           <li><span>直接设置</span></li>
+                       </ul>
+                    </div>
+					<!--控制tab切换-->
+                    <script>
+						$(function(){
+						   $('#CtrlTheFlashBuy .tabheader').on('click','li',function(){ 
+							  $(this).addClass('on').siblings().removeClass('on'); 
+							  $('#CtrlTheFlashBuy .modal_commonbody').hide().eq($('#CtrlTheFlashBuy .tabheader li').index(this)).show(); 
+						   }); 
+						}); 
+                    </script>
+                    <!---Tab 选择策略 与 直接设置 切换 end--->
+                    <!--选择策略 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="main_commonhead hl30">
+                            <form action="" name="">
+                                <section>
+                                    <strong>售货机型号:</strong>
+                                    <div class="form-group w120 pull-left">
+                                        <select class="form-control input-sm">
+                                          <option>请选择</option>
+                                          <option>售货机型号</option>
+                                        </select>
+                                    </div>
+                                </section>
+                                <section>
+                                    <strong>策略名称:</strong>
+                                    <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入策略名称"></div>
+                                </section>
+                                <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+                            </form>
+                        </div>
+                        <!--table body start-->
+                        <div class="main_commontable max400 border_line clearfix">
+                            <table>
+                                 <thead>
+                                     <tr>
+                                        <td class="wh30">策略名称</td>
+                                        <td class="wh30">策略说明</td>
+                                        <td class="wh20">售货机型号</td>
+                                        <td class="wh20">闪购键配置</td>
+                                     </tr>
+                                 </thead>
+                                 <tbody class="auto">
+                                     <tr>
+                                        <td class="wh30">-</td>
+                                        <td class="wh30">-</td>
+                                        <td class="wh20">-</td>
+                                        <td class="wh20"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewTheFlashBuy">查看</button></td>
+                                     </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                        <!--table body end-->
+                        <!--按钮-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success btn-lg2">确定</button>
+                            <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                    <!--选择策略 end-->
+                    <!--直接设置 start-->
+                    <div class="modal_commonbody clearfix" style="display:none">
+                            <!--table body start-->
+                            <div class="main_commontable max400 border_line clearfix">
+                                <table>
+                                     <thead>
+                                         <tr>
+                                            <td class="wh30">闪购键位置</td>
+                                            <td class="wh50">商品</td>
+                                            <td class="wh20">配置</td>
+                                         </tr>
+                                     </thead>
+                                     <tbody class="auto">
+                                         <tr>
+                                            <td class="wh30">闪购键1</td>
+                                            <td class="wh50">-</td>
+                                            <td class="wh20"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#choiceTheGoods">配置</button></td>
+                                         </tr>
+                                         <tr>
+                                            <td class="wh30">闪购键2</td>
+                                            <td class="wh50">-</td>
+                                            <td class="wh20"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#choiceTheGoods">配置</button></td>
+                                         </tr>
+                                         <tr>
+                                            <td class="wh30">闪购键3</td>
+                                            <td class="wh50">-</td>
+                                            <td class="wh20"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#choiceTheGoods">配置</button></td>
+                                         </tr>
+                                         <tr>
+                                            <td class="wh30">闪购键4</td>
+                                            <td class="wh50">-</td>
+                                            <td class="wh20"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#choiceTheGoods">配置</button></td>
+                                         </tr>
+                                     </tbody>
+                                </table>
+                            </div>
+                            <!--table body end-->
+                            <!--按钮-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success btn-lg2">确定</button>
+                                <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                            </div>
+                    </div>
+                    <!--直接设置 end-->
+                </div>
+                           
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------闪购键设置：#CtrlTheFlashBuy end------------------------------------------------>
+    
+     
+    <!-------------------------------------走马灯设置：#CtrlTheLight start------------------------------------------------>
+    <div class="modal fade" id="CtrlTheLight" tabindex="-1" role="dialog" aria-labelledby="走马灯设置" aria-hidden="true">
+        <div class="modal-dialog w800">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">走马灯设置</h4>
+                </div>
+                <div class="modal-body">
+                    <!---Tab 选择策略 与 直接设置 切换 start--->
+                    <div class="tabheader">
+                       <ul>
+                           <li class="on"><span>选择策略</span></li>
+                           <li><span>直接设置</span></li>
+                       </ul>
+                    </div>
+					<!--控制tab切换-->
+                    <script>
+						$(function(){
+						   $('#CtrlTheLight .tabheader').on('click','li',function(){ 
+							  $(this).addClass('on').siblings().removeClass('on'); 
+							  $('#CtrlTheLight .modal_commonbody').hide().eq($('#CtrlTheLight .tabheader li').index(this)).show(); 
+						   }); 
+						}); 
+                    </script>
+                    <!---Tab 选择策略 与 直接设置 切换 end--->
+                    <!--选择策略 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="main_commonhead hl30">
+                            <form action="" name="">
+                                <section>
+                                    <strong>策略名称:</strong>
+                                    <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入策略名称"></div>
+                                </section>
+                                <button type="submit" class="btn btn-default f12 btn-lg2 pull-left mr20">查询</button>
+                                
+                                <section>
+                                    <strong>开始时间:</strong>
+                                    <div class="form-group w120 pull-left"><input class="form-control input-sm" id="DateStart_top" type="text" placeholder="开始时间"></div>
+                                </section>
+                                <section>
+                                    <strong>结束时间:</strong>
+                                    <div class="form-group w120 pull-left"><input class="form-control input-sm" id="DateEnd_top" type="text" placeholder="结束时间"></div>
+                                </section>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!--table body start-->
+                        <div class="main_commontable max400 border_line mt15 clearfix">
+                            <table>
+                                 <thead>
+                                     <tr>
+                                        <td class="wh30">策略名称</td>
+                                        <td class="wh40">策略说明</td>
+                                        <td class="wh30">走马灯内容</td>
+                                     </tr>
+                                 </thead>
+                                 <tbody class="auto">
+                                     <tr>
+                                        <td class="wh30">-</td>
+                                        <td class="wh40">-</td>
+                                        <td class="wh30"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewTheLight">查看</button></td>
+                                     </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                        <!--table body end-->
+                        <!--按钮-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success btn-lg2">确定</button>
+                            <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                    <!--选择策略 end-->
+                    <!--直接设置 start-->
+                    <div class="modal_commonbody clearfix" style="display:none">
+                           <form action="" name="" id="CtrlTheLightForm">
+                             <div class="clearfix mt20">
+                                    <section class="col-md-6">
+                                        <strong>开始时间:</strong>
+                                        <div class="form-group"><input class="form-control input-sm" id="DateStart" type="text" placeholder="开始时间"></div>
+                                    </section>
+                                    <section class="col-md-6">
+                                        <strong>结束时间:</strong>
+                                        <div class="form-group"><input class="form-control input-sm" id="DateEnd" type="text" placeholder="结束时间"></div>
+                                    </section>
+                                    <section class="col-md-12">
+                                        <strong for="moretext">文案:</strong>
+                                        <div class="form-group"><textarea class="form-control input-sm" type="text" placeholder="请输入文案内容" name="moretext" required data-msg-required="请输入文案内容" minlength="2" data-msg-minlength="最少输入2个字" maxlength="2" data-msg-maxlength="最多只能输入1000个字" data-rule-au9="true"></textarea></div>
+                                    </section>
+                            </div>
+                            <!--按钮-->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success btn-lg2">确定</button>
+                                <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                            </div>
+                          </form>
+							<script>
+                            $(function(){
+                                //走马灯
+                                $("#CtrlTheLightForm").validate({
+                                    submitHandler: function() {
+                                        //form.submit();//提交表单
+                                        //验证通过后 的js代码写在这里
+                                    }
+                                });
+                            });
+                            </script>
+                    </div>
+                    <!--直接设置 end-->
+                </div>
+                           
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------走马灯设置：#CtrlTheLight end------------------------------------------------>
+         
+    <!-------------------------------------节能设置：#CtrlTheEnergy start------------------------------------------------>
+    <div class="modal fade" id="CtrlTheEnergy" tabindex="-1" role="dialog" aria-labelledby="节能设置" aria-hidden="true">
+        <div class="modal-dialog w800">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">节能设置</h4>
+                </div>
+                <div class="modal-body">
+                    <!---Tab 选择策略 与 直接设置 切换 start--->
+                    <div class="tabheader">
+                       <ul>
+                           <li class="on"><span>选择策略</span></li>
+                           <li><span>直接设置</span></li>
+                       </ul>
+                    </div>
+					<!--控制tab切换-->
+                    <script>
+						$(function(){
+						   $('#CtrlTheEnergy .tabheader').on('click','li',function(){ 
+							  $(this).addClass('on').siblings().removeClass('on'); 
+							  $('#CtrlTheEnergy .modal_commonbody').hide().eq($('#CtrlTheEnergy .tabheader li').index(this)).show(); 
+						   }); 
+						}); 
+                    </script>
+                    <!---Tab 选择策略 与 直接设置 切换 end--->
+                    <!--选择策略 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="main_commonhead hl30">
+                            <form action="" name="">
+                                <section>
+                                    <strong>售货机型号:</strong>
+                                    <div class="form-group w120 pull-left">
+                                        <select class="form-control input-sm">
+                                          <option>请选择</option>
+                                          <option>售货机型号</option>
+                                        </select>
+                                    </div>
+                                </section>
+                                <section>
+                                    <strong>策略名称:</strong>
+                                    <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入策略名称"></div>
+                                </section>
+                                <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+                            </form>
+                        </div>
+                        <!--table body start-->
+                        <div class="main_commontable max400 border_line clearfix">
+                            <table>
+                                 <thead>
+                                     <tr>
+                                        <td class="wh30">策略名称</td>
+                                        <td class="wh30">策略说明</td>
+                                        <td class="wh20">售货机型号</td>
+                                        <td class="wh20">节能策略</td>
+                                     </tr>
+                                 </thead>
+                                 <tbody class="auto">
+                                     <tr>
+                                        <td class="wh30">-</td>
+                                        <td class="wh30">-</td>
+                                        <td class="wh20">-</td>
+                                        <td class="wh20"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewTheEnergy">查看</button></td>
+                                     </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                        <!--table body end-->
+                        <!--按钮-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success btn-lg2">确定</button>
+                            <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                    <!--选择策略 end-->
+                    <!--直接设置 start-->
+                    <div class="modal_commonbody clearfix" style="display:none">
+                           <div class="main_commonhead hl30">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#addTheEnergy">新增</button><button type="button" class="btn btn-default btn-lg2 btn_tableDelete">删除</button><button type="button" class="btn btn-default btn-lg2">修改</button>
+                                </div>
+                           </div>
+                            <div class="main_commontable max400 border_line">
+                                <table>
+                                     <thead>
+                                         <tr>
+                                            <td class="wh5"><input type="checkbox" value=""></td>
+                                            <td class="wh15">节能类型</td>
+                                            <td class="wh20">开始时间</td>
+                                            <td class="wh20">结束时间</td>
+                                            <td class="wh20">温度目标值</td>
+                                            <td class="wh20">备注</td>
+                                         </tr>
+                                     </thead>
+                                     <tbody class="auto">
+                                         <tr>
+                                            <td class="wh5"><input type="checkbox" value=""></td>
+                                            <td class="wh15">-</td>
+                                            <td class="wh20">-</td>
+                                            <td class="wh20">-</td>
+                                            <td class="wh20">-</td>
+                                            <td class="wh20">-</td>
+                                         </tr>
+                                         <tr>
+                                            <td class="wh5"><input type="checkbox" value=""></td>
+                                            <td class="wh15">-</td>
+                                            <td class="wh20">-</td>
+                                            <td class="wh20">-</td>
+                                            <td class="wh20">-</td>
+                                            <td class="wh20">-</td>
+                                         </tr>
+                                     </tbody>
+                                </table>
+                            </div>
+                           
+                            <!--按钮-->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success btn-lg2">确定</button>
+                                <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                            </div>
+							<script>
+                            $(function(){
+								
+                                $("#CtrlTheEnergyForm").validate({
+                                    submitHandler: function() {
+                                        //form.submit();//提交表单
+                                        //验证通过后 的js代码写在这里
+                                    }
+                                });
+                            });
+                            </script>
+                    </div>
+                    <!--直接设置 end-->
+                </div>
+                           
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------节能设置：#CtrlTheEnergy end------------------------------------------------>
+    
+    <!-------------------------------------选择价格策略：#CtrlThePrice start------------------------------------------------>
+    <div class="modal fade" id="CtrlThePrice" tabindex="-1" role="dialog" aria-labelledby="选择价格策略" aria-hidden="true">
+        <div class="modal-dialog w800">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">选择价格策略</h4>
+                </div>
+                <div class="modal-body">
+                    <!--选择策略 start-->
+                    <div class="modal_commonbody clearfix">
+                        <div class="main_commonhead hl30">
+                            <form action="" name="">
+                                <section>
+                                    <strong>策略名称:</strong>
+                                    <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入策略名称"></div>
+                                </section>
+                                <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+                            </form>
+                        </div>
+                        <!--table body start-->
+                        <div class="main_commontable max400 border_line clearfix">
+                            <table>
+                                 <thead>
+                                     <tr>
+                                        <td class="wh30">策略名称</td>
+                                        <td class="wh40">策略说明</td>
+                                        <td class="wh30">价格配置</td>
+                                     </tr>
+                                 </thead>
+                                 <tbody class="auto">
+                                     <tr>
+                                        <td class="wh30">-</td>
+                                        <td class="wh40">-</td>
+                                        <td class="wh30"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewThePrice">查看</button></td>
+                                     </tr>
+                                     <tr>
+                                        <td class="wh30">-</td>
+                                        <td class="wh40">-</td>
+                                        <td class="wh30"><button type="button" class="btn btn-default f12 btn-sm" data-toggle="modal" data-target="#viewThePrice">查看</button></td>
+                                     </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                        <!--table body end-->
+                        <!--按钮-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success btn-lg2">确定</button>
+                            <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                    <!--选择策略 end-->
+                </div>
+                           
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------选择价格策略：#CtrlThePrice end------------------------------------------------>
+    
+    
+    
+    <!-----选择商品 #choiceTheGoods 模态框 start----->
+    <div class="modal fade" id="choiceTheGoods" tabindex="-1" role="dialog" aria-labelledby="选择商品" aria-hidden="true">
+        <div class="modal-dialog w1000">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">选择商品</h4>
+                </div>
+                <form>
+                <div class="modal-body">
+                        <!--货道设置信息 start-->
+                        <div class="modal_commonbody clearfix">
+                             <div class="main_commonhead hl30">
+                                <form action="" name="">
+                                    <section>
+                                        <strong>商品分类:</strong>
+                                        <div class="form-group w120 pull-left mr10">
+                                            <select class="form-control input-sm">
+                                                <option value="0">商品大类</option>
+                                                <option value="1">商品大类</option>
+                                                <option value="2">商品大类</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group w120 pull-left">
+                                            <select class="form-control input-sm">
+                                                <option value="0">商品小类</option>
+                                                <option value="1">商品小类</option>
+                                                <option value="2">商品小类</option>
+                                            </select>
+                                        </div>
+                                    </section>
+                                    <section>
+                                        <strong>商品名称:</strong>
+                                        <div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入商品名称"></div>
+                                    </section>
+                                    <button type="submit" class="btn btn-default f12 btn-lg2 mr10">查询</button>
+                                </form>
+                            </div>
+                            <!--商品 box start-->
+                            <div class="col_relation mt15 small choiceTheGoods">
+                                 <ul>
+                                     <li class="on">
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                 </ul>
+                            </div>
+                            <!--商品 box end-->
+                             <script>
+                                 $(function(){
+								    $(".choiceTheGoods").on("click","li", function(){
+									   $(this).toggleClass("on");
+									})
+								 })
+                             </script>
+                        </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-lg2" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-----选择商品 #choiceTheGoods 模态框 end----->  
+    
+    <!-----列表页设置 #setTheList 模态框 start----->
+    <div class="modal fade" id="setTheList" tabindex="-1" role="dialog" aria-labelledby="列表页设置" aria-hidden="true">
+        <div class="modal-dialog w700">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">列表页设置</h4>
+                </div>
+                <form>
+                <div class="modal-body">
+                        <!--货道设置信息 start-->
+                        <div class="modal_commonbody clearfix">
+                             <div class="main_commonhead hl30">
+                                    <button type="button" class="btn btn-default f12 btn-lg2 mr10">交换</button>
+                            </div>
+                            <!--商品 box start-->
+                            <div class="col_relation mt15 small setList">
+                                 <ul>
+                                     <li class="on">
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_01.png"></section><i></i>
+                                         <p>可口可乐333ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_02.png"></section><i></i>
+                                         <p>芒果汁250ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_03.png"></section><i></i>
+                                         <p>可口可乐500ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_04.png"></section><i></i>
+                                         <p>雪碧333ML 罐装</p><input type="hidden" value="" name="">
+                                     </li>
+                                     <li>
+                                         <section><img src="dist/images/sample/goods_05.png"></section><i></i>
+                                         <p>脉动青柠味600ML</p><input type="hidden" value="" name="">
+                                     </li>
+                                 </ul>
+                            </div>
+                            <!--商品 box end-->
+                             <script>
+                                 $(function(){
+								    $(".setList").on("click","li", function(){
+									   $(this).toggleClass("on");
+									})
+								 })
+                             </script>
+                        </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-lg2" data-dismiss="modal">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-----列表页设置 #setTheList 模态框 end----->  
+    
+    <!-----新建节能策略 模态框 start----->
+    <div class="modal fade" id="addTheEnergy" tabindex="-1" role="dialog" aria-labelledby="新建节能策略" aria-hidden="true">
+        <div class="modal-dialog">
+            <form method="post" action="" name="form" id="addTheEnergyForm">
+            <div class="ValidateRrrorBox"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">新建节能策略</h4>
+                </div>
+                <form name="" action="" id="addTheEnergyForm">
+                <div class="modal-body">
+                    <div class="modal_commonbody clearfix mt20">
+                        <!--填写基本信息-->
+                        <div class="step_info">
+                            <section class="col-md-6">
+                                <span for="TheEnergyType">节能类型:</span>
+                                <div class="form-group">
+                                    <select class="form-control input-sm" name="TheEnergyType" required data-msg-required="请选择节能类型">
+                                        <option value="">请选择</option>
+                                        <option value="1">制冷</option>
+                                        <option value="2">制热</option>
+                                        <option value="3">关闭屏幕</option>
+                                    </select>
+                                </div>
+                            </section>
+                            <section class="col-md-6">
+                                <span class="w100" for="TheEnergyTemp">温度目标值(单位:℃):</span>
+                                <div class="form-group"><input class="form-control input-sm" name="TheEnergyTemp" type="text" placeholder="请输入温度目标值" required data-msg-required="请输入温度目标值"></div>
+                                
+                            </section>
+                            <section class="col-md-6">
+                                <span for="TheEnergyTimeStart">开始时间:</span>
+                                <div class="form-group"><input class="form-control input-sm form_time" type="text" placeholder="开始时间" name="TheEnergyTimeStart" required data-msg-required="请选择开始时间"></div>
+                            </section>
+                            <section class="col-md-6">
+                                <span for="TheEnergyTimeEnd">结束时间:</span>
+                                <div class="form-group"><input class="form-control input-sm form_time" type="text" placeholder="结束时间" name="TheEnergyTimeEnd" required data-msg-required="请选择结束时间"></div>
+                            </section>
+                            <section class="col-md-12">
+                                <span for="">备注:</span>
+                                <div class="form-group">
+                                    <textarea class="form-control input-sm" name="" placeholder="请输入备注"></textarea>
+                                </div>
+                            </section>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-lg2">完成</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+                </form>
+            </div>
+            </form>
+            <script>
+            $(function(){
+				//新建节能策略demo
+				$("#addTheEnergyForm").validate({
+					submitHandler: function() {
+						//form.submit();//提交表单
+						//验证通过后 的js代码写在这里
+					}
+				});
+			});
+            </script>
+        </div>
+    </div>
+    <!-----新建节能策略 #addTheEnergy 模态框 end----->
+    
+    
+    
+   
+    <!------------------------------------------------------------------------------------------------------------------------------>
+    <!-------------------------以上为 设置类 的模态框：货道设置、闪购键设置、走马灯设置、节能设置、价格设置  end----------------------------->
+    <!------------------------------------------------------------------------------------------------------------------------------> 
+    
+    
+    
+    
+        
+    <!---------------------------------------------------------------------------------------------------------------------------->
+    <!-------------------------以下为 查看类 的模态框：货道、列表页、价格、策略  start-------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------------------->
+    <!--
+    **
+    ****    查看货道：#viewTheGoods
+    ****    查看列表页：#viewTheList
+    ****    查看价格：#viewThePrice
+    ****    查看策略：#viewTheStrategy
+    ****    查看闪购键 #viewTheFlashBuy
+    ****    查看走马灯 #viewTheLight
+    ****    查看节能策略 #viewTheEnergy
+    **
+    -->
+
+    <!-----查看货道 #viewTheGoods 模态框 start----->
+    <div class="modal fade" id="viewTheGoods" tabindex="-1" role="dialog" aria-labelledby="查看货道" aria-hidden="true">
+        <div class="modal-dialog w1000">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">查看货道</h4>
+                </div>
+                <div class="modal-body">
+                     <div class="col_thegoods">
+                         <ul>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_02.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_03.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_04.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_01.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh20">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh30">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh20">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh30">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh10">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                         </ul>
+                     </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----查看货道 #viewTheGoods 模态框 end----->    
+    
+    <!-----查看列表页 #viewTheList 模态框 start----->
+    <div class="modal fade" id="viewTheList" tabindex="-1" role="dialog" aria-labelledby="查看列表页" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">查看列表页</h4>
+                </div>
+                <div class="modal-body">
+                     <div class="col_thegoods">
+                         <ul>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_01.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_02.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_03.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_04.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                             <li class="wh16_6">
+                                 <p><span class="icon_state sm">1-1</span></p><img src="dist/images/sample/goods_05.png"><label><span>脉动青柠味</span></label>
+                             </li>
+                         </ul>
+                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----查看列表页 #viewTheList 模态框 end----->     
+
+    <!-----查看价格 #viewThePrice 模态框 start------->
+    <div class="modal fade" id="viewThePrice" tabindex="-1" role="dialog" aria-labelledby="查看价格" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">查看价格</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commontable max400 border_line">
+                        <table>
+                             <thead>
+                                 <tr>
+                        			<td class="wh40">商品名称</td>
+                                    <td class="wh30">实际售价(元)</td>
+                                    <td class="wh30">建议零售价(元)</td>
+                                 </tr>
+                             </thead>
+                             <tbody class="auto">
+                                 <tr>
+                        			<td class="wh40">麦斯威尔咖啡330ml</td>
+                                    <td class="wh30">3.5</td>
+                                    <td class="wh30">3.5</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">麦斯威尔咖啡330ml</td>
+                                    <td class="wh30">3.5</td>
+                                    <td class="wh30">3.5</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">麦斯威尔咖啡330ml</td>
+                                    <td class="wh30">3.5</td>
+                                    <td class="wh30">3.5</td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2 confirmbtn" data-dismiss="modal">确定</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-----查看价格 #viewThePrice 模态框 end--------->
+    
+    <!-----查看策略 #viewTheStrategy 模态框 start------->
+    <div class="modal fade" id="viewTheStrategy" tabindex="-1" role="dialog" aria-labelledby="查看策略" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">查看策略</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commontable max400 border_line">
+                        <table>
+                             <thead>
+                                 <tr>
+                        			<td class="wh40">策略类型</td>
+                                    <td class="wh60">当前策略</td>
+                                 </tr>
+                             </thead>
+                             <tbody class="auto">
+                                 <tr>
+                        			<td class="wh40">货道策略</td>
+                                    <td class="wh60">这里是货道策略</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">闪购键策略</td>
+                                    <td class="wh60">-</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">文字走马灯策略</td>
+                                    <td class="wh60">-</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">价格策略</td>
+                                    <td class="wh60">这里是价格策略</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">节能策略</td>
+                                    <td class="wh60">-</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">商品促销策略</td>
+                                    <td class="wh60">-</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">售货机促销策略</td>
+                                    <td class="wh60">-</td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2 confirmbtn" data-dismiss="modal">确定</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-----查看策略 #viewTheStrategy 模态框 end--------->
+    
+    
+    <!-----查看闪购键 #viewTheFlashBuy 模态框 start------->
+    <div class="modal fade" id="viewTheFlashBuy" tabindex="-1" role="dialog" aria-labelledby="查看闪购键" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">查看闪购键</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commontable max400 border_line">
+                        <table>
+                             <thead>
+                                 <tr>
+                        			<td class="wh40">闪购键位置</td>
+                                    <td class="wh60">商品</td>
+                                 </tr>
+                             </thead>
+                             <tbody class="auto">
+                                 <tr>
+                        			<td class="wh40">闪购键1</td>
+                                    <td class="wh60">麦斯威尔卡布奇诺咖啡</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">闪购键2</td>
+                                    <td class="wh60">麦斯威尔卡布奇诺咖啡</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">闪购键3</td>
+                                    <td class="wh60">麦斯威尔卡布奇诺咖啡</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh40">闪购键4</td>
+                                    <td class="wh60">麦斯威尔卡布奇诺咖啡</td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2 confirmbtn" data-dismiss="modal">确定</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-----查看闪购键 #viewTheFlashBuy 模态框 end--------->
+        
+        
+    <!-----查看走马灯 #viewTheLight 模态框 start------->
+    <div class="modal fade" id="viewTheLight" tabindex="-1" role="dialog" aria-labelledby="查看走马灯" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">查看走马灯</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commontable max400 border_line">
+                        <p>欢迎购买！</p>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2 confirmbtn" data-dismiss="modal">确定</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-----查看走马灯 #viewTheLight 模态框 end--------->
+    
+        
+    <!-----查看节能策略 #viewTheEnergy 模态框 start------->
+    <div class="modal fade" id="viewTheEnergy" tabindex="-1" role="dialog" aria-labelledby="查看节能策略" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16" id="">查看节能策略</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="main_commontable max400 border_line">
+                        <table>
+                             <thead>
+                                 <tr>
+                        			<td class="wh20">节能类型</td>
+                                    <td class="wh20">开始时间</td>
+                                    <td class="wh20">结束时间</td>
+                                    <td class="wh20">温度目标值</td>
+                                    <td class="wh20">备注</td>
+                                 </tr>
+                             </thead>
+                             <tbody class="auto">
+                                 <tr>
+                        			<td class="wh20">-</td>
+                                    <td class="wh20">-</td>
+                                    <td class="wh20">-</td>
+                                    <td class="wh20">-</td>
+                                    <td class="wh20">-</td>
+                                 </tr>
+                                 <tr>
+                        			<td class="wh20">-</td>
+                                    <td class="wh20">-</td>
+                                    <td class="wh20">-</td>
+                                    <td class="wh20">-</td>
+                                    <td class="wh20">-</td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--按钮-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2 confirmbtn" data-dismiss="modal">确定</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-----查看节能策略 #viewTheEnergy 模态框 end--------->
+    
+    <!---------------------------------------------------------------------------------------------------------------------------->
+    <!-------------------------以上为 查看类 的模态框：货道、列表页、价格、策略  end-------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------------------->
+    
+    
+    
+</div>
+</body>
+</html>

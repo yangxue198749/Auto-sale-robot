@@ -1,0 +1,661 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>VMC升级计划 | 贩售机管理系统 3.0</title>
+    <!--依赖jQuery bootstrap-->
+    <link rel="stylesheet" href="./plus/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="./plus/jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="./plus/bootstrap/js/bootstrap.min.js"></script>
+    <!--layer 扩展插件-->
+    <script type="text/javascript" src="./plus/layer/layer.js"></script>
+    <script type="text/javascript" src="./plus/laydate/laydate.js"></script>
+    <!--select2 扩展插件-->
+    <script src="./plus/select2/select2.min.js"></script>
+    <script src="./plus/select2/select2.zh-CN.js"></script>
+    <link rel="stylesheet" href="./plus/select2/select2.min.css">
+    <!--图标样式-->
+    <link rel="stylesheet" type="text/css" href="./plus/iconfont/iconfont.css">
+    <!--全站样式-->
+    <link rel="stylesheet" type="text/css" href="./dist/css/vms.mp-3.01.css"/>
+    <!--基础结构 tonney-->
+    <script type="text/javascript" src="./dist/js/common_container.dist.js"></script>
+    <!--table处理 tonney-->
+    <script type="text/javascript" src="./dist/js/function.table.js"></script>
+	<!--datetimepicker 扩展插件-->
+	<link href="./plus/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+	<script src="./plus/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="./plus/datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script src="./plus/datetimepicker/function.datetimepicker.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        var duration=1000;
+        var endTime = new Date().getTime() + duration + 100;
+        function interval(){
+            var n=(endTime-new Date().getTime())/1000;
+            if(n<0) return;
+            $("#timeout").innerHTML = n.toFixed(3);
+            setTimeout(interval, 10);
+        }
+        window.onload=function(){setTimeout("window.location.href='goodbye.html'", duration);
+            interval();
+        }
+    </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="./plus/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div class="mp_container">
+    <!------ 公用左侧导航 start ------>
+    <div class="mp_leftmenu">
+        <div class="menu_wrap" id="LeftMenuGroup">
+            <dl>
+                <dt><i class="iconfont mt0 icon-home2"></i>硬件数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">售货机型号</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-dingdan"></i>商品数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商品类型</a>
+                    <a href="#">商品信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-chengshifuwu"></i>商圈数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">商圈信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>仓库数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">仓库信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-qudaoguanli"></i>SIM卡数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">SIM卡信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>基础数据<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">字典信息</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt><i class="iconfont icon-tianmaohaoquan"></i>升级管理<i class="iconfont fr_arr icon-xiala"></i></dt>
+                <dd>
+                    <a href="#">升级包管理</a>
+                    <a href="#">vmBox升级计划</a>
+                    <a href="#" class="on">vmc升级计划</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!------ 公用左侧导航 end ------>
+    <!------ 公用头部导航 start ------>
+    <div class="mp_topheader fixed">
+        <a href="#" class="logowrap ver pull-left">VMS | 售货机管理系统</a>
+        <header class="pull-left mr20">
+            <ul>
+                <li><a href="#">运营管理</a></li>
+                <li class="on"><a href="#">数据管理</a></li>
+                <li><a href="#">统计报表</a></li>
+                <li><a href="#">财务管理</a></li>
+                <li><a href="#">系统管理</a></li>
+            </ul>
+        </header>
+        <div class="rtwrap">
+            <span class="dropdown headavatar_wp">
+                <a href="#" class="dropdown-toggle cf_green" data-toggle="dropdown"><img class="avatar" src="dist/images/vms_avatar.jpg" alt="Sophia">Sophia<i class="iconfont f14 ml5 icon-xiala"></i></a>
+                <div class="dropdown-menu avatar_section">
+                    <p>Sophia</p>
+                    <p class="cf_red f12">欢迎您，系统管理员</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        <a href="#" class="btn btn-default">帐号设置</a><a href="#" class="btn btn-default">安全退出</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <!------ 公用头部导航 end ------>
+    <!------ 公用主体部分 start ------>
+    <div class="mp_main pt125">
+        <!--Main Min topheader-->
+        <div class="mp_topheader ver2 ver_fixed">
+            <h2><strong id="MainHeaderTitle">VMC升级计划</strong></h2>
+            <div class="btn-group pull-right" data-toggle="buttons">
+                <button type="button" class="btn btn-default btn-lg2" data-toggle="modal" data-target="#updateModal">新增</button>
+            </div>
+        </div>
+        <!--Main CommonHead-->
+        <div class="main_commonhead hl30">
+            <form class="unKeyCode">
+				<section>
+					<strong>搜索字段:</strong>
+					<div class="form-group w120 pull-left">
+						<select class="form-control input-sm">
+							<option value="0">请选择</option>
+							<option value="1">通信板</option>
+							<option value="2">出货板</option>
+						</select>
+					</div>
+				</section>
+				<section>
+					<strong>版本号:</strong>
+					<div class="form-group w120 pull-left">
+						<div class="form-group w120 pull-left"><input class="form-control input-sm" type="text" placeholder="请输入版本号"></div>
+					</div>
+				</section>
+                <button type="button" class="btn btn-default f12 mr5">查询</button>
+                <button type="reset" class="btn btn-default f12">重置</button>
+            </form>
+        </div>
+
+        <!--Main CommonTable-->
+        <div class="main_commontable">
+            <!--theadscroll start-->
+            <div class="theadscroll" id="theadScroll">
+                <ul>
+                    <li class="wh10">通讯板</li>
+                    <li class="wh10">出货板</li>
+                    <li class="wh15">升级区域</li>
+                    <li class="wh10">升级型号</li>
+                    <li class="wh15">升级时段</li>
+                    <li class="wh10">升级结果</li>
+                    <li class="wh15">创建信息</li>
+                    <li class="wh15">修改信息</li>
+                </ul>
+            </div>
+            <!--theadscroll end-->
+            <table>
+                <tbody class="auto">
+					<tr>
+						<td class="wh10">
+							<b>1.1.0</b>
+						</td>
+						<td class="wh10">
+							<b>1.0.0</b>
+						</td>
+						<td class="wh15">
+							<span>北京市建国路93号万达广场9号楼底商</span>
+						</td>
+						<td class="wh10">
+							<span>TF-11</span>
+						</td>
+						<td class="wh15">
+							<b>02:00</b><span class="ml5 mr5">-</span><b>02:30</b>
+						</td>
+						<td class="wh10">
+							<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewUpdateDetail">查看</button>
+						</td>
+						<td class="wh15">
+							<span>2017-06-15 16:30</span>
+						</td>
+						<td class="wh15">
+							<span>2017-06-15 16:30</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="wh10">
+							<b>1.1.0</b>
+						</td>
+						<td class="wh10">
+							<b>1.0.0</b>
+						</td>
+						<td class="wh15">
+							<span>北京市建国路93号万达广场9号楼底商</span>
+						</td>
+						<td class="wh10">
+							<span>TF-11</span>
+						</td>
+						<td class="wh15">
+							<b>02:00</b><span class="ml5 mr5">-</span><b>02:30</b>
+						</td>
+						<td class="wh10">
+							<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#viewUpdateDetail">查看</button>
+						</td>
+						<td class="wh15">
+							<span>2017-06-15 16:30</span>
+						</td>
+						<td class="wh15">
+							<span>2017-06-15 16:30</span>
+						</td>
+					</tr>
+                </tbody>
+
+            </table>
+            <!--table footer start-->
+            <div class="tfootscroll">
+                <ul class="pagination pull-right mtb10 mr20">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+            <!--table footer end-->
+        </div>
+    </div>
+
+    <!----
+      **  模态框 **
+    ---->
+    <!-----升级结果 viewUpdateDetail 模态框 start----->
+    <div class="modal fade" id="viewUpdateDetail" tabindex="-1" role="dialog" aria-labelledby="升级结果" aria-hidden="true">
+        <div class="modal-dialog w500">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">升级结果</h4>
+                </div>
+                <div class="modal-body">
+					<div class="main_commontable max300 border_line">
+						 <table>
+							  <thead>
+								  <tr>
+									 <td>售货机编号</td>
+									 <td>通信板</td>
+									 <td>出货板</td>
+								  </tr>
+							  </thead>
+							  <tbody class="auto">
+								  <tr>
+									 <td>01000001</td>
+									 <td>1.1.0</td>
+									 <td>1.0.0</td>
+								  </tr>
+								  <tr>
+									 <td>01000001</td>
+									 <td>1.1.0</td>
+									 <td>1.0.0</td>
+								  </tr>
+								  <tr>
+									 <td>01000001</td>
+									 <td>1.1.0</td>
+									 <td>1.0.0</td>
+								  </tr>
+								  <tr>
+									 <td>01000001</td>
+									 <td>1.1.0</td>
+									 <td>1.0.0</td>
+								  </tr>
+								  <tr>
+									 <td>01000001</td>
+									 <td>1.1.0</td>
+									 <td>1.0.0</td>
+								  </tr>
+							  </tbody>
+						 </table>
+					 </div>
+					 <!--table footer start-->
+					 <div class="tfootscroll">
+						<ul class="pagination pull-right mt10 mb5">
+							<li><a href="#">&laquo;</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li class="disabled"><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+					 </div>
+					 <!--table footer end-->
+					 <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----升级结果 viewUpdateDetail 模态框 end----->
+	
+    <!-----升级 updateModal 模态框 start----->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="升级" aria-hidden="true">
+        <div class="modal-dialog w400">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">升级</h4>
+                </div>
+				<form class="unKeyCode">
+					<div class="modal-body">
+						<!--基本信息 start-->
+						<div class="modal_commonbody mt10 clearfix">
+							<section class="col-md-12">
+								<span class="w80 pull-left text-right mr10">选择通信板:</span>
+								<button type="button" class="btn btn-default btn-lg2 btn-block f12 w220 pull-left" data-toggle="modal" data-target="#withProgram">选择程序版本</button>
+								<div class="clearfix"></div>
+								<!--这里是选择关联程序后获得的版本号信息 填写如下：-->
+								<div class="lh20 pl90 mb15">
+									<span>版本号: <b>1.1.0</b></span><!--初始状态下，这行代码清除<span>...</span>，父级div容器保留-->
+								</div>
+							</section>
+							<section class="col-md-12">
+								<span class="w80 pull-left text-right mr10">选择出货板:</span>
+								<button type="button" class="btn btn-default btn-lg2 btn-block f12 w220 pull-left" data-toggle="modal" data-target="#withProgram2">选择程序版本</button>
+								<div class="clearfix"></div>
+								<!--这里是选择关联程序后获得的版本号信息 填写如下：-->
+								<div class="lh20 pl90 mb15">
+									<span>版本号: <b>1.0.0</b></span><!--初始状态下，这行代码清除<span>...</span>，父级div容器保留-->
+								</div>
+							</section>
+							<section class="col-md-12">
+								<span class="w80 pull-left text-right mr10">选择区域:</span>
+								<div class="form-group w220 pull-left">
+									<select class="form-control input-sm w70 pull-left mr5" name="province"><option value="">省</option></select>
+									<select class="form-control input-sm w70 pull-left mr5" name="city"><option value="">市</option></select>
+									<select class="form-control input-sm w70 pull-left" name="area"><option value="">区</option></select>
+								</div>
+							</section>
+							<section class="col-md-12">
+								<span class="w80 pull-left text-right mr10">选择型号:</span>
+								<button type="button" class="btn btn-default btn-lg2 btn-block f12 w220 pull-left" data-toggle="modal" data-target="#chooseMat">选择售货机型号</button>
+								<div class="clearfix"></div>
+								<!--这里是选择关联程序后获得的版本号信息 填写如下：-->
+								<div class="lh20 pl90 mb15">
+									<span>售货机型号: <b>TF-AX-02-11</b></span><!--初始状态下，这行代码清除<span>...</span>，父级div容器保留-->
+								</div>
+							</section>
+							<section class="col-md-12">
+								<span class="w80 pull-left text-right mr10">升级时段:</span>
+								<div class="form-group w220 pull-left">
+									<input class="form-control input-sm w100 pull-left timewidget" readonly type="text" name="" placeholder="开始时间">
+									<span class="pull-left" style="margin:0 8px;">-</span>
+									<input class="form-control input-sm w100 pull-left timewidget" readonly type="text" name="" placeholder="结束时间">
+								</div>
+							</section>
+							<section class="col-md-12">
+								<span class="w80 pull-left text-right mr10">验证码:</span>
+								<div class="form-group w220 pull-left vercode_group">
+									<input class="code_input" type="text" placeholder="请输入输入验证码">
+									<div class="code_wp"><img src="http://www.duoguyu.com/index.php/api/index/code.html"></div>
+								</div>
+							</section>
+						</div>
+						<!--基本信息 end-->
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success btn-lg2">确定</button>
+						<button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+    <!-----升级 updateModal 模态框 end----->
+	
+	<!-----关联程序 withProgram 模态框 start----->
+    <div class="modal fade" id="withProgram" tabindex="-1" role="dialog" aria-labelledby="关联程序" aria-hidden="true">
+        <div class="modal-dialog w500">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">关联程序</h4>
+                </div>
+                <div class="modal-body">
+					<div class="main_commontable max300 border_line">
+						 <table>
+							  <thead>
+								  <tr>
+									 <td width="40px"></td>
+									 <td>程序类型</td>
+									 <td>版本号</td>
+								  </tr>
+							  </thead>
+							  <tbody class="auto" id="withProgramDiv">
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>通信板</td>
+									 <td>1.1.0</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>通信板</td>
+									 <td>1.1.0</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>通信板</td>
+									 <td>1.1.0</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>通信板</td>
+									 <td>1.1.0</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>通信板</td>
+									 <td>1.1.0</td>
+								  </tr>
+							  </tbody>
+						 </table>
+					 </div>
+					 <!--table footer start-->
+					 <div class="tfootscroll">
+						<ul class="pagination pull-right mt10 mb5">
+							<li><a href="#">&laquo;</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li class="disabled"><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+					 </div>
+					 <!--table footer end-->
+					 <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----关联程序 withProgram 模态框 end----->
+	
+	<!-----关联程序2 withProgram2 模态框 start----->
+    <div class="modal fade" id="withProgram2" tabindex="-1" role="dialog" aria-labelledby="关联程序" aria-hidden="true">
+        <div class="modal-dialog w500">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">关联程序</h4>
+                </div>
+                <div class="modal-body">
+					<div class="main_commontable max300 border_line">
+						 <table>
+							  <thead>
+								  <tr>
+									 <td width="40px"></td>
+									 <td>程序类型</td>
+									 <td>版本号</td>
+								  </tr>
+							  </thead>
+							  <tbody class="auto" id="withProgramDiv2">
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>出货板</td>
+									 <td>1.0.0</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>出货板</td>
+									 <td>1.0.0</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>出货板</td>
+									 <td>1.0.0</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>出货板</td>
+									 <td>1.0.0</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>出货板</td>
+									 <td>1.0.0</td>
+								  </tr>
+							  </tbody>
+						 </table>
+					 </div>
+					 <!--table footer start-->
+					 <div class="tfootscroll">
+						<ul class="pagination pull-right mt10 mb5">
+							<li><a href="#">&laquo;</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li class="disabled"><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+					 </div>
+					 <!--table footer end-->
+					 <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----关联程序 withProgram 模态框 end----->
+
+	<!-----选择型号 chooseMat 模态框 start----->
+    <div class="modal fade" id="chooseMat" tabindex="-1" role="dialog" aria-labelledby="选择型号" aria-hidden="true">
+        <div class="modal-dialog w500">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title f16">选择型号</h4>
+                </div>
+                <div class="modal-body">
+					<div class="main_commontable max300 border_line">
+						 <table>
+							  <thead>
+								  <tr>
+									 <td width="40px"></td>
+									 <td>售货机型号</td>
+									 <td>型号描述</td>
+									 <td>货道类型</td>
+									 <td>货道层数</td>
+									 <td>各层货道数</td>
+								  </tr>
+							  </thead>
+							  <tbody class="auto" id="chooseMatDiv">
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>TF-AX-02-11</td>
+									 <td>嘉丰11货道</td>
+									 <td>丝杆</td>
+									 <td>5</td>
+									 <td>11</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>TF-AX-02-11</td>
+									 <td>嘉丰11货道</td>
+									 <td>丝杆</td>
+									 <td>5</td>
+									 <td>11</td>
+								  </tr>
+								  <tr>
+									 <td><input type="checkbox" name=""></td>
+									 <td>TF-AX-02-11</td>
+									 <td>嘉丰11货道</td>
+									 <td>丝杆</td>
+									 <td>5</td>
+									 <td>11</td>
+								  </tr>
+							  </tbody>
+						 </table>
+					 </div>
+					 <!--table footer start-->
+					 <div class="tfootscroll">
+						<ul class="pagination pull-right mt10 mb5">
+							<li><a href="#">&laquo;</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li class="disabled"><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+					 </div>
+					 <!--table footer end-->
+					 <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-lg2">确定</button>
+                    <button type="button" class="btn btn-default btn-lg2" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----选择型号 chooseMat 模态框 end----->
+	<script>
+		$(function(){
+			//关联程序
+			diyChecked('withProgramDiv');
+			//选择型号
+			diyChecked('chooseMatDiv');
+			//动态创建时，时间控件 需要加载timeWidgetInit();
+			timeWidgetInit();
+			//点击上传文件后改变按钮的文字
+			$("#uploadFileBox").on("change",".uploadInput",function(){
+				var filePath = $(this).val();
+				if(filePath.indexOf("zip")!= -1){
+					var arrs=filePath.split('\\');
+					var filename=arrs[arrs.length-1];
+					$("#uploadFileBox .uploadPlaceholder").html(filename);
+					console.log($("#uploadFileBox .uploadInput").val()); //打印 type="file" 的值
+				}else{
+					$("#uploadFileBox .uploadPlaceholder").html("上传文件"); //还原占位文字描述
+					$("#uploadFileBox .uploadInput").val(""); //清空 type="file" 的值
+					layer.msg('文件格式错误，请重新上传！',{shade:[0.6,'#fff'],time:1500});
+				}
+			});
+		});
+		//处理checkbox，只允许单选模式
+		function diyChecked(id){
+			$("#"+id+" td").on("click","input[type='checkbox']",function(){
+				if($(this).prop("checked")){
+					$(this).parents("tr").siblings().find("input[type='checkbox']").prop("checked",false);
+				}
+			});
+		}
+		//时间控件  模态框为动态创建
+		function timeWidgetInit(){
+			$('.timewidget').datetimepicker({
+				language:  'zh-CN',
+				format: 'hh:ii',
+				weekStart: 1,
+				todayBtn:  1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 1,
+				minuteStep: 1,
+				minView: 0,
+				maxView: 1,
+				forceParse: 0
+			})
+		}
+	</script>
+	
+</div>
+</body>
+</html>

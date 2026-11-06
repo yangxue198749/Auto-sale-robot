@@ -1,0 +1,372 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+.wrap{
+    width: 96%;
+    height: 100%;
+    margin:0 auto;
+}
+.header{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #fff;
+}
+.header ul{
+    display: flex;
+    border-bottom: 1px solid #ccc ;
+    position: relative;
+}
+
+.header ul li{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.header ul li.bg{ position:relative}
+.header ul li.bg:after{content: ""; display: block; width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #04AC71;
+    position: absolute;
+    left: 50%; margin-left: -2px;
+    bottom:4px;}
+.header li.bg:before{ content: ""; display: block; position: absolute;
+    bottom: -1px;
+    left: 50%; margin-left: -20%;
+    width: 40%;
+    height: 1px;
+    background: #3EBB7E;}
+.header .bottom_line{
+    position: absolute;
+    bottom:-1px;
+    left: 7%;
+    width: 20%;
+    height: 1px;
+    background: #3EBB7E;
+}
+.header .triangle {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #04AC71;
+    position: absolute;
+    left: 15.7%;
+    bottom:4px;
+}
+.section{
+    width: 100%;
+    height: auto;
+    margin-bottom: 62px;
+}
+.section .contentBox{
+    width: 100%;
+    height: 150px;
+    margin-top: 2px;
+    border-bottom: 6px #F0F0F0 solid;
+    background:rgba(255,255,255,1);
+}
+.section .contentBox>.imgBox{
+    float: left;
+    width: 75px;
+    height: 140px;
+    line-height: 140px;
+    text-align: center;
+}
+.section .contentBox .imgBox img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.section .contentBox .content{
+    float: right;
+    height: 150px;
+    width: 75%;
+}
+.section .contentBox2 .content{
+    float: right;
+    width: 75%;
+    height: 150px;
+}
+.section .contentBox .content .designation{
+    width: 100%;
+    height: 50px; display: table-cell; vertical-align: middle; line-height: 20px; padding: 5px 0;
+}
+.section .contentBox .content .designation span{
+    background:rgba(4,172,113,1);
+    border-radius: 3px ;
+    padding: 1px 7px;
+    color: #fff;
+    line-height: 18px; height: 18px; margin-right: 5px;
+    font-size: 14px;
+
+}
+.section .contentBox .content .designation p{
+    font-weight: 300;
+    display: inline-block;
+    font-size: 14px;
+    word-wrap:break-word;
+    word-break:break-all;
+    line-height: inherit;
+    vertical-align: middle;
+}
+.section .contentBox .content .listing{
+    width: 100%;
+    border-top: 1px solid #ccc;
+    height: 85px;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+.section .contentBox .content .listing dl{
+    flex: 1;
+    height: 50px;
+    font-size: 14px;
+    margin-top: 9px;
+    line-height: 50px;
+    text-align: left;
+    margin-left: -36px;
+}
+.section .contentBox .content .listing dl dt{
+    line-height: 16px;
+    font-size: 14px;
+    text-align: center;
+}
+.section .contentBox .content .listing dl dd{
+    line-height: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+.section .contentBox .content .listing dl dd input{
+    color:rgba(4,172,113,1);
+    background: #fff;
+    border:none;
+    border:rgba(4,172,113,1) 1px solid;
+    border-radius: 10px;
+    padding:3px 10px;
+    outline: none;
+}
+.section .contentBox .content .listing span{
+    display: inline-block;
+    margin-left: 1%;
+    font-size: 12px;
+}
+.section .contentBox .content .production{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 12px;
+
+}
+.section .contentBox .content .production .productionNumber{
+    width: 80%;
+    float: left;
+}
+.section .contentBox .content .production .productionNumber p{
+    width: 100%;
+    line-height: 20px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.section .contentBox .content .production .productionNumber span{
+    color: #999999;
+}
+.section .contentBox .content .production .productionBtn{
+    width: 20%;
+    float: right;
+    line-height: 50px;
+    text-align: center;
+}
+.section .contentBox .content .production .productionBtn img{
+    width: 8px;
+    height: 15px;
+}
+
+.clearBox{
+    clear: both;
+}
+
+.sendDetail .footer{
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    bottom:5px;
+    left:0;
+    padding: 0 5px;
+}
+.sendDetail .footer>section{
+    float: left; width: 50%; padding: 0 5px;
+}
+.sendDetail .footer>section.fullBtn{ width: 100%;}
+.sendDetail .footer>section .btn{
+    color: #fff; outline: none;
+    height: 40px; width: 100%; border: 0;
+}
+.sendDetail .footer .btn.cancel{
+    background:rgba(255,154,55,1);
+}
+.sendDetail .footer .btn.complete{
+    background:rgba(4,172,113,1);
+}
+.bg{
+    color: #04AC71;
+}
+
+.section>div{
+    display: none;
+}
+.section .show{
+    display: block;
+}
+.section .contentBox .content .listing .clean_dl{
+    flex: 1;
+    height: 50px;
+    font-size: 12px;
+    margin-top: 9px;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 0;
+}
+.section .contentBox .content .listing .clean_dl dd{
+    margin-left: 0;
+}
+.section .contentBox .content .listing .clean_dl:nth-child(2){
+    border-left: 1px solid;
+    border-image: -webkit-linear-gradient( #fff, #ccc,#fff) 8 8;
+}
+.section .contentBox .content .listing .clean_dl dd input{
+    color:rgba(4,172,113,1);
+    background: #fff;
+    border:none;
+    border:rgba(4,172,113,1) 1px solid;
+    border-radius: 10px;
+    padding:3px 10px;
+    outline: none;
+    margin-left: 4px;
+}
+.mh_mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    position:fixed;
+    left:0;
+    top:0;
+    opacity: 1;
+    visibility: visible;
+}
+.prompt_content{
+    position: fixed;
+    z-index: 5000;
+    width: 85%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background-color: #fafafc;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+
+}
+.prompt_bd{
+    padding: 0 20px;
+    font-size: 14px;
+    color: #000000;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-top: 20px;
+}
+.prompt_bd input{
+    width: 74%;
+    padding: 0px 6px;
+    height: 2.8em;
+    line-height: 2.8em;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 10px;
+    outline: none;
+    border-radius: 3px;
+}
+.prompt_button{
+    position: relative;
+    line-height: 42px;
+    margin-top: 20px;
+    font-size: 16px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+.prompt_button .prompt_btn{
+    flex:1;
+}
+.prompt_button .prompt_btn:nth-child(1){
+    color: #999999;
+}
+.prompt_button .prompt_btn:nth-child(2){
+    color: #3cc51f;
+    border-left: 1px solid #ccc;
+}
+/*.weui_toast_text{
+    height: auto;
+    font-size: 14px;
+}*/
+@media screen and (min-width: 541px) {
+}
+@media screen and (max-width: 540px) and (min-width: 415px) {
+}
+@media screen and (max-width: 414px) and (min-width: 376px) {
+    /*.section .contentBox .content .designation p{*/
+        /*!*width: 252px;*!*/
+    /*}*/
+}
+@media screen and (max-width: 375px) and (min-width: 321px) {
+
+}
+@media screen and (max-width: 320px) {
+    html{
+        font-size: 12px;
+    }
+    .section .contentBox .content .designation p{
+        /*width: 186px;*/
+        font-size: 12px;
+    }
+    .section .contentBox .content .designation span,.section .contentBox .content .listing dl dt,section .contentBox .content .listing dl dd{
+        font-size: 12px;
+    }
+    .prompt_bd input {
+        width: 67%;
+        padding: 0px 6px;
+        height: 2.5em;
+        line-height: 2.5em;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        margin-top: 10px;
+        outline: none;
+        border-radius: 3px;
+    }
+}
+@media screen and (max-width: 768px) and (min-width: 376px) and (min-width: 415px){
+    .prompt_bd input {
+        width: 87%;
+    }
+}
+@media screen and (max-width: 1024px) and (min-width: 376px) and (min-width: 415px) and (min-width: 769px){
+    .prompt_bd input {
+        width: 90%;
+    }
+}
