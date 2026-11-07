@@ -24,12 +24,18 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * Redis 访问包装类。
+ *
+ * 改造说明（VMS Phase 0，2026-11）：原实现基于 JedisCluster（要求 Redis 集群模式）。
+ * 本地/降本目标是单点 Redis（无 cluster 支持），因此内部改为 JedisPool 单点连接池。
+ * 所有 public 方法签名保持不变，业务调用方零改动；命令语义在单点下与集群单 key 操作一致。
+ *
  * @author zhangguodong
  */
 public class MyJedisCluster {
 
     private static ExecutorService ES = Executors.newFixedThreadPool(100);
-    protected static JedisCluster JC;
+    protected static JedisPool pool;
     //	private RedisConfig redisConfig;
     private RedisConfiguration redisConfig;
     private static Logger log = LoggerFactory.getLogger(MyJedisCluster.class);
@@ -51,24 +57,32 @@ public class MyJedisCluster {
             if (this.redisConfig == null)
                 throw new Exception("Can not connect redis instance, must params : redisConfig");
 
-            GenericObjectPoolConfig poolConfig = initPoolConfig();
-            JC = new JedisCluster(new HostAndPort(redisConfig.getIp(), redisConfig.getPort()),
-                    redisConfig.getTimeout(), redisConfig.getTimeout(), redisConfig.getMaxRedirections(),
-                    redisConfig.getPassWord(), poolConfig);
+            pool = buildPool(initPoolConfig());
             dealExpire();
         } catch (Exception e) {
             log.error(e.getLocalizedMessage(), e);
         }
     }
 
+    private JedisPool buildPool(GenericObjectPoolConfig poolConfig) {
+        String password = redisConfig.getPassWord();
+        if (StringUtil.isEmpty(password)) {
+            return new JedisPool(poolConfig, redisConfig.getIp(), redisConfig.getPort(),
+                    redisConfig.getTimeout());
+        }
+        return new JedisPool(poolConfig, redisConfig.getIp(), redisConfig.getPort(),
+                redisConfig.getTimeout(), password);
+    }
+
     public void refreshConfig() {
         log.info("refresh redis config...");
         redisConfig = RedisConfiguration.getInstance();
         if (this.redisConfig != null) {
-            GenericObjectPoolConfig poolConfig = initPoolConfig();
-            JC = new JedisCluster(new HostAndPort(redisConfig.getIp(), redisConfig.getPort()),
-                    redisConfig.getTimeout(), redisConfig.getTimeout(), redisConfig.getMaxRedirections(),
-                    redisConfig.getPassWord(), poolConfig);
+            JedisPool old = pool;
+            pool = buildPool(initPoolConfig());
+            if (old != null) {
+                old.close();
+            }
         }
     }
 
@@ -143,27 +157,25 @@ public class MyJedisCluster {
      */
     public List<MyJedisPubSub> subscribe(SubscribeInterface si, String... patterns) {
         List<MyJedisPubSub> list = new ArrayList<MyJedisCluster.MyJedisPubSub>();
-        for (Map.Entry<String, JedisPool> entry : JC.getClusterNodes().entrySet()) {
-            Jedis jedis = null;
-            try {
-                jedis = entry.getValue().getResource();
+        // 单点 Redis：订阅是阻塞操作，借一个独立 Jedis 长连接，不归还连接池（退订时由调用方处理）
+        Jedis jedis = null;
+        try {
+            jedis = pool.getResource();
 
-                if (jedis == null) {
-                    continue;
-                }
+            if (jedis == null) {
+                return list;
+            }
 
-                String result = jedis.ping();
+            String result = jedis.ping();
 
-                if (result.equalsIgnoreCase("pong")) {
-                    MyJedisPubSub myJedisPubSub = new MyJedisPubSub(si, jedis, patterns);
-                    ES.execute(myJedisPubSub);
-                    list.add(myJedisPubSub);
-                }
-//		        jedis.close();
-            } catch (JedisException ex) {
-                if (jedis != null) {
-                    jedis.close();
-                }
+            if (result.equalsIgnoreCase("pong")) {
+                MyJedisPubSub myJedisPubSub = new MyJedisPubSub(si, jedis, patterns);
+                ES.execute(myJedisPubSub);
+                list.add(myJedisPubSub);
+            }
+        } catch (JedisException ex) {
+            if (jedis != null) {
+                jedis.close();
             }
         }
         return list;
@@ -187,32 +199,51 @@ public class MyJedisCluster {
         }
     }
 
+    /**
+     * 在单个 borrowed Jedis 上执行命令并归还连接（单点连接池模式）。
+     */
+    private <T> T exec(RedisAction<T> action) {
+        Jedis jedis = null;
+        try {
+            jedis = pool.getResource();
+            return action.doInRedis(jedis);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    private interface RedisAction<T> {
+        T doInRedis(Jedis jedis);
+    }
+
     public Long rpush(final String key, final String... value) {
-        return JC.rpush(key, value);
+        return exec(jedis -> jedis.rpush(key, value));
     }
 
     public List<String> lrange(final String key, final long start, final long end) {
-        return JC.lrange(key, start, end);
+        return exec(jedis -> jedis.lrange(key, start, end));
     }
 
     public String ltrim(final String key, final long start, final long end) {
-        return JC.ltrim(key, start, end);
+        return exec(jedis -> jedis.ltrim(key, start, end));
     }
 
     public Long hset(final String key, final String field, final String value) {
-        return JC.hset(key, field, value);
+        return exec(jedis -> jedis.hset(key, field, value));
     }
 
     public String hget(final String key, final String field) {
-        return JC.hget(key, field);
+        return exec(jedis -> jedis.hget(key, field));
     }
 
     public Map<String, String> hgetAll(final String key) {
-        return JC.hgetAll(key);
+        return exec(jedis -> jedis.hgetAll(key));
     }
 
     public Long hdel(final String key, final String... field) {
-        return JC.hdel(key, field);
+        return exec(jedis -> jedis.hdel(key, field));
     }
 
     /**
@@ -220,7 +251,7 @@ public class MyJedisCluster {
      *                {@link #expire(String, int)}
      */
     public Long expire(final String key, final int seconds) {
-        return JC.expire(key, seconds);
+        return exec(jedis -> jedis.expire(key, seconds));
     }
 
     /**
@@ -234,7 +265,7 @@ public class MyJedisCluster {
      * @QQ 995998760
      */
     public Long pexpire(final String key, final int milliseconds) {
-        return JC.pexpire(key, milliseconds);
+        return exec(jedis -> jedis.pexpire(key, milliseconds));
     }
 
     /**
@@ -249,7 +280,7 @@ public class MyJedisCluster {
      * @QQ 995998760
      */
     public Boolean setPexpireKey(final String key, final String value, final int seconds) {
-        return JC.setex(key, seconds, value).equals("OK");
+        return exec(jedis -> "OK".equals(jedis.setex(key, seconds, value)));
     }
 
 
@@ -318,10 +349,10 @@ public class MyJedisCluster {
     }
 
     public Long delKey(String key) {
-        return JC.del(key);
+        return exec(jedis -> jedis.del(key));
     }
 
     public Long llen(String key) {
-        return JC.llen(key);
+        return exec(jedis -> jedis.llen(key));
     }
 }

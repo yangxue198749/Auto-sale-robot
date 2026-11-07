@@ -1,12 +1,5 @@
 package com.kdx.vms.commons.util.oss;
 
-import com.aliyun.oss.OSSClient;
-import com.aliyun.oss.common.utils.IOUtils;
-import com.aliyun.oss.model.GetObjectRequest;
-import com.aliyun.oss.model.OSSObject;
-import com.aliyun.oss.model.PutObjectRequest;
-import com.aliyun.oss.model.PutObjectResult;
-import com.kdx.vms.commons.util.PropertiesLoader;
 import com.kdx.vms.commons.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,115 +7,61 @@ import org.slf4j.LoggerFactory;
 import java.io.InputStream;
 
 /**
- * Created by liyang on 2017/4/25.
+ * 文件存储工具（原阿里云 OSS，已改造为本地文件存储）。
+ *
+ * 改造说明（VMS 第一期，2026-11）：
+ * 阿里云 OSS 停用，类名与 public 方法签名保持不变，业务调用方零改动；
+ * 内部委托 {@link LocalFileStorage} 落盘到本地目录。
+ *   - upload / delete / info            → 公共 bucket（local.storage.root/public）
+ *   - uploadToPrivate                   → 私有 bucket（local.storage.root/private）
+ *
+ * 历史的 bucketName/endpoint/AK 概念在本地模式下不再使用，仅保留
+ * setBucketName 以兼容可能的旧调用（本地实现忽略其值）。
  */
 public class AliyunOssUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AliyunOssUtils.class);
 
-    private static final String END_POINT_DEV = "http://oss-cn-beijing.aliyuncs.com";
-    private static final String END_POINT_PRO = "http://vpc100-oss-cn-beijing.aliyuncs.com";
+    static {
+        // 应用加载该类时确保本地目录存在
+        LocalFileStorage.ensureDirs();
+    }
 
-    private static final String ACCESS_KEY_ID = (String) PropertiesLoader.map.get("aliyun.oss.accessKeyId");
-    private static final String ACCESS_KEY_SECRET = (String) PropertiesLoader.map.get("aliyun.oss.accessKeySecret");
-
-    private static final boolean online = "com".equals((String) PropertiesLoader.map.get("pay_mobile_suffix"));
-    private static final String BUCKET_NAME_DEV = "oss-dev-s1";
-    private static final String BUCKET_NAME_PRO = "oss-s1";
-
-    private static final String PRIVATE_BUCKET_NAME_DEV = "oss-dev-private-s1";
-    private static final String PRIVATE_BUCKET_NAME_PRO = "oss-private-s1";
-
-
-    private static String end_point = online ? END_POINT_PRO : END_POINT_DEV;
-    private static String bucketName = online ? BUCKET_NAME_PRO : BUCKET_NAME_DEV;
-    private static String privateBucketName = online ? PRIVATE_BUCKET_NAME_PRO : PRIVATE_BUCKET_NAME_DEV;
-
+    /**
+     * @deprecated 本地存储模式下 bucket 概念已弱化，保留仅为兼容旧调用，值被忽略
+     */
+    @Deprecated
     public static void setBucketName(String bucketName) {
-        AliyunOssUtils.bucketName = bucketName;
+        LOGGER.warn("[AliyunOssUtils] setBucketName ignored in local storage mode: {}", bucketName);
     }
 
     public static boolean upload(String key, InputStream inputStream) {
-        LOGGER.info("[AliyunOss upload] bucketName:" + bucketName + ", key:" + key + ", inputStream:" + inputStream);
-        OSSClient ossClient = null;
-        try {
-            if (StringUtil.isEmpty(key) || null == inputStream) {
-                throw new Exception("Parameter error! key:" + key + ", inputStream:" + inputStream);
-            }
-            ossClient = new OSSClient(end_point, ACCESS_KEY_ID, ACCESS_KEY_SECRET);
-            PutObjectResult putObjectResult = ossClient.putObject(new PutObjectRequest(
-                    bucketName,
-                    key,
-                    inputStream));
-            LOGGER.info("requestId:" + putObjectResult.getRequestId() + ", eTag:" + putObjectResult.getETag());
-            return true;
-        } catch (Exception e) {
-            LOGGER.error(e.getLocalizedMessage(), e);
-        } finally {
-            if (null != ossClient) ossClient.shutdown();
-        }
-        return false;
+        LOGGER.info("[LocalStorage upload] key:{}", key);
+        return LocalFileStorage.save(LocalFileStorage.publicRoot(), key, inputStream);
     }
 
     public static boolean uploadToPrivate(String key, InputStream inputStream) {
-        LOGGER.info("[AliyunOss upload] bucketName:" + privateBucketName + ", key:" + key + ", inputStream:" + inputStream);
-        OSSClient ossClient = null;
-        try {
-            if (StringUtil.isEmpty(key) || null == inputStream) {
-                throw new Exception("Parameter error! key:" + key + ", inputStream:" + inputStream);
-            }
-            ossClient = new OSSClient(end_point, ACCESS_KEY_ID, ACCESS_KEY_SECRET);
-            PutObjectResult putObjectResult = ossClient.putObject(new PutObjectRequest(
-                    privateBucketName,
-                    key,
-                    inputStream));
-            LOGGER.info("requestId:" + putObjectResult.getRequestId() + ", eTag:" + putObjectResult.getETag());
-            return true;
-        } catch (Exception e) {
-            LOGGER.error(e.getLocalizedMessage(), e);
-        } finally {
-            if (null != ossClient) ossClient.shutdown();
-        }
-        return false;
+        LOGGER.info("[LocalStorage uploadToPrivate] key:{}", key);
+        return LocalFileStorage.save(LocalFileStorage.privateRoot(), key, inputStream);
     }
 
     public static boolean delete(String key) {
-        LOGGER.info("[AliyunOss delete] bucketName:" + bucketName + ", key:" + key);
-        OSSClient ossClient = null;
-        try {
-            if (StringUtil.isEmpty(key)) {
-                throw new Exception("Parameter error!");
-            }
-            ossClient = new OSSClient(end_point, ACCESS_KEY_ID, ACCESS_KEY_SECRET);
-            ossClient.deleteObject(bucketName, key);
-            return true;
-        } catch (Exception e) {
-            LOGGER.error(e.getLocalizedMessage(), e);
-        } finally {
-            if (null != ossClient) ossClient.shutdown();
+        LOGGER.info("[LocalStorage delete] key:{}", key);
+        if (StringUtil.isEmpty(key)) {
+            return false;
         }
-        return false;
+        // 历史数据可能在公共或私有 bucket，两处都尝试删除，任一存在即成功
+        boolean pub = LocalFileStorage.delete(LocalFileStorage.publicRoot(), key);
+        boolean pri = LocalFileStorage.delete(LocalFileStorage.privateRoot(), key);
+        return pub || pri;
     }
 
+    /**
+     * 原 OSS 图片信息查询（image/info）。本地无等价服务，返回 null。
+     * 业务代码当前无调用点，保留签名以兼容。
+     */
     public static String info(String key) {
-        LOGGER.info("[AliyunOss info] bucketName:" + bucketName + ", key:" + key);
-        OSSClient ossClient = null;
-        try {
-            if (StringUtil.isEmpty(key)) {
-                throw new Exception("Parameter error!");
-            }
-            ossClient = new OSSClient(end_point, ACCESS_KEY_ID, ACCESS_KEY_SECRET);
-            String style = "image/info";
-            GetObjectRequest request = new GetObjectRequest(bucketName, key);
-            request.setProcess(style);
-            OSSObject ossObject = ossClient.getObject(request);
-            InputStream inputStream = ossObject.getObjectContent();
-            return IOUtils.readStreamAsString(inputStream, "UTF-8");
-        } catch (Exception e) {
-            LOGGER.error(e.getLocalizedMessage(), e);
-        } finally {
-            if (null != ossClient) ossClient.shutdown();
-        }
+        LOGGER.warn("[LocalStorage info] not supported in local storage mode, key:{}", key);
         return null;
     }
 

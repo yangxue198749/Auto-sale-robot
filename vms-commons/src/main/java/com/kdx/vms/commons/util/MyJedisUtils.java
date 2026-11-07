@@ -4,8 +4,8 @@ import com.kdx.vms.commons.RedisConfig;
 import com.kdx.vms.commons.RedisConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 import java.util.Collections;
@@ -13,13 +13,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Redis 静态工具类。
+ *
+ * 改造说明（VMS Phase 0，2026-11）：原实现基于 JedisCluster（要求 Redis 集群模式）。
+ * 单点 Redis（无 cluster 支持）下改为 JedisPool，静态方法签名保持不变，调用方零改动。
+ *
  * Created by liyang on 2017/2/23.
  */
 public class MyJedisUtils {
 
     private static Logger logger = LoggerFactory.getLogger(MyJedisUtils.class);
 
-    private static JedisCluster jedisCluster;
+    private static JedisPool jedisPool;
 
     /*static {
         init();
@@ -32,7 +37,7 @@ public class MyJedisUtils {
         jpc.setMaxWaitMillis(RedisConfig.getInstance().getMaxWait());
         jpc.setTestOnBorrow(RedisConfig.getInstance().isTestOnBorrow());
         jpc.setTestOnReturn(RedisConfig.getInstance().isTestOnReturn());
-        jedisCluster = new JedisCluster(new HostAndPort(RedisConfig.getInstance().getIp(), RedisConfig.getInstance().getPort()), RedisConfig.getInstance().getTimeout(), RedisConfig.getInstance().getTimeout(), RedisConfig.getInstance().getMaxRedirections(), RedisConfig.getInstance().getPass(), jpc);
+        jedisPool = new JedisPool(jpc, RedisConfig.getInstance().getIp(), RedisConfig.getInstance().getPort(), RedisConfig.getInstance().getTimeout(), RedisConfig.getInstance().getPass());
     }*/
     public static void initial(){
         JedisPoolConfig jpc = new JedisPoolConfig();
@@ -41,7 +46,29 @@ public class MyJedisUtils {
         jpc.setMaxWaitMillis(RedisConfiguration.getInstance().getMaxWaitMillis());
         jpc.setTestOnBorrow(RedisConfiguration.getInstance().isTestOnBorrow());
         jpc.setTestOnReturn(RedisConfiguration.getInstance().isTestOnReturn());
-        jedisCluster = new JedisCluster(new HostAndPort(RedisConfiguration.getInstance().getIp(), RedisConfiguration.getInstance().getPort()), RedisConfiguration.getInstance().getTimeout(), RedisConfiguration.getInstance().getTimeout(), RedisConfiguration.getInstance().getMaxRedirections(), RedisConfiguration.getInstance().getPassWord(), jpc);
+        RedisConfiguration cfg = RedisConfiguration.getInstance();
+        if (StringUtil.isEmpty(cfg.getPassWord())) {
+            jedisPool = new JedisPool(jpc, cfg.getIp(), cfg.getPort(), cfg.getTimeout());
+        } else {
+            jedisPool = new JedisPool(jpc, cfg.getIp(), cfg.getPort(), cfg.getTimeout(), cfg.getPassWord());
+        }
+    }
+
+    /** 在单个 borrowed Jedis 上执行并归还连接 */
+    private interface Action<T> {
+        T run(Jedis jedis);
+    }
+
+    private static <T> T exec(Action<T> action) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            return action.run(jedis);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
     }
 
 
@@ -56,7 +83,7 @@ public class MyJedisUtils {
      */
     public static boolean hSet(String key, String field, String value) {
         try {
-            return jedisCluster.hset(key, field, value) >= 0;
+            return exec(jedis -> jedis.hset(key, field, value)) >= 0;
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }
@@ -72,7 +99,7 @@ public class MyJedisUtils {
      */
     public static String hGet(String key, String field) {
         try {
-            return jedisCluster.hget(key, field);
+            return exec(jedis -> jedis.hget(key, field));
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }
@@ -87,7 +114,7 @@ public class MyJedisUtils {
      */
     public static Map<String, String> hGetAll(String key) {
         try {
-            return jedisCluster.hgetAll(key);
+            return exec(jedis -> jedis.hgetAll(key));
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }
@@ -103,7 +130,7 @@ public class MyJedisUtils {
      */
     public static boolean hDel(String key, String field) {
         try {
-            return jedisCluster.hdel(key, field) >= 0;
+            return exec(jedis -> jedis.hdel(key, field)) >= 0;
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }
@@ -120,7 +147,7 @@ public class MyJedisUtils {
      */
     public static List<String> getAll(String key) {
         try {
-            return jedisCluster.lrange(key, 0, -1);
+            return exec(jedis -> jedis.lrange(key, 0, -1));
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }
@@ -135,7 +162,7 @@ public class MyJedisUtils {
      */
     public static String getPop(String key) {
         try {
-            List<String> result = jedisCluster.lrange(key, 0, 0);
+            List<String> result = exec(jedis -> jedis.lrange(key, 0, 0));
             return result != null && result.size() > 0 ? result.get(0) : null;
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
@@ -152,7 +179,7 @@ public class MyJedisUtils {
      */
     public static boolean push(String key, String value) {
         try {
-            return jedisCluster.rpush(key, value) >= 0;
+            return exec(jedis -> jedis.rpush(key, value)) >= 0;
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }
@@ -167,7 +194,7 @@ public class MyJedisUtils {
      */
     public static boolean removeMsg(String key) {
         try {
-            return jedisCluster.lpop(key) != null;
+            return exec(jedis -> jedis.lpop(key)) != null;
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }
@@ -176,7 +203,7 @@ public class MyJedisUtils {
 
     public static boolean hDel(String msgKey, String[] fields) {
         try {
-            return jedisCluster.hdel(msgKey, fields) >= 0;
+            return exec(jedis -> jedis.hdel(msgKey, fields)) >= 0;
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage(), e);
         }

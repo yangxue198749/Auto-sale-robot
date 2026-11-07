@@ -22,6 +22,42 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+
+        <plugins>
+            <!--
+                本地开发容器：Tomcat 9（支持 javax.*，可在 JDK 17 运行）。
+                启动：mvn -pl vms-web cargo:run
+                停止：Ctrl+C
+                首次运行自动下载 Tomcat 9 发行包到 ~/.m2/cargo。
+            -->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven3-plugin</artifactId>
+                <version>1.10.13</version>
+                <configuration>
+                    <container>
+                        <containerId>tomcat9x</containerId>
+                        <type>embedded</type>
+                    </container>
+                    <configuration>
+                        <properties>
+                            <cargo.servlet.port>8080</cargo.servlet.port>
+                            <cargo.jvmargs>-Dfile.encoding=UTF-8</cargo.jvmargs>
+                        </properties>
+                    </configuration>
+                    <deployables>
+                        <deployable>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <type>war</type>
+                            <properties>
+                                <context>/</context>
+                            </properties>
+                        </deployable>
+                    </deployables>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>

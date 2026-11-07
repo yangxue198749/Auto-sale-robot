@@ -44,9 +44,16 @@ weChat_suffix=net
 #支付功能 测试环境
 pay_mobile_suffix=net
 
-#====Aliyun OSS Settings====
-aliyun.oss.accessKeyId=<YOUR_ALIYUN_ACCESS_KEY_ID>
-aliyun.oss.accessKeySecret=<YOUR_ALIYUN_ACCESS_KEY_SECRET>
+#====文件存储（原阿里云 OSS 已停用，改为本地磁盘）====
+# 存储根目录必须使用无中文、无空格的路径，避免 properties 编码错乱
+local.storage.root=D:/vms-data
+local.storage.urlPrefix=http://127.0.0.1:8080/vmsimgs/
+# 图片访问 URL 前缀，本地模式指向应用静态资源映射
+imgUrlPrefix=http://127.0.0.1:8080/vmsimgs/
+uploadImgFileUrl=/vmsimgs/
+# 历史 AK 配置已废弃，保留仅作参考
+# aliyun.oss.accessKeyId=<YOUR_ALIYUN_ACCESS_KEY_ID>
+# aliyun.oss.accessKeySecret=<YOUR_ALIYUN_ACCESS_KEY_SECRET>
 
 #====Cayenne Settings====
 cayenne.dbcp.driverClassName=oracle.jdbc.driver.OracleDriver

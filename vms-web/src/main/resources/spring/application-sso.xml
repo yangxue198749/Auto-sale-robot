@@ -93,6 +93,8 @@
 	        <value>  
 	             /login/** = anon
 	             /vmsjs/** = anon
+	             /vmsimgs/** = anon
+	             /vms/api/** = anon
 	             /submitLogin = anon
 	             /createCode = anon
 	             /home = anon

@@ -1,6 +1,5 @@
 package com.kdx.vms.commons.util;
 
-import com.aliyun.oss.common.utils.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +41,14 @@ public class Md5Util {
         String value = null;
         try {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
-            md5.update(IOUtils.readStreamAsByteArray(in));
+            // 改造：原依赖 aliyun-sdk 的 IOUtils，改用 JDK 原生流读取（OSS 停用后移除外部依赖）
+            java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();
+            byte[] chunk = new byte[4096];
+            int len;
+            while ((len = in.read(chunk)) != -1) {
+                buffer.write(chunk, 0, len);
+            }
+            md5.update(buffer.toByteArray());
             BigInteger bi = new BigInteger(1, md5.digest());
             value = bi.toString(16);
             while (value.length() < 32) {
