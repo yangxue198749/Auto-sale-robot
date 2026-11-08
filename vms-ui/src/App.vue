@@ -34,6 +34,8 @@
         <RouterLink to="/user">用户管理</RouterLink>
         <RouterLink to="/sys-log">系统日志</RouterLink>
         <RouterLink to="/settings">系统设置</RouterLink>
+        <RouterLink to="/customer">客户信息</RouterLink>
+        <RouterLink to="/partner">合伙人信息</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">

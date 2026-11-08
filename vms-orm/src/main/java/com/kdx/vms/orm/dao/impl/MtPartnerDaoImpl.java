@@ -41,10 +41,10 @@ public class MtPartnerDaoImpl implements MtPartnerDao {
 		}
 		
 		if(StringUtils.isNoneEmpty(partnerName)){
-			query.andQualifier(ExpressionFactory.likeExp(TMtPartner.PARTNER_NAME_PROPERTY, "%"+partnerName));
+			query.andQualifier(ExpressionFactory.likeExp(TMtPartner.PARTNER_NAME_PROPERTY, "%"+partnerName+"%"));
 		}
 		if(StringUtils.isNoneEmpty(manageName)){
-			query.andQualifier(ExpressionFactory.likeExp(TMtPartner.MANAGER_NAME_PROPERTY, "%"+manageName));
+			query.andQualifier(ExpressionFactory.likeExp(TMtPartner.MANAGER_NAME_PROPERTY, "%"+manageName+"%"));
 		}
 		if(StringUtils.isNoneEmpty(partnerType)){
 			query.andQualifier(ExpressionFactory.matchExp(TMtPartner.PARTNER_TYPE_PROPERTY, partnerType));

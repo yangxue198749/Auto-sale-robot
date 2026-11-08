@@ -35,10 +35,10 @@ public class MtCustomerDaoImpl implements MtCustomerDao {
 			String customerMode, String customerType, Integer pageSize, ObjectContext context) {
 		SelectQuery query =new SelectQuery(TMtCustomer.class,ExpressionFactory.expTrue());
 		if(StringUtils.isNoneEmpty(customerName)){
-			query.andQualifier(ExpressionFactory.likeExp(TMtCustomer.CUSTOMER_NAME_PROPERTY, "%"+customerName));
+			query.andQualifier(ExpressionFactory.likeExp(TMtCustomer.CUSTOMER_NAME_PROPERTY, "%"+customerName+"%"));
 		}
 		if(StringUtils.isNoneEmpty(manageName)){
-			query.andQualifier(ExpressionFactory.likeExp(TMtCustomer.MANAGER_NAME_PROPERTY, "%"+manageName));
+			query.andQualifier(ExpressionFactory.likeExp(TMtCustomer.MANAGER_NAME_PROPERTY, "%"+manageName+"%"));
 		}
 		if(StringUtils.isNoneEmpty(customerMode)){
 			query.andQualifier(ExpressionFactory.matchExp(TMtCustomer.CUSTOMER_MODE_PROPERTY, customerMode));

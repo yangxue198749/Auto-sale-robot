@@ -43,6 +43,8 @@ const routes = [
   ['user', '/user', '用户管理'],
   ['sys-log', '/sys-log', '系统日志'],
   ['settings', '/settings', '系统设置'],
+  ['customer', '/customer', '客户信息'],
+  ['partner', '/partner', '合伙人信息'],
 ]
 
 const results = []
