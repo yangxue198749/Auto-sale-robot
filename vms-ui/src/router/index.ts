@@ -95,6 +95,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/vm-energy',
+      name: 'vmEnergy',
+      component: () => import('../views/VmEnergyConfig.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
