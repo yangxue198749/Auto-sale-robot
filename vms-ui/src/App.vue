@@ -1,0 +1,72 @@
+<template>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>售货机管理系统</h2>
+      <nav>
+        <RouterLink to="/">工作台</RouterLink>
+        <RouterLink to="/delivery-task">配送工单</RouterLink>
+        <RouterLink to="/about">关于</RouterLink>
+      </nav>
+      <div class="user">
+        <span v-if="userStore.isLogin">用户: {{ userStore.userName }}</span>
+        <span v-else>未登录</span>
+      </div>
+    </aside>
+    <main class="content">
+      <RouterView />
+    </main>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import { useUserStore } from './stores/user'
+
+const userStore = useUserStore()
+</script>
+
+<style scoped>
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  width: 200px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+}
+.sidebar h2 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sidebar a {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+.sidebar a:hover {
+  background: #34495e;
+}
+.sidebar a.router-link-active {
+  background: #3498db;
+}
+.user {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #34495e;
+  font-size: 12px;
+  color: #bdc3c7;
+}
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #ecf0f1;
+}
+</style>

@@ -5,6 +5,15 @@ target/
 *.war
 *.ear
 
+# ==== 前端构建产物与依赖 ====
+vms-ui/node_modules/
+vms-ui/dist/
+vms-ui/tsconfig.tsbuildinfo
+vms-ui/.vite/
+vms-ui/coverage/
+npm-debug.log*
+yarn-error.log*
+
 # ==== IDE ====
 .idea/
 *.iml
