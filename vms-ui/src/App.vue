@@ -25,6 +25,7 @@
         <RouterLink to="/shortcut-strategy">闪购键策略</RouterLink>
         <RouterLink to="/text-strategy">走马灯策略</RouterLink>
         <RouterLink to="/energy-strategy">节能策略</RouterLink>
+        <RouterLink to="/theme-strategy">皮肤策略</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">
