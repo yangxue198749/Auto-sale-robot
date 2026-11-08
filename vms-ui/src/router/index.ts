@@ -65,6 +65,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/sku',
+      name: 'sku',
+      component: () => import('../views/SkuManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
