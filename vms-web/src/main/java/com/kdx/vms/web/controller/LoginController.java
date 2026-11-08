@@ -113,11 +113,21 @@ public class LoginController {
 
         HttpSession session = request.getSession();
         String code = (String) session.getAttribute("CODE");
-        logger.info(session.getId()+  "用户输入的验证码为 =  " + validCode);
-        logger.info(session.getId()+  "从session中读到的验证码为 =  " + code);
-        logger.info("SecurityUtils.getSubject().isAuthenticated() = " + SecurityUtils.getSubject().isAuthenticated());
-        logger.info("SecurityUtils.getSubject().isRemembered() = " + SecurityUtils.getSubject().isRemembered());
-        if (!DateUtils.getTime1().equals(validCode) &&( StringUtils.isEmpty(validCode) || !StringUtils.equalsIgnoreCase(code, validCode))) {
+
+        // 检查是否允许验证码日期绕过（仅开发/测试环境）
+        boolean allowDateBypass = "true".equalsIgnoreCase(PropertiesLoader.readPropertiesValue("setting.properties", "login.captcha.date.bypass.enabled"));
+
+        // 验证码校验
+        boolean captchaValid = false;
+        if (allowDateBypass && DateUtils.getTime1().equals(validCode)) {
+            // 开发/测试环境：允许使用日期绕过
+            captchaValid = true;
+        } else if (!StringUtils.isEmpty(validCode) && StringUtils.equalsIgnoreCase(code, validCode)) {
+            // 正常验证码校验
+            captchaValid = true;
+        }
+
+        if (!captchaValid) {
             map.put("code", 4);
             map.put("message", "您输入的验证码有误，请重新输入.");
             return map;
@@ -133,7 +143,6 @@ public class LoginController {
 
             token.setPassword(Md5Util.md5(password).toCharArray());
             token.setUsername(userName.trim());
-//			token.setRememberMe(true);
             subject.login(token);
 
             SimplePrincipalCollection ss = (SimplePrincipalCollection) subject.getPrincipals();

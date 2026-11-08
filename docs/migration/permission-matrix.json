@@ -1,0 +1,1655 @@
+{
+  "total_permissions": 165,
+  "permissions": [
+    {
+      "menu_id": "1010100",
+      "menu_name": "个人工作台",
+      "permission_code": "personal-workbench",
+      "path": "/workbench/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1010101",
+      "menu_name": "今日配送工单",
+      "permission_code": "delivery-task-count-today",
+      "path": "/workbench/deliveryCount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010102",
+      "menu_name": "今日维护工单",
+      "permission_code": "repair-task-count-today",
+      "path": "/workbench/repairCount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010103",
+      "menu_name": "今日投放工单",
+      "permission_code": "deploy-task-count-today",
+      "path": "/workbench/deployCount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010104",
+      "menu_name": "今日撤机工单",
+      "permission_code": "withdraw-task-count-today",
+      "path": "/workbench/withdrawCount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010105",
+      "menu_name": "今日新增点位",
+      "permission_code": "add-node-count-today",
+      "path": "/workbench/newNodeCount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010106",
+      "menu_name": "今日新增设备",
+      "permission_code": "add-vm-count-today",
+      "path": "/workbench/newVmCount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010107",
+      "menu_name": "今日在促销设备",
+      "permission_code": "event-vm-count-today",
+      "path": "/workbench/eventVmCount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010108",
+      "menu_name": "今日缺货设备",
+      "permission_code": "out-stock-vm-count-today",
+      "path": "/workbench/oosVmCount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010109",
+      "menu_name": "今日销量",
+      "permission_code": "order-count-today",
+      "path": "/workbench/salesVolume",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1010110",
+      "menu_name": "今日销售额",
+      "permission_code": "sales-volume-today",
+      "path": "/workbench/salesAmount",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020100",
+      "menu_name": "配送工单",
+      "permission_code": "delivery-task",
+      "path": "/deliveryTask/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1020101",
+      "menu_name": "新增",
+      "permission_code": "delivery-task-add",
+      "path": "/deliveryTask/addTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020102",
+      "menu_name": "修改",
+      "permission_code": "delivery-task-edit",
+      "path": "/deliveryTask/editTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020103",
+      "menu_name": "取消",
+      "permission_code": "delivery-task-cancel",
+      "path": "/deliveryTask/cancelTask",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020200",
+      "menu_name": "维护工单",
+      "permission_code": "repair-task",
+      "path": "/repairTask/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1020201",
+      "menu_name": "新增",
+      "permission_code": "repair-task-add",
+      "path": "/repairTask/addTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020202",
+      "menu_name": "修改",
+      "permission_code": "repair-task-edit",
+      "path": "/repairTask/editTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020203",
+      "menu_name": "取消",
+      "permission_code": "repair-task-cancel",
+      "path": "/repairTask/cancelTask",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020300",
+      "menu_name": "投放工单",
+      "permission_code": "deploy-task",
+      "path": "/deployTask/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1020301",
+      "menu_name": "新增",
+      "permission_code": "deploy-task-add",
+      "path": "/deployTask/addTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020302",
+      "menu_name": "修改",
+      "permission_code": "deploy-task-edit",
+      "path": "/deployTask/editTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020303",
+      "menu_name": "取消",
+      "permission_code": "deploy-task-cancel",
+      "path": "/deployTask/cancelTask",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020304",
+      "menu_name": "发布",
+      "permission_code": "deploy-task-publish",
+      "path": "/deployTask/publishTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020400",
+      "menu_name": "撤机工单",
+      "permission_code": "withdraw-task",
+      "path": "/withdrawTask/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1020401",
+      "menu_name": "新建",
+      "permission_code": "withdraw-task-add",
+      "path": "/withdrawTask/addTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020402",
+      "menu_name": "修改",
+      "permission_code": "withdraw-task-edit",
+      "path": "/withdrawTask/editTaskDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020403",
+      "menu_name": "取消",
+      "permission_code": "withdraw-task-cancel",
+      "path": "/withdrawTask/cancelTask",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1020500",
+      "menu_name": "工单查询",
+      "permission_code": "search-task",
+      "path": "/searchTask/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1030100",
+      "menu_name": "售货机管理",
+      "permission_code": "vm-manage",
+      "path": "/mtVm/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1030101",
+      "menu_name": "新建",
+      "permission_code": "vm-add",
+      "path": "/mtVm/addMtVmDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030102",
+      "menu_name": "修改",
+      "permission_code": "vm-edit",
+      "path": "/mtVm/editMtVmDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030103",
+      "menu_name": "货道设置",
+      "permission_code": "vm-set-channel",
+      "path": "/mtVmChannel/list",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030104",
+      "menu_name": "闪购键设置",
+      "permission_code": "vm-set-shortcuts",
+      "path": "/mtVmShortcuts/list",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030105",
+      "menu_name": "走马灯设置",
+      "permission_code": "vm-set-text",
+      "path": "/mtVmText/list",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030106",
+      "menu_name": "节能设置",
+      "permission_code": "vm-set-energy",
+      "path": "/mtVmEnergySave/list",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030107",
+      "menu_name": "价格设置",
+      "permission_code": "vm-set-price",
+      "path": "/mtVmPrice/list",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030108",
+      "menu_name": "查看货道",
+      "permission_code": "vm-show-channel",
+      "path": "/mtVm/showChannelDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030109",
+      "menu_name": "查看列表页",
+      "permission_code": "vm-show-sort",
+      "path": "/mtVm/showSkuSortDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030110",
+      "menu_name": "查看价格",
+      "permission_code": "vm-show-price",
+      "path": "/mtVm/showMtSkuPriceDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030111",
+      "menu_name": "查看策略",
+      "permission_code": "vm-show-strategy",
+      "path": "/mtVm/showMtStrategyDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030112",
+      "menu_name": "销售控制",
+      "permission_code": "vm-sale-console",
+      "path": "/mtVm/changeSale",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1030113",
+      "menu_name": "皮肤设置",
+      "permission_code": "vm-set-theme",
+      "path": "/mtVm/mtVmTheme",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040100",
+      "menu_name": "货道策略",
+      "permission_code": "st-vm-channel",
+      "path": "/stVmChannel/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1040101",
+      "menu_name": "新增",
+      "permission_code": "st-vm-channel-add",
+      "path": "/stVmChannel/addStVmChannelDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040102",
+      "menu_name": "修改",
+      "permission_code": "st-vm-channel-edit",
+      "path": "/stVmChannel/editStVmChannelDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040103",
+      "menu_name": "删除",
+      "permission_code": "st-vm-channel-delete",
+      "path": "/stVmChannel/deleteStrategy",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040200",
+      "menu_name": "闪购键策略",
+      "permission_code": "st-shortcuts",
+      "path": "/stShortcuts/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1040201",
+      "menu_name": "新增",
+      "permission_code": "st-shortcuts-add",
+      "path": "/stShortcuts/addPage1",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040202",
+      "menu_name": "修改",
+      "permission_code": "st-shortcuts-edit",
+      "path": "/stShortcuts/editPage1",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040203",
+      "menu_name": "删除",
+      "permission_code": "st-shortcuts-delete",
+      "path": "/stShortcuts/deleteShortcuts",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040300",
+      "menu_name": "走马灯策略",
+      "permission_code": "st-vm-text",
+      "path": "/stVmText/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1040301",
+      "menu_name": "新增",
+      "permission_code": "st-vm-text-add",
+      "path": "/stVmText/addStVmTextDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040302",
+      "menu_name": "修改",
+      "permission_code": "st-vm-text-edit",
+      "path": "/stVmText/editStVmTextDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040303",
+      "menu_name": "删除",
+      "permission_code": "st-vm-text-delete",
+      "path": "/stVmText/submitDeleteStVmText",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040400",
+      "menu_name": "节能策略",
+      "permission_code": "st-vm-energy",
+      "path": "/stVmEnergySave/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1040401",
+      "menu_name": "新增",
+      "permission_code": "st-vm-energy-add",
+      "path": "/stVmEnergySave/addStVmEnergyDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040402",
+      "menu_name": "修改",
+      "permission_code": "st-vm-energy-edit",
+      "path": "/stVmEnergySave/editStVmEnergySaveDialog",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040403",
+      "menu_name": "删除",
+      "permission_code": "st-vm-energy-delete",
+      "path": "/stVmEnergySave/deleteStVmStrategy",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040403",
+      "menu_name": "删除",
+      "permission_code": "st-vm-energy-delete",
+      "path": "/stVmEnergySave/deleteStVmStrategy",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040500",
+      "menu_name": "皮肤策略",
+      "permission_code": "st-theme-list",
+      "path": "/theme/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1040501",
+      "menu_name": "新增",
+      "permission_code": "st-vm-theme-add",
+      "path": "/theme/addTheme",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1040402",
+      "menu_name": "删除",
+      "permission_code": "st-vm-theme-delete",
+      "path": "/theme/deleteTheme",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050100",
+      "menu_name": "价格策略",
+      "permission_code": "stSkuPrice",
+      "path": "/stSkuPrice/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1050101",
+      "menu_name": "新增",
+      "permission_code": "stSkuPrice-add",
+      "path": "/stSkuPrice/add",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050102",
+      "menu_name": "修改",
+      "permission_code": "stSkuPrice-update",
+      "path": "/stSkuPrice/update",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050103",
+      "menu_name": "删除",
+      "permission_code": "stSkuPrice-delete",
+      "path": "/stSkuPrice/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050200",
+      "menu_name": "商品促销策略",
+      "permission_code": "stSkuEvent",
+      "path": "/stSkuEvent/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1050201",
+      "menu_name": "新增",
+      "permission_code": "stSkuEvent-add",
+      "path": "/stSkuEvent/add",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050202",
+      "menu_name": "修改",
+      "permission_code": "stSkuEvent-update",
+      "path": "/stSkuEvent/update",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050203",
+      "menu_name": "删除",
+      "permission_code": "stSkuEvent-delete",
+      "path": "/stSkuEvent/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050300",
+      "menu_name": "整机促销策略",
+      "permission_code": "stVmEvent",
+      "path": "/stVmEvent/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1050301",
+      "menu_name": "新增",
+      "permission_code": "stVmEvent-add",
+      "path": "/stVmEvent/add",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050302",
+      "menu_name": "修改",
+      "permission_code": "stVmEvent-update",
+      "path": "/stVmEvent/update",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050303",
+      "menu_name": "删除",
+      "permission_code": "stVmEvent-delete",
+      "path": "/stVmEvent/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050400",
+      "menu_name": "应用促销策略",
+      "permission_code": "mtVmEvent",
+      "path": "/mtVmEvent/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1050401",
+      "menu_name": "应用商品策略",
+      "permission_code": "mtVmEvent-add-sku",
+      "path": "/mtVmEvent/add/sku",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050402",
+      "menu_name": "应用整机策略",
+      "permission_code": "mtVmEvent-add-vm",
+      "path": "/mtVmEvent/add/vm",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1050403",
+      "menu_name": "取消",
+      "permission_code": "mtVmEvent-delete",
+      "path": "/mtVmEvent/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1060100",
+      "menu_name": "点位信息",
+      "permission_code": "mtNode",
+      "path": "/mtNode/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1060101",
+      "menu_name": "新增",
+      "permission_code": "mtNode-add",
+      "path": "/mtNode/add",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1060102",
+      "menu_name": "修改",
+      "permission_code": "mtNode-update",
+      "path": "/mtNode/update",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1060103",
+      "menu_name": "删除",
+      "permission_code": "mtNode-delete",
+      "path": "/mtNode/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1060104",
+      "menu_name": "配置配送员",
+      "permission_code": "mtNode-deliveryList",
+      "path": "/mtNode/deliveryList",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1060105",
+      "menu_name": "配置维修员",
+      "permission_code": "mtNode-repairList",
+      "path": "/mtNode/repairList",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1070100",
+      "menu_name": "客户信息",
+      "permission_code": "customer-home",
+      "path": "/customer/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1070101",
+      "menu_name": "查询",
+      "permission_code": "customer-list",
+      "path": "/customer/list",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1070102",
+      "menu_name": "新增",
+      "permission_code": "customer-createPage",
+      "path": "/customer/createPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1070103",
+      "menu_name": "修改",
+      "permission_code": "customer-updatePage",
+      "path": "/customer/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1070104",
+      "menu_name": "删除",
+      "permission_code": "customer-delete",
+      "path": "/customer/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1070200",
+      "menu_name": "合伙人信息",
+      "permission_code": "partner-home",
+      "path": "/partner/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "1070201",
+      "menu_name": "查询",
+      "permission_code": "partner-list",
+      "path": "/partner/list",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1070202",
+      "menu_name": "新增",
+      "permission_code": "partner-createPage",
+      "path": "/partner/createPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1070203",
+      "menu_name": "修改",
+      "permission_code": "partner-updatePage",
+      "path": "/partner/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "1070204",
+      "menu_name": "删除",
+      "permission_code": "partner-delete",
+      "path": "/partner/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2010100",
+      "menu_name": "售货机型号",
+      "permission_code": "vmModel-home",
+      "path": "/vmModel/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "2010101",
+      "menu_name": "新增",
+      "permission_code": "vmModel-createPage",
+      "path": "/vmModel/createPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2010102",
+      "menu_name": "修改型号",
+      "permission_code": "vmModel-updatePage",
+      "path": "/vmModel/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2010103",
+      "menu_name": "修改货道",
+      "permission_code": "vmModel-update-channel",
+      "path": "/vmModelChannel/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2010104",
+      "menu_name": "删除",
+      "permission_code": "vmModel-delete",
+      "path": "/vmModel/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2010200",
+      "menu_name": "售货机MAC地址",
+      "permission_code": "uniqueCode",
+      "path": "/uniqueCode/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "2010201",
+      "menu_name": "解除绑定",
+      "permission_code": "uniqueCode-unbind",
+      "path": "/uniqueCode/unbind",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020100",
+      "menu_name": "商品类型",
+      "permission_code": "skuType-home",
+      "path": "/skuType/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "2020101",
+      "menu_name": "新增",
+      "permission_code": "skuType-create",
+      "path": "/skuType/create",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020102",
+      "menu_name": "修改",
+      "permission_code": "skuType-update",
+      "path": "/skuType/update",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020103",
+      "menu_name": "删除",
+      "permission_code": "skuType-delete",
+      "path": "/skuType/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020200",
+      "menu_name": "商品类型详情",
+      "permission_code": "skuType-list",
+      "path": "/skuType/listType",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020201",
+      "menu_name": "新增",
+      "permission_code": "skuType-create",
+      "path": "/skuType/createType",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020202",
+      "menu_name": "修改",
+      "permission_code": "skuType-update",
+      "path": "/skuType/updateType",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020203",
+      "menu_name": "删除",
+      "permission_code": "skuType-delete",
+      "path": "/skuType/deleteType",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020300",
+      "menu_name": "商品信息",
+      "permission_code": "sku-home",
+      "path": "/sku/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "2020301",
+      "menu_name": "新增",
+      "permission_code": "sku-createPage",
+      "path": "/sku/createPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020302",
+      "menu_name": "修改",
+      "permission_code": "sku-updatePage",
+      "path": "/sku/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2020303",
+      "menu_name": "编辑",
+      "permission_code": "sku-changePage",
+      "path": "/sku/changePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2030100",
+      "menu_name": "场景信息",
+      "permission_code": "businessDistrict-home",
+      "path": "/businessDistrict/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "2030101",
+      "menu_name": "新增",
+      "permission_code": "businessDistrict-createPage",
+      "path": "/businessDistrict/createPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2030102",
+      "menu_name": "删除",
+      "permission_code": "businessDistrict-delete",
+      "path": "/businessDistrict/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2030103",
+      "menu_name": "修改",
+      "permission_code": "businessDistrict-updatePage",
+      "path": "/businessDistrict/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2040100",
+      "menu_name": "仓库信息",
+      "permission_code": "warehouse-uniteArea",
+      "path": "/warehouse/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "2040101",
+      "menu_name": "关联区域",
+      "permission_code": "warehouse-uniteAreaPage",
+      "path": "/warehouse/uniteAreaPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2050100",
+      "menu_name": "sim卡信息",
+      "permission_code": "sim-list",
+      "path": "/sim/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "2050101",
+      "menu_name": "新增",
+      "permission_code": "sim-add",
+      "path": "/sim/addPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2050102",
+      "menu_name": "删除",
+      "permission_code": "sim-delete",
+      "path": "/sim/deleteSim",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2050103",
+      "menu_name": "修改",
+      "permission_code": "sim-edit",
+      "path": "/sim/editPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2060100",
+      "menu_name": "字典信息",
+      "permission_code": "sysType-home",
+      "path": "/sysType/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "2060101",
+      "menu_name": "新增",
+      "permission_code": "sysType-create",
+      "path": "/sysType/createPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2060102",
+      "menu_name": "修改",
+      "permission_code": "sysType-update",
+      "path": "/sysType/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2060103",
+      "menu_name": "删除",
+      "permission_code": "sysType-delete",
+      "path": "/sysType/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2060104",
+      "menu_name": "查询字典详情",
+      "permission_code": "dictionary-list",
+      "path": "/dictionary/list",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2060105",
+      "menu_name": "新增",
+      "permission_code": "dictionary-create",
+      "path": "/dictionary/createPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2060106",
+      "menu_name": "修改",
+      "permission_code": "dictionary-update",
+      "path": "/dictionary/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "2060107",
+      "menu_name": "删除",
+      "permission_code": "dictionary-delete",
+      "path": "/dictionary/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "3010100",
+      "menu_name": "销售流水",
+      "permission_code": "order-list",
+      "path": "/order/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "3010101",
+      "menu_name": "退款",
+      "permission_code": "order-refund",
+      "path": "/order/refund",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "3010102",
+      "menu_name": "导出",
+      "permission_code": "order-export",
+      "path": "/order/export",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "3010200",
+      "menu_name": "售货机库存",
+      "permission_code": "vmStock-list",
+      "path": "/vmStock/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "3010300",
+      "menu_name": "售货机状态",
+      "permission_code": "vmStatus-list",
+      "path": "/vmStatus/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "3010400",
+      "menu_name": "售货机历史状态",
+      "permission_code": "vmStatusHis-list",
+      "path": "/vmStatusHis/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "4010101",
+      "menu_name": "B客户转账",
+      "permission_code": "giro-list",
+      "path": "/giro/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "5010100",
+      "menu_name": "用户管理",
+      "permission_code": "user-list",
+      "path": "/user/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "5010101",
+      "menu_name": "新增",
+      "permission_code": "user-add",
+      "path": "/user/addPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010102",
+      "menu_name": "删除",
+      "permission_code": "user-delete",
+      "path": "/user/deleteUser",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010103",
+      "menu_name": "修改",
+      "permission_code": "user-edit",
+      "path": "/user/editPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010104",
+      "menu_name": "重置密码",
+      "permission_code": "user-resePw",
+      "path": "/user/resetPw",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010200",
+      "menu_name": "角色管理",
+      "permission_code": "role-list",
+      "path": "/role/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "5010400",
+      "menu_name": "账号设置",
+      "permission_code": "account-home",
+      "path": "/account/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "5010401",
+      "menu_name": "修改用户名",
+      "permission_code": "account-updateUserNamePage",
+      "path": "/account/updateUserNamePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010402",
+      "menu_name": "修改手机号",
+      "permission_code": "account-updateUserPhonePage",
+      "path": "/account/updateUserPhonePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010403",
+      "menu_name": "修改密码",
+      "permission_code": "account-updateUserPasswordPage",
+      "path": "/account/updateUserPasswordPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010500",
+      "menu_name": "公司管理",
+      "permission_code": "company_home",
+      "path": "/company/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "5010501",
+      "menu_name": "新增",
+      "permission_code": "company_createPage",
+      "path": "/company/createPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010502",
+      "menu_name": "修改",
+      "permission_code": "company_updatePage",
+      "path": "/company/updatePage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010503",
+      "menu_name": "新增机器",
+      "permission_code": "company_addCapacityPage",
+      "path": "/company/addCapacityPage",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010504",
+      "menu_name": "升级公司",
+      "permission_code": "company_upgrade",
+      "path": "/company/upgrade",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010600",
+      "menu_name": "系统日志",
+      "permission_code": "sysLog-home",
+      "path": "/sysLog/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "5010700",
+      "menu_name": "系统配置",
+      "permission_code": "sysSetting-list",
+      "path": "/settings/list",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "5010701",
+      "menu_name": "新增类型",
+      "permission_code": "sysSetting-type-add",
+      "path": "/settings/type/add",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010702",
+      "menu_name": "新增配置",
+      "permission_code": "sysSetting-setting-add",
+      "path": "/settings/setting/add",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010703",
+      "menu_name": "删除配置",
+      "permission_code": "sysSetting-setting-delete",
+      "path": "/settings/setting/delete",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010704",
+      "menu_name": "更新配置",
+      "permission_code": "sysSetting-setting-update",
+      "path": "/settings/setting/update",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010705",
+      "menu_name": "类型数据",
+      "permission_code": "sysSetting-type-table",
+      "path": "/settings/type/table",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010706",
+      "menu_name": "配置数据",
+      "permission_code": "sysSetting-setting-table",
+      "path": "/settings/setting/table",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5010707",
+      "menu_name": "保存数据",
+      "permission_code": "sysSetting-save",
+      "path": "/settings/save",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    },
+    {
+      "menu_id": "5020100",
+      "menu_name": "支付管理",
+      "permission_code": "customerAccount-home",
+      "path": "/customerAccount/home",
+      "type": "menu",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "high"
+    },
+    {
+      "menu_id": "5020101",
+      "menu_name": "修改",
+      "permission_code": "customerAccount-update",
+      "path": "/customerAccount/update",
+      "type": "button",
+      "requires_auth": true,
+      "requires_permission": true,
+      "migration_priority": "medium"
+    }
+  ]
+}

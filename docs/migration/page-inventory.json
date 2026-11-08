@@ -1,0 +1,3747 @@
+{
+  "total_menu_items": 188,
+  "total_endpoints": 351,
+  "mapped_items": 165,
+  "items": [
+    {
+      "menu_id": "1010100",
+      "menu_name": "个人工作台",
+      "menu_path": "/workbench/list",
+      "menu_code": "personal-workbench",
+      "menu_type": "menu",
+      "parent_id": "1010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "WorkbenchController",
+          "method": "list",
+          "path": "/workbench/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010101",
+      "menu_name": "今日配送工单",
+      "menu_path": "/workbench/deliveryCount",
+      "menu_code": "delivery-task-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "deliveryTaskCount",
+          "path": "/workbench/deliveryCount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010102",
+      "menu_name": "今日维护工单",
+      "menu_path": "/workbench/repairCount",
+      "menu_code": "repair-task-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "repairTaskCount",
+          "path": "/workbench/repairCount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010103",
+      "menu_name": "今日投放工单",
+      "menu_path": "/workbench/deployCount",
+      "menu_code": "deploy-task-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "deployTaskCount",
+          "path": "/workbench/deployCount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010104",
+      "menu_name": "今日撤机工单",
+      "menu_path": "/workbench/withdrawCount",
+      "menu_code": "withdraw-task-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "withdrawTaskCount",
+          "path": "/workbench/withdrawCount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010105",
+      "menu_name": "今日新增点位",
+      "menu_path": "/workbench/newNodeCount",
+      "menu_code": "add-node-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "newNodeCount",
+          "path": "/workbench/newNodeCount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010106",
+      "menu_name": "今日新增设备",
+      "menu_path": "/workbench/newVmCount",
+      "menu_code": "add-vm-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "newVmCount",
+          "path": "/workbench/newVmCount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010107",
+      "menu_name": "今日在促销设备",
+      "menu_path": "/workbench/eventVmCount",
+      "menu_code": "event-vm-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "eventVmCount",
+          "path": "/workbench/eventVmCount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010108",
+      "menu_name": "今日缺货设备",
+      "menu_path": "/workbench/oosVmCount",
+      "menu_code": "out-stock-vm-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "oosVmCount",
+          "path": "/workbench/oosVmCount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010109",
+      "menu_name": "今日销量",
+      "menu_path": "/workbench/salesVolume",
+      "menu_code": "order-count-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "salesVolume",
+          "path": "/workbench/salesVolume",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1010110",
+      "menu_name": "今日销售额",
+      "menu_path": "/workbench/salesAmount",
+      "menu_code": "sales-volume-today",
+      "menu_type": "button",
+      "parent_id": "1010100",
+      "endpoints": [
+        {
+          "controller": "WorkbenchController",
+          "method": "salesAmount",
+          "path": "/workbench/salesAmount",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WorkbenchController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020100",
+      "menu_name": "配送工单",
+      "menu_path": "/deliveryTask/list",
+      "menu_code": "delivery-task",
+      "menu_type": "menu",
+      "parent_id": "1020000",
+      "endpoints": [
+        {
+          "controller": "DeliveryTaskController",
+          "method": "list",
+          "path": "/deliveryTask/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeliveryTaskController.java"
+        },
+        {
+          "controller": "DeliveryTaskController",
+          "method": "listPage",
+          "path": "/deliveryTask/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeliveryTaskController.java"
+        },
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "VmsApiController",
+          "method": "listAllDeliveryTasks",
+          "path": "/deliveryTask/deliveryTask/listAll",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\VmsApiController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020101",
+      "menu_name": "新增",
+      "menu_path": "/deliveryTask/addTaskDialog",
+      "menu_code": "delivery-task-add",
+      "menu_type": "button",
+      "parent_id": "1020100",
+      "endpoints": [
+        {
+          "controller": "DeliveryTaskController",
+          "method": "addTaskDialog",
+          "path": "/deliveryTask/addTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeliveryTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020102",
+      "menu_name": "修改",
+      "menu_path": "/deliveryTask/editTaskDialog",
+      "menu_code": "delivery-task-edit",
+      "menu_type": "button",
+      "parent_id": "1020100",
+      "endpoints": [
+        {
+          "controller": "DeliveryTaskController",
+          "method": "editTaskDialog",
+          "path": "/deliveryTask/editTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeliveryTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020103",
+      "menu_name": "取消",
+      "menu_path": "/deliveryTask/cancelTask",
+      "menu_code": "delivery-task-cancel",
+      "menu_type": "button",
+      "parent_id": "1020100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020200",
+      "menu_name": "维护工单",
+      "menu_path": "/repairTask/list",
+      "menu_code": "repair-task",
+      "menu_type": "menu",
+      "parent_id": "1020000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "RepairTaskController",
+          "method": "list",
+          "path": "/repairTask/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\RepairTaskController.java"
+        },
+        {
+          "controller": "RepairTaskController",
+          "method": "listPage",
+          "path": "/repairTask/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\RepairTaskController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020201",
+      "menu_name": "新增",
+      "menu_path": "/repairTask/addTaskDialog",
+      "menu_code": "repair-task-add",
+      "menu_type": "button",
+      "parent_id": "1020200",
+      "endpoints": [
+        {
+          "controller": "RepairTaskController",
+          "method": "addTaskDialog",
+          "path": "/repairTask/addTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\RepairTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020202",
+      "menu_name": "修改",
+      "menu_path": "/repairTask/editTaskDialog",
+      "menu_code": "repair-task-edit",
+      "menu_type": "button",
+      "parent_id": "1020200",
+      "endpoints": [
+        {
+          "controller": "RepairTaskController",
+          "method": "editTaskDialog",
+          "path": "/repairTask/editTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\RepairTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020203",
+      "menu_name": "取消",
+      "menu_path": "/repairTask/cancelTask",
+      "menu_code": "repair-task-cancel",
+      "menu_type": "button",
+      "parent_id": "1020200",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020300",
+      "menu_name": "投放工单",
+      "menu_path": "/deployTask/list",
+      "menu_code": "deploy-task",
+      "menu_type": "menu",
+      "parent_id": "1020000",
+      "endpoints": [
+        {
+          "controller": "DeployTaskController",
+          "method": "list",
+          "path": "/deployTask/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeployTaskController.java"
+        },
+        {
+          "controller": "DeployTaskController",
+          "method": "listPage",
+          "path": "/deployTask/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeployTaskController.java"
+        },
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020301",
+      "menu_name": "新增",
+      "menu_path": "/deployTask/addTaskDialog",
+      "menu_code": "deploy-task-add",
+      "menu_type": "button",
+      "parent_id": "1020300",
+      "endpoints": [
+        {
+          "controller": "DeployTaskController",
+          "method": "addTaskDialog",
+          "path": "/deployTask/addTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeployTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020302",
+      "menu_name": "修改",
+      "menu_path": "/deployTask/editTaskDialog",
+      "menu_code": "deploy-task-edit",
+      "menu_type": "button",
+      "parent_id": "1020300",
+      "endpoints": [
+        {
+          "controller": "DeployTaskController",
+          "method": "editTaskDialog",
+          "path": "/deployTask/editTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeployTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020303",
+      "menu_name": "取消",
+      "menu_path": "/deployTask/cancelTask",
+      "menu_code": "deploy-task-cancel",
+      "menu_type": "button",
+      "parent_id": "1020300",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020304",
+      "menu_name": "发布",
+      "menu_path": "/deployTask/publishTaskDialog",
+      "menu_code": "deploy-task-publish",
+      "menu_type": "button",
+      "parent_id": "1020300",
+      "endpoints": [
+        {
+          "controller": "DeployTaskController",
+          "method": "publishTaskDialog",
+          "path": "/deployTask/publishTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\DeployTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020400",
+      "menu_name": "撤机工单",
+      "menu_path": "/withdrawTask/list",
+      "menu_code": "withdraw-task",
+      "menu_type": "menu",
+      "parent_id": "1020000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "WithdrawTaskController",
+          "method": "list",
+          "path": "/withdrawTask/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WithdrawTaskController.java"
+        },
+        {
+          "controller": "WithdrawTaskController",
+          "method": "listPage",
+          "path": "/withdrawTask/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WithdrawTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020401",
+      "menu_name": "新建",
+      "menu_path": "/withdrawTask/addTaskDialog",
+      "menu_code": "withdraw-task-add",
+      "menu_type": "button",
+      "parent_id": "1020400",
+      "endpoints": [
+        {
+          "controller": "WithdrawTaskController",
+          "method": "addTaskDialog",
+          "path": "/withdrawTask/addTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WithdrawTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020402",
+      "menu_name": "修改",
+      "menu_path": "/withdrawTask/editTaskDialog",
+      "menu_code": "withdraw-task-edit",
+      "menu_type": "button",
+      "parent_id": "1020400",
+      "endpoints": [
+        {
+          "controller": "WithdrawTaskController",
+          "method": "editTaskDialog",
+          "path": "/withdrawTask/editTaskDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\WithdrawTaskController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020403",
+      "menu_name": "取消",
+      "menu_path": "/withdrawTask/cancelTask",
+      "menu_code": "withdraw-task-cancel",
+      "menu_type": "button",
+      "parent_id": "1020400",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1020500",
+      "menu_name": "工单查询",
+      "menu_path": "/searchTask/list",
+      "menu_code": "search-task",
+      "menu_type": "menu",
+      "parent_id": "1020000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SearchTaskController",
+          "method": "list",
+          "path": "/searchTask/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SearchTaskController.java"
+        },
+        {
+          "controller": "SearchTaskController",
+          "method": "listPage",
+          "path": "/searchTask/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SearchTaskController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030100",
+      "menu_name": "售货机管理",
+      "menu_path": "/mtVm/list",
+      "menu_code": "vm-manage",
+      "menu_type": "menu",
+      "parent_id": "1030000",
+      "endpoints": [
+        {
+          "controller": "MtVmController",
+          "method": "list",
+          "path": "/mtVm/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtVmController.java"
+        },
+        {
+          "controller": "MtVmController",
+          "method": "listPage",
+          "path": "/mtVm/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtVmController.java"
+        },
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030101",
+      "menu_name": "新建",
+      "menu_path": "/mtVm/addMtVmDialog",
+      "menu_code": "vm-add",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtVmController",
+          "method": "addMtVmDialog",
+          "path": "/mtVm/addMtVmDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtVmController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030102",
+      "menu_name": "修改",
+      "menu_path": "/mtVm/editMtVmDialog",
+      "menu_code": "vm-edit",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtVmController",
+          "method": "editMtVmDialog",
+          "path": "/mtVm/editMtVmDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtVmController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030103",
+      "menu_name": "货道设置",
+      "menu_path": "/mtVmChannel/list",
+      "menu_code": "vm-set-channel",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030104",
+      "menu_name": "闪购键设置",
+      "menu_path": "/mtVmShortcuts/list",
+      "menu_code": "vm-set-shortcuts",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030105",
+      "menu_name": "走马灯设置",
+      "menu_path": "/mtVmText/list",
+      "menu_code": "vm-set-text",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030106",
+      "menu_name": "节能设置",
+      "menu_path": "/mtVmEnergySave/list",
+      "menu_code": "vm-set-energy",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030107",
+      "menu_name": "价格设置",
+      "menu_path": "/mtVmPrice/list",
+      "menu_code": "vm-set-price",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030108",
+      "menu_name": "查看货道",
+      "menu_path": "/mtVm/showChannelDialog",
+      "menu_code": "vm-show-channel",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtVmController",
+          "method": "showChannelDialog",
+          "path": "/mtVm/showChannelDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtVmController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030109",
+      "menu_name": "查看列表页",
+      "menu_path": "/mtVm/showSkuSortDialog",
+      "menu_code": "vm-show-sort",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtVmController",
+          "method": "showSkuSortDialog",
+          "path": "/mtVm/showSkuSortDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtVmController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030110",
+      "menu_name": "查看价格",
+      "menu_path": "/mtVm/showMtSkuPriceDialog",
+      "menu_code": "vm-show-price",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtVmController",
+          "method": "showMtSkuPriceDialog",
+          "path": "/mtVm/showMtSkuPriceDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtVmController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030111",
+      "menu_name": "查看策略",
+      "menu_path": "/mtVm/showMtStrategyDialog",
+      "menu_code": "vm-show-strategy",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [
+        {
+          "controller": "MtVmController",
+          "method": "showMtStrategyDialog",
+          "path": "/mtVm/showMtStrategyDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtVmController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030112",
+      "menu_name": "销售控制",
+      "menu_path": "/mtVm/changeSale",
+      "menu_code": "vm-sale-console",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1030113",
+      "menu_name": "皮肤设置",
+      "menu_path": "/mtVm/mtVmTheme",
+      "menu_code": "vm-set-theme",
+      "menu_type": "button",
+      "parent_id": "1030100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040100",
+      "menu_name": "货道策略",
+      "menu_path": "/stVmChannel/list",
+      "menu_code": "st-vm-channel",
+      "menu_type": "menu",
+      "parent_id": "1040000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "StVmChannelController",
+          "method": "list",
+          "path": "/stVmChannel/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmChannelController.java"
+        },
+        {
+          "controller": "StVmChannelController",
+          "method": "listPage",
+          "path": "/stVmChannel/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmChannelController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040101",
+      "menu_name": "新增",
+      "menu_path": "/stVmChannel/addStVmChannelDialog",
+      "menu_code": "st-vm-channel-add",
+      "menu_type": "button",
+      "parent_id": "1040100",
+      "endpoints": [
+        {
+          "controller": "StVmChannelController",
+          "method": "addStVmChannelDialog",
+          "path": "/stVmChannel/addStVmChannelDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmChannelController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040102",
+      "menu_name": "修改",
+      "menu_path": "/stVmChannel/editStVmChannelDialog",
+      "menu_code": "st-vm-channel-edit",
+      "menu_type": "button",
+      "parent_id": "1040100",
+      "endpoints": [
+        {
+          "controller": "StVmChannelController",
+          "method": "editStVmChannelDialog",
+          "path": "/stVmChannel/editStVmChannelDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmChannelController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040103",
+      "menu_name": "删除",
+      "menu_path": "/stVmChannel/deleteStrategy",
+      "menu_code": "st-vm-channel-delete",
+      "menu_type": "button",
+      "parent_id": "1040100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040200",
+      "menu_name": "闪购键策略",
+      "menu_path": "/stShortcuts/list",
+      "menu_code": "st-shortcuts",
+      "menu_type": "menu",
+      "parent_id": "1040000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "ShortcutsController",
+          "method": "list",
+          "path": "/stShortcuts/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\ShortcutsController.java"
+        },
+        {
+          "controller": "ShortcutsController",
+          "method": "listPage",
+          "path": "/stShortcuts/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\ShortcutsController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040201",
+      "menu_name": "新增",
+      "menu_path": "/stShortcuts/addPage1",
+      "menu_code": "st-shortcuts-add",
+      "menu_type": "button",
+      "parent_id": "1040200",
+      "endpoints": [
+        {
+          "controller": "ShortcutsController",
+          "method": "addPage1",
+          "path": "/stShortcuts/addPage1",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\ShortcutsController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040202",
+      "menu_name": "修改",
+      "menu_path": "/stShortcuts/editPage1",
+      "menu_code": "st-shortcuts-edit",
+      "menu_type": "button",
+      "parent_id": "1040200",
+      "endpoints": [
+        {
+          "controller": "ShortcutsController",
+          "method": "editPage1",
+          "path": "/stShortcuts/editPage1",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\ShortcutsController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040203",
+      "menu_name": "删除",
+      "menu_path": "/stShortcuts/deleteShortcuts",
+      "menu_code": "st-shortcuts-delete",
+      "menu_type": "button",
+      "parent_id": "1040200",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040300",
+      "menu_name": "走马灯策略",
+      "menu_path": "/stVmText/list",
+      "menu_code": "st-vm-text",
+      "menu_type": "menu",
+      "parent_id": "1040000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "StVmTextController",
+          "method": "list",
+          "path": "/stVmText/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmTextController.java"
+        },
+        {
+          "controller": "StVmTextController",
+          "method": "listPage",
+          "path": "/stVmText/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmTextController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040301",
+      "menu_name": "新增",
+      "menu_path": "/stVmText/addStVmTextDialog",
+      "menu_code": "st-vm-text-add",
+      "menu_type": "button",
+      "parent_id": "1040300",
+      "endpoints": [
+        {
+          "controller": "StVmTextController",
+          "method": "addStVmTextDialog",
+          "path": "/stVmText/addStVmTextDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmTextController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040302",
+      "menu_name": "修改",
+      "menu_path": "/stVmText/editStVmTextDialog",
+      "menu_code": "st-vm-text-edit",
+      "menu_type": "button",
+      "parent_id": "1040300",
+      "endpoints": [
+        {
+          "controller": "StVmTextController",
+          "method": "addStVmTextDialog",
+          "path": "/stVmText/editStVmTextDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmTextController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040303",
+      "menu_name": "删除",
+      "menu_path": "/stVmText/submitDeleteStVmText",
+      "menu_code": "st-vm-text-delete",
+      "menu_type": "button",
+      "parent_id": "1040300",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040400",
+      "menu_name": "节能策略",
+      "menu_path": "/stVmEnergySave/list",
+      "menu_code": "st-vm-energy",
+      "menu_type": "menu",
+      "parent_id": "1040000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "StVmEnergySaveController",
+          "method": "list",
+          "path": "/stVmEnergySave/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmEnergySaveController.java"
+        },
+        {
+          "controller": "StVmEnergySaveController",
+          "method": "listPage",
+          "path": "/stVmEnergySave/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmEnergySaveController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040401",
+      "menu_name": "新增",
+      "menu_path": "/stVmEnergySave/addStVmEnergyDialog",
+      "menu_code": "st-vm-energy-add",
+      "menu_type": "button",
+      "parent_id": "1040400",
+      "endpoints": [
+        {
+          "controller": "StVmEnergySaveController",
+          "method": "addStVmEnergyDialog",
+          "path": "/stVmEnergySave/addStVmEnergyDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmEnergySaveController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040402",
+      "menu_name": "修改",
+      "menu_path": "/stVmEnergySave/editStVmEnergySaveDialog",
+      "menu_code": "st-vm-energy-edit",
+      "menu_type": "button",
+      "parent_id": "1040400",
+      "endpoints": [
+        {
+          "controller": "StVmEnergySaveController",
+          "method": "editStVmEnergySaveDialog",
+          "path": "/stVmEnergySave/editStVmEnergySaveDialog",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\StVmEnergySaveController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040403",
+      "menu_name": "删除",
+      "menu_path": "/stVmEnergySave/deleteStVmStrategy",
+      "menu_code": "st-vm-energy-delete",
+      "menu_type": "button",
+      "parent_id": "1040400",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040403",
+      "menu_name": "删除",
+      "menu_path": "/stVmEnergySave/deleteStVmStrategy",
+      "menu_code": "st-vm-energy-delete",
+      "menu_type": "button",
+      "parent_id": "1040400",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040500",
+      "menu_name": "皮肤策略",
+      "menu_path": "/theme/list",
+      "menu_code": "st-theme-list",
+      "menu_type": "menu",
+      "parent_id": "1040000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040501",
+      "menu_name": "新增",
+      "menu_path": "/theme/addTheme",
+      "menu_code": "st-vm-theme-add",
+      "menu_type": "button",
+      "parent_id": "1040500",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1040402",
+      "menu_name": "删除",
+      "menu_path": "/theme/deleteTheme",
+      "menu_code": "st-vm-theme-delete",
+      "menu_type": "button",
+      "parent_id": "1040500",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050100",
+      "menu_name": "价格策略",
+      "menu_path": "/stSkuPrice/list",
+      "menu_code": "stSkuPrice",
+      "menu_type": "menu",
+      "parent_id": "1050000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050101",
+      "menu_name": "新增",
+      "menu_path": "/stSkuPrice/add",
+      "menu_code": "stSkuPrice-add",
+      "menu_type": "button",
+      "parent_id": "1050100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050102",
+      "menu_name": "修改",
+      "menu_path": "/stSkuPrice/update",
+      "menu_code": "stSkuPrice-update",
+      "menu_type": "button",
+      "parent_id": "1050100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050103",
+      "menu_name": "删除",
+      "menu_path": "/stSkuPrice/delete",
+      "menu_code": "stSkuPrice-delete",
+      "menu_type": "button",
+      "parent_id": "1050100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050200",
+      "menu_name": "商品促销策略",
+      "menu_path": "/stSkuEvent/list",
+      "menu_code": "stSkuEvent",
+      "menu_type": "menu",
+      "parent_id": "1050000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050201",
+      "menu_name": "新增",
+      "menu_path": "/stSkuEvent/add",
+      "menu_code": "stSkuEvent-add",
+      "menu_type": "button",
+      "parent_id": "1050200",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050202",
+      "menu_name": "修改",
+      "menu_path": "/stSkuEvent/update",
+      "menu_code": "stSkuEvent-update",
+      "menu_type": "button",
+      "parent_id": "1050200",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050203",
+      "menu_name": "删除",
+      "menu_path": "/stSkuEvent/delete",
+      "menu_code": "stSkuEvent-delete",
+      "menu_type": "button",
+      "parent_id": "1050200",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050300",
+      "menu_name": "整机促销策略",
+      "menu_path": "/stVmEvent/list",
+      "menu_code": "stVmEvent",
+      "menu_type": "menu",
+      "parent_id": "1050000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050301",
+      "menu_name": "新增",
+      "menu_path": "/stVmEvent/add",
+      "menu_code": "stVmEvent-add",
+      "menu_type": "button",
+      "parent_id": "1050300",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050302",
+      "menu_name": "修改",
+      "menu_path": "/stVmEvent/update",
+      "menu_code": "stVmEvent-update",
+      "menu_type": "button",
+      "parent_id": "1050300",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050303",
+      "menu_name": "删除",
+      "menu_path": "/stVmEvent/delete",
+      "menu_code": "stVmEvent-delete",
+      "menu_type": "button",
+      "parent_id": "1050300",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050400",
+      "menu_name": "应用促销策略",
+      "menu_path": "/mtVmEvent/list",
+      "menu_code": "mtVmEvent",
+      "menu_type": "menu",
+      "parent_id": "1050000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050401",
+      "menu_name": "应用商品策略",
+      "menu_path": "/mtVmEvent/add/sku",
+      "menu_code": "mtVmEvent-add-sku",
+      "menu_type": "button",
+      "parent_id": "1050400",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050402",
+      "menu_name": "应用整机策略",
+      "menu_path": "/mtVmEvent/add/vm",
+      "menu_code": "mtVmEvent-add-vm",
+      "menu_type": "button",
+      "parent_id": "1050400",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1050403",
+      "menu_name": "取消",
+      "menu_path": "/mtVmEvent/delete",
+      "menu_code": "mtVmEvent-delete",
+      "menu_type": "button",
+      "parent_id": "1050400",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1060100",
+      "menu_name": "点位信息",
+      "menu_path": "/mtNode/list",
+      "menu_code": "mtNode",
+      "menu_type": "menu",
+      "parent_id": "1060000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1060101",
+      "menu_name": "新增",
+      "menu_path": "/mtNode/add",
+      "menu_code": "mtNode-add",
+      "menu_type": "button",
+      "parent_id": "1060100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1060102",
+      "menu_name": "修改",
+      "menu_path": "/mtNode/update",
+      "menu_code": "mtNode-update",
+      "menu_type": "button",
+      "parent_id": "1060100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1060103",
+      "menu_name": "删除",
+      "menu_path": "/mtNode/delete",
+      "menu_code": "mtNode-delete",
+      "menu_type": "button",
+      "parent_id": "1060100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1060104",
+      "menu_name": "配置配送员",
+      "menu_path": "/mtNode/deliveryList",
+      "menu_code": "mtNode-deliveryList",
+      "menu_type": "button",
+      "parent_id": "1060100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1060105",
+      "menu_name": "配置维修员",
+      "menu_path": "/mtNode/repairList",
+      "menu_code": "mtNode-repairList",
+      "menu_type": "button",
+      "parent_id": "1060100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070100",
+      "menu_name": "客户信息",
+      "menu_path": "/customer/home",
+      "menu_code": "customer-home",
+      "menu_type": "menu",
+      "parent_id": "1070000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070101",
+      "menu_name": "查询",
+      "menu_path": "/customer/list",
+      "menu_code": "customer-list",
+      "menu_type": "button",
+      "parent_id": "1070100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070102",
+      "menu_name": "新增",
+      "menu_path": "/customer/createPage",
+      "menu_code": "customer-createPage",
+      "menu_type": "button",
+      "parent_id": "1070100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSkuPage",
+          "path": "/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070103",
+      "menu_name": "修改",
+      "menu_path": "/customer/updatePage",
+      "menu_code": "customer-updatePage",
+      "menu_type": "button",
+      "parent_id": "1070100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070104",
+      "menu_name": "删除",
+      "menu_path": "/customer/delete",
+      "menu_code": "customer-delete",
+      "menu_type": "button",
+      "parent_id": "1070100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070200",
+      "menu_name": "合伙人信息",
+      "menu_path": "/partner/home",
+      "menu_code": "partner-home",
+      "menu_type": "menu",
+      "parent_id": "1070000",
+      "endpoints": [
+        {
+          "controller": "MtPartnerController",
+          "method": "home",
+          "path": "/partner/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtPartnerController.java"
+        },
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070201",
+      "menu_name": "查询",
+      "menu_path": "/partner/list",
+      "menu_code": "partner-list",
+      "menu_type": "button",
+      "parent_id": "1070200",
+      "endpoints": [
+        {
+          "controller": "MtPartnerController",
+          "method": "list",
+          "path": "/partner/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtPartnerController.java"
+        },
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070202",
+      "menu_name": "新增",
+      "menu_path": "/partner/createPage",
+      "menu_code": "partner-createPage",
+      "menu_type": "button",
+      "parent_id": "1070200",
+      "endpoints": [
+        {
+          "controller": "MtPartnerController",
+          "method": "createPage",
+          "path": "/partner/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtPartnerController.java"
+        },
+        {
+          "controller": "MtPartnerController",
+          "method": "createPartner",
+          "path": "/partner/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtPartnerController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSkuPage",
+          "path": "/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070203",
+      "menu_name": "修改",
+      "menu_path": "/partner/updatePage",
+      "menu_code": "partner-updatePage",
+      "menu_type": "button",
+      "parent_id": "1070200",
+      "endpoints": [
+        {
+          "controller": "MtPartnerController",
+          "method": "updatePage",
+          "path": "/partner/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtPartnerController.java"
+        },
+        {
+          "controller": "MtPartnerController",
+          "method": "updatePartner",
+          "path": "/partner/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtPartnerController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "1070204",
+      "menu_name": "删除",
+      "menu_path": "/partner/delete",
+      "menu_code": "partner-delete",
+      "menu_type": "button",
+      "parent_id": "1070200",
+      "endpoints": [
+        {
+          "controller": "MtPartnerController",
+          "method": "deletePartner",
+          "path": "/partner/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtPartnerController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2010100",
+      "menu_name": "售货机型号",
+      "menu_path": "/vmModel/home",
+      "menu_code": "vmModel-home",
+      "menu_type": "menu",
+      "parent_id": "2010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2010101",
+      "menu_name": "新增",
+      "menu_path": "/vmModel/createPage",
+      "menu_code": "vmModel-createPage",
+      "menu_type": "button",
+      "parent_id": "2010100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSkuPage",
+          "path": "/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2010102",
+      "menu_name": "修改型号",
+      "menu_path": "/vmModel/updatePage",
+      "menu_code": "vmModel-updatePage",
+      "menu_type": "button",
+      "parent_id": "2010100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2010103",
+      "menu_name": "修改货道",
+      "menu_path": "/vmModelChannel/updatePage",
+      "menu_code": "vmModel-update-channel",
+      "menu_type": "button",
+      "parent_id": "2010100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2010104",
+      "menu_name": "删除",
+      "menu_path": "/vmModel/delete",
+      "menu_code": "vmModel-delete",
+      "menu_type": "button",
+      "parent_id": "2010100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2010200",
+      "menu_name": "售货机MAC地址",
+      "menu_path": "/uniqueCode/list",
+      "menu_code": "uniqueCode",
+      "menu_type": "menu",
+      "parent_id": "2010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "UniqueCodeController",
+          "method": "list",
+          "path": "/uniqueCode/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\UniqueCodeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2010201",
+      "menu_name": "解除绑定",
+      "menu_path": "/uniqueCode/unbind",
+      "menu_code": "uniqueCode-unbind",
+      "menu_type": "button",
+      "parent_id": "2010200",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020100",
+      "menu_name": "商品类型",
+      "menu_path": "/skuType/home",
+      "menu_code": "skuType-home",
+      "menu_type": "menu",
+      "parent_id": "2020000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020101",
+      "menu_name": "新增",
+      "menu_path": "/skuType/create",
+      "menu_code": "skuType-create",
+      "menu_type": "button",
+      "parent_id": "2020100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020102",
+      "menu_name": "修改",
+      "menu_path": "/skuType/update",
+      "menu_code": "skuType-update",
+      "menu_type": "button",
+      "parent_id": "2020100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020103",
+      "menu_name": "删除",
+      "menu_path": "/skuType/delete",
+      "menu_code": "skuType-delete",
+      "menu_type": "button",
+      "parent_id": "2020100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020200",
+      "menu_name": "商品类型详情",
+      "menu_path": "/skuType/listType",
+      "menu_code": "skuType-list",
+      "menu_type": "button",
+      "parent_id": "2020100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listType",
+          "path": "/listType",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020201",
+      "menu_name": "新增",
+      "menu_path": "/skuType/createType",
+      "menu_code": "skuType-create",
+      "menu_type": "button",
+      "parent_id": "2020200",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuType",
+          "path": "/createType",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020202",
+      "menu_name": "修改",
+      "menu_path": "/skuType/updateType",
+      "menu_code": "skuType-update",
+      "menu_type": "button",
+      "parent_id": "2020200",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuType",
+          "path": "/updateType",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020203",
+      "menu_name": "删除",
+      "menu_path": "/skuType/deleteType",
+      "menu_code": "skuType-delete",
+      "menu_type": "button",
+      "parent_id": "2020200",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuType",
+          "path": "/deleteType",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020300",
+      "menu_name": "商品信息",
+      "menu_path": "/sku/home",
+      "menu_code": "sku-home",
+      "menu_type": "menu",
+      "parent_id": "2020000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020301",
+      "menu_name": "新增",
+      "menu_path": "/sku/createPage",
+      "menu_code": "sku-createPage",
+      "menu_type": "button",
+      "parent_id": "2020300",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSkuPage",
+          "path": "/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020302",
+      "menu_name": "修改",
+      "menu_path": "/sku/updatePage",
+      "menu_code": "sku-updatePage",
+      "menu_type": "button",
+      "parent_id": "2020300",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2020303",
+      "menu_name": "编辑",
+      "menu_path": "/sku/changePage",
+      "menu_code": "sku-changePage",
+      "menu_type": "button",
+      "parent_id": "2020300",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "changeSkuPage",
+          "path": "/changePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2030100",
+      "menu_name": "场景信息",
+      "menu_path": "/businessDistrict/home",
+      "menu_code": "businessDistrict-home",
+      "menu_type": "menu",
+      "parent_id": "2030000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2030101",
+      "menu_name": "新增",
+      "menu_path": "/businessDistrict/createPage",
+      "menu_code": "businessDistrict-createPage",
+      "menu_type": "button",
+      "parent_id": "2030100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSkuPage",
+          "path": "/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2030102",
+      "menu_name": "删除",
+      "menu_path": "/businessDistrict/delete",
+      "menu_code": "businessDistrict-delete",
+      "menu_type": "button",
+      "parent_id": "2030100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2030103",
+      "menu_name": "修改",
+      "menu_path": "/businessDistrict/updatePage",
+      "menu_code": "businessDistrict-updatePage",
+      "menu_type": "button",
+      "parent_id": "2030100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2040100",
+      "menu_name": "仓库信息",
+      "menu_path": "/warehouse/home",
+      "menu_code": "warehouse-uniteArea",
+      "menu_type": "menu",
+      "parent_id": "2040000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2040101",
+      "menu_name": "关联区域",
+      "menu_path": "/warehouse/uniteAreaPage",
+      "menu_code": "warehouse-uniteAreaPage",
+      "menu_type": "button",
+      "parent_id": "2040100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "updateWarehouse",
+          "path": "/uniteArea",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "MtWarehouseController",
+          "method": "uniteAreaPage",
+          "path": "/uniteAreaPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2050100",
+      "menu_name": "sim卡信息",
+      "menu_path": "/sim/list",
+      "menu_code": "sim-list",
+      "menu_type": "menu",
+      "parent_id": "2050000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2050101",
+      "menu_name": "新增",
+      "menu_path": "/sim/addPage",
+      "menu_code": "sim-add",
+      "menu_type": "button",
+      "parent_id": "2050100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2050102",
+      "menu_name": "删除",
+      "menu_path": "/sim/deleteSim",
+      "menu_code": "sim-delete",
+      "menu_type": "button",
+      "parent_id": "2050100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2050103",
+      "menu_name": "修改",
+      "menu_path": "/sim/editPage",
+      "menu_code": "sim-edit",
+      "menu_type": "button",
+      "parent_id": "2050100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2060100",
+      "menu_name": "字典信息",
+      "menu_path": "/sysType/home",
+      "menu_code": "sysType-home",
+      "menu_type": "menu",
+      "parent_id": "2060000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SysTypeInfoController",
+          "method": "home",
+          "path": "/sysType/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysTypeInfoController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2060101",
+      "menu_name": "新增",
+      "menu_path": "/sysType/createPage",
+      "menu_code": "sysType-create",
+      "menu_type": "button",
+      "parent_id": "2060100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSkuPage",
+          "path": "/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SysTypeInfoController",
+          "method": "createPage",
+          "path": "/sysType/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysTypeInfoController.java"
+        },
+        {
+          "controller": "SysTypeInfoController",
+          "method": "createSysTypeInfo",
+          "path": "/sysType/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysTypeInfoController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2060102",
+      "menu_name": "修改",
+      "menu_path": "/sysType/updatePage",
+      "menu_code": "sysType-update",
+      "menu_type": "button",
+      "parent_id": "2060100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SysTypeInfoController",
+          "method": "updatePage",
+          "path": "/sysType/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysTypeInfoController.java"
+        },
+        {
+          "controller": "SysTypeInfoController",
+          "method": "updateSysTypeInfo",
+          "path": "/sysType/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysTypeInfoController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2060103",
+      "menu_name": "删除",
+      "menu_path": "/sysType/delete",
+      "menu_code": "sysType-delete",
+      "menu_type": "button",
+      "parent_id": "2060100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SysTypeInfoController",
+          "method": "deleteSysTypeInfo",
+          "path": "/sysType/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysTypeInfoController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2060104",
+      "menu_name": "查询字典详情",
+      "menu_path": "/dictionary/list",
+      "menu_code": "dictionary-list",
+      "menu_type": "button",
+      "parent_id": "2060100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SysDictionaryController",
+          "method": "list",
+          "path": "/dictionary/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysDictionaryController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2060105",
+      "menu_name": "新增",
+      "menu_path": "/dictionary/createPage",
+      "menu_code": "dictionary-create",
+      "menu_type": "button",
+      "parent_id": "2060100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSkuPage",
+          "path": "/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SysDictionaryController",
+          "method": "createPage",
+          "path": "/dictionary/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysDictionaryController.java"
+        },
+        {
+          "controller": "SysDictionaryController",
+          "method": "createSysDictionary",
+          "path": "/dictionary/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysDictionaryController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2060106",
+      "menu_name": "修改",
+      "menu_path": "/dictionary/updatePage",
+      "menu_code": "dictionary-update",
+      "menu_type": "button",
+      "parent_id": "2060100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SysDictionaryController",
+          "method": "updatePage",
+          "path": "/dictionary/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysDictionaryController.java"
+        },
+        {
+          "controller": "SysDictionaryController",
+          "method": "updateSysDictionary",
+          "path": "/dictionary/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysDictionaryController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "2060107",
+      "menu_name": "删除",
+      "menu_path": "/dictionary/delete",
+      "menu_code": "dictionary-delete",
+      "menu_type": "button",
+      "parent_id": "2060100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "SysDictionaryController",
+          "method": "deleteSysDictionary",
+          "path": "/dictionary/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SysDictionaryController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "3010100",
+      "menu_name": "销售流水",
+      "menu_path": "/order/list",
+      "menu_code": "order-list",
+      "menu_type": "menu",
+      "parent_id": "3010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "3010101",
+      "menu_name": "退款",
+      "menu_path": "/order/refund",
+      "menu_code": "order-refund",
+      "menu_type": "button",
+      "parent_id": "3010100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "3010102",
+      "menu_name": "导出",
+      "menu_path": "/order/export",
+      "menu_code": "order-export",
+      "menu_type": "button",
+      "parent_id": "3010100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "3010200",
+      "menu_name": "售货机库存",
+      "menu_path": "/vmStock/list",
+      "menu_code": "vmStock-list",
+      "menu_type": "menu",
+      "parent_id": "3010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "3010300",
+      "menu_name": "售货机状态",
+      "menu_path": "/vmStatus/list",
+      "menu_code": "vmStatus-list",
+      "menu_type": "menu",
+      "parent_id": "3010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "3010400",
+      "menu_name": "售货机历史状态",
+      "menu_path": "/vmStatusHis/list",
+      "menu_code": "vmStatusHis-list",
+      "menu_type": "menu",
+      "parent_id": "3010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        },
+        {
+          "controller": "VmStatusHisController",
+          "method": "list",
+          "path": "/vmStatusHis/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\VmStatusHisController.java"
+        },
+        {
+          "controller": "VmStatusHisController",
+          "method": "listPage",
+          "path": "/vmStatusHis/listPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\VmStatusHisController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "4010101",
+      "menu_name": "B客户转账",
+      "menu_path": "/giro/list",
+      "menu_code": "giro-list",
+      "menu_type": "menu",
+      "parent_id": "4010100",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010100",
+      "menu_name": "用户管理",
+      "menu_path": "/user/list",
+      "menu_code": "user-list",
+      "menu_type": "menu",
+      "parent_id": "5010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010101",
+      "menu_name": "新增",
+      "menu_path": "/user/addPage",
+      "menu_code": "user-add",
+      "menu_type": "button",
+      "parent_id": "5010100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010102",
+      "menu_name": "删除",
+      "menu_path": "/user/deleteUser",
+      "menu_code": "user-delete",
+      "menu_type": "button",
+      "parent_id": "5010100",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010103",
+      "menu_name": "修改",
+      "menu_path": "/user/editPage",
+      "menu_code": "user-edit",
+      "menu_type": "button",
+      "parent_id": "5010100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010104",
+      "menu_name": "重置密码",
+      "menu_path": "/user/resetPw",
+      "menu_code": "user-resePw",
+      "menu_type": "button",
+      "parent_id": "5010100",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010200",
+      "menu_name": "角色管理",
+      "menu_path": "/role/list",
+      "menu_code": "role-list",
+      "menu_type": "menu",
+      "parent_id": "5010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010400",
+      "menu_name": "账号设置",
+      "menu_path": "/account/home",
+      "menu_code": "account-home",
+      "menu_type": "menu",
+      "parent_id": "5010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010401",
+      "menu_name": "修改用户名",
+      "menu_path": "/account/updateUserNamePage",
+      "menu_code": "account-updateUserNamePage",
+      "menu_type": "button",
+      "parent_id": "5010400",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010402",
+      "menu_name": "修改手机号",
+      "menu_path": "/account/updateUserPhonePage",
+      "menu_code": "account-updateUserPhonePage",
+      "menu_type": "button",
+      "parent_id": "5010400",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010403",
+      "menu_name": "修改密码",
+      "menu_path": "/account/updateUserPasswordPage",
+      "menu_code": "account-updateUserPasswordPage",
+      "menu_type": "button",
+      "parent_id": "5010400",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010500",
+      "menu_name": "公司管理",
+      "menu_path": "/company/home",
+      "menu_code": "company_home",
+      "menu_type": "menu",
+      "parent_id": "5010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010501",
+      "menu_name": "新增",
+      "menu_path": "/company/createPage",
+      "menu_code": "company_createPage",
+      "menu_type": "button",
+      "parent_id": "5010500",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "createSku",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "createSkuPage",
+          "path": "/createPage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "createSkuTypeGroup",
+          "path": "/create",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010502",
+      "menu_name": "修改",
+      "menu_path": "/company/updatePage",
+      "menu_code": "company_updatePage",
+      "menu_type": "button",
+      "parent_id": "5010500",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "updatePage",
+          "path": "/updatePage",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010503",
+      "menu_name": "新增机器",
+      "menu_path": "/company/addCapacityPage",
+      "menu_code": "company_addCapacityPage",
+      "menu_type": "button",
+      "parent_id": "5010500",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010504",
+      "menu_name": "升级公司",
+      "menu_path": "/company/upgrade",
+      "menu_code": "company_upgrade",
+      "menu_type": "button",
+      "parent_id": "5010500",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010600",
+      "menu_name": "系统日志",
+      "menu_path": "/sysLog/home",
+      "menu_code": "sysLog-home",
+      "menu_type": "menu",
+      "parent_id": "5010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010700",
+      "menu_name": "系统配置",
+      "menu_path": "/settings/list",
+      "menu_code": "sysSetting-list",
+      "menu_type": "menu",
+      "parent_id": "5010000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "list",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "listTypeGroup",
+          "path": "/list",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010701",
+      "menu_name": "新增类型",
+      "menu_path": "/settings/type/add",
+      "menu_code": "sysSetting-type-add",
+      "menu_type": "button",
+      "parent_id": "5010700",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010702",
+      "menu_name": "新增配置",
+      "menu_path": "/settings/setting/add",
+      "menu_code": "sysSetting-setting-add",
+      "menu_type": "button",
+      "parent_id": "5010700",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010703",
+      "menu_name": "删除配置",
+      "menu_path": "/settings/setting/delete",
+      "menu_code": "sysSetting-setting-delete",
+      "menu_type": "button",
+      "parent_id": "5010700",
+      "endpoints": [
+        {
+          "controller": "SkuTypeController",
+          "method": "deleteSkuTypeGroup",
+          "path": "/delete",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010704",
+      "menu_name": "更新配置",
+      "menu_path": "/settings/setting/update",
+      "menu_code": "sysSetting-setting-update",
+      "menu_type": "button",
+      "parent_id": "5010700",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010705",
+      "menu_name": "类型数据",
+      "menu_path": "/settings/type/table",
+      "menu_code": "sysSetting-type-table",
+      "menu_type": "button",
+      "parent_id": "5010700",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010706",
+      "menu_name": "配置数据",
+      "menu_path": "/settings/setting/table",
+      "menu_code": "sysSetting-setting-table",
+      "menu_type": "button",
+      "parent_id": "5010700",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5010707",
+      "menu_name": "保存数据",
+      "menu_path": "/settings/save",
+      "menu_code": "sysSetting-save",
+      "menu_type": "button",
+      "parent_id": "5010700",
+      "endpoints": [],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5020100",
+      "menu_name": "支付管理",
+      "menu_path": "/customerAccount/home",
+      "menu_code": "customerAccount-home",
+      "menu_type": "menu",
+      "parent_id": "5020000",
+      "endpoints": [
+        {
+          "controller": "MtWarehouseController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\MtWarehouseController.java"
+        },
+        {
+          "controller": "SkuController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "home",
+          "path": "/home",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    },
+    {
+      "menu_id": "5020101",
+      "menu_name": "修改",
+      "menu_path": "/customerAccount/update",
+      "menu_code": "customerAccount-update",
+      "menu_type": "button",
+      "parent_id": "5020100",
+      "endpoints": [
+        {
+          "controller": "SkuController",
+          "method": "updateSku",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuController.java"
+        },
+        {
+          "controller": "SkuTypeController",
+          "method": "updateSkuTypeGroup",
+          "path": "/update",
+          "file": "D:\\OPC\\AI_Company\\01_客户项目\\Auto-sale-robot\\vms\\vms-web\\src\\main\\java\\com\\kdx\\vms\\web\\controller\\SkuTypeController.java"
+        }
+      ],
+      "migration_status": "pending"
+    }
+  ]
+}
