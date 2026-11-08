@@ -1,0 +1,45 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: vms-ui/package-lock.json
+
+      # 先构建前端，with-ui profile 才会把 dist 打进 war
+      - name: Frontend build
+        working-directory: vms-ui
+        run: |
+          npm ci
+          npm run build
+
+      # 单元/集成测试依赖本地 MySQL/Redis/RabbitMQ，CI 只验证编译与打包
+      - name: Maven package (skip tests)
+        run: mvn -B -DskipTests package
+
+      - name: Upload war
+        uses: actions/upload-artifact@v4
+        with:
+          name: vms-web-war
+          path: vms-web/target/vms-web.war
+          retention-days: 7
