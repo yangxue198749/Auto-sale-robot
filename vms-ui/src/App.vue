@@ -9,6 +9,8 @@
         <RouterLink to="/deploy-task">投放工单</RouterLink>
         <RouterLink to="/withdraw-task">撤机工单</RouterLink>
         <RouterLink to="/task-search">工单查询</RouterLink>
+        <RouterLink to="/dictionary">字典管理</RouterLink>
+        <RouterLink to="/sku-type">商品类型</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">

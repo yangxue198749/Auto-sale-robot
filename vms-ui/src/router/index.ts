@@ -47,6 +47,18 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/dictionary',
+      name: 'dictionary',
+      component: () => import('../views/DictionaryManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/sku-type',
+      name: 'skuType',
+      component: () => import('../views/SkuTypeManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
