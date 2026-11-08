@@ -167,6 +167,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/applied-event',
+      name: 'appliedEvent',
+      component: () => import('../views/AppliedEventStrategy.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
