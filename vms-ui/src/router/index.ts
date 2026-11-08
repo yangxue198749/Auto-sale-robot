@@ -71,6 +71,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/vm-model',
+      name: 'vmModel',
+      component: () => import('../views/VmModelManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
