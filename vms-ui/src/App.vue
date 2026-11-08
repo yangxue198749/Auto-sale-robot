@@ -11,6 +11,7 @@
         <RouterLink to="/task-search">工单查询</RouterLink>
         <RouterLink to="/dictionary">字典管理</RouterLink>
         <RouterLink to="/sku-type">商品类型</RouterLink>
+        <RouterLink to="/mt-node">点位管理</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">

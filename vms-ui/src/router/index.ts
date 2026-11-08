@@ -59,6 +59,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/mt-node',
+      name: 'mtNode',
+      component: () => import('../views/MtNodeManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
