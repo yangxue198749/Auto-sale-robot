@@ -137,6 +137,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/energy-strategy',
+      name: 'energyStrategy',
+      component: () => import('../views/EnergyStrategy.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
