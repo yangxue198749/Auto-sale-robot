@@ -131,6 +131,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/text-strategy',
+      name: 'textStrategy',
+      component: () => import('../views/TextStrategy.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
