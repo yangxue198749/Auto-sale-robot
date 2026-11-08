@@ -155,6 +155,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/sku-event-strategy',
+      name: 'skuEventStrategy',
+      component: () => import('../views/SkuEventStrategy.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),

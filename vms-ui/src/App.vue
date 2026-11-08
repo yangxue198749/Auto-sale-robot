@@ -27,6 +27,7 @@
         <RouterLink to="/energy-strategy">节能策略</RouterLink>
         <RouterLink to="/theme-strategy">皮肤策略</RouterLink>
         <RouterLink to="/price-strategy">价格策略</RouterLink>
+        <RouterLink to="/sku-event-strategy">商品促销策略</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">
