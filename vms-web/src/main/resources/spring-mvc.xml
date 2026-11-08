@@ -80,9 +80,10 @@
     
    	<bean id="logAdvice" class="com.kdx.vms.web.log.LogAdvice" />
 	<aop:config>
-   		<aop:pointcut expression="execution(* com.kdx.vms.web.controller.*.create*(..)) " id="log_add"/>
-   		<aop:pointcut expression="(execution(* com.kdx.vms.web.controller.*.update*(..))) or (execution(* com.kdx.vms.web.controller.*.change*(..))) " id="log_update"/>
-   		<aop:pointcut expression="execution(* com.kdx.vms.web.controller.*.delete*(..)) " id="log_delete"/>
+		<!-- REST API 控制器自带鉴权与异常处理，不经过日志切面（切面会吞异常） -->
+   		<aop:pointcut expression="execution(* com.kdx.vms.web.controller.*.create*(..)) and not execution(* com.kdx.vms.web.controller.*ApiController.*(..)) " id="log_add"/>
+   		<aop:pointcut expression="(execution(* com.kdx.vms.web.controller.*.update*(..))) or (execution(* com.kdx.vms.web.controller.*.change*(..))) and not execution(* com.kdx.vms.web.controller.*ApiController.*(..)) " id="log_update"/>
+   		<aop:pointcut expression="execution(* com.kdx.vms.web.controller.*.delete*(..)) and not execution(* com.kdx.vms.web.controller.*ApiController.*(..)) " id="log_delete"/>
    		
    		<aop:aspect id="logAspect_add" ref="logAdvice">
    			<aop:around method="add_around" pointcut-ref="log_add"/>

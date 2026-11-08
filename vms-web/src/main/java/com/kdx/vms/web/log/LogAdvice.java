@@ -41,24 +41,26 @@ public class LogAdvice {
 		try {
 			obj = pjp.proceed(pjp.getArgs());
 			addLog(signature.toShortString(), obj, TSysLog.INSERT);
-		} catch (Exception e) {  
+		} catch (Exception e) {
 			log.error(e.getLocalizedMessage(), e);
+			throw e;
 		}
 		return obj;
 	}
-	
+
 	public Object update_around(ProceedingJoinPoint pjp) throws Throwable{
 		Signature signature = pjp.getSignature();
 		Object obj = null;
 		try {
 			obj = pjp.proceed(pjp.getArgs());
 			addLog(signature.toShortString(), obj, TSysLog.UPDATE);
-		} catch (Exception e) {  
+		} catch (Exception e) {
 			log.error(e.getLocalizedMessage(), e);
+			throw e;
 		}
 		return obj;
 	}
-	
+
 	public Object delete_around(ProceedingJoinPoint pjp) throws Throwable{
 		Signature signature = pjp.getSignature();
 		Object obj = null;
@@ -68,8 +70,9 @@ public class LogAdvice {
 			if(obj != null && obj instanceof Boolean && ((Boolean)obj) && args.length > 0){
 				addLog(signature.toShortString(), args[0], TSysLog.DELETE);
 			}
-		} catch (Exception e) {  
+		} catch (Exception e) {
 			log.error(e.getLocalizedMessage(), e);
+			throw e;
 		}
 		return obj;
 	}
