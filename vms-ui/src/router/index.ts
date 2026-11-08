@@ -83,6 +83,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/vm-channel',
+      name: 'vmChannel',
+      component: () => import('../views/VmChannelConfig.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
