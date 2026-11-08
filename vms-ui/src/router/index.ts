@@ -125,6 +125,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/shortcut-strategy',
+      name: 'shortcutStrategy',
+      component: () => import('../views/ShortcutStrategy.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
