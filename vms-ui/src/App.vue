@@ -16,6 +16,7 @@
         <RouterLink to="/vm-model">型号货道</RouterLink>
         <RouterLink to="/vm">售货机管理</RouterLink>
         <RouterLink to="/vm-channel">货道配置</RouterLink>
+        <RouterLink to="/vm-price">价格配置</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">
