@@ -5,6 +5,8 @@ import vue from '@vitejs/plugin-vue'
 // 这样跨域、cookie（Shiro session）都由 Vite 透传，无需改后端。
 export default defineConfig({
   plugins: [vue()],
+  // 生产构建产物要放进 Tomcat 的 /dist/ 下，使用相对路径引用 assets
+  base: './',
   server: {
     port: 5173,
     proxy: {

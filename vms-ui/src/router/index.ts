@@ -1,8 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { useUserStore } from '../stores/user'
 
 const router = createRouter({
-  history: createWebHistory(),
+  // hash 模式：静态部署到 Tomcat /dist/ 时无需服务端 fallback
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',

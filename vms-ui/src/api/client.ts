@@ -3,6 +3,18 @@ type RequestOptions = {
 }
 
 /**
+ * API 基础前缀：
+ * - 开发：/api，由 Vite 代理去掉前缀转发到 8080
+ * - 生产：空，页面与后端同源，直接请求 /vms/api/**
+ */
+const API_BASE = import.meta.env.DEV ? '/api' : ''
+
+/**
+ * 登录页地址：hash 路由部署在 /dist/index.html 下
+ */
+const LOGIN_URL = import.meta.env.DEV ? '/login' : './index.html#/login'
+
+/**
  * API 错误类型
  */
 export type ApiErrorType = 'unauthorized' | 'forbidden' | 'server' | 'network'
@@ -50,7 +62,7 @@ async function request<T>(
   path: string,
   init: { method: string; body?: BodyInit; contentType?: string },
 ): Promise<T> {
-  const url = `/api${path.startsWith('/') ? path : '/' + path}`
+  const url = `${API_BASE}${path.startsWith('/') ? path : '/' + path}`
   const headers = new Headers()
   if (init.contentType) headers.set('Content-Type', init.contentType)
 
@@ -69,9 +81,13 @@ async function request<T>(
 
   // 401: 未登录，跳登录页并保留原始路径供重定向
   if (resp.status === 401) {
-    // 避免循环：如果已经在登录页就不跳
-    if (window.location.pathname !== '/login') {
-      window.location.href = '/login?redirect=' + encodeURIComponent(window.location.pathname)
+    const current =
+      window.location.hash && window.location.hash.includes('#/')
+        ? window.location.hash.replace(/^#/, '')
+        : window.location.pathname
+    const loginPage = '/login'
+    if (!current.startsWith(loginPage)) {
+      window.location.href = LOGIN_URL + '?redirect=' + encodeURIComponent(current)
     }
     throw new ApiError('unauthorized', '未登录，请重新登录', 401)
   }

@@ -249,4 +249,33 @@
         </dependency>
         <!-- com.kdx.health 全代码零 import，原公司内网 Nexus 已不可达，移除该死依赖 -->
     </dependencies>
+
+    <profiles>
+        <!-- vms-ui/dist 存在时自动打包进 war 的 /dist/（Vue 3 前端，hash 路由，入口 /dist/index.html） -->
+        <profile>
+            <id>with-ui</id>
+            <activation>
+                <file>
+                    <exists>${project.basedir}/../vms-ui/dist/index.html</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <configuration>
+                            <webResources>
+                                <resource>
+                                    <directory>${project.basedir}/../vms-ui/dist</directory>
+                                    <targetPath>dist</targetPath>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </webResources>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

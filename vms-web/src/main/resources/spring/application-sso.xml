@@ -99,6 +99,7 @@
 	             /createCode = anon
 	             /home = anon
 	             /dist/** = anon
+	             /ui = anon
 	             /plus/** = anon
 				 /mp-static/** = anon
 				 /mp/** = anon

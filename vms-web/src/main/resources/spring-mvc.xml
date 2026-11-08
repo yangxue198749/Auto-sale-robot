@@ -77,6 +77,8 @@
     </bean>     
     
     <mvc:view-controller path="/" view-name="redirect:/toloadMenu" />
+    <!-- 新版 Vue 前端入口（hash 路由，静态产物在 /dist/） -->
+    <mvc:view-controller path="/ui" view-name="redirect:/dist/index.html" />
     
    	<bean id="logAdvice" class="com.kdx.vms.web.log.LogAdvice" />
 	<aop:config>
