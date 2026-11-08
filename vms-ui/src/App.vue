@@ -30,6 +30,10 @@
         <RouterLink to="/sku-event-strategy">商品促销策略</RouterLink>
         <RouterLink to="/vm-event-strategy">售货机促销策略</RouterLink>
         <RouterLink to="/applied-event">应用促销策略</RouterLink>
+        <RouterLink to="/role">角色管理</RouterLink>
+        <RouterLink to="/user">用户管理</RouterLink>
+        <RouterLink to="/sys-log">系统日志</RouterLink>
+        <RouterLink to="/settings">系统设置</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">

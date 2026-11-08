@@ -174,6 +174,30 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/role',
+      name: 'role',
+      component: () => import('../views/RoleManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/user',
+      name: 'user',
+      component: () => import('../views/UserManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/sys-log',
+      name: 'sysLog',
+      component: () => import('../views/SysLogView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: () => import('../views/SettingsManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),

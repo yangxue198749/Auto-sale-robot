@@ -39,6 +39,10 @@ const routes = [
   ['sku-event-strategy', '/sku-event-strategy', '商品促销策略'],
   ['vm-event-strategy', '/vm-event-strategy', '售货机促销策略'],
   ['applied-event', '/applied-event', '应用促销'],
+  ['role', '/role', '角色管理'],
+  ['user', '/user', '用户管理'],
+  ['sys-log', '/sys-log', '系统日志'],
+  ['settings', '/settings', '系统设置'],
 ]
 
 const results = []

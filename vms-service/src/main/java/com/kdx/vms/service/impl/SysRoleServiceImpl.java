@@ -200,6 +200,7 @@ public class SysRoleServiceImpl implements ISysRoleService {
 	public List getElementAllBySystemAdmin(TSysRole sysRole) {
 		List<Map<String, Object>> list = new ArrayList<>();
         List allList  = sysElementDao.getElementAllBySystemAdmin(sysRole);
+        if (null == allList) return list;
         for (Object obj : allList) {
             Map<String, Object> map = new HashMap<>();
             TSysElement sysElement = ((TSysRoleElement) obj).getElement();
