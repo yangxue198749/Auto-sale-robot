@@ -101,6 +101,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/vm-shortcuts',
+      name: 'vmShortcuts',
+      component: () => import('../views/VmShortcutsConfig.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
