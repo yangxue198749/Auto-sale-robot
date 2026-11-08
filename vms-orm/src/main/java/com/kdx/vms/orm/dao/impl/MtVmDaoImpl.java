@@ -97,7 +97,7 @@ public class MtVmDaoImpl implements MtVmDao {
             if (null != bussinessId) {
                 qualifier = qualifier.andExp(ExpressionFactory.matchExp(TMtVm.NODE_PROPERTY + "." + TMtNode.BUSINESS_DISTRICT_ID_PROPERTY, bussinessId));
             }
-            if (true == showPattern) {
+            if (Boolean.TRUE.equals(showPattern)) {
                 Expression q1 = ExpressionFactory.matchExp(TMtVm.VM_TYPE_PROPERTY, TMtVmModel.COMBINATORIAL_SINGLE);
                 Expression q2 = ExpressionFactory.matchExp(TMtVm.VM_TYPE_PROPERTY, TMtVmModel.COMBINATORIAL_MAIN);
                 q1 = q1.orExp(q2);

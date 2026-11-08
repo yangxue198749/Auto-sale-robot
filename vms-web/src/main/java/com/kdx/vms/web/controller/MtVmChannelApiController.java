@@ -98,7 +98,7 @@ public class MtVmChannelApiController {
         }
 
         SelectQuery query = new SelectQuery(TMtVmChannel.class);
-        query.setQualifier(ExpressionFactory.matchExp("vm", vm));
+        query.setQualifier(ExpressionFactory.matchExp("mtVm", vm));
         query.addOrdering("channelCode", SortOrder.ASCENDING);
         List<TMtVmChannel> channels = context.performQuery(query);
 

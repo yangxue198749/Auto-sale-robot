@@ -191,8 +191,10 @@ public class TaskOptionsApiController {
                 List<Integer> accessibleCompanyIds = dataScopeService.getAccessibleCompanyIds(user);
 
                 if (accessibleCompanyIds == null) {
-                    // 一级公司，获取所有用户
-                    staffList = sysUserService.findSysUsersByRoleLevelForCompany(context, (String) null, null, null);
+                    // 一级公司：数据范围为全部，查询所有未删除用户
+                    Expression expression = ExpressionFactory.matchExp(TSysUser.DELETE_MARK_PROPERTY, 0);
+                    SelectQuery query = new SelectQuery(TSysUser.class, expression);
+                    staffList = context.performQuery(query);
                 } else {
                     // 二三级公司，获取指定公司的用户
                     for (Integer cid : accessibleCompanyIds) {
