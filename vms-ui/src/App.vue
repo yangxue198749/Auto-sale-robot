@@ -5,6 +5,9 @@
       <nav>
         <RouterLink to="/">工作台</RouterLink>
         <RouterLink to="/delivery-task">配送工单</RouterLink>
+        <RouterLink to="/repair-task">维护工单</RouterLink>
+        <RouterLink to="/deploy-task">投放工单</RouterLink>
+        <RouterLink to="/withdraw-task">撤机工单</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">

@@ -23,6 +23,24 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/repair-task',
+      name: 'repairTask',
+      component: () => import('../views/RepairTask.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/deploy-task',
+      name: 'deployTask',
+      component: () => import('../views/DeployTask.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/withdraw-task',
+      name: 'withdrawTask',
+      component: () => import('../views/WithdrawTask.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
