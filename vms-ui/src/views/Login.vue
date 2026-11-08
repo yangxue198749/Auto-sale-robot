@@ -29,6 +29,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useUserStore } from '../stores/user'
+import { API_BASE } from '../api/client'
 
 const router = useRouter()
 const route = useRoute()
@@ -37,12 +38,12 @@ const userStore = useUserStore()
 const account = ref('admin')
 const password = ref('1')
 const captcha = ref('')
-const captchaSrc = ref('/api/createCode?' + Date.now())
+const captchaSrc = ref(API_BASE + '/createCode?' + Date.now())
 const loading = ref(false)
 const error = ref('')
 
 function refreshCaptcha() {
-  captchaSrc.value = '/api/createCode?' + Date.now()
+  captchaSrc.value = API_BASE + '/createCode?' + Date.now()
 }
 
 onMounted(() => {

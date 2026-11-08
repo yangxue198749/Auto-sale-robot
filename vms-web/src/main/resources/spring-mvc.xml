@@ -32,8 +32,8 @@
     <mvc:resources location="/vmsjs/" mapping="/vmsjs/**"/>
     <mvc:resources location="/mp-static/" mapping="/mp-static/**"/>
 
-    <!-- 本地文件存储（替代阿里云 OSS）：/vmsimgs/** 映射到磁盘公共 bucket 目录 -->
-    <mvc:resources mapping="/vmsimgs/**" location="file:${local.storage.root}/public/"/>
+    <!-- 本地文件存储（替代阿里云 OSS）：磁盘公共 bucket 优先，缺省图回落到 war 内置 /vmsimgs/ -->
+    <mvc:resources mapping="/vmsimgs/**" location="file:${local.storage.root}/public/,/vmsimgs/"/>
     <mvc:resources location="/MP_verify_yzmFxMoq1yS6mcbb.txt" mapping="/MP_verify_yzmFxMoq1yS6mcbb.txt"/>
     <mvc:resources location="/MP_verify_R2AoscBGdZ2oMsjD.txt" mapping="/MP_verify_R2AoscBGdZ2oMsjD.txt"/>
     <mvc:resources location="/MP_verify_jF1uPyYP9uIydrZh.txt" mapping="/MP_verify_jF1uPyYP9uIydrZh.txt"/>

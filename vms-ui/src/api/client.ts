@@ -9,6 +9,8 @@ type RequestOptions = {
  */
 const API_BASE = import.meta.env.DEV ? '/api' : ''
 
+export { API_BASE }
+
 /**
  * 登录页地址：hash 路由部署在 /dist/index.html 下
  */

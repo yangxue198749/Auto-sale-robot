@@ -40,3 +40,6 @@ logs/
 
 # ==== 依赖本地缓存 ====
 dependency-reduced-pom.xml
+
+# ==== 浏览器验收产物 ====
+vms-ui/test-results/
