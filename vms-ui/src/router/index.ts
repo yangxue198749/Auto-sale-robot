@@ -161,6 +161,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/vm-event-strategy',
+      name: 'vmEventStrategy',
+      component: () => import('../views/VmEventStrategy.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
