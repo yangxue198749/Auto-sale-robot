@@ -19,6 +19,7 @@
         <RouterLink to="/vm-price">价格配置</RouterLink>
         <RouterLink to="/vm-energy">节能配置</RouterLink>
         <RouterLink to="/vm-shortcuts">闪购键配置</RouterLink>
+        <RouterLink to="/vm-text">走马灯配置</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">
