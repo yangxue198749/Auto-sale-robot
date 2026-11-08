@@ -113,6 +113,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/vm-theme',
+      name: 'vmTheme',
+      component: () => import('../views/VmThemeConfig.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
