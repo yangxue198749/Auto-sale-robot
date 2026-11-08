@@ -36,6 +36,10 @@
         <RouterLink to="/settings">系统设置</RouterLink>
         <RouterLink to="/customer">客户信息</RouterLink>
         <RouterLink to="/partner">合伙人信息</RouterLink>
+        <RouterLink to="/order">订单流水</RouterLink>
+        <RouterLink to="/vm-stock">售货机库存</RouterLink>
+        <RouterLink to="/vm-status">售货机状态</RouterLink>
+        <RouterLink to="/vm-status-his">历史状态</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">

@@ -210,6 +210,30 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/order',
+      name: 'order',
+      component: () => import('../views/OrderList.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/vm-stock',
+      name: 'vmStock',
+      component: () => import('../views/VmStockView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/vm-status',
+      name: 'vmStatus',
+      component: () => import('../views/VmStatusView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/vm-status-his',
+      name: 'vmStatusHis',
+      component: () => import('../views/VmStatusHisView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),

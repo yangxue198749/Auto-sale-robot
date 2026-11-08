@@ -45,6 +45,10 @@ const routes = [
   ['settings', '/settings', '系统设置'],
   ['customer', '/customer', '客户信息'],
   ['partner', '/partner', '合伙人信息'],
+  ['order', '/order', '订单流水'],
+  ['vm-stock', '/vm-stock', '售货机库存'],
+  ['vm-status', '/vm-status', '售货机状态'],
+  ['vm-status-his', '/vm-status-his', '历史状态'],
 ]
 
 const results = []
