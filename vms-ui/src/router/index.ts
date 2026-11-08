@@ -149,6 +149,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/price-strategy',
+      name: 'priceStrategy',
+      component: () => import('../views/PriceStrategy.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
