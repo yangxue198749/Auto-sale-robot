@@ -1,3 +1,7 @@
+# setting.properties 模板
+# 复制为 setting.properties（Git 忽略真实文件，不入库）并填入实际密码。
+# 环境差异（存储根目录等）通过 JVM -D 覆盖，见 deploy/server/DEPLOY_RUNBOOK.md。
+
 #====erp Settings====
 #ERP 正式
 erp_suffix=production
@@ -5,8 +9,13 @@ erp_suffix=production
 #erp_suffix=test
 
 
-imgUrlPrefix=<CDN_URL>
+# 图片 URL 前缀：同源相对路径，任何域名/端口下都正确
+imgUrlPrefix=/vmsimgs/
 uploadImgFileUrl=/vmsimgs/
+
+#====本地文件存储（替代已停用的阿里云 OSS）====
+# 存储根目录由 JVM 系统属性 -Dlocal.storage.root 指定（开发=Windows 路径，服务器=Linux 路径）
+local.storage.urlPrefix=/vmsimgs/
 
 #====weChat Settings====
 #魔核 测试环境
@@ -14,52 +23,15 @@ weChat_suffix=net
 #魔核 正式环境
 #weChat_suffix=com
 
-##====MCS Settings====
-##MCS 消息入口
-#mcsUrl=http://192.168.101.231:8011/mcs/enter
-##MCS 注册/心跳入口
-#mcsConnectUrl=http://192.168.101.231:8011/mcs/connect
-##MCS IP地址，白名单用
-#mcsIp=192.168.101.235;172.[1][6-9]{1}.*|172.[2][0-9]{1}.*|172.[3][0-2]{1}.*
-##MCS 消息回调地址
-#mcsCallBackUrl=http://192.168.101.235:18081/api/pushMessage
+#====安全配置====
+# 是否允许验证码日期绕过（仅开发/测试环境启用，生产环境必须设为 false）
+login.captcha.date.bypass.enabled=false  # 生产必须 false
 
-
-#====redis Settings====
-#redis.ip=192.168.101.234
-#redis.port=6379
-#redis.pass=redis123
-#redis.maxIdle=100
-#redis.minIdle=0
-#redis.maxActive=1024
-#redis.maxWait=1000
-#redis.testOnBorrow=true
-#redis.testOnReturn=true
-#redis.timeout=5000
-#redis.maxRedirections=10
-
-#====支付功能 Settings====
-#支付功能 正式环境
-#pay_mobile_suffix=com
-#支付功能 测试环境
-pay_mobile_suffix=net
-
-#====文件存储（原阿里云 OSS 已停用，改为本地磁盘）====
-# 存储根目录必须使用无中文、无空格的路径，避免 properties 编码错乱
-local.storage.root=D:/vms-data
-local.storage.urlPrefix=http://127.0.0.1:8080/vmsimgs/
-# 图片访问 URL 前缀，本地模式指向应用静态资源映射
-imgUrlPrefix=http://127.0.0.1:8080/vmsimgs/
-uploadImgFileUrl=/vmsimgs/
-# 历史 AK 配置已废弃，保留仅作参考
-# aliyun.oss.accessKeyId=<YOUR_ALIYUN_ACCESS_KEY_ID>
-# aliyun.oss.accessKeySecret=<YOUR_ALIYUN_ACCESS_KEY_SECRET>
-
-#====Cayenne Settings====
-cayenne.dbcp.driverClassName=oracle.jdbc.driver.OracleDriver
-cayenne.dbcp.url=jdbc:oracle:thin:@//<ORACLE_HOST>:1521/<DB_NAME>
-cayenne.dbcp.username=<ORACLE_USER>
-cayenne.dbcp.password=<ORACLE_PASSWORD>
+#====Cayenne Settings (本地 MySQL 开发环境)====
+cayenne.dbcp.driverClassName=com.mysql.cj.jdbc.Driver
+cayenne.dbcp.url=jdbc:mysql://localhost:3306/vms?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+cayenne.dbcp.username=root
+cayenne.dbcp.password=<MYSQL_PASSWORD>
 
 cayenne.dbcp.minIdle=5
 cayenne.dbcp.maxActive=10
@@ -74,10 +46,9 @@ login_url=127.0.0.1
 #login_url=touchfound.com
 
 
-
 #=================================mq start====================
-#mq_host = 60.205.220.93
-mq_host = <RABBITMQ_HOST>
+# 本地 RabbitMQ 开发环境
+mq_host = 127.0.0.1
 mq_port=5672
 mq_user_name = <RABBITMQ_USER>
 mq_pass_word = <RABBITMQ_PASSWORD>
@@ -105,29 +76,22 @@ outResultCardRequestTopic=mcs.report.outResult.card
 #商品
 skuCfgReqQueueName=queue.skuCfgReq.v1
 skuCfgReqRequestTopic=mcs.report.skuCfgReq
-#skuCfgReqResponseTopic=response.skuCfgReq.v1
-#商品价格
-#skuPriceResponseTopic=response.skuPrice.v1
 
 #闪购键
 spCfgReqQueueName=queue.spCfgReq.v1
 spCfgReqRequestTopic=mcs.report.spCfgReq
-#spCfgReqResponseTopic=response.spCfgReq.v1
 
 #走马灯
 repeatTextReqQueueName=queue.repeatTextReq.v1
 repeatTextReqRequestTopic=mcs.report.repeatTextReq
-#repeatTextReqResponseTopic=response.repeatTextReq.v1
 
 #节能
 mtEnergyReqQueueName=queue.mtEnergyReq.v1
 mtEnergyReqRequestTopic=mcs.report.mtEnergyReq
-#mtEnergyReqResponseTopic=response.mtEnergyReq.v1
 
 #开门密码
 openDoorPwdReqQueueName=queue.openDoorPwdReq.v1
 openDoorPwdReqRequestTopic=mcs.report.openDoorPwdReq
-#openDoorPwdReqResponseTopic=response.openDoorPwdReq.v1
 
 #售货机状态
 vmStatusQueueName=queue.vmStatus.v1
@@ -144,7 +108,6 @@ doorStatusRequestTopic=mcs.report.doorStatus
 #货道
 channelPolicyQueueName=queue.channelPolicy.v1
 channelPolicyRequestTopic=mcs.report.channelPolicy
-#channelPolicyResponseTopic=response.channelPolicy.v1
 
 #售货机版本信息
 vmDeviceInfoQueueName=queue.vmDeviceInfo.v1
@@ -153,7 +116,6 @@ vmDeviceInfoRequestTopic=mcs.report.vmDeviceInfo
 #售货机版本信息
 vmBaseInfoQueueName=queue.vmBaseInfo.v1
 vmBaseInfoRequestTopic=mcs.report.vmBaseInfo
-#vmBaseInfoResponseTopic=response.vmBaseInfo.v1
 
 #area
 areaQueueName=queue.areaRequest.v1
@@ -161,7 +123,6 @@ areaRequestTopic=request.area.v1
 areaResponseTopic=response.area.v1
 
 #bCustomer
-
 bCustomerQueueName=queue.bCustomer.v1
 bCustomerRequestTopic=request.bCustomer.v1
 bCustomerResponseTopic=response.bCustomer.v1
@@ -186,8 +147,6 @@ repairWorkRequestTopic=request.repairWork.v1
 immediateRefundTopic=topic.pay.refund.launch
 #预订退款主题
 reserveRefundTopic=topic.pay.refund.launch
-#预售退款主题
-#promotionRefundTopic=topic.pay.refund.launch
 
 #货架信息
 skuOrderPolicyQueueName=queue.skuOrderPolicy.v1
