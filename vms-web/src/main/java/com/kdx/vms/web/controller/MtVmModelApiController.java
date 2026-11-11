@@ -291,6 +291,7 @@ public class MtVmModelApiController {
         row.put("channelType", m.getChannelType());
         row.put("screenType", m.getScreenType());
         row.put("deleteMark", m.getDeleteMark());
+        row.put("shortcutsQty", m.getShortcutsQty());
         return row;
     }
 }

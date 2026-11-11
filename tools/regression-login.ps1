@@ -291,6 +291,95 @@ try {
 }
 Assert 'anon POST stVmText/create 401' ($postCode -eq 401) "got $postCode"
 
+# ---------- 7. Theme upload cycle ----------
+Write-Host "== 7. Theme upload ==" -ForegroundColor Cyan
+
+# 1x1 transparent PNG + a tiny zip (Compress-Archive needs PS5+; fall back to raw minimal zip bytes)
+$pngB64 = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='
+$pngPath = Join-Path $env:TEMP 'qa-theme-preview.png'
+[IO.File]::WriteAllBytes($pngPath, [Convert]::FromBase64String($pngB64))
+
+$zipPath = Join-Path $env:TEMP 'qa-theme.zip'
+$dummy = Join-Path $env:TEMP 'qa-theme-skin.txt'
+Set-Content -Path $dummy -Value 'theme skin package for regression' -Encoding ASCII
+Compress-Archive -Path $dummy -DestinationPath $zipPath -Force
+
+# multipart upload via HttpClient (PS 5.1 has no Invoke-WebRequest -Form)
+Add-Type -AssemblyName System.Net.Http
+$handler = New-Object System.Net.Http.HttpClientHandler
+$handler.CookieContainer = New-Object System.Net.CookieContainer
+$handler.CookieContainer.Add((New-Object Uri($base)), (New-Object System.Net.Cookie('TOUCHARM_VMS', $cookie.Value)))
+$client = New-Object System.Net.Http.HttpClient($handler)
+
+$form = New-Object System.Net.Http.MultipartFormDataContent
+$form.Add((New-Object System.Net.Http.StringContent('QA-THEME-REG')), 'themeName')
+$form.Add((New-Object System.Net.Http.StringContent('regression')), 'themeDesc')
+$form.Add((New-Object System.Net.Http.StreamContent([IO.File]::OpenRead($zipPath))), 'themeZip', 'qa-theme.zip')
+$form.Add((New-Object System.Net.Http.StreamContent([IO.File]::OpenRead($pngPath))), 'themePreview', 'qa-theme-preview.png')
+$resp = $client.PostAsync("$base/vms/api/theme/create", $form).Result
+$body = $resp.Content.ReadAsStringAsync().Result | ConvertFrom-Json
+Assert 'theme create code=0' ($resp.StatusCode -eq [Net.HttpStatusCode]::OK -and $body.code -eq 0) "http=$($resp.StatusCode) body=$($resp.Content.ReadAsStringAsync().Result)"
+
+$themeList = Get-Json ("$base/vms/api/theme/list?themeName=QA-THEME-REG") $sess
+if ($themeList.total -ge 1) {
+    $themeId = $themeList.data[0].id
+    Assert 'theme visible in list' ($null -ne $themeId) 'not found'
+    $preview = Get-Json "$base/vms/api/theme/$themeId/preview" $sess
+    Assert 'theme preview url' ($preview.previewFullUrl -match 'theme/') ($preview.previewFullUrl)
+    $r = Post-Form '/vms/api/theme/delete' @{ ids = $themeId } $sess
+    Assert 'theme delete code=0' ($r.code -eq 0) ($r | ConvertTo-Json -Compress)
+} else {
+    Assert 'theme visible in list' $false 'not found'
+}
+Remove-Item $zipPath, $pngPath, $dummy -ErrorAction SilentlyContinue
+
+# ---------- 8. Shortcuts strategy write cycle ----------
+Write-Host "== 8. Shortcuts strategy ==" -ForegroundColor Cyan
+
+$modelPage3 = Get-Json "$base/vms/api/vmModel/list?page=1&pageSize=50" $sess
+$modelId3 = $null
+$modelQty3 = 0
+foreach ($m in $modelPage3.data) {
+    if ($m.shortcutsQty -and $m.shortcutsQty -gt 0) { $modelId3 = $m.id; $modelQty3 = $m.shortcutsQty; break }
+}
+if ($null -ne $modelId3) {
+    # bind first key to sku (1=商品, 0=空, fill the rest)
+    $bindTypes = @(1)
+    for ($i = 1; $i -lt $modelQty3; $i++) { $bindTypes += 0 }
+    $skuId3 = $skuId
+    if ($null -eq $skuId3) {
+        $skuPage3 = Get-Json "$base/vms/api/sku/list?page=1&pageSize=1" $sess
+        if ($skuPage3.data -and $skuPage3.data.Count -gt 0) { $skuId3 = $skuPage3.data[0].id }
+    }
+    if ($null -ne $skuId3) {
+        $r = Post-Form '/vms/api/stShortcuts/create' @{
+            strategyName = $qaName
+            strategyDesc = 'regression'
+            modelId = $modelId3
+            bindTypes = ($bindTypes -join ',')
+            skuIds = "$skuId3"
+            resourceIds = ''
+        } $sess
+        Assert 'shortcuts create code=0' ($r.code -eq 0) ($r | ConvertTo-Json -Compress)
+        $scList = Get-Json ("$base/vms/api/stShortcuts/list?strategyName=" + $qaName) $sess
+        if ($scList.total -ge 1) {
+            $scId = $scList.data[0].strategyId
+            $scDetail = Get-Json "$base/vms/api/stShortcuts/$scId" $sess
+            Assert 'shortcuts detail keys>=1' ($scDetail.shortcuts.Count -ge 1) ('keys=' + $scDetail.shortcuts.Count)
+            $bound = $scDetail.shortcuts | Where-Object { $_.skuId -eq $skuId3 }
+            Assert 'shortcuts sku bound' ($null -ne $bound) 'no binding'
+            $r = Post-Form '/vms/api/stShortcuts/delete' @{ ids = $scId } $sess
+            Assert 'shortcuts delete code=0' ($r.code -eq 0) ($r | ConvertTo-Json -Compress)
+        } else {
+            Assert 'shortcuts visible in list' $false 'not found'
+        }
+    } else {
+        Write-Host "[SKIP] no sku for shortcuts cycle" -ForegroundColor Yellow
+    }
+} else {
+    Write-Host "[SKIP] no model with shortcutsQty for shortcuts cycle" -ForegroundColor Yellow
+}
+
 Write-Host ""
 Write-Host "=== $script:pass passed, $script:fail failed ==="
 exit $script:fail
