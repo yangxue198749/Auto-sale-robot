@@ -2,53 +2,89 @@
   <div class="app">
     <aside class="sidebar">
       <h2>售货机管理系统</h2>
-      <nav>
-        <RouterLink to="/">工作台</RouterLink>
-        <RouterLink to="/delivery-task">配送工单</RouterLink>
-        <RouterLink to="/repair-task">维护工单</RouterLink>
-        <RouterLink to="/deploy-task">投放工单</RouterLink>
-        <RouterLink to="/withdraw-task">撤机工单</RouterLink>
-        <RouterLink to="/task-search">工单查询</RouterLink>
-        <RouterLink to="/dictionary">字典管理</RouterLink>
-        <RouterLink to="/sku-type">商品类型</RouterLink>
-        <RouterLink to="/mt-node">点位管理</RouterLink>
-        <RouterLink to="/sku">商品管理</RouterLink>
-        <RouterLink to="/vm-model">型号货道</RouterLink>
-        <RouterLink to="/vm">售货机管理</RouterLink>
-        <RouterLink to="/vm-channel">货道配置</RouterLink>
-        <RouterLink to="/vm-price">价格配置</RouterLink>
-        <RouterLink to="/vm-energy">节能配置</RouterLink>
-        <RouterLink to="/vm-shortcuts">闪购键配置</RouterLink>
-        <RouterLink to="/vm-text">走马灯配置</RouterLink>
-        <RouterLink to="/vm-theme">皮肤配置</RouterLink>
-        <RouterLink to="/channel-strategy">货道策略</RouterLink>
-        <RouterLink to="/shortcut-strategy">闪购键策略</RouterLink>
-        <RouterLink to="/text-strategy">走马灯策略</RouterLink>
-        <RouterLink to="/energy-strategy">节能策略</RouterLink>
-        <RouterLink to="/theme-strategy">皮肤策略</RouterLink>
-        <RouterLink to="/price-strategy">价格策略</RouterLink>
-        <RouterLink to="/sku-event-strategy">商品促销策略</RouterLink>
-        <RouterLink to="/vm-event-strategy">售货机促销策略</RouterLink>
-        <RouterLink to="/applied-event">应用促销策略</RouterLink>
-        <RouterLink to="/role">角色管理</RouterLink>
-        <RouterLink to="/user">用户管理</RouterLink>
-        <RouterLink to="/sys-log">系统日志</RouterLink>
-        <RouterLink to="/settings">系统设置</RouterLink>
-        <RouterLink to="/customer">客户信息</RouterLink>
-        <RouterLink to="/partner">合伙人信息</RouterLink>
-        <RouterLink to="/order">订单流水</RouterLink>
-        <RouterLink to="/vm-stock">售货机库存</RouterLink>
-        <RouterLink to="/vm-status">售货机状态</RouterLink>
-        <RouterLink to="/vm-status-his">历史状态</RouterLink>
-        <RouterLink to="/company">公司管理</RouterLink>
-        <RouterLink to="/account">账号管理</RouterLink>
-        <RouterLink to="/customer-account">支付管理</RouterLink>
-        <RouterLink to="/district">商圈信息</RouterLink>
-        <RouterLink to="/warehouse">仓库信息</RouterLink>
-        <RouterLink to="/sim">SIM卡信息</RouterLink>
-        <RouterLink to="/unique-code">设备MAC</RouterLink>
-        <RouterLink to="/about">关于</RouterLink>
-      </nav>
+      <el-menu
+        :default-active="activePath"
+        router
+        class="side-menu"
+        background-color="#2c3e50"
+        text-color="#ecf0f1"
+        active-text-color="#ffffff"
+        unique-opened
+      >
+        <el-menu-item index="/">
+          <span>工作台</span>
+        </el-menu-item>
+
+        <el-sub-menu index="g-task">
+          <template #title>工单管理</template>
+          <el-menu-item index="/delivery-task">配送工单</el-menu-item>
+          <el-menu-item index="/repair-task">维护工单</el-menu-item>
+          <el-menu-item index="/deploy-task">投放工单</el-menu-item>
+          <el-menu-item index="/withdraw-task">撤机工单</el-menu-item>
+          <el-menu-item index="/task-search">工单查询</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="g-vm">
+          <template #title>售货机管理</template>
+          <el-menu-item index="/vm">售货机管理</el-menu-item>
+          <el-menu-item index="/vm-channel">货道配置</el-menu-item>
+          <el-menu-item index="/vm-price">价格配置</el-menu-item>
+          <el-menu-item index="/vm-energy">节能配置</el-menu-item>
+          <el-menu-item index="/vm-shortcuts">闪购键配置</el-menu-item>
+          <el-menu-item index="/vm-text">走马灯配置</el-menu-item>
+          <el-menu-item index="/vm-theme">皮肤配置</el-menu-item>
+          <el-menu-item index="/vm-stock">售货机库存</el-menu-item>
+          <el-menu-item index="/vm-status">售货机状态</el-menu-item>
+          <el-menu-item index="/vm-status-his">历史状态</el-menu-item>
+          <el-menu-item index="/unique-code">设备MAC</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="g-base">
+          <template #title>商品与基础数据</template>
+          <el-menu-item index="/dictionary">字典管理</el-menu-item>
+          <el-menu-item index="/sku-type">商品类型</el-menu-item>
+          <el-menu-item index="/sku">商品管理</el-menu-item>
+          <el-menu-item index="/mt-node">点位管理</el-menu-item>
+          <el-menu-item index="/district">商圈信息</el-menu-item>
+          <el-menu-item index="/warehouse">仓库信息</el-menu-item>
+          <el-menu-item index="/sim">SIM卡信息</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="g-strategy">
+          <template #title>策略管理</template>
+          <el-menu-item index="/channel-strategy">货道策略</el-menu-item>
+          <el-menu-item index="/price-strategy">价格策略</el-menu-item>
+          <el-menu-item index="/shortcut-strategy">闪购键策略</el-menu-item>
+          <el-menu-item index="/text-strategy">走马灯策略</el-menu-item>
+          <el-menu-item index="/energy-strategy">节能策略</el-menu-item>
+          <el-menu-item index="/theme-strategy">皮肤策略</el-menu-item>
+          <el-menu-item index="/sku-event-strategy">商品促销策略</el-menu-item>
+          <el-menu-item index="/vm-event-strategy">售货机促销策略</el-menu-item>
+          <el-menu-item index="/applied-event">应用促销策略</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="g-org">
+          <template #title>组织管理</template>
+          <el-menu-item index="/company">公司管理</el-menu-item>
+          <el-menu-item index="/customer">客户信息</el-menu-item>
+          <el-menu-item index="/partner">合伙人信息</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="g-sys">
+          <template #title>系统管理</template>
+          <el-menu-item index="/user">用户管理</el-menu-item>
+          <el-menu-item index="/role">角色管理</el-menu-item>
+          <el-menu-item index="/account">账号管理</el-menu-item>
+          <el-menu-item index="/sys-log">系统日志</el-menu-item>
+          <el-menu-item index="/settings">系统设置</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="g-finance">
+          <template #title>财务</template>
+          <el-menu-item index="/customer-account">支付管理</el-menu-item>
+        </el-sub-menu>
+      </el-menu>
+
       <div class="user">
         <span v-if="userStore.isLogin">用户: {{ userStore.userName }}</span>
         <span v-else>未登录</span>
@@ -61,10 +97,13 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { computed } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 import { useUserStore } from './stores/user'
 
+const route = useRoute()
 const userStore = useUserStore()
+const activePath = computed(() => route.path)
 </script>
 
 <style scoped>
@@ -76,32 +115,40 @@ const userStore = useUserStore()
   width: 200px;
   background: #2c3e50;
   color: white;
-  padding: 20px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar h2 {
   font-size: 16px;
-  margin-bottom: 20px;
+  margin: 0 20px 16px;
+  color: white;
 }
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.side-menu {
+  border-right: none;
+  flex: 1;
+  overflow-y: auto;
 }
-.sidebar a {
-  color: #ecf0f1;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 4px;
+.side-menu :deep(.el-menu-item) {
+  height: 40px;
+  line-height: 40px;
 }
-.sidebar a:hover {
-  background: #34495e;
-}
-.sidebar a.router-link-active {
+.side-menu :deep(.el-menu-item.is-active) {
   background: #3498db;
 }
+.side-menu :deep(.el-sub-menu__title) {
+  height: 42px;
+  line-height: 42px;
+}
+.side-menu :deep(.el-sub-menu .el-menu-item) {
+  background: #34495e;
+  min-width: 0;
+}
+.side-menu :deep(.el-sub-menu .el-menu-item:hover) {
+  background: #3d566e;
+}
 .user {
-  margin-top: 40px;
-  padding-top: 20px;
+  padding: 16px 20px 0;
   border-top: 1px solid #34495e;
   font-size: 12px;
   color: #bdc3c7;
