@@ -1,6 +1,6 @@
 <template>
-  <div class="app">
-    <aside class="sidebar">
+  <div class="app" :class="{ 'app-login': !userStore.isLogin }">
+    <aside v-if="userStore.isLogin" class="sidebar">
       <h2>售货机管理系统</h2>
       <el-menu
         :default-active="activePath"
@@ -157,5 +157,9 @@ const activePath = computed(() => route.path)
   flex: 1;
   padding: 20px;
   background: #ecf0f1;
+}
+/* 未登录（登录页）时主区域全屏，无侧边栏 */
+.app-login .content {
+  padding: 0;
 }
 </style>
