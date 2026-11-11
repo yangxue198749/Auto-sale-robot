@@ -1,0 +1,10 @@
+import { chromium } from 'playwright'
+const browser = await chromium.launch({ channel: 'chrome' })
+const page = await browser.newPage({ viewport: { width: 1280, height: 800 } })
+await page.goto('http://127.0.0.1:8080/ui', { waitUntil: 'load' })
+await page.waitForSelector('form', { timeout: 15000 })
+await page.waitForTimeout(1000)
+const captchaOk = await page.locator('.captcha-img').evaluate((img) => img.complete && img.naturalWidth > 0)
+console.log('login page loaded, captcha image rendered:', captchaOk)
+await page.screenshot({ path: 'test-results/deploy-login.png' })
+await browser.close()

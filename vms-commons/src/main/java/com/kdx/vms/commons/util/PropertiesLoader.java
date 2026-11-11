@@ -24,6 +24,9 @@ public class PropertiesLoader {
 			ClassLoader loader = (ClassLoader) method.invoke(Thread.currentThread(), (Object[]) null);
             URL in = loader.getResource("setting.properties");
             props.load(in.openStream());
+            // JVM 系统属性（-D）优先于配置文件：部署环境通过 setenv 覆盖
+            // 存储根目录等与机器相关的配置（如 -Dlocal.storage.root=/data/vms-data）
+            props.putAll(System.getProperties());
 			map = props;
 		} catch (Exception e) {
 			e.printStackTrace();

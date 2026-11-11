@@ -42,7 +42,7 @@
                     <configuration>
                         <properties>
                             <cargo.servlet.port>8080</cargo.servlet.port>
-                            <cargo.jvmargs>-Dfile.encoding=UTF-8</cargo.jvmargs>
+                            <cargo.jvmargs>-Dfile.encoding=UTF-8 -Dlocal.storage.root=D:/vms-data</cargo.jvmargs>
                         </properties>
                     </configuration>
                     <deployables>

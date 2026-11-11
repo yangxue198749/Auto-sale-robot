@@ -43,3 +43,7 @@ dependency-reduced-pom.xml
 
 # ==== 浏览器验收产物 ====
 vms-ui/test-results/
+
+# ==== 服务器部署产物与本机密钥 ====
+deploy/server/dist/
+deploy/server/.env

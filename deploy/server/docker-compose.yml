@@ -1,0 +1,79 @@
+# VMS 生产/试运行部署（腾讯云轻量服务器，Docker Compose 形态）
+# 与既有 ai-company-mcp 容器共存；对外端口 8090（VMS），不占用总线 80/443
+# 用法：把 vms-deploy/ 目录与 vms-web.war 传到服务器同一目录，`docker compose up -d`
+services:
+  vms-mysql:
+    image: mysql:8.0
+    container_name: vms-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: vms
+      TZ: Asia/Shanghai
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    volumes:
+      - vms-mysql-data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  vms-redis:
+    image: redis:7-alpine
+    container_name: vms-redis
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD} --notify-keyspace-events ExE
+    volumes:
+      - vms-redis-data:/data
+
+  vms-rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    container_name: vms-rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+      TZ: Asia/Shanghai
+    volumes:
+      - vms-rabbit-data:/var/lib/rabbitmq
+
+  vms-app:
+    image: tomcat:9.0.88-jdk17-temurin
+    container_name: vms-app
+    restart: unless-stopped
+    depends_on:
+      vms-mysql:
+        condition: service_healthy
+      vms-redis:
+        condition: service_started
+      vms-rabbitmq:
+        condition: service_started
+    environment:
+      # JVM 系统属性优先于 war 内 setting.properties（PropertiesLoader 已支持覆盖）
+      # 连接参数指向 compose 网络内的服务名；密码来自 .env
+      CATALINA_OPTS: >-
+        -Dfile.encoding=UTF-8
+        -Dlocal.storage.root=/data/vms-files
+        -Dcayenne.dbcp.url=jdbc:mysql://vms-mysql:3306/vms?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+        -Dcayenne.dbcp.username=root
+        -Dcayenne.dbcp.password=${MYSQL_ROOT_PASSWORD}
+        -Dmq_host=vms-rabbitmq
+        -Dmq_port=5672
+        -Dmq_user_name=${RABBITMQ_USER}
+        -Dmq_pass_word=${RABBITMQ_PASSWORD}
+        -Xms512m -Xmx1024m
+      TZ: Asia/Shanghai
+    ports:
+      - "8090:8080"
+    volumes:
+      - ./ROOT.war:/usr/local/tomcat/webapps/ROOT.war:ro
+      - vms-files:/data/vms-files
+    # 数据库/Redis/MQ 连接参数来自挂载进 war 的 setting.properties（容器内地址见说明）
+
+volumes:
+  vms-mysql-data:
+  vms-redis-data:
+  vms-rabbit-data:
+  vms-files:

@@ -1,7 +1,13 @@
 # VMS 发布与部署
 
-版本：v5.1.0（2026-11-08）
+版本：v5.1.0（2026-11-09）
 适用：本地/测试环境发布，生产发布须由大聪明确认后执行。
+
+> **服务器部署（推荐）**：见 `deploy/server/DEPLOY_RUNBOOK.md` —— Docker Compose 形态
+> （MySQL8/Redis7/RabbitMQ/Tomcat 四容器），目标腾讯云轻量 114.132.231.42，对外 8090。
+> 组包命令：`deploy/server/build-deploy-package.ps1`。
+> 环境差异通过 JVM 系统属性覆盖（PropertiesLoader 支持 -D 优先于 setting.properties）：
+> 开发 = cargo.jvmargs（pom），服务器 = Tomcat setenv.sh / compose CATALINA_OPTS。
 
 ## 1. 产物构成
 
