@@ -49,6 +49,13 @@ const routes = [
   ['vm-stock', '/vm-stock', '售货机库存'],
   ['vm-status', '/vm-status', '售货机状态'],
   ['vm-status-his', '/vm-status-his', '历史状态'],
+  ['company', '/company', '公司管理'],
+  ['account', '/account', '账号管理'],
+  ['customer-account', '/customer-account', '支付管理'],
+  ['district', '/district', '商圈信息'],
+  ['warehouse', '/warehouse', '仓库信息'],
+  ['sim', '/sim', 'SIM 卡信息'],
+  ['unique-code', '/unique-code', '售货机 MAC'],
 ]
 
 const results = []

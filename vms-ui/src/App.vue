@@ -40,6 +40,13 @@
         <RouterLink to="/vm-stock">售货机库存</RouterLink>
         <RouterLink to="/vm-status">售货机状态</RouterLink>
         <RouterLink to="/vm-status-his">历史状态</RouterLink>
+        <RouterLink to="/company">公司管理</RouterLink>
+        <RouterLink to="/account">账号管理</RouterLink>
+        <RouterLink to="/customer-account">支付管理</RouterLink>
+        <RouterLink to="/district">商圈信息</RouterLink>
+        <RouterLink to="/warehouse">仓库信息</RouterLink>
+        <RouterLink to="/sim">SIM卡信息</RouterLink>
+        <RouterLink to="/unique-code">设备MAC</RouterLink>
         <RouterLink to="/about">关于</RouterLink>
       </nav>
       <div class="user">

@@ -234,6 +234,48 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/company',
+      name: 'company',
+      component: () => import('../views/CompanyManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: () => import('../views/AccountView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/customer-account',
+      name: 'customerAccount',
+      component: () => import('../views/CustomerAccountView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/district',
+      name: 'district',
+      component: () => import('../views/DistrictManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/warehouse',
+      name: 'warehouse',
+      component: () => import('../views/WarehouseView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/sim',
+      name: 'sim',
+      component: () => import('../views/SimManage.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/unique-code',
+      name: 'uniqueCode',
+      component: () => import('../views/UniqueCodeView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('../views/About.vue'),
