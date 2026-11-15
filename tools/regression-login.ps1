@@ -53,6 +53,7 @@ $listPaths = @(
     '/vms/api/taskOptions/deliveryPatterns',
     '/vms/api/taskOptions/taskStatuses',
     '/vms/api/taskOptions/vendingMachines',
+    '/vms/api/workbench/summary',
     '/vms/api/taskOptions/deliveryStaff',
     '/vms/api/taskSearch/list',
     '/vms/api/taskSearch/taskTypes',

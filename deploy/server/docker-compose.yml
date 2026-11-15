@@ -1,5 +1,6 @@
 # VMS 生产/试运行部署（腾讯云轻量服务器，Docker Compose 形态）
-# 与既有 ai-company-mcp 容器共存；对外端口 8090（VMS），不占用总线 80/443
+# 与既有 ai-company-mcp 容器共存；对外端口 8090（VMS），不占用总线 80/443，
+# 也不占用宿主机 8080（美业）——"8090:8080"冒号右侧是容器内部端口，隔离于宿主机
 # 用法：把 vms-deploy/ 目录与 vms-web.war 传到服务器同一目录，`docker compose up -d`
 services:
   vms-mysql:
