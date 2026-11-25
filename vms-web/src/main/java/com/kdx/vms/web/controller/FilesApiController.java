@@ -112,6 +112,13 @@ public class FilesApiController {
         SSOToken token = currentToken();
         if (token == null) throw new UnauthorizedException("用户信息获取失败");
         TSysUser user = token.getSysUser();
+        // fail-closed（终审 P1 第三轮）：无公司归属的账户在 DAO 层会因 fillMatchQualifier
+        // 对 null 静默退化而拿到全公司记录（ExpressionUtils.java:71-76 实证），此处显式拒绝。
+        if (user.getCompany() == null) {
+            logger.warn("[payCert] DENIED userId={} account={} reason=no-company",
+                    user.getId(), user.getUserAccount());
+            throw new NotFoundException("当前账号未归属公司，禁止下载");
+        }
 
         TMtBeneficiaryInfo wxPay = mtBeneficiaryService.findPayInfo(user).get(PayType.WECHAT_PAY.getCode());
         if (wxPay == null || wxPay.getBeneficiaryInfo() == null) {
@@ -127,10 +134,17 @@ public class FilesApiController {
             throw new NotFoundException("证书文件不存在");
         }
 
-        String fileName = (info.getMchId() != null ? info.getMchId() : "wx-pay-cert") + ".p12";
+        // mchId 是收款页表单自由输入，按白名单消毒防 Content-Disposition 头注入（终审 P2-2）
+        String safeMch = info.getMchId() == null ? "" : info.getMchId().replaceAll("[^A-Za-z0-9_-]", "");
+        String fileName = (safeMch.isEmpty() ? "wx-pay-cert" : safeMch) + ".p12";
         response.setContentType("application/x-pkcs12");
         response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
         response.setHeader("Cache-Control", "no-store");
+        // 审计（终审 P1 整改选项②）：资金域敏感文件下载留痕——谁、何时、哪家公司、哪个商户
+        logger.info("[payCert] DOWNLOAD userId={} account={} companyId={} beneficiaryId={} file={}",
+                user.getId(), user.getUserAccount(),
+                user.getCompany() != null ? user.getCompany().getId() : null,
+                wxPay.getId(), info.getCertificate());
         try {
             OutputStream out = response.getOutputStream();
             byte[] buf = new byte[8192];

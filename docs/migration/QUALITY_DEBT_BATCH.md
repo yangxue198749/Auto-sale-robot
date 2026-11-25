@@ -27,25 +27,30 @@ GET /vms/api/files/private/payCert
 
 证书路径由服务端从 `IMtBeneficiaryService.findPayInfo(当前用户)` 推导（该服务本身按用户公司过滤，T-1.5 已验证数据范围），天然携带公司隔离，杜绝跨公司读取与路径探测面。后续私有 bucket 新增文件类型时应各建带范围校验的窄端点，不放宽本端点。
 
-**响应**：200 流式 `application/x-pkcs12` + `Content-Disposition: <mchId>.p12` + `Cache-Control: no-store`；404（未配置收款人/未登记路径/文件缺失）；401（未登录）。
+**响应**：200 流式 `application/x-pkcs12` + `Content-Disposition: <消毒后mchId>.p12`（白名单 `[A-Za-z0-9_-]`，mchId 属表单自由输入防头注入）+ `Cache-Control: no-store`；404（未配置收款人/未登记路径/文件缺失/**无公司归属账户 fail-closed**）；401（未登录）。
 
-**验证**（本地 8081 实测）：匿名 401 ✓；登录无配置 404 ✓；造数后 200 且与磁盘文件**字节一致** ✓；测试数据已清理。
+**安全加固**（终审三轮审查结论落地）：
+1. **审计**：成功下载记 INFO 级 `[payCert] DOWNLOAD userId/account/companyId/beneficiaryId/file`，拒绝记 WARN 级 DENIED 行；
+2. **null 公司 fail-closed**：DAO 层 `fillMatchQualifier` 对 null 公司**静默不加过滤**（ExpressionUtils.java:71-76 实证，可读全公司记录）——controller 显式拒绝无公司归属账户，杜绝跨公司读取口子。
+
+**验证**（本地 8081 实测）：匿名 401 ✓；登录无配置 404 ✓；有公司用户造数后 200 与磁盘**字节一致** + 审计行落 info.log ✓；**null 公司账户 404 + DENIED 日志** ✓；敌意 mchId 消毒生效 ✓；测试数据已清理。
 
 ## 三、前端构建优化（vms-ui）
 
 **改动**：
 1. main.ts 移除全量 `app.use(ElementPlus)` 与全量 CSS；
 2. vite 接入 `unplugin-auto-import` + `unplugin-vue-components`（ElementPlusResolver）按需注入模板组件/指令/样式；
-3. 45 处 `import { ElMessage(, ElMessageBox) } from 'element-plus'` 重写为 `element-plus/es/components/message(-box)/index` 深路径（`import type` 不动，编译期擦除）；
+3. **67 条**运行时导入语句（41 个文件）`import { ElMessage(, ElMessageBox) } from 'element-plus'` 重写为 `element-plus/es/components/message(-box)/index` 深路径（`import type` 4 处不动，编译期擦除）；
 4. `Components({ dts: false })`——开启 dts 会给 el-table 插槽引入严格类型，暴露 40+ 处历史 `DefaultRow` 不匹配，已立为后续技术债，不在本批范围。
 
 **效果**：
 
-| 指标 | 改造前 | 改造后 |
+| 指标 | 改造前 | 改造后（终版构建实测） |
 | --- | --- | --- |
-| 入口 index.js | 1083.64 kB | 21.65 kB |
+| 应用入口 chunk | 1083.64 kB（含全量 EP，超限警告） | 267.64 kB（共享模块收敛，**无 >500kB 警告**） |
 | 全量 CSS | 364.59 kB | 19.94 kB（按组件注入） |
-| 最大共享 chunk | ~1084 kB（超限警告） | 267.64 kB（无警告） |
+
+> 注：中间构建（带 manualChunks 实验时）曾出现 21.65 kB 业务入口 + 947kB EP 巨块的组合；终版弃用 manualChunks 后以默认分包为准——上表为终版值。
 
 **踩坑记录**：
 - `manualChunks` 对象形式会把所列包的**入口模块整个拉进依赖图**（曾致 element-plus 全量 947kB）——按需引入后无需 manualChunks，Rollup 默认分包已达标（配置内留注释说明）。
