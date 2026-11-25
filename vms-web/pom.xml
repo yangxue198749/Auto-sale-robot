@@ -13,6 +13,11 @@
     <name>vms-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
+    <properties>
+        <!-- 本地容器端口，默认 8080；被占用时可 -Dcargo.servlet.port=8081 覆盖 -->
+        <cargo.servlet.port>8080</cargo.servlet.port>
+    </properties>
+
     <build>
         <finalName>vms-web</finalName>
 
@@ -41,7 +46,7 @@
                     </container>
                     <configuration>
                         <properties>
-                            <cargo.servlet.port>8080</cargo.servlet.port>
+                            <cargo.servlet.port>${cargo.servlet.port}</cargo.servlet.port>
                             <cargo.jvmargs>-Dfile.encoding=UTF-8 -Dlocal.storage.root=D:/vms-data</cargo.jvmargs>
                         </properties>
                     </configuration>

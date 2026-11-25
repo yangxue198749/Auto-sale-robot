@@ -6,7 +6,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const ENTRY = 'http://127.0.0.1:8080/dist/index.html'
+// ENTRY 可用环境变量覆盖（本地 8080 被其他项目占用时 ENTRY=http://127.0.0.1:8081/... npm 传参）
+const ENTRY = process.env.ENTRY ?? 'http://127.0.0.1:8080/dist/index.html'
 const shotDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'test-results', 'screens')
 fs.mkdirSync(shotDir, { recursive: true })
 
@@ -86,7 +87,9 @@ await page.goto(`${ENTRY}#/login`, { waitUntil: 'load' })
 await page.waitForSelector('form', { timeout: 10000 })
 await page.fill('input[type="text"]', 'admin')
 await page.fill('input[type="password"]', '1')
-const today = new Date().toISOString().slice(0, 10)
+// 本地日期（非 UTC）：日期验证码绕过按服务器本地日比对，凌晨时段两者差一天
+const _d = new Date()
+const today = `${_d.getFullYear()}-${String(_d.getMonth() + 1).padStart(2, '0')}-${String(_d.getDate()).padStart(2, '0')}`
 await page.fill('.captcha-row input', today)
 await page.click('button[type="submit"]')
 try {

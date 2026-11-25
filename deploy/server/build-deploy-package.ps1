@@ -26,6 +26,7 @@ $sqlMap = [ordered]@{
     '03-seed.sql'             = 'database/vms_seed.sql'
     '04-syslog-dict.sql'      = 'database/vms_seed_syslog_dict.sql'
     '05-customer-dict.sql'    = 'database/vms_seed_customer_dict.sql'
+    '06-indexes.sql'          = 'database/vms_indexes.sql'
     '07-server-overrides.sql' = 'deploy/server/sql/07-server-overrides.sql'
 }
 foreach ($name in $sqlMap.Keys) {

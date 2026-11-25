@@ -141,7 +141,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus/es/components/message/index'
 import type { UploadRequestOptions } from 'element-plus'
 import { api } from '../api/client'
 
