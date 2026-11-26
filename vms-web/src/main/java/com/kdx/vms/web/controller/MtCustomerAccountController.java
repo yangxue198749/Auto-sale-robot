@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -76,6 +77,7 @@ public class MtCustomerAccountController {
 		return modelAndView;
 	}
 	
+	@RequirePermission("customerAccount-update")
 	@RequestMapping(value = "update")
 	@ResponseBody
 	public Integer updateCustomerAccount(TMtCustomer tMtCustomer){

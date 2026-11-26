@@ -24,6 +24,11 @@ $sqlMap = [ordered]@{
     '01-schema.sql'           = 'database/vms_schema.sql'
     '02-autopk.sql'           = 'database/vms_cayenne_pk.sql'
     '03-seed.sql'             = 'database/vms_seed.sql'
+    # Bootstrap company: must run after 03-seed (admin account) and before 08-sys-permission (admin role takes admin company).
+    # Numbered 04b so it always sorts between 03-* and 05-* under any collation. Keep this file ASCII-only: no BOM, PowerShell 5.1 decodes it as ANSI.
+    # Bootstrap company: must run after 03-seed (admin account) and before 08-sys-permission (admin role takes admin company).
+    # Numbered 04b so it always sorts between 03-* and 05-* under any collation. Keep this file ASCII-only: no BOM, PowerShell 5.1 decodes it as ANSI.
+    '04b-bootstrap-company.sql' = 'database/vms_seed_bootstrap.sql'
     '04-syslog-dict.sql'      = 'database/vms_seed_syslog_dict.sql'
     '05-customer-dict.sql'    = 'database/vms_seed_customer_dict.sql'
     '06-indexes.sql'          = 'database/vms_indexes.sql'

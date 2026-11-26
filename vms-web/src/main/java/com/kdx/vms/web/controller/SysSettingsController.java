@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.kdx.vms.commons.util.PageUtil;
 import com.kdx.vms.commons.util.StringUtil;
 import com.kdx.vms.model.bean.TMtNode;
@@ -98,11 +99,13 @@ public class SysSettingsController {
         return "sysSettings/table/settings_table";
     }
 
+    @RequirePermission("sysSetting-type-add")
     @RequestMapping("type/add")
     public String typeAdd(HttpServletRequest request) {
         return "sysSettings/dialog/type_update";
     }
 
+    @RequirePermission("sysSetting-setting-add")
     @RequestMapping("setting/add")
     public String settingAdd(HttpServletRequest request) {
         SSOToken token = TokenUtil.getToken();
@@ -112,6 +115,7 @@ public class SysSettingsController {
         return "sysSettings/dialog/setting_update";
     }
 
+    @RequirePermission("sysSetting-setting-update")
     @RequestMapping("setting/update")
     public String settingUpdate(HttpServletRequest request, Integer ids) {
         try {
@@ -130,6 +134,7 @@ public class SysSettingsController {
         return "sysSettings/dialog/setting_update";
     }
 
+    @RequirePermission("sysSetting-setting-delete")
     @RequestMapping("setting/delete")
     @ResponseBody
     public Map<String, Object> settingDelete(Integer[] ids, HttpServletRequest request) {
@@ -138,6 +143,7 @@ public class SysSettingsController {
         return sysSettingsService.deleteSetting(currentUser, ids);
     }
 
+    @RequirePermission("sysSetting-save")
     @RequestMapping("save")
     @ResponseBody
     public Map<String, Object> save(HttpServletRequest request, Integer pid, String name, String key, String value) {

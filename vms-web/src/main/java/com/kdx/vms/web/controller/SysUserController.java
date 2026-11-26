@@ -84,6 +84,7 @@ public class SysUserController {
         return "user/table/user_table";
     }
 
+    @RequirePermission("user-resePw")
     @RequestMapping("resetPw")
     public String resetPw(HttpServletRequest request, Integer ids) {
         try {
@@ -202,6 +203,7 @@ public class SysUserController {
     }
 
     @ResponseBody
+    @RequirePermission("user-delete")
     @RequestMapping("deleteUser")
     public Map<String, Object> deleteUser(HttpServletRequest request, Integer[] ids) {
         try {

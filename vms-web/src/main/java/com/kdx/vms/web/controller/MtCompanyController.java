@@ -68,6 +68,7 @@ public class MtCompanyController {
 	/**
 	 * 升级公司
 	 */
+	@RequirePermission("company_upgrade")
 	@RequestMapping(value = "upgrade")
 	@ResponseBody
 	public Map<String, Object> upgradeCompany(String companyName ,String newAdminUserId){

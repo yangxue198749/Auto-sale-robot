@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import javax.annotation.Resource;
 
 import org.apache.cayenne.ObjectContext;
@@ -40,6 +41,7 @@ public class MtPartnerController {
 		return modelAndView;
 	}
 	
+	@RequirePermission("partner-createPage")
 	@RequestMapping("create")
 	@ResponseBody
 	public Integer createPartner(TMtPartner tMtPartner){
@@ -55,12 +57,14 @@ public class MtPartnerController {
 		return modelAndView;
 	}
 	
+	@RequirePermission("partner-updatePage")
 	@RequestMapping("update")
 	@ResponseBody
 	public Integer updatePartner(TMtPartner tMtPartner){
 		return iMtPartnerService.updatePartner(tMtPartner, TokenUtil.getToken().getSysUser().getId() ,TokenUtil.getToken().getObjectContext());
 	}
 	
+	@RequirePermission("partner-delete")
 	@RequestMapping("delete")
 	@ResponseBody
 	public Boolean deletePartner(String ids){

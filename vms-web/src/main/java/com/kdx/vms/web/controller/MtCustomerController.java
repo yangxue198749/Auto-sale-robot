@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import javax.annotation.Resource;
 
 import org.apache.cayenne.ObjectContext;
@@ -39,6 +40,7 @@ public class MtCustomerController {
 		return modelAndView;
 	}
 
+	@RequirePermission("customer-createPage")
 	@RequestMapping(value = "create")
 	@ResponseBody
 	public Integer createCustomer(TMtCustomer tMtCustomer){
@@ -78,6 +80,7 @@ public class MtCustomerController {
 		return modelAndView;
 	}
 	
+	@RequirePermission("customer-updatePage")
 	@RequestMapping(value = "update")
 	@ResponseBody
 	public Integer updateCustomer(TMtCustomer tMtCustomer){
@@ -94,6 +97,7 @@ public class MtCustomerController {
 		return modelAndView;
 	}
 	
+	@RequirePermission("customer-delete")
 	@RequestMapping(value = "delete")
 	@ResponseBody
 	public Boolean deleteCustomer(String customerIds){

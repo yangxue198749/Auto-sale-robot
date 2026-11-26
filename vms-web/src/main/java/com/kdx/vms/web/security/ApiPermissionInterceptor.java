@@ -50,7 +50,7 @@ public class ApiPermissionInterceptor extends HandlerInterceptorAdapter {
             throws Exception {
         if (!(handler instanceof HandlerMethod)) return true;
         RequirePermission required = ((HandlerMethod) handler).getMethodAnnotation(RequirePermission.class);
-        if (required == null || required.value().length == 0) return true;
+        if (required == null) return true;
 
         String method = request.getMethod();
         String uri = request.getRequestURI();
@@ -71,6 +71,11 @@ public class ApiPermissionInterceptor extends HandlerInterceptorAdapter {
         ObjectContext context = token.getObjectContext();
         if (user == null || context == null) {
             logger.error("[api-permission] DENIED {} uri={} reason=no-user-context", method, uri);
+            return deny(response, 403, NO_PERMISSION);
+        }
+        // 标注了却没写权限码属于配置错误，按 fail-closed 拒绝而不是放行
+        if (required.value().length == 0) {
+            logger.error("[api-permission] DENIED {} uri={} userId={} reason=empty-annotation", method, uri, user.getId());
             return deny(response, 403, NO_PERMISSION);
         }
 

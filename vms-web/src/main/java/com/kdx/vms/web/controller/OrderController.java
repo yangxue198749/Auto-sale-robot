@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.alibaba.fastjson.JSON;
 import com.kdx.vms.commons.cache.CardCache;
 import com.kdx.vms.commons.util.*;
@@ -101,6 +102,7 @@ public class OrderController {
      * @param detailId
      * @return
      */
+    @RequirePermission("order-refund")
     @RequestMapping("refund")
     @ResponseBody
     public Map<String, Object> refundByDetailId(Integer detailId) {
