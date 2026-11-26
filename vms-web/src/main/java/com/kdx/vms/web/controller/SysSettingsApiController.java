@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.alibaba.fastjson.JSON;
 import com.kdx.vms.commons.util.StringUtil;
 import com.kdx.vms.model.bean.TSysSettings;
@@ -102,6 +103,7 @@ public class SysSettingsApiController {
     /**
      * 类型下的配置项（分页）
      */
+    @RequirePermission("sysSetting-setting-table")
     @RequestMapping(value = "/{pid}/settings", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String settings(
@@ -140,6 +142,7 @@ public class SysSettingsApiController {
     /**
      * 新建/更新配置（更新仅限 refund_type / upload_type 分组，与旧逻辑一致）
      */
+    @RequirePermission("sysSetting-save")
     @RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String save(
@@ -171,6 +174,7 @@ public class SysSettingsApiController {
     /**
      * 删除配置
      */
+    @RequirePermission("sysSetting-setting-delete")
     @RequestMapping(value = "/delete", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String delete(@RequestParam(value = "ids", required = false) String idsCsv) {

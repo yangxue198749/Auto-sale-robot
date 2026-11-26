@@ -28,6 +28,7 @@ $sqlMap = [ordered]@{
     '05-customer-dict.sql'    = 'database/vms_seed_customer_dict.sql'
     '06-indexes.sql'          = 'database/vms_indexes.sql'
     '07-server-overrides.sql' = 'deploy/server/sql/07-server-overrides.sql'
+    '08-sys-permission.sql'   = 'database/vms_seed_sys_permission.sql'
 }
 foreach ($name in $sqlMap.Keys) {
     Copy-Item (Join-Path $root $sqlMap[$name]) (Join-Path $dist "sql/$name")

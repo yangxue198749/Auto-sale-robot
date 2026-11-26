@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.alibaba.fastjson.JSON;
 import com.kdx.vms.commons.util.StringUtil;
 import com.kdx.vms.model.bean.TMtCompany;
@@ -233,6 +234,7 @@ public class OrgApiController {
     /**
      * 新建公司（含管理员账号）
      */
+    @RequirePermission("company_createPage")
     @RequestMapping(value = "/vms/api/company/create", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String companyCreate(
@@ -262,6 +264,7 @@ public class OrgApiController {
     /**
      * 更新公司名称
      */
+    @RequirePermission("company_updatePage")
     @RequestMapping(value = "/vms/api/company/update", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String companyUpdate(
@@ -292,6 +295,7 @@ public class OrgApiController {
     /**
      * 分配售货机额度
      */
+    @RequirePermission("company_addCapacityPage")
     @RequestMapping(value = "/vms/api/company/addCapacity", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String companyAddCapacity(
@@ -341,6 +345,7 @@ public class OrgApiController {
     /**
      * 升级公司（三级 → 二级，同时指定新管理员）
      */
+    @RequirePermission("company_upgrade")
     @RequestMapping(value = "/vms/api/company/upgrade", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String companyUpgrade(
@@ -507,6 +512,7 @@ public class OrgApiController {
     /**
      * 更新客户收款账户
      */
+    @RequirePermission("customerAccount-update")
     @RequestMapping(value = "/vms/api/customerAccount/update", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String customerAccountUpdate(

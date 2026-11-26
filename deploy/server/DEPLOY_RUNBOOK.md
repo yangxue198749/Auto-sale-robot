@@ -45,6 +45,18 @@ docker compose logs vms-app | grep -i "Server startup"   # 出现即启动完成
 
 首次启动 MySQL 自动执行 `sql/` 下全部脚本建库（仅首次；重启不重复执行）。
 
+**权限种子（上线前置，详见 `docs/migration/REST_OPERATION_PERMISSION.md`）**：`sql/08-sys-permission.sql`
+写入权限项、系统管理员角色，并把种子账号 `admin` 绑定到该角色。REST 接口的角色/用户/公司/系统配置/
+收款账户/退款等管理操作按权限校验——**没有这份数据，admin 也会被拒（403）**。
+全新部署由上面的初始化自动执行；**对接已有数据库时必须手工执行一次**（幂等，可重复）：
+
+```bash
+docker compose exec -T mysql mysql -u root -p"$MYSQL_ROOT_PASSWORD" vms < sql/08-sys-permission.sql
+# 自检应输出 elements=187 / role=1 / bound=187 / admin_bind=1
+```
+
+存量用户不会自动获得权限，需在「角色管理」按业务分配角色；菜单或权限项变更后重跑该脚本，新权限项自动补绑到管理员角色。
+
 ## 4. 防火墙开放 8090
 
 - 腾讯云控制台 → 轻量应用服务器 → 防火墙 → 添加规则：TCP 8090
@@ -64,6 +76,8 @@ curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8090/vms/api/mtVm/list
 ## 6. 首次登录后必做
 
 - [ ] 「账号管理」修改 admin 密码
+- [ ] 确认 admin 已归属**一级公司**（角色管理页的权限树按公司层级取管理员角色，无公司归属时该页不可用）
+- [ ] 实测越权拦截：建一个不分配任何角色的测试账号登录，访问「角色管理」保存应提示「没有操作权限」，测完删除
 - [ ] 「系统管理 → 系统设置」检查 redis 配置（应已指向 vms-redis）
 - [ ] 删除 `webapps/examples`、`docs`、`host-manager`、`manager`（compose 挂载单个 war，本形态默认不存在，跳过）
 

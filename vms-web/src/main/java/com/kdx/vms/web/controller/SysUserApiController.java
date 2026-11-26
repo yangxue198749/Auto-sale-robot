@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.alibaba.fastjson.JSON;
 import com.kdx.vms.commons.util.StringUtil;
 import com.kdx.vms.model.bean.TSysRole;
@@ -166,6 +167,7 @@ public class SysUserApiController {
     /**
      * 新建用户（初始密码与账号同旧逻辑，由服务层处理）
      */
+    @RequirePermission("user-add")
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String create(
@@ -193,6 +195,7 @@ public class SysUserApiController {
     /**
      * 编辑用户
      */
+    @RequirePermission("user-edit")
     @RequestMapping(value = "/{userId}/update", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String update(
@@ -218,6 +221,7 @@ public class SysUserApiController {
     /**
      * 删除用户
      */
+    @RequirePermission("user-delete")
     @RequestMapping(value = "/delete", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String delete(@RequestParam(value = "ids", required = false) String idsCsv) {
@@ -237,6 +241,7 @@ public class SysUserApiController {
     /**
      * 重置密码
      */
+    @RequirePermission("user-resePw")
     @RequestMapping(value = "/{userId}/resetPwd", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String resetPwd(@PathVariable("userId") Integer userId) {

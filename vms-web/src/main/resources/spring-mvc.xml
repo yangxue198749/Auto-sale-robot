@@ -10,6 +10,11 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
         
     <mvc:annotation-driven/>
+
+    <!-- REST 操作权限校验：只校验标注了 @RequirePermission 的方法，未标注端点行为不变 -->
+    <mvc:interceptors>
+        <bean class="com.kdx.vms.web.security.ApiPermissionInterceptor"/>
+    </mvc:interceptors>
     
     <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
     <bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

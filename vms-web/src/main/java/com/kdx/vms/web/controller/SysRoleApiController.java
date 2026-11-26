@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.alibaba.fastjson.JSON;
 import com.kdx.vms.commons.util.StringUtil;
 import com.kdx.vms.model.bean.TSysRole;
@@ -171,6 +172,7 @@ public class SysRoleApiController {
     /**
      * 新建角色
      */
+    @RequirePermission("role-list")
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String create(
@@ -193,6 +195,7 @@ public class SysRoleApiController {
     /**
      * 编辑角色
      */
+    @RequirePermission("role-list")
     @RequestMapping(value = "/edit", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String edit(
@@ -216,6 +219,7 @@ public class SysRoleApiController {
     /**
      * 绑定权限元素
      */
+    @RequirePermission("role-list")
     @RequestMapping(value = "/bindElements", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String bindElements(
@@ -248,6 +252,7 @@ public class SysRoleApiController {
     /**
      * 删除角色
      */
+    @RequirePermission("role-list")
     @RequestMapping(value = "/delete", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String delete(@RequestParam(value = "ids", required = false) String idsCsv) {

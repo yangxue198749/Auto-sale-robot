@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.kdx.vms.commons.util.CheckUtils;
 import com.kdx.vms.commons.util.WebUtils;
 import com.kdx.vms.commons.util.oss.AliyunOssUtils;
@@ -97,6 +98,7 @@ public class MtBeneficiaryController {
         return "beneficiary/dialog/ali_add_dialog";
     }
 
+    @RequirePermission("customerAccount-update")
     @RequestMapping("saveWxInfo")
     @ResponseBody
     public Map<String, Object> saveWxInfo(HttpServletRequest request, String appId, String appSecret, String mchId, String mchPwd) {
@@ -161,6 +163,7 @@ public class MtBeneficiaryController {
         return respMap;
     }
 
+    @RequirePermission("customerAccount-update")
     @RequestMapping("saveAliInfo")
     @ResponseBody
     public Map<String, Object> saveAliInfo(HttpServletRequest request, String appId, String pid) {
@@ -241,6 +244,7 @@ public class MtBeneficiaryController {
         return respMap;
     }
 
+    @RequirePermission("customerAccount-update")
     @RequestMapping("deletePayInfo")
     @ResponseBody
     public Map<String, Object> deletePayInfo(HttpServletRequest request, Integer payInfoId) {

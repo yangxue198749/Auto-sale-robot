@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.alibaba.fastjson.JSON;
 import com.kdx.vms.commons.util.ReturnCode;
 import com.kdx.vms.commons.util.StringUtil;
@@ -140,6 +141,7 @@ public class OrderApiController {
     /**
      * 发起退款（即时/预约订单走对应 MQ 主题）
      */
+    @RequirePermission("order-refund")
     @RequestMapping(value = "/refund", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String refund(@RequestParam(value = "detailId", required = false) Integer detailId) {

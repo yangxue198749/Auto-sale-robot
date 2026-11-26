@@ -4,7 +4,8 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $ErrorActionPreference = 'Stop'
 
-$base = 'http://127.0.0.1:8080'
+# Port override via env var VMS_BASE (e.g. when 8080 is taken: $env:VMS_BASE='http://127.0.0.1:8081')
+$base = if ($env:VMS_BASE) { $env:VMS_BASE } else { 'http://127.0.0.1:8080' }
 $script:pass = 0
 $script:fail = 0
 
