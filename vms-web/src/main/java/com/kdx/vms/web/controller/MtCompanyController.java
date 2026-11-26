@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.kdx.vms.model.bean.TMtCompany;
 import com.kdx.vms.model.bean.TMtCustomer;
 import com.kdx.vms.model.bean.TMtVm;
@@ -55,6 +56,7 @@ public class MtCompanyController {
         return modelAndView;
 	}
 
+	@RequirePermission("company_createPage")
 	@RequestMapping(value = "create")
 	@ResponseBody
 	public Map<String, Object> createCompany(String companyName, String customerId, String adminName, String adminAccount,
@@ -147,6 +149,7 @@ public class MtCompanyController {
 	/**
 	 * 更新公司
 	 */
+	@RequirePermission("company_updatePage")
 	@RequestMapping(value = "update")
 	@ResponseBody
 	public Integer updateCompany(String ids ,String companyName){
@@ -189,6 +192,7 @@ public class MtCompanyController {
 	/**
 	 * 分配售货机
 	 */
+	@RequirePermission("company_addCapacityPage")
 	@RequestMapping(value = "addCapacity")
 	@ResponseBody
 	public Boolean addCapacity(String ids ,Integer oldVmCapacitySum ,Integer newVmCapacitySum){

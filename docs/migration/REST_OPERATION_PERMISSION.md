@@ -16,6 +16,14 @@
 
 即任何能登录的账号都能建角色、绑权限，再配合用户管理接口即可自我提权到全权；重置他人密码、改系统配置、改收款账户、发起退款同理。
 
+**旧 JSP 控制器的同类接口是绕过路径**（第一次提交后自查发现，已一并处理）：`/role/addRole`、`/role/editRole`、`/role/editElement`、`/role/deleteRole`、`/user/editUser`、`/company/*` 这些写接口的 URL 从未在 `menu-vms.md` 登记，旧 `SSOAccessControlFilter` 一直不拦。实测完整提权链：
+
+| 步骤 | 结果 |
+| --- | --- |
+| 无角色账号 `POST /role/addRole` | 200，角色创建成功 |
+| 无角色账号 `POST /user/editUser`（`roleIdStr=990001`，给自己指派系统管理员角色） | 200"操作成功"，库里成为系统管理员 |
+| 该账号再调已加保护的 `POST /vms/api/sysRole/create` | 200——保护被绕过 |
+
 主计划 T-1.2「操作权限映射 + 漏配默认拒绝」原本就要求做，实际提交从 T-1.3 开始，被跳过。
 
 ## 二、实现
@@ -36,7 +44,7 @@
 - **只校验标注方法**：未标注端点行为完全不变，回归面可控。
 - **审计**：放行记 INFO（谁、哪个接口、凭哪个权限码），拒绝记 WARN（含所需权限码，仅服务端日志；响应体不泄露）。
 
-### 标注的端点（20 个）
+### 标注的端点（28 个）
 | 域 | 端点 | 权限码 |
 | --- | --- | --- |
 | 角色管理 | `/vms/api/sysRole` create / edit / bindElements / delete | `role-list` |
@@ -46,6 +54,9 @@
 | 收款账户 | `POST /vms/api/customerAccount/update` | `customerAccount-update` |
 | 退款 | `POST /vms/api/order/refund` | `order-refund` |
 | 旧收款人配置 | `/mtBeneficiary` saveWxInfo / saveAliInfo / deletePayInfo | `customerAccount-update` |
+| **旧角色管理** | `/role` addRole / editRole / editElement / deleteRole | `role-list` |
+| **旧用户管理** | `/user/editUser`（含角色分配参数 `roleIdStr`） | `user-edit` |
+| **旧公司管理** | `/company` create / update / addCapacity | `company_createPage` / `company_updatePage` / `company_addCapacityPage` |
 
 说明：
 - 角色增删改在旧体系里没有登记独立按钮码，沿用菜单码 `role-list`。能管理角色与用户的人即可自我提权——这是旧 RBAC 的固有性质，未改动。
@@ -78,23 +89,28 @@ mysql -u<root> -p vms < database/vms_seed_sys_permission.sql
 - `st-vm-energy-delete` 整行重复，去重；
 - `st-vm-theme-delete` 主键 `1040402` 与节能策略-修改撞号，改用 `1040502`（父级 `1040500` 下第 2 个按钮的编号位，原表空闲）。权限码未改。
 
-## 四、验证（本地 8081，修复后构建）
+## 四、验证（本地 8081，最终构建）
 
 | 场景 | 结果 |
 | --- | --- |
-| 匿名访问 20 个标注端点 | 17 个 `/vms/api` 端点 401；3 个 `/mtBeneficiary` 旧路由 302（未登录由 Shiro 在更前面重定向，同为拒绝） |
-| 无角色账号访问 20 个标注端点 | **20/20 → 403** `{"code":403,"message":"没有操作权限"}` |
-| 管理员访问 20 个标注端点 | **20/20 过闸**，均返回正常业务响应；`sysRole/create` 真实创建成功（已清理） |
-| 未标注端点 | 无角色账号 `/auth/me`、`/sysRole/list` 照常 200 |
+| 匿名访问 28 个标注端点 | 17 个 `/vms/api` 端点 401；11 个旧 JSP 路由 302（未登录由 Shiro 在更前面重定向，同为拒绝） |
+| 无角色账号访问 28 个标注端点 | **28/28 → 403** `{"code":403,"message":"没有操作权限"}`（含此前可自我提权的 `/user/editUser`、`/role/addRole`） |
+| 管理员访问 28 个标注端点 | **28/28 过闸**，均返回正常业务响应（探测只用空参数或不存在的 ID，未触发写操作） |
+| 未标注端点 | 无角色账号 `/auth/me`、`/sysRole/list`、`/deliveryTask/list` 照常 200 |
+| 权限撤销即时生效 | 同一登录会话内：无角色 403 → 数据库授予后 200 → 撤销后 403（无缓存） |
 | 审计日志 | ALLOWED / DENIED 行均落 `info.log`；权限查询失败 0 次 |
 | 种子 | 连续执行两次结果一致（幂等）；中文名正常 |
+| 登录态回归 `regression-login.ps1` | 114 / 114 |
+| 浏览器验收 `ui.acceptance.mjs` | 45 / 45 |
+| 矩阵脚本合计 | 87 / 87 |
 
-回归结果见任务卡执行报告。
+验证过程中创建的测试角色、角色绑定、测试账号均已清理；本地开发库保留种子数据（187 权限项 + 系统管理员角色 + admin 绑定）。
 
 ## 五、未覆盖（如实登记）
 
-1. **其余约 200 个写端点仍是"登录即可"**（工单、设备、策略、基础数据的增删改）。它们是业务数据操作，不构成提权路径，但低权限账号仍可越权修改业务数据。第二批按域逐批标注，权限码在 `menu-vms.md` 中已有。
-2. **读接口未做权限**：如 `/vms/api/sysUser/list`、`/vms/api/settings/types`，登录即可读。旧体系中部分读操作有独立权限码（如 `customer-list`）。
-3. **前端不按权限渲染**：`/auth/me` 的 `roles`/`permissions` 仍为空数组（T-1.1 共享授权加载未做），所有登录用户都能看到全部菜单，操作时才收到 403。需让 `/auth/me` 返回真实权限 + 前端据此渲染菜单与按钮。
-4. **非管理员不能被授予超出自身的权限**之类的防向上提权规则，旧体系没有，本次未新增。
-5. `updatePassword` 不校验旧密码（注释称由前端流程保证），不在本次范围。
+1. **其余约 200 个 REST 写端点仍是"登录即可"**（工单、设备、策略、基础数据的增删改）。它们是业务数据操作，不构成提权路径，但低权限账号仍可越权修改业务数据。第二批按域逐批标注，权限码在 `menu-vms.md` 中已有。
+2. **旧 JSP 控制器其余域的写接口同样没有权限**：全量审计显示 50 多个旧控制器里有数百个映射的 URL 从未登记（2018 年菜单表只登记了页面与按钮）。本次只处理了权限/账户/公司三类。按风险需优先看：设备升级包相关（`/upgradePackage/*`、`/vmBoxUpgrade/*`，可向售货机下发升级包）、`/beneficiaryManage/*`、`/vendout/*`；其中面向设备的接口（`DealVmBoxRequest` 等）涉及设备鉴权，需单独分析，不能简单套用后台权限码。
+3. **读接口未做权限**：如 `/vms/api/sysUser/list`、`/vms/api/settings/types`，登录即可读。旧体系中部分读操作有独立权限码（如 `customer-list`）。
+4. **前端不按权限渲染**：`/auth/me` 的 `roles`/`permissions` 仍为空数组（T-1.1 共享授权加载未做），所有登录用户都能看到全部菜单，操作时才收到 403。需让 `/auth/me` 返回真实权限 + 前端据此渲染菜单与按钮。
+5. **非管理员不能被授予超出自身的权限**之类的防向上提权规则，旧体系没有，本次未新增。
+6. `updatePassword` 不校验旧密码（注释称由前端流程保证），不在本次范围。

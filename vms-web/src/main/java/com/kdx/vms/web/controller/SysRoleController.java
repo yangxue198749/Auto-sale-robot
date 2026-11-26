@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.kdx.vms.commons.util.IntegerUtils;
 import com.kdx.vms.commons.util.StringUtil;
 import com.kdx.vms.commons.util.SystemCode;
@@ -94,6 +95,7 @@ public class SysRoleController {
     }
 
     @ResponseBody
+    @RequirePermission("role-list")
     @RequestMapping("addRole")
     public Map<String, Object> addRole(String roleName, String roleDesc) {
         try {
@@ -123,6 +125,7 @@ public class SysRoleController {
     }
 
     @ResponseBody
+    @RequirePermission("role-list")
     @RequestMapping("editRole")
     public Map<String, Object> editRole(Integer roleId, String roleName, String roleDesc) {
         logger.info("roleId:" + roleId + ", roleName:" + roleName + ", roleDesc");
@@ -161,6 +164,7 @@ public class SysRoleController {
     }
 
     @ResponseBody
+    @RequirePermission("role-list")
     @RequestMapping("editElement")
     public Map<String, Object> editElement(HttpServletRequest request, Integer roleId) {
         logger.info("roleId:" + roleId);
@@ -184,6 +188,7 @@ public class SysRoleController {
     }
 
     @ResponseBody
+    @RequirePermission("role-list")
     @RequestMapping("deleteRole")
     public Map<String, Object> deleteRole(Integer[] ids) {
         try {

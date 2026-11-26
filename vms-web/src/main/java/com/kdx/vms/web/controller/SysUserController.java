@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.kdx.vms.commons.util.IntegerUtils;
 import com.kdx.vms.commons.util.StringUtil;
 import com.kdx.vms.commons.util.SystemCode;
@@ -164,6 +165,7 @@ public class SysUserController {
     }
 
     @ResponseBody
+    @RequirePermission("user-edit")
     @RequestMapping("editUser")
     public Map<String, Object> editUser(Integer userId,String userAccount, String userName, String userPhone, Integer companyId, String roleIdStr) {
         try {
