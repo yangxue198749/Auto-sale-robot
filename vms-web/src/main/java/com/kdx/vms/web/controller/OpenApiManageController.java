@@ -1,5 +1,6 @@
 package com.kdx.vms.web.controller;
 
+import com.kdx.vms.web.security.RequirePermission;
 import com.alibaba.fastjson.JSON;
 import com.kdx.vms.commons.util.PageUtil;
 import com.kdx.vms.model.bean.*;
@@ -137,6 +138,7 @@ public class OpenApiManageController {
      * @param companyId
      * @return
      */
+    @RequirePermission("sysSetting-save")
     @RequestMapping("addOpenApiConfirm")
     @ResponseBody
     public Map<String,Object> addOpenApiConfirm(Integer[] serviceIds,Integer companyId){
@@ -177,6 +179,7 @@ public class OpenApiManageController {
      * @param customerId
      * @return
      */
+    @RequirePermission("sysSetting-save")
     @RequestMapping("updateOpenApiConfirm")
     @ResponseBody
     public Map<String,Object> updateOpenApiConfirm(Integer[] serviceIds,String customerId){
@@ -192,6 +195,7 @@ public class OpenApiManageController {
         return "openAPI/dialog/delete_open_api_dialog";
     }
 
+    @RequirePermission("sysSetting-save")
     @RequestMapping("deleteOpenApiConfirm")
     @ResponseBody
     public Map<String,Object> delete(String customerId){

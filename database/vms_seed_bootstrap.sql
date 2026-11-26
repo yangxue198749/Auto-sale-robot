@@ -6,6 +6,7 @@
 --   全新部署没有任何途径产生一级公司，admin 也没有公司归属。
 --
 -- 幂等：可重复执行。对已有数据库通常不产生任何变化——
+--   库里已存在任何一级公司时本脚本不创建（避免造出第二个一级根），admin 归属也随之跳过；
 --   9001 号已存在时不覆盖；只有在 admin 当前没有公司、且 9001 号正是本脚本创建的
 --   一级公司（名称匹配）时，才把 admin 归属过去。
 --
@@ -21,17 +22,20 @@
 
 USE vms;
 
-INSERT IGNORE INTO `T_MT_COMPANY`
+INSERT INTO `T_MT_COMPANY`
   (`COMPANY_ID`, `COMPANY_LEVEL`, `COMPANY_NAME`, `DELETE_MARK`, `MAX_VM_CAPACITY`, `CTIME`, `CTOR`)
-VALUES
-  (9001, 1, '总公司（系统内置）', 0, 1000000, NOW(), 1);
+SELECT 9001, 1, '总公司（系统内置）', 0, 1000000, NOW(), 1
+FROM DUAL
+WHERE NOT EXISTS (SELECT 1 FROM `T_MT_COMPANY` WHERE `COMPANY_ID` = 9001)
+  AND NOT EXISTS (SELECT 1 FROM `T_MT_COMPANY` WHERE `COMPANY_LEVEL` = 1);
 
 UPDATE `T_SYS_USER` u
   JOIN `T_MT_COMPANY` c ON c.`COMPANY_ID` = 9001
 SET u.`COMPANY_ID` = 9001
 WHERE u.`USER_ACCOUNT` = 'admin' AND u.`COMPANY_ID` IS NULL
   AND u.`USER_ID` = (SELECT `uid` FROM (SELECT MIN(`USER_ID`) AS `uid` FROM `T_SYS_USER` WHERE `USER_ACCOUNT` = 'admin') t)
-  AND c.`COMPANY_LEVEL` = 1 AND c.`COMPANY_NAME` = '总公司（系统内置）';
+  AND c.`COMPANY_LEVEL` = 1 AND c.`COMPANY_NAME` = '总公司（系统内置）'
+  AND NOT EXISTS (SELECT 1 FROM `T_MT_COMPANY` o WHERE o.`COMPANY_LEVEL` = 1 AND o.`COMPANY_ID` <> 9001);
 
 -- 自检：admin_company 为一级公司 ID 即正常（全新部署应为 9001；对接已有库时应为原有的一级公司）
 SELECT 'bootstrap_company' AS item, COUNT(*) AS n FROM `T_MT_COMPANY`

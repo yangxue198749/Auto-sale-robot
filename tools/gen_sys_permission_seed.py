@@ -91,7 +91,7 @@ HEAD = u"""-- ============================================================
 -- 前置条件：
 --   1. 种子账号 admin 须归属**一级公司**（角色管理页的"可分配权限"按公司层级取管理员角色，
 --      无公司归属时该页权限树不可用；权限校验本身不依赖公司）。全新部署由
---      vms_seed_bootstrap.sql（部署包 03b）创建一级公司并归属 admin。
+--      vms_seed_bootstrap.sql（部署包 04b）创建一级公司并归属 admin。
 --   2. 库中 ROLE_LEVEL=1 的角色应只有本种子创建的「系统管理员」一个：角色管理页取"可分配权限"
 --      时取查询结果的第一条且无排序（SysElementDaoImpl.getElementAllBySystemAdmin），若存在旧的
 --      一级管理员角色，取到的会是它——执行后看自检 level1_roles，不为 1 时先处置旧角色。
@@ -144,18 +144,20 @@ WHERE u.`USER_ACCOUNT` = 'admin'
   AND EXISTS (SELECT 1 FROM `T_SYS_ROLE` r WHERE r.`ROLE_ID` = {role} AND r.`ROLE_NAME` = '系统管理员');
 
 -- ---------- 5. 自检 ----------
--- 预期：elements={n} / role=1 / bound={n} / admin_bind=1
+-- 预期：elements={n} / role=1 / bound={n} / bound_rows={n} / admin_bind=1 / role_company 为一级公司 ID（非空）
 -- 上线关口（不为预期值时必须先处理，见 DEPLOY_RUNBOOK「权限种子前置检查」）：
 --   admin_accounts = 1     同名 admin 多于一个时只绑定了 USER_ID 最小的那个
 --   level1_roles  = 1      存在旧的一级管理员角色时角色管理页的"可分配权限"取到的是旧角色，须处置
 SELECT 'elements' AS item, COUNT(*) AS n FROM `T_SYS_ELEMENT` WHERE `ELEMENT_MODULE` = {module}
 UNION ALL SELECT 'role', COUNT(*) FROM `T_SYS_ROLE` WHERE `ROLE_ID` = {role} AND `ROLE_NAME` = '系统管理员'
 UNION ALL SELECT 'bound', COUNT(DISTINCT `ELEMENT_ID`) FROM `T_SYS_ROLE_ELEMENT` WHERE `ROLE_ID` = {role}
+UNION ALL SELECT 'bound_rows', COUNT(*) FROM `T_SYS_ROLE_ELEMENT` WHERE `ROLE_ID` = {role}
 UNION ALL SELECT 'admin_bind', COUNT(*) FROM `T_SYS_USER_ROLE` ur JOIN `T_SYS_USER` u ON u.`USER_ID` = ur.`USER_ID`
   WHERE u.`USER_ACCOUNT` = 'admin' AND ur.`ROLE_ID` = {role}
 UNION ALL SELECT 'admin_accounts', COUNT(*) FROM `T_SYS_USER` WHERE `USER_ACCOUNT` = 'admin'
 UNION ALL SELECT 'level1_roles', COUNT(*) FROM `T_SYS_ROLE` WHERE `ROLE_LEVEL` = 1
-UNION ALL SELECT 'admin_company', IFNULL((SELECT `COMPANY_ID` FROM (SELECT `COMPANY_ID` FROM `T_SYS_USER` WHERE `USER_ACCOUNT` = 'admin' ORDER BY `USER_ID` LIMIT 1) t), -1);
+UNION ALL SELECT 'admin_company', IFNULL((SELECT `COMPANY_ID` FROM (SELECT `COMPANY_ID` FROM `T_SYS_USER` WHERE `USER_ACCOUNT` = 'admin' ORDER BY `USER_ID` LIMIT 1) t), -1)
+UNION ALL SELECT 'role_company', IFNULL((SELECT `COMPANY_ID` FROM `T_SYS_ROLE` WHERE `ROLE_ID` = {role}), -1);
 
 -- ============================================================
 -- 清理段（回滚用，按需执行）

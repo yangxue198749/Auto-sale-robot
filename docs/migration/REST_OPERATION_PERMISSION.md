@@ -54,7 +54,7 @@
 - **只校验标注方法**：未标注端点行为完全不变，回归面可控。
 - **审计**：放行记 INFO（谁、哪个接口、凭哪个权限码），拒绝记 WARN（含所需权限码，仅服务端日志；响应体不泄露）。
 
-### 标注的端点（44 个）
+### 标注的端点（47 个）
 | 域 | 端点 | 权限码 |
 | --- | --- | --- |
 | 角色管理 | `/vms/api/sysRole` create / edit / bindElements / delete；旧 `/role` addRole / editRole / editElement / deleteRole | `role-list` |
@@ -65,6 +65,7 @@
 | 收款账户 | `POST /vms/api/customerAccount/update`；旧 `/customerAccount/update` | `customerAccount-update` |
 | 退款 | `POST /vms/api/order/refund`；旧 `/order/refund` | `order-refund` |
 | 旧收款人配置 | `/mtBeneficiary` saveWxInfo / saveAliInfo / deletePayInfo | `customerAccount-update` |
+| OpenAPI 密钥 | `/openApi` add / update / deleteOpenApiConfirm（**临时码，待拍板**） | `sysSetting-save` |
 
 说明：
 - 角色增删改在旧体系里没有登记独立按钮码，沿用菜单码 `role-list`。能管理角色与用户的人即可自我提权——这是旧 RBAC 的固有性质，未改动。
@@ -130,7 +131,7 @@ mysql -u<root> -p vms < database/vms_seed_sys_permission.sql
 ## 五、未覆盖（如实登记）
 
 **本批次域内仍开放、需要拍板的**
-- `/openApi/addOpenApiConfirm`、`updateOpenApiConfirm`、`deleteOpenApiConfirm`：OpenAPI 密钥的增删改，完全开放。旧体系没有对应权限码，本仓库也未见这些密钥的消费方——是否还有外部系统凭 `T_OPEN_SECRET` 访问需要确认后再定码。
+- `/openApi/addOpenApiConfirm`、`updateOpenApiConfirm`、`deleteOpenApiConfirm`：OpenAPI 密钥的增删改。复审建议后已**临时收口**（标 `sysSetting-save`，纯防呆——Vue 零调用，且 Shiro 链对该路由本就重定向 REST 会话，实测三形态均被拒）。正式权限码待确认是否仍有外部系统凭 `T_OPEN_SECRET` 访问后定。
 - `/company/exportOrUnStock`：公司域写操作，完全开放，影响低，权限码待确认。
 - `/customerAccount/passSMS`：任意登录用户可对任意客户触发短信（网关目前已停用，实际无影响）。
 - 旧 `/user/editUser` 同时承担新建与更新，只要求 `user-edit`：只持 `user-add` 的操作员新建用户会 403。放开成任一码即可则同时放开更新，需业务拍板。

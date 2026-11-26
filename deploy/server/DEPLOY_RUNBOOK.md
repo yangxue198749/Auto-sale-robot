@@ -63,7 +63,9 @@ SELECT USER_ACCOUNT, COUNT(*) n FROM T_SYS_USER WHERE DELETE_MARK=0 GROUP BY USE
 docker compose exec -T mysql mysql -u root -p"$MYSQL_ROOT_PASSWORD" vms < sql/04b-bootstrap-company.sql
 # 2. 权限种子（幂等，可重复）
 docker compose exec -T mysql mysql -u root -p"$MYSQL_ROOT_PASSWORD" vms < sql/08-sys-permission.sql
-#    自检应为 elements=187 / role=1 / bound=187 / admin_bind=1 / admin_accounts=1 / level1_roles=1
+#    自检应为 elements=187 / role=1 / bound=187 / bound_rows=187 / admin_bind=1 / admin_accounts=1 / level1_roles=1 / role_company=一级公司ID
+#    若 role_company 为 -1（990001 无公司归属，多见于 08 先于 04b 执行过），修复后重跑 08：
+#      UPDATE T_SYS_ROLE SET COMPANY_ID=(SELECT COMPANY_ID FROM (SELECT COMPANY_ID FROM T_SYS_USER WHERE USER_ACCOUNT='admin' ORDER BY USER_ID LIMIT 1) t) WHERE ROLE_ID=990001 AND COMPANY_ID IS NULL;
 # 3. 切流量之前：用「存量账号清单」在「角色管理」给每个岗位分配角色并实测。
 #    退款、收款账户是日常操作，漏分配会直接变成 403。分配清单须经大聪明确认。
 ```
