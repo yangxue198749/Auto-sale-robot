@@ -132,7 +132,21 @@ mysql -u<root> -p vms < database/vms_seed_sys_permission.sql
 
 **本批次域内仍开放、需要拍板的**
 - `/openApi/addOpenApiConfirm`、`updateOpenApiConfirm`、`deleteOpenApiConfirm`：OpenAPI 密钥的增删改。复审建议后已**临时收口**（标 `sysSetting-save`，纯防呆——Vue 零调用，且 Shiro 链对该路由本就重定向 REST 会话，实测三形态均被拒）。正式权限码待确认是否仍有外部系统凭 `T_OPEN_SECRET` 访问后定。
-- `/company/exportOrUnStock`：公司域写操作，完全开放，影响低，权限码待确认。
+- `/company/exportOrUnStock`：公司域写操作，任意登录账号可用（URL 未登记），影响低，权限码待确认。
+
+**设备 / 移动端接口面（TASK-1796100000001 只读分析，未动代码）**
+
+Shiro 链 `/** = authc,ssoPermission` 之下，anon 名单里面向设备/移动端的入口及其自鉴权：
+
+| 入口 | 控制器 | 自鉴权机制 | 评估 |
+| --- | --- | --- | --- |
+| `/api/**` | DealVmBoxRequestController（设备取主题/策略等） | 应用层 MD5 签名（`md5(unique + innerCode)`，按设备唯一码校验） | 设备协议域，不动；兼容性由 VMBox 联调验证 |
+| `/heart` | HeartController（设备心跳） | 设备唯一码识别 | 同上 |
+| `/mp/**`、`/pay/mobile/**` | 移动支付回调 | 支付渠道回调签名 | 资金域，另册 |
+| `/upgradePackage/*`、`/vmBoxUpgrade/*` | 升级包/升级计划管理 | **无自鉴权，仅靠 `/**=authc` 会话 + URL 未登记（无权限码）** | 任意登录账号可创建/下发升级计划至售货机。旧菜单未登记任何升级相关权限码 → 需新定权限码，列入拍板清单。风险中等：推送目标是设备（VMBox），误操作影响设备侧 |
+| `/vendout/**` | 售货出杯管理（含 refund） | 同上（authc 会话） | `refund` 已在第一批标注 `order-refund`；其余为管理页 |
+
+结论：升级包管理两端（`/upgradePackage/addUpgradePackage|disable`、`/vmBoxUpgrade/submitCreate` 等）建议下一子批标注，权限码需新登记（menu-vms.md 无此域），属接口契约变更，须拍板。设备直连面（`/api/**`、`/heart`）的签名机制实测与协议文档化归设备联调专项。
 - `/customerAccount/passSMS`：任意登录用户可对任意客户触发短信（网关目前已停用，实际无影响）。
 - 旧 `/user/editUser` 同时承担新建与更新，只要求 `user-edit`：只持 `user-add` 的操作员新建用户会 403。放开成任一码即可则同时放开更新，需业务拍板。
 - `role-list` 一码兼"看角色页、管角色、绑权限"，持有者可自我提权到全量权限。旧体系固有，建议为角色管理登记独立按钮码。

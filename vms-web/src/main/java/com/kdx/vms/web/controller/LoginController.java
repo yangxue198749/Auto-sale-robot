@@ -10,6 +10,7 @@ import com.kdx.vms.orm.cache.DictCache;
 import com.kdx.vms.service.ISysDictionaryService;
 import com.kdx.vms.service.ISysTypeInfoService;
 import com.kdx.vms.service.ISysUserService;
+import com.kdx.vms.web.security.AuthInfoLoader;
 import com.kdx.vms.web.oauth.SSOToken;
 import com.kdx.vms.web.oauth.UserMap;
 import com.kdx.vms.web.tags.TokenUtil;
@@ -175,6 +176,16 @@ public class LoginController {
             user.setLoginTime(new Date());//更新登陆时间
             user.setFailCount(0);//失败次数设置为0
             context.commitChanges();
+
+            //登录即装载权限缓存（角色/权限码）：/auth/me、前端菜单渲染与旧 URL 过滤器共用。
+            //角色变更需重新登录生效——与旧 JSP 的会话级装载行为一致；REST 写接口的
+            //操作权限校验不经过此缓存（ApiPermissionInterceptor 每次实查数据库）。
+            try {
+                token.setAuthInfo(AuthInfoLoader.build(user, iSysUserService));
+            } catch (Exception ex) {
+                //装载失败不阻断登录：/toloadMenu 兜底仍在，操作权限校验不依赖此缓存
+                logger.error("Load auth info on login failed", ex);
+            }
 
 
 

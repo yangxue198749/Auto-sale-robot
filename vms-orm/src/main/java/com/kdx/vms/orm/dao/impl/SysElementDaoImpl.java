@@ -85,6 +85,14 @@ public class SysElementDaoImpl implements SysElementDao{
 			SelectQuery selectQuery = new SelectQuery(TSysRole.class, expression);
 			List<TSysRole> roleList = context.performQuery(selectQuery);
 			if(roleList != null && roleList.size()>0){
+				if(roleList.size() > 1){
+					//多个同层级管理员角色时取 ID 最小的一个，保证确定性
+					//（存量旧角色 ID 均小于种子角色 990001；部署前置检查要求 ROLE_LEVEL=1 角色唯一）
+					java.util.Collections.sort(roleList, new java.util.Comparator<TSysRole>(){
+						public int compare(TSysRole a, TSysRole b){ return a.getId().compareTo(b.getId()); }
+					});
+					logger.warn("Multiple level-admin roles found, using the lowest id: " + roleList.get(0).getId());
+				}
 				TSysRole adminRole = roleList.get(0);
 				return adminRole.getRoleElement();
 			}
